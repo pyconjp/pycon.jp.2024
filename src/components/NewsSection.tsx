@@ -35,7 +35,7 @@ async function getBlogs() {
   const blogResponse = await fetch(blogUrl);
   const { items } = await blogResponse.json();
   const blogs: Blog[] = (items || [])
-    .slice((items || []).length - 5)
+    .slice(0, 5)
     .map(({ url, title, published }: Blog) => ({
       url,
       title,
