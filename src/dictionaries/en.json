@@ -1,0 +1,14 @@
+{
+    "conference": {
+        "name": "PyCon JP 2024",
+        "date": "September 27-29, 2024",
+        "location": "TOC Ariake Convention Hall"
+    },
+    "menu": {
+        "about": "About",
+        "events": "Events",
+        "sponsor": "Sponsro",
+        "contents": "Contents",
+        "organizers": "Organizers"
+    }
+}
