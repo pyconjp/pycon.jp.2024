@@ -1,6 +1,8 @@
 import HeroSection from '@/components/HeroSection';
 import { getDictionary } from '@/dictionaries'
 
+export const runtime = 'edge';
+
 export default async function Home({ params: {lang} }: { params: {lang: 'ja' | 'en'} }) {
   const dictionary = await getDictionary(lang)
 
