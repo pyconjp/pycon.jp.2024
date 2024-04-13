@@ -10,7 +10,7 @@ export default async function NewsSection() {
     <div className="flex flex-col">
     {blogs.map((blog) => (
       <div key={blog.url} className="flex flex-row">
-        <div className="w-48">
+        <div className="w-24">
             {parseDate(blog.published)}
         </div>
         <div className="flex-1 text-ellipsis overflow-hidden whitespace-nowrap">
