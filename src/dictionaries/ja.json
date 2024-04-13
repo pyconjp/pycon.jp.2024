@@ -1,0 +1,14 @@
+{
+    "conference": {
+        "name": "PyCon JP 2024",
+        "date": "2024年09月27日-2024年09月29日",
+        "location": "TOC有明コンベンションホール"
+    },
+    "menu": {
+        "about": "開催概要",
+        "events": "イベント詳細",
+        "sponsor": "スポンサー",
+        "contents": "コンテンツ",
+        "organizers": "主催メンバー"
+    }
+}
