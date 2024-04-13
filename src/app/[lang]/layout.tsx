@@ -37,7 +37,7 @@ export default function RootLayout({ children, params: {lang}}: Readonly<{childr
     <html lang={lang} className={`${inter.variable} ${notojp.variable} ${oswald.variable}`}>
     <body className="bg-white">
     <Header lang={lang}/>
-    <div className="min-h-screen">
+    <div className="min-h-screen font-noto">
       {children}
     </div>
     <Footer/>

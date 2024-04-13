@@ -1,6 +1,5 @@
 import { getDictionary } from '@/dictionaries'
 
-import Link from 'next/link';
 import LangButton from './LangButton';
 
 export default async function Header({lang}: { lang: 'ja' | 'en' }) {
