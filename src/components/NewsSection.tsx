@@ -25,6 +25,10 @@ export default async function NewsSection() {
 }
 
 async function getBlogs() {
+  if (!process.env.BLOGGER_API_KEY) {
+    return [];
+  }
+
   const blogBaseUrl =
     "https://www.googleapis.com/blogger/v3/blogs/1711203921350230994/posts";
   const blogUrl = `${blogBaseUrl}?key=${process.env.BLOGGER_API_KEY}`;
