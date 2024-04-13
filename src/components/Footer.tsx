@@ -15,7 +15,7 @@ export default function Footer() {
           />
         </Link>
         <div className="text-white">
-          主催: 一般社団法人PyCon JP Association PyCon JP 2023 is a production
+          主催: 一般社団法人PyCon JP Association PyCon JP 2024 is a production
           of the PyCon JP Association
         </div>
       </div>
