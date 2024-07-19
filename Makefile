@@ -14,6 +14,7 @@ install-git-secrets:
 	else \
 		echo "git-secrets is already installed."; \
 	fi
+	git secrets --install -f
 
 # Target to add Google API key pattern
 add-pattern:
