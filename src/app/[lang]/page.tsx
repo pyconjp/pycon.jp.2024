@@ -1,14 +1,14 @@
-import HeroSection from '@/components/HeroSection';
-import NewsSection from '@/components/NewsSection';
-import OverviewSection from "@/components/OverviewSection";
-import ConferenceSection from "@/components/ConferenceSection";
-import SponsorSection from "@/components/SponsorSection";
+import HeroSection from '@/components/sections/HeroSection';
+import NewsSection from '@/components/sections/NewsSection';
+import OverviewSection from "@/components/sections/OverviewSection";
+import ConferenceSection from "@/components/sections/ConferenceSection";
+import SponsorSection from "@/components/sections/SponsorSection";
 
 export const runtime = 'edge';
 
 export default async function Home({params: {lang}}: { params: { lang: 'ja' | 'en' } }) {
   return (
-    <main className='my-8'>
+    <main>
       <HeroSection lang={lang}/>
       <NewsSection lang={lang}/>
       <OverviewSection lang={lang}/>

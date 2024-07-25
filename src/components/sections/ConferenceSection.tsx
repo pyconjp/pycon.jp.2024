@@ -21,7 +21,7 @@ export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
         {dictionary.conference.subtitle_keynote}
       </p>
     </div>
-    <div className='flex gap-7 flex-col'>
+    <div className='flex lg:gap-7 gap-8 flex-col'>
       <ConferenceCard name={'ダミー ダミー'} description={'text'} date={'2024.9.27(Fri)'} image={'/coming_soon.jpg'}/>
       <ConferenceCard name={'ダミー ダミー'} description={'text'} date={'2024.9.28(Sat)'} image={'/coming_soon.jpg'}/>
     </div>
@@ -33,7 +33,7 @@ export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
         {dictionary.conference.subtitle_invited_talk}
       </p>
     </div>
-    <div className='flex gap-7 flex-col'>
+    <div className='flex lg:gap-7 gap-8 flex-col'>
       <ConferenceCard name={'ダミー ダミー'} description={'text'} date={'2024.9.27(Fri)'} image={'/coming_soon.jpg'}/>
       <ConferenceCard name={'ダミー ダミー'} description={'text'} date={'2024.9.28(Sat)'} image={'/coming_soon.jpg'}/>
     </div>
