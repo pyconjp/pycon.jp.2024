@@ -1,15 +1,15 @@
-import { getDictionary } from '@/dictionaries'
-
-import LangButton from './LangButton';
+import {getDictionary} from '@/dictionaries'
+import LangButton from '@/components/elements/LangButton';
+import Image from "next/image";
 
 export default async function Header({lang}: { lang: 'ja' | 'en' }) {
   const dictionary = await getDictionary(lang)
 
   return (
-    <header className="sticky z-40 shadow-md">
-      <div className="mx-auto h-12 w-11/12 flex items-center justify-between gap-10">
-        <div className='bg-blue-300 px-8 py-2'>
-          ロゴ
+    <header className="sticky z-40 border-b-2 border-secondary">
+      <div className="mx-auto w-10/12 flex items-center justify-between gap-12">
+        <div>
+          <Image src={'/logo_header.svg'} alt={'logo'} width={201} height={43} className='py-6'/>
         </div>
         <div className='hidden lg:block flex-1'>
           <nav>
@@ -33,7 +33,7 @@ export default async function Header({lang}: { lang: 'ja' | 'en' }) {
           </nav>
         </div>
         <div className='hidden lg:block'>
-          <LangButton lang={lang} />
+          <LangButton lang={lang}/>
         </div>
       </div>
     </header>

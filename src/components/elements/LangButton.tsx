@@ -8,20 +8,20 @@ export default function LangButton({lang}: { lang: 'ja' | 'en' }) {
 
   return <>
     {
-        lang === "ja"
+        lang !== "ja"
           ? <>
+            <Link href={pathname.replace(/^\/en/g, '/ja')}>
+              <span className='text-blue-400'>日本語</span>
+            </Link>
+            {" / "}
+            EN
+          </>
+          : <>
             日本語
             {" / "}
             <Link href={pathname.replace(/^\/ja/g, '/en')}>
               <span className='text-blue-400'>English</span>
             </Link>
-          </>
-          : <>
-            <Link href={pathname.replace(/^\/en/g, '/ja')}>
-              <span className='text-blue-400'>日本語</span>
-            </Link>
-            {" / "}
-            English
           </>
       }
     </>
