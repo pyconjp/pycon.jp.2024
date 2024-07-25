@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="flex flex-col lg:flex-row gap-2 lg:gap-10 lg:max-w-[653px] items-center">
         <Link href="https://www.pycon.jp/" target="_blank" rel="noopener noreferrer">
           <Image
-            src='/association-logo.svg'
+            src='/logo_association.svg'
             alt="Pycon JP Association Logo"
             height={143}
             width={85}

@@ -13,7 +13,7 @@ export default async function Home({params: {lang}}: { params: { lang: 'ja' | 'e
   return (
     <main className='my-8'>
       <HeroSection lang={lang}/>
-      <NewsSection/>
+      <NewsSection lang={lang}/>
       <OverviewSection lang={lang}/>
       <ConferenceSection lang={lang}/>
       <SponsorSection lang={lang}/>
