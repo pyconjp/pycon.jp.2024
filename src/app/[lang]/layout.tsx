@@ -7,7 +7,7 @@ import "@/app/globals.css";
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-})
+});
 
 const notojp = Noto_Sans_JP({
   weight: ["400", "700"],

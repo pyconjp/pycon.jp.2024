@@ -3,6 +3,9 @@
         "location": "TOC有明コンベンションホール",
         "ticket": "チケット案内"
     },
+    "news": {
+        "read_more": "ニュースをもっと見る"
+    },
     "menu": {
         "about": "開催概要",
         "events": "イベント詳細",

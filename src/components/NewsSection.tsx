@@ -1,10 +1,13 @@
 import {Blog} from "@/types/Blog"
 import Link from "next/link";
 import {parseISO, format} from 'date-fns'
+import {getDictionary} from "@/dictionaries";
+import {ArrowRightIcon} from "@heroicons/react/20/solid";
 
 
-export default async function NewsSection() {
-    const blogs = await getBlogs();
+export default async function NewsSection({lang}: { lang: 'ja' | 'en' }) {
+  const dictionary = await getDictionary(lang);
+  const blogs = await getBlogs();
   return <section className="mt-20">
     <div className='relative lg:w-8/12 w-11/12 mx-auto bg-primary-50 lg:px-8 px-4 py-8 rounded-tr-3xl rounded-bl-3xl'>
       <h1 className='absolute text-5xl left-0 -top-8 font-manrope text-primary'>News</h1>
@@ -24,6 +27,11 @@ export default async function NewsSection() {
             </div>
           </div>
         ))}
+      </div>
+      <div className='text-right'>
+        <Link href='https://pyconjp.blogspot.com/' className='inline-flex items-center text-primary-600 text-lg underline pt-3' target='_blank' rel="noopener noreferrer">
+          {dictionary.news.read_more}<ArrowRightIcon className='w-4 h-4'/>
+        </Link>
       </div>
     </div>
   </section>
@@ -51,6 +59,6 @@ async function getBlogs() {
 }
 
 function parseDate(dateString: string) {
-    const date = parseISO(dateString);
-    return format(date, 'yyyy.MM.dd');
+  const date = parseISO(dateString);
+  return format(date, 'yyyy.MM.dd');
 }

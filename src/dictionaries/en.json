@@ -3,6 +3,9 @@
         "location": "TOC Ariake Convention Hall",
         "ticket": "Ticket Info"
     },
+    "news": {
+        "read_more": "Read More"
+    },
     "menu": {
         "about": "About",
         "events": "Events",
