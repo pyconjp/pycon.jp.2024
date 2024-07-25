@@ -1,6 +1,5 @@
 import Image from "next/image";
 import {getDictionary} from "@/dictionaries";
-import ConferenceCard from "@/components/ConferenceCard";
 
 export default async function OverviewSection({lang}: { lang: 'ja' | 'en' }) {
   const dictionary = await getDictionary(lang)

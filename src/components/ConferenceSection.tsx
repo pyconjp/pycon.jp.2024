@@ -1,5 +1,4 @@
 import {getDictionary} from "@/dictionaries";
-import Image from "next/image";
 import ConferenceCard from "@/components/ConferenceCard";
 
 export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
