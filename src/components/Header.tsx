@@ -3,7 +3,7 @@ import LangButton from '@/components/elements/LangButton';
 import Image from "next/image";
 
 export default async function Header({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang)
+  const dictionary = await getDictionary(lang);
 
   return (
     <header className="sticky z-40 border-b-2 border-secondary">
@@ -27,7 +27,7 @@ export default async function Header({lang}: { lang: 'ja' | 'en' }) {
                 {dictionary.menu.contents}
               </li>
               <li>
-                {dictionary.menu.organizers}
+                {dictionary.menu.organizer}
               </li>
             </ul>
           </nav>

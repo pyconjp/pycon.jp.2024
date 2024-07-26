@@ -1,34 +1,45 @@
 {
-    "hero": {
-        "location": "TOC有明コンベンションホール",
-        "ticket": "チケット案内"
-    },
-    "news": {
-        "read_more": "ニュースをもっと見る"
-    },
-    "menu": {
-        "about": "開催概要",
-        "events": "イベント詳細",
-        "sponsor": "スポンサー",
-        "contents": "コンテンツ",
-        "organizers": "主催メンバー",
-        "venue": "会場案内"
-    },
-    "overview": {
-        "subtitle": "概要",
-        "description": "PyCon JP は、Python ユーザが集まり、Python や Python を使ったソフトウェアについて情報交換、交流をするためのカンファレンスです。 PyCon JP の開催を通じて、Python の使い手が一堂に集まり、Python にまつわる様々な分野の知識や情報を交換し、新たな友達やコミュニティとのつながり、仕事やビジネスチャンスを増やせる場所とすることが目標です。"
-    },
-    "conference": {
-        "subtitle": "カンファレンス",
-        "subtitle_keynote": "基調講演",
-        "subtitle_invited_talk": "招待講演"
-    },
-    "sponsor": {
-        "subtitle": "スポンサー",
-        "subtitle_diamond": "ダイヤモンドスポンサー",
-        "subtitle_platinum": "プラチナスポンサー",
-        "subtitle_gold": "ゴールドスポンサー",
-        "subtitle_silver": "シルバースポンサー",
-        "subtitle_special": "特別スポンサー"
-    }
+  "hero": {
+    "location": "TOC有明コンベンションホール",
+    "ticket": "チケット案内"
+  },
+  "news": {
+    "read_more": "ニュースをもっと見る"
+  },
+  "menu": {
+    "about": "開催概要",
+    "events": "イベント詳細",
+    "sponsor": "スポンサー",
+    "contents": "コンテンツ",
+    "organizer": "主催メンバー",
+    "venue": "会場案内",
+    "coc": "CoC(行動規範)",
+    "timetable": "タイムテーブル",
+    "sprint": "スプリント",
+    "sponsor_list": "スポンサー一覧",
+    "organizer_list": "主催メンバー一覧",
+    "coming_soon": "(準備中)"
+  },
+  "overview": {
+    "subtitle": "概要",
+    "description": "PyCon JP は、Python ユーザが集まり、Python や Python を使ったソフトウェアについて情報交換、交流をするためのカンファレンスです。 PyCon JP の開催を通じて、Python の使い手が一堂に集まり、Python にまつわる様々な分野の知識や情報を交換し、新たな友達やコミュニティとのつながり、仕事やビジネスチャンスを増やせる場所とすることが目標です。"
+  },
+  "conference": {
+    "subtitle": "カンファレンス",
+    "subtitle_keynote": "基調講演",
+    "subtitle_invited_talk": "招待講演"
+  },
+  "sponsor": {
+    "subtitle": "スポンサー",
+    "subtitle_diamond": "ダイヤモンドスポンサー",
+    "subtitle_platinum": "プラチナスポンサー",
+    "subtitle_gold": "ゴールドスポンサー",
+    "subtitle_silver": "シルバースポンサー",
+    "subtitle_special": "特別スポンサー"
+  },
+  "footer": {
+    "contact_us": "お問い合わせ",
+    "description": "ボランティアによる運営ですので、回答には1週間程度を要します。\n 何卒お待ちいただけますようにお願いします。",
+    "past_events": "過去のPyCon JPのイベント一覧"
+  }
 }

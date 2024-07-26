@@ -1,34 +1,45 @@
 {
-    "hero": {
-        "location": "TOC Ariake Convention Hall",
-        "ticket": "Ticket Info"
-    },
-    "news": {
-        "read_more": "Read More"
-    },
-    "menu": {
-        "about": "About",
-        "events": "Events",
-        "sponsor": "Sponsor",
-        "contents": "Contents",
-        "organizers": "Organizers",
-        "venue": "Venue Information"
-    },
-    "overview": {
-        "subtitle": "Overview",
-        "description": "PyCon JP is a conference for Python users to gather, exchange information and interact with Python and software using Python. Through PyCon JP, the goal is to gather Python users together, exchange knowledge and information on various fields related to Python, connect with new friends and communities, and increase work and business opportunities."
-    },
-    "conference": {
-        "subtitle": "Conference",
-        "subtitle_keynote": "Keynote",
-        "subtitle_invited_talk": "Invited Talk"
-    },
-    "sponsor": {
-        "subtitle": "Sponsors",
-        "subtitle_diamond": "Diamond Sponsors",
-        "subtitle_platinum": "Platinum Sponsors",
-        "subtitle_gold": "Gold Sponsors",
-        "subtitle_silver": "Silver Sponsors",
-        "subtitle_special": "Special Sponsors"
-    }
+  "hero": {
+    "location": "TOC Ariake Convention Hall",
+    "ticket": "Ticket Info"
+  },
+  "news": {
+    "read_more": "Read More"
+  },
+  "menu": {
+    "about": "About",
+    "events": "Events",
+    "sponsor": "Sponsor",
+    "contents": "Contents",
+    "organizer": "Organizers",
+    "venue": "Venue Information",
+    "coc": "CoC(Code of Conduct)",
+    "timetable": "Timetable",
+    "sprint": "Sprint",
+    "sponsor_list": "Sponsor List",
+    "organizer_list": "Organizer Member List",
+    "coming_soon": "(Coming Soon)"
+  },
+  "overview": {
+    "subtitle": "Overview",
+    "description": "PyCon JP is a conference for Python users to gather, exchange information and interact with Python and software using Python. Through PyCon JP, the goal is to gather Python users together, exchange knowledge and information on various fields related to Python, connect with new friends and communities, and increase work and business opportunities."
+  },
+  "conference": {
+    "subtitle": "Conference",
+    "subtitle_keynote": "Keynote",
+    "subtitle_invited_talk": "Invited Talk"
+  },
+  "sponsor": {
+    "subtitle": "Sponsors",
+    "subtitle_diamond": "Diamond Sponsors",
+    "subtitle_platinum": "Platinum Sponsors",
+    "subtitle_gold": "Gold Sponsors",
+    "subtitle_silver": "Silver Sponsors",
+    "subtitle_special": "Special Sponsors"
+  },
+  "footer": {
+    "contact_us": "Contact Us",
+    "description": "As this event is organized by volunteers, it may take about a week for a reply. \nWe appreciate your understanding and patience.",
+    "past_events": "List of past PyCon JP events"
+  }
 }

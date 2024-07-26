@@ -47,7 +47,7 @@ export default function RootLayout({ children, params: {lang}}: Readonly<{childr
     <div className="min-h-screen font-noto">
       {children}
     </div>
-    <Footer/>
+    <Footer lang={lang}/>
     </body>
     </html>
   );
