@@ -1,14 +1,13 @@
 import Image from "next/image";
 
-export default function SectionTitle({title, subtitle, direction = 'up', color = 'primary', className = ''}: {
+export default function SectionTitle({title, subtitle, direction = 'up', color = 'primary'}: {
   title: string,
   subtitle: string,
   direction?: 'up' | 'down',
   color?: 'primary' | 'secondary',
-  className?: string,
 }) {
-  return <div className={'relative text-white w-80 mx-auto flex items-center flex-col gap-2.5 ' + className}>
-    <h1 className='font-manrope text-5xl font-semibold z-10'>
+  return <div className={'relative text-white mx-auto flex items-center flex-col gap-2.5 ' + (direction === 'up' ? ' mt-32' : 'mb-32')}>
+    <h1 className={'font-manrope text-5xl font-semibold z-10 tracking-widest' + (direction === 'down' ? ' pt-6' : '')}>
       {title}
     </h1>
     <p className='z-10'>

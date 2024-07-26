@@ -7,7 +7,7 @@ export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
 
   return <section className="mt-20">
     <SectionTitle title={'Conference'} subtitle={dictionary.conference.subtitle} direction={'down'}
-                  color={'secondary'} className='mb-32'/>
+                  color={'secondary'}/>
     <div className='w-full flex items-center flex-col my-10 gap-2.5'>
       <h2 className='text-3xl font-manrope text-primary font-bold'>
         Keynote

@@ -10,9 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['var(--font-oswald)', 'var(--font-noto-sans-jp)', ...defaultTheme.fontFamily.sans],
+        body: ['var(--font-noto-sans-jp)', ...defaultTheme.fontFamily.sans],
         noto: ['var(--font-noto-sans-jp)', ...defaultTheme.fontFamily.sans],
         manrope: ['var(--font-manrope)', ...defaultTheme.fontFamily.sans],
+        hand: ['var(--font-gochi-hand)', ...defaultTheme.fontFamily.sans],
       },
     },
     colors: {
