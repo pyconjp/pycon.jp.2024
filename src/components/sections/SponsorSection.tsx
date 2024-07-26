@@ -6,7 +6,7 @@ export default async function SponsorSection({lang}: { lang: 'ja' | 'en' }) {
   const dictionary = await getDictionary(lang)
 
   return <section className='bg-primary-50 mt-20 pb-20'>
-    <SectionTitle title={'Sponsor'} subtitle={dictionary.sponsor.subtitle} direction={'down'}/>
+    <SectionTitle title={'Sponsors'} subtitle={dictionary.sponsor.subtitle} direction={'down'}/>
 
     <div className='lg:w-10/12 w-11/12 mx-auto mt-16'>
       <SponsorTitle title={'Diamond'} subtitle={dictionary.sponsor.subtitle_diamond}/>
