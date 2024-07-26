@@ -89,9 +89,15 @@ export default async function Footer({lang}: { lang: 'ja' | 'en' }) {
               className="lg:w-64 w-32 p-2"
             />
           </Link>
-          <div className="text-black">
-            主催: 一般社団法人PyCon JP Association PyCon JP 2024 is a production
-            of the PyCon JP Association
+          <div>
+            <div className="text-black">
+              主催: 一般社団法人PyCon JP Association PyCon JP 2024 is a production
+              of the PyCon JP Association
+            </div>
+            <Link href='https://www.pycon.jp/policies/privacy-policy.html' target='_blank' rel='noopener noreferrer'
+                  className='text-primary-300 underline text-sm'>
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>
