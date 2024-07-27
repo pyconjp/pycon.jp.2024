@@ -27,7 +27,19 @@
   "conference": {
     "subtitle": "Conference",
     "subtitle_keynote": "Keynote",
-    "subtitle_invited_talk": "Invited Talk"
+    "subtitle_invited_talk": "Invited Talk",
+    "keynote_day1": {
+      "speaker": "James Powell",
+      "date": "Friday, September 27, 2024"
+    },
+    "keynote_day2": {
+      "speaker": "Atsuo Ishimoto",
+      "date": "Saturday, September 28, 2024"
+    },
+    "invited_talk": {
+      "speaker": "Naoki Inada",
+      "date": ""
+    }
   },
   "sponsor": {
     "subtitle": "Sponsors",

@@ -27,7 +27,19 @@
   "conference": {
     "subtitle": "カンファレンス",
     "subtitle_keynote": "基調講演",
-    "subtitle_invited_talk": "招待講演"
+    "subtitle_invited_talk": "招待講演",
+    "keynote_day1": {
+      "speaker": "James Powell",
+      "date": "2024.9.27(Fri)"
+    },
+    "keynote_day2": {
+      "speaker": "石本 敦夫",
+      "date": "2024.9.28(Sat)"
+    },
+    "invited_talk": {
+      "speaker": "稲田 直哉",
+      "date": ""
+    }
   },
   "sponsor": {
     "subtitle": "スポンサー",
