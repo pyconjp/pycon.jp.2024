@@ -1,5 +1,5 @@
 import {getDictionary} from "@/dictionaries";
-import ConferenceCard from "@/components/ConferenceCard";
+import ConferenceCard from "@/components/elements/ConferenceCard";
 import SectionTitle from "@/components/elements/SectionTitle";
 import dynamic from "next/dynamic";
 

@@ -30,7 +30,7 @@ export default async function Footer({lang}: { lang: 'ja' | 'en' }) {
                               <span className='text-sm'>{' ' + dictionary.menu.coming_soon}</span>
                             </div>
                           </div> :
-                          <Link href={`/${lang}${child.url}`} className='text-secondary-500 text-sm'>
+                          <Link href={`/${lang}${child.url}`} className='text-secondary-500'>
                             {dictionary.menu[child.title as keyof typeof dictionary.menu]}
                           </Link>
                       }
