@@ -1,12 +1,6 @@
 import {getDictionary} from "@/dictionaries";
 import ConferenceCard from "@/components/ConferenceCard";
 import SectionTitle from "@/components/elements/SectionTitle";
-import Day1Ja from "@/components/markdown/keynote_day1_ja.mdx";
-import Day2Ja from "@/components/markdown/keynote_day2_ja.mdx";
-import Day1En from "@/components/markdown/keynote_day1_en.mdx";
-import Day2En from "@/components/markdown/keynote_day2_en.mdx";
-import InvitationTalkJa from "@/components/markdown/invitation_talk_ja.mdx";
-import InvitationTalkEn from "@/components/markdown/invitation_talk_en.mdx";
 import dynamic from "next/dynamic";
 
 export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
