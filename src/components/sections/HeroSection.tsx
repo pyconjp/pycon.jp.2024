@@ -48,7 +48,7 @@ export default async function HeroSection({lang}: { lang: 'ja' | 'en' }) {
             </Link>
           </div>
         </div>
-        <Link href='https://pyconjp-staff.connpass.com/event/326190/' target='_blank' rel="noopener noreferrer"
+        <Link href='https://pyconjp.connpass.com/event/324211/' target='_blank' rel="noopener noreferrer"
               className='lg:w-auto w-11/12 relative before:bg-secondary before:absolute before:w-full before:h-full before:-z-10 before:top-2.5 before:rounded-tr-3xl before:rounded-bl-3xl before:rounded-tl before:rounded-br'>
           <div
             className='bg-primary-500 text-white font-bold text-2xl py-5 lg:w-80 text-center rounded-tr-3xl rounded-bl-3xl rounded-tl rounded-br'>
