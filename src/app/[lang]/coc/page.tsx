@@ -1,9 +1,9 @@
-export const runtime = 'edge';
+import Content from "@/components/markdown/content.mdx";
 
 export default function Coc() {
   return (
     <main>
-      This is Code of Condact contents.
+      <Content/>
     </main>
   );
 }

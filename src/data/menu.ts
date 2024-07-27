@@ -1,5 +1,3 @@
-import LangButton from "@/components/elements/LangButton";
-
 type ChildMenu = {
   title: string;
   url: string;

@@ -1,10 +1,11 @@
 import Image from "next/image";
+import {ReactNode} from "react";
 
-export default function ConferenceCard({name, description, date, image}: {
+export default function ConferenceCard({name, date, image, children}: {
   name: string,
-  description: string,
   date: string,
-  image: string
+  image: string,
+  children: ReactNode,
 }) {
   return <div>
     <div className='flex lg:flex-row flex-col gap-6 lg:w-7/12 mx-auto items-center lg:items-start'>
@@ -21,7 +22,7 @@ export default function ConferenceCard({name, description, date, image}: {
           {name}
         </h4>
         <p className='text-tertiary-500'>
-          {description}
+          {children}
         </p>
       </div>
     </div>
