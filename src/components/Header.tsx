@@ -1,18 +1,22 @@
 import {getDictionary} from '@/dictionaries'
 import LangButton from '@/components/elements/LangButton';
 import Image from "next/image";
-import menu from "@/data/menu";
+import menu, {Menu} from "@/data/menu";
 import HeaderMenu from "@/components/elements/HeaderMenu";
 import Link from "next/link";
-import {Bars3Icon} from "@heroicons/react/20/solid";
 import MobileMenu from "@/components/elements/MobileMenu";
 
 export default async function Header({lang}: { lang: 'ja' | 'en' }) {
   const dictionary = await getDictionary(lang);
 
-  const translatedMenu = menu.map((m) => {
-
-  });
+  const translatedMenu: Menu[] = menu.map((m) => ({
+    title: dictionary.menu[m.title as keyof typeof dictionary.menu],
+    children: m.children.map((c) => ({
+      title: dictionary.menu[c.title as keyof typeof dictionary.menu],
+      url: `/${lang}${c.url}`,
+      isComingSoon: c.isComingSoon,
+    }))
+  }));
 
   return (
     <header className="sticky z-40 border-b-2 border-secondary top-0 bg-white">
@@ -26,23 +30,11 @@ export default async function Header({lang}: { lang: 'ja' | 'en' }) {
           <nav>
             <ul className="flex flex-row justify-between mx-auto items-center">
               {
-                menu.map((m, index) => (
+                translatedMenu.map((m, index) => (
                   <li className='flex-1' key={index}>
                     <HeaderMenu
-                      parent={dictionary.menu[m.title as keyof typeof dictionary.menu]}
-                      childPages={
-                        m.children.map(
-                          (c) => (
-                            {
-                              title: dictionary.menu[c.title as keyof typeof dictionary.menu],
-                              url: c.url,
-                              isComingSoon: c.isComingSoon
-                            }
-                          )
-                        )
-                      }
+                      menu={m}
                       comingSoon={dictionary.menu.coming_soon}
-                      lang={lang}
                     />
                   </li>
                 ))
@@ -54,7 +46,7 @@ export default async function Header({lang}: { lang: 'ja' | 'en' }) {
           <LangButton lang={lang}/>
         </div>
         <div className='lg:hidden'>
-          <MobileMenu/>
+          <MobileMenu menu={translatedMenu} lang={lang} comingSoon={dictionary.menu.coming_soon}/>
         </div>
       </div>
     </header>

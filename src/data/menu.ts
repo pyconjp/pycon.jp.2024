@@ -1,4 +1,6 @@
-type Link = {
+import LangButton from "@/components/elements/LangButton";
+
+type ChildMenu = {
   title: string;
   url: string;
   isComingSoon: boolean;
@@ -6,7 +8,7 @@ type Link = {
 
 export type Menu = {
   title: string;
-  children: Link[];
+  children: ChildMenu[];
 };
 
 export const menu: Menu[] = [

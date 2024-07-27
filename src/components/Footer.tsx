@@ -26,8 +26,9 @@ export default async function Footer({lang}: { lang: 'ja' | 'en' }) {
                       {
                         child.isComingSoon ?
                           <div className='text-secondary-700'>
-                            <div>{dictionary.menu[child.title as keyof typeof dictionary.menu]}</div>
-                            <div className='text-sm'>{dictionary.menu.coming_soon}</div>
+                            <div>{dictionary.menu[child.title as keyof typeof dictionary.menu]}
+                              <span className='text-sm'>{' ' + dictionary.menu.coming_soon}</span>
+                            </div>
                           </div> :
                           <Link href={`/${lang}${child.url}`} className='text-secondary-500 text-sm'>
                             {dictionary.menu[child.title as keyof typeof dictionary.menu]}
