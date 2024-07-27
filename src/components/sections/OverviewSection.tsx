@@ -14,7 +14,7 @@ export default async function OverviewSection({lang}: { lang: 'ja' | 'en' }) {
           <Image src='/overview.jpg' alt='overview' width={2048} height={1365}/>
         </div>
         <div>
-          <h3 className='text-[32px] font-manrope'>
+          <h3 className="text-[32px] font-manrope before:content-[url('/ellipse.svg')] before:pr-1.5">
             What is PyCon JP
           </h3>
           <div className='font-noto mt-3'>
