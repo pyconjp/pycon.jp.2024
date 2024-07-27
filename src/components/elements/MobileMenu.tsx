@@ -1,7 +1,7 @@
 'use client';
 
 import {useState} from "react";
-import {ArrowRightIcon, Bars3Icon, ChevronRightIcon, XMarkIcon} from "@heroicons/react/20/solid";
+import {Bars3Icon, ChevronRightIcon, XMarkIcon} from "@heroicons/react/20/solid";
 import {Menu} from "@/data/menu";
 import LangButton from "@/components/elements/LangButton";
 import Link from "next/link";
