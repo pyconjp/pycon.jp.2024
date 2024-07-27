@@ -13,7 +13,7 @@ export default function SectionTitle({title, subtitle, direction = 'up', color =
     <p className='z-10'>
       {subtitle}
     </p>
-    <Image src={`/title_${direction}_${color}.svg`} alt={title + ' background'}
+    <Image src={`/circle_${direction}_${color}.svg`} alt={title + ' background'}
            className={'absolute ' + (direction === 'up' ? '-bottom-0.5' : 'top-0')} width={428}
            height={172}/>
   </div>
