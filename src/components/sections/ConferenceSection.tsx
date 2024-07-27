@@ -1,18 +1,13 @@
 import {getDictionary} from "@/dictionaries";
 import ConferenceCard from "@/components/ConferenceCard";
+import SectionTitle from "@/components/elements/SectionTitle";
 
 export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
   const dictionary = await getDictionary(lang)
 
   return <section className="mt-20">
-    <div className='w-80 mx-auto flex items-center flex-col bg-secondary gap-2.5 text-white'>
-      <h1 className='font-manrope text-5xl font-semibold'>
-        Conference
-      </h1>
-      <p>
-        {dictionary.conference.subtitle}
-      </p>
-    </div>
+    <SectionTitle title={'Conference'} subtitle={dictionary.conference.subtitle} direction={'down'}
+                  color={'secondary'}/>
     <div className='w-full flex items-center flex-col my-10 gap-2.5'>
       <h2 className='text-3xl font-manrope text-primary font-bold'>
         Keynote

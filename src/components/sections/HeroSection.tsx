@@ -40,7 +40,7 @@ export default async function HeroSection({lang}: { lang: 'ja' | 'en' }) {
           <div className='lg:inline-flex lg:items-center w-11/12 lg:w-auto mx-auto lg:mx-0'>
             <div className='inline-flex items-center'>
               <MapPinIcon className='h-6 w-6 text-primary-500'/>
-              <p className='text-primary mr-2.5 text-xl font-noto'>{dictionary.hero.location}</p>
+              <span className='text-primary mr-2.5 text-xl font-noto'>{dictionary.hero.location}</span>
             </div>
             <Link href='https://toc-ariake.jp/access.html' className='inline-flex items-center text-tertiary underline ml-6 lg:ml-0'
                   target='_blank' rel="noopener noreferrer">
