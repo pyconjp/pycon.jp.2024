@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "ts-node ./script/prebuild.ts && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -19,6 +19,7 @@
     "@next/mdx": "^14.2.5",
     "@types/mdx": "^2.0.13",
     "date-fns": "^3.6.0",
+    "googleapis": "^140.0.1",
     "negotiator": "^0.6.3",
     "next": "14.2.0",
     "react": "^18",
