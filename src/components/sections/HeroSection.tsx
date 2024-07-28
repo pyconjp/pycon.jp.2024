@@ -10,7 +10,7 @@ export default async function HeroSection({lang}: { lang: 'ja' | 'en' }) {
   return <section className='w-full lg:my-20 my-7'>
     <div className='flex lg:flex-row flex-col mx-auto justify-center items-center lg:gap-20 gap-12'>
       <div className='lg:w-auto w-8/12'>
-        <Image src={'/logo_main.svg'} alt={'main logo'} width={327} height={426}/>
+        <Image src={'/logo_main.svg'} alt={'main logo'} width={327} height={426} className='mx-auto'/>
       </div>
       <div className='flex flex-col gap-8 lg:gap-20 items-center'>
         <div className='flex flex-col font-manrope gap-5'>
@@ -42,7 +42,8 @@ export default async function HeroSection({lang}: { lang: 'ja' | 'en' }) {
               <MapPinIcon className='h-6 w-6 text-primary-500'/>
               <span className='text-primary mr-2.5 text-xl font-noto'>{dictionary.hero.location}</span>
             </div>
-            <Link href='https://toc-ariake.jp/access.html' className='inline-flex items-center text-tertiary underline ml-6 lg:ml-0'
+            <Link href='https://toc-ariake.jp/access.html'
+                  className='inline-flex items-center text-tertiary underline ml-6 lg:ml-0'
                   target='_blank' rel="noopener noreferrer">
               {dictionary.menu.venue}<ArrowTopRightOnSquareIcon className='h-5 w-5'/>
             </Link>
