@@ -1,4 +1,4 @@
-import {getDictionary} from '@/dictionaries'
+import {getDictionary} from '@/lib/dictionaries'
 import LangButton from '@/components/elements/LangButton';
 import Image from "next/image";
 import menu, {Menu} from "@/data/menu";

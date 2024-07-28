@@ -1,8 +1,9 @@
 import {Blog} from "@/types/Blog"
 import Link from "next/link";
 import {parseISO, format} from 'date-fns'
-import {getDictionary} from "@/dictionaries";
+import {getDictionary} from "@/lib/dictionaries";
 import {ArrowRightIcon} from "@heroicons/react/20/solid";
+import {getBlogs} from "@/lib/blogger";
 
 
 export default async function NewsSection({lang}: { lang: 'ja' | 'en' }) {
@@ -29,33 +30,14 @@ export default async function NewsSection({lang}: { lang: 'ja' | 'en' }) {
         ))}
       </div>
       <div className='text-right'>
-        <Link href='https://pyconjp.blogspot.com/' className='inline-flex items-center text-primary-600 text-lg underline pt-3' target='_blank' rel="noopener noreferrer">
+        <Link href='https://pyconjp.blogspot.com/'
+              className='inline-flex items-center text-primary-600 text-lg underline pt-3' target='_blank'
+              rel="noopener noreferrer">
           {dictionary.news.read_more}<ArrowRightIcon className='w-4 h-4'/>
         </Link>
       </div>
     </div>
   </section>
-}
-
-async function getBlogs() {
-  if (!process.env.BLOGGER_API_KEY) {
-    return [];
-  }
-
-  const blogBaseUrl =
-    "https://www.googleapis.com/blogger/v3/blogs/1711203921350230994/posts";
-  const blogUrl = `${blogBaseUrl}?key=${process.env.BLOGGER_API_KEY}`;
-  const blogResponse = await fetch(blogUrl);
-  const {items} = await blogResponse.json();
-  const blogs: Blog[] = (items || [])
-    .slice(0, 5)
-    .map(({url, title, published}: Blog) => ({
-      url,
-      title,
-      published,
-    }));
-
-  return blogs;
 }
 
 function parseDate(dateString: string) {
