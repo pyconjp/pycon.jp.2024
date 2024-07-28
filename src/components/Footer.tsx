@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import menu from "@/data/menu";
-import {getDictionary} from "@/dictionaries";
+import {getDictionary} from "@/lib/dictionaries";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebook, faXTwitter} from "@fortawesome/free-brands-svg-icons";
 import {ArrowRightIcon} from "@heroicons/react/20/solid";

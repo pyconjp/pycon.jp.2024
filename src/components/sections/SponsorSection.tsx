@@ -1,4 +1,4 @@
-import {getDictionary} from "@/dictionaries";
+import {getDictionary} from "@/lib/dictionaries";
 import SponsorTitle from "@/components/elements/SponsorTitle";
 import SectionTitle from "@/components/elements/SectionTitle";
 

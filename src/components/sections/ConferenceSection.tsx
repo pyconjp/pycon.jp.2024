@@ -1,4 +1,4 @@
-import {getDictionary} from "@/dictionaries";
+import {getDictionary} from "@/lib/dictionaries";
 import ConferenceCard from "@/components/elements/ConferenceCard";
 import SectionTitle from "@/components/elements/SectionTitle";
 import dynamic from "next/dynamic";

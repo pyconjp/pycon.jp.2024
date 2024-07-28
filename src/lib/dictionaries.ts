@@ -6,4 +6,3 @@ const dictionaries = {
 }
  
 export const getDictionary = async (locale: "ja" | "en") => dictionaries[locale]()
-

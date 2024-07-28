@@ -1,6 +1,5 @@
 import PageTitle from "@/components/elements/PageTitle";
-import {getDictionary} from "@/dictionaries";
-import Image from "next/image";
+import {getDictionary} from "@/lib/dictionaries";
 import CocSection from "@/components/sections/CocSection";
 
 export const runtime = 'edge';

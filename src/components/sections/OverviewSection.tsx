@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {getDictionary} from "@/dictionaries";
+import {getDictionary} from "@/lib/dictionaries";
 import SectionTitle from "@/components/elements/SectionTitle";
 
 export default async function OverviewSection({lang}: { lang: 'ja' | 'en' }) {

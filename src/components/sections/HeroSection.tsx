@@ -1,4 +1,4 @@
-import {getDictionary} from '@/dictionaries'
+import {getDictionary} from '@/lib/dictionaries'
 import {ArrowTopRightOnSquareIcon} from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
