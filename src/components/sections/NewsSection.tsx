@@ -1,4 +1,3 @@
-import {Blog} from "@/types/Blog"
 import Link from "next/link";
 import {parseISO, format} from 'date-fns'
 import {getDictionary} from "@/lib/dictionaries";
