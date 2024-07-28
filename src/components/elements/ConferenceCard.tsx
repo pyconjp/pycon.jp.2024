@@ -10,7 +10,7 @@ export default function ConferenceCard({name, date, image, children}: {
   return <div>
     <div className='flex lg:flex-row flex-col gap-6 lg:w-7/12 mx-auto items-center lg:items-start'>
       <div
-        className='relative after:bg-secondary after:absolute after:w-full after:h-full after:-z-10 after:top-2 after:left-2 after:rounded-tl-3xl after:rounded-br-3xl w-7/12 lg:w-auto'>
+        className='relative after:bg-secondary after:absolute after:w-full after:h-full after:-z-10 after:top-2 after:left-2 after:rounded-tl-3xl after:rounded-br-3xl max-w-7/12 lg:w-auto'>
         <Image src={image} alt={name} width={350} height={350}
                className='relative rounded-tl-3xl rounded-br-3xl'/>
       </div>
