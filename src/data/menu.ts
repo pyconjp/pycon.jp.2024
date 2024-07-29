@@ -33,7 +33,7 @@ export const menu: Menu[] = [
   {
     title: "organizer",
     children: [
-      {title: "organizer_list", url: "/organizers", isComingSoon: true},
+      {title: "organizer_list", url: "/organizers", isComingSoon: false},
     ],
   },
 ];
