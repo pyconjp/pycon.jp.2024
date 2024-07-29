@@ -55,6 +55,27 @@
     "past_events": "List of past PyCon JP events"
   },
   "organizers": {
-    "subtitle_core_members": "Core Members"
+    "subtitle_chairs": "Co-Chairs",
+    "subtitle_core_members": "Core Members",
+    "chairs": {
+      "takanory": {
+        "name": "Takanori Suzuki",
+        "github": "takanory",
+        "twitter": "takanory",
+        "facebook": ""
+      },
+      "yoshida": {
+        "name": "Yoshida Shunsuke",
+        "github": "koedoyoshida",
+        "twitter": "koedoyoshida",
+        "facebook": "koedoyoshida"
+      },
+      "terada": {
+        "name": "Manabu TERADA",
+        "github": "terapyon",
+        "twitter": "terapyon",
+        "facebook": "terapyon"
+      }
+    }
   }
 }

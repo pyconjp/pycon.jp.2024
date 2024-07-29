@@ -55,6 +55,27 @@
     "past_events": "過去のPyCon JPのイベント一覧"
   },
   "organizers": {
-    "subtitle_core_members": "コアメンバー"
+    "subtitle_chairs": "共同座長",
+    "subtitle_core_members": "コアメンバー",
+    "chairs": {
+      "takanory": {
+        "name": "鈴木 たかのり",
+        "github": "takanory",
+        "twitter": "takanory",
+        "facebook": ""
+      },
+      "yoshida": {
+        "name": "吉田　俊輔",
+        "github": "koedoyoshida",
+        "twitter": "koedoyoshida",
+        "facebook": "koedoyoshida"
+      },
+      "terada": {
+        "name": "寺田　学",
+        "github": "terapyon",
+        "twitter": "terapyon",
+        "facebook": "terapyon"
+      }
+    }
   }
 }
