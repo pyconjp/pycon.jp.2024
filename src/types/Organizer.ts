@@ -6,3 +6,11 @@ export type Organizer = {
   facebook: string;
   image: string;
 }
+
+export type Chair = {
+  name: string;
+  github: string;
+  twitter: string;
+  facebook: string;
+  image: string;
+}
