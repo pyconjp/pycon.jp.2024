@@ -1,3 +1,4 @@
+import 'server-only'
 import {importPKCS8, SignJWT} from "jose";
 
 export async function getAccessToken() {
