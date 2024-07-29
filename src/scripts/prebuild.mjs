@@ -1,19 +1,36 @@
 import {google} from "googleapis";
+import * as fs from "node:fs";
 
-console.log(process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL);
-console.log(process.env.GOOGLE_PRIVATE_KEY);
+const auth = new google.auth.JWT(
+  {
+    email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    key: (process.env.GOOGLE_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
+    scopes: ['https://www.googleapis.com/auth/drive']
+  });
 
-// const auth = new google.auth.JWT(
-//   {
-//     email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-//     key: (process.env.GOOGLE_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
-//     scopes: ['https://www.googleapis.com/auth/drive']
-//   });
-//
-// const drive = google.drive({version: 'v3', auth});
-// const res = drive.files.list({
-//   driveId: '1vhn-lDdgdAixhFkGEi14JaTlXEToBWMf',
-// }).then(
-//   res => console.log(res)
-// );
+const drive = google.drive({version: 'v3', auth});
 
+const res = drive.files.list({
+  driveId: process.env.DRIVE_ID,
+  teamDriveId: '1vhn-lDdgdAixhFkGEi14JaTlXEToBWMf',
+  includeItemsFromAllDrives: true,
+  corpora: 'teamDrive',
+  supportsAllDrives: true,
+  q: `'${process.env.ORGANIZER_FOLDER_ID}' in parents and trashed = false`
+}).then(
+  res =>
+    res.data.files.map(file => {
+      const path = `./public/organizers/${file.name}`;
+      const dest = fs.createWriteStream(path);
+      drive.files.get(
+        {fileId: file.id, alt: 'media'},
+        {responseType: 'stream'},
+        (err, res) => {
+          res.data
+            .on('end', () => console.log(`Downloaded file ${path}`))
+            .on('error', () => console.error(`Error downloading file ${path}`))
+            .pipe(dest);
+        }
+      );
+    })
+);

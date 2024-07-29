@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "ts-node src/scripts/prebuild.mjs && next build",
+    "prebuild_local": "node --env-file=.env.local -r ts-node/register ./src/scripts/prebuild.mjs",
     "start": "next start",
     "lint": "next lint"
   },
