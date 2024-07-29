@@ -1,5 +1,4 @@
 import 'server-only'
-import {google} from "googleapis";
 import {Organizer} from "@/types/Organizer";
 import {getAccessToken} from "@/lib/google";
 
