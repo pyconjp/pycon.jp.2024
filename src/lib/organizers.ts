@@ -1,19 +1,41 @@
 import 'server-only'
-import {google} from "googleapis";
+import {Organizer} from "@/types/Organizer";
+import {getAccessToken} from "@/lib/google";
 
-export async function getOrganizers() {
-  const auth = new google.auth.JWT(
+export async function getOrganizers(): Promise<Organizer[]> {
+  if (!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
+    || !process.env.GOOGLE_PRIVATE_KEY
+    || !process.env.ORGANIZER_SPREADSHEET_ID) {
+    return [];
+  }
+
+  const {access_token} = await getAccessToken();
+
+  const sheetsResponse = await fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${process.env.ORGANIZER_SPREADSHEET_ID}/values/フォームの回答 1!C2:H100`,
     {
-      email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      key: (process.env.GOOGLE_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
-      scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly']
-    });
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    }
+  );
 
-  const sheets = google.sheets({version: 'v4', auth});
-  const response = await sheets.spreadsheets.values.get({
-    spreadsheetId: process.env.ORGANIZER_SPREADSHEET_ID,
-    range: 'フォームの回答 1!C2:H100'
-  });
+  const data = await sheetsResponse.json();
 
-  return response.data.values;
+  return (data.values || [])
+    .map((row: string[]) => {
+        while (row.length < 6) {
+          row.push('');
+        }
+
+        return {
+          name_ja: row[0],
+          name_en: row[1],
+          github: row[2],
+          twitter: row[3],
+          facebook: row[4],
+          image: row[5]
+        };
+      }
+    );
 }
