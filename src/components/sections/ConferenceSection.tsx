@@ -2,6 +2,7 @@ import {getDictionary} from "@/lib/dictionaries";
 import ConferenceCard from "@/components/elements/ConferenceCard";
 import SectionTitle from "@/components/elements/SectionTitle";
 import dynamic from "next/dynamic";
+import SectionSubTitle from "@/components/elements/SectionSubTitle";
 
 export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
   const dictionary = await getDictionary(lang)
@@ -13,14 +14,7 @@ export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
   return <section className="mt-20">
     <SectionTitle title={'Conference'} subtitle={dictionary.conference.subtitle} direction={'down'}
                   color={'secondary'}/>
-    <div className='w-full flex items-center flex-col my-10 gap-2.5'>
-      <h2 className='text-3xl font-manrope text-primary font-bold'>
-        Keynote
-      </h2>
-      <p>
-        {dictionary.conference.subtitle_keynote}
-      </p>
-    </div>
+    <SectionSubTitle title={'Keynote'} subtitle={dictionary.conference.subtitle_keynote}/>
     <div className='flex lg:gap-7 gap-8 flex-col'>
       <ConferenceCard name={dictionary.conference.keynote_day1.speaker}
                       date={dictionary.conference.keynote_day1.date} image={'/conference/keynote_day1.png'}>
@@ -32,14 +26,7 @@ export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
         <Keynote2/>
       </ConferenceCard>
     </div>
-    <div className='w-full flex items-center flex-col my-10 gap-2.5'>
-      <h2 className='text-3xl font-manrope text-primary font-bold'>
-        Invited talk
-      </h2>
-      <p>
-        {dictionary.conference.subtitle_invited_talk}
-      </p>
-    </div>
+    <SectionSubTitle title={'Invited talk'} subtitle={dictionary.conference.subtitle_invited_talk}/>
     <div className='flex lg:gap-7 gap-8 flex-col'>
       <ConferenceCard name={dictionary.conference.invited_talk.speaker}
                       date={dictionary.conference.invited_talk.date} image={'/conference/invitation_talk.png'}>
