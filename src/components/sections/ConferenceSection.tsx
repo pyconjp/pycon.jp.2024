@@ -11,7 +11,7 @@ export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
   const Keynote2 = dynamic(() => import('@/components/markdown/keynote_day2_' + lang + '.mdx'), {ssr: false});
   const InvitationTalk = dynamic(() => import('@/components/markdown/invitation_talk_' + lang + '.mdx'), {ssr: false});
 
-  return <section className="mt-20">
+  return <section className="my-20">
     <SectionTitle title={'Conference'} subtitle={dictionary.conference.subtitle} direction={'down'}
                   color={'secondary'}/>
     <SectionSubTitle title={'Keynote'} subtitle={dictionary.conference.subtitle_keynote}/>
