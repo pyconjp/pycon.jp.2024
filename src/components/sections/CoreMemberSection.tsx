@@ -9,7 +9,7 @@ export default async function CoreMemberSection({lang}: { lang: 'ja' | 'en' }) {
 
   return <section className="my-20 mx-auto lg:w-10/12 w-8/12">
     <SectionSubTitle title={'Core Members'} subtitle={dictionary.organizers.subtitle_core_members}/>
-    <div className='grid lg:grid-cols-4 grid-cols-1'>
+    <div className='grid lg:grid-cols-4 grid-cols-1 lg:gap-y-10 gap-y-5'>
       {
         organizers.map((organizer, index) => (
           <MemberCard member={organizer} lang={lang} key={index}/>

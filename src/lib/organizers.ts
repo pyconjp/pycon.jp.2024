@@ -1,6 +1,7 @@
 import 'server-only'
 import {google} from "googleapis";
 import {Organizer} from "@/types/Organizer";
+import {getAccessToken} from "@/lib/google";
 
 export async function getOrganizers(): Promise<Organizer[]> {
   if (!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
@@ -9,21 +10,21 @@ export async function getOrganizers(): Promise<Organizer[]> {
     return [];
   }
 
-  const auth = new google.auth.JWT(
+  const {access_token} = await getAccessToken();
+
+  const sheetsResponse = await fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${process.env.ORGANIZER_SPREADSHEET_ID}/values/フォームの回答 1!C2:H100`,
     {
-      email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      key: (process.env.GOOGLE_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
-      scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly']
-    });
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    }
+  );
 
-  const sheets = google.sheets({version: 'v4', auth});
-  const response = await sheets.spreadsheets.values.get({
-    spreadsheetId: process.env.ORGANIZER_SPREADSHEET_ID,
-    range: 'フォームの回答 1!C2:H100'
-  });
+  const data = await sheetsResponse.json();
 
-  return (response.data.values || [])
-    .map((row) => {
+  return (data.values || [])
+    .map((row: string[]) => {
         while (row.length < 6) {
           row.push('');
         }
