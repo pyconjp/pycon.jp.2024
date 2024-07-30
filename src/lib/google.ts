@@ -16,6 +16,7 @@ export async function getAccessToken() {
       grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
       assertion: jwt,
     }),
+    next: {revalidate: 1800}
   });
 
   return await tokenResponse.json();

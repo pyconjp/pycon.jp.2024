@@ -17,6 +17,7 @@ export async function getOrganizers(): Promise<Organizer[]> {
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
+      cache: "force-cache",
     }
   );
 
