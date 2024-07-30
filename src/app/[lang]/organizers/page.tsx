@@ -4,6 +4,7 @@ import CoreMemberSection from "@/components/sections/CoreMemberSection";
 import ChairsSection from "@/components/sections/ChairsSection";
 
 export const runtime = 'edge';
+export const revalidate = 3600;
 
 export default async function Organizers({params: {lang}}: { params: { lang: 'ja' | 'en' } }) {
   const dictionary = await getDictionary(lang);
