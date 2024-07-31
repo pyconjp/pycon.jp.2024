@@ -17,7 +17,7 @@
     "timetable": "Timetable",
     "sprint": "Sprint",
     "sponsor_list": "Sponsor List",
-    "organizer_list": "Organizer Member List",
+    "organizer_list": "Organizing Member List",
     "coming_soon": "(Coming Soon)"
   },
   "overview": {
@@ -56,7 +56,7 @@
   },
   "organizers": {
     "subtitle_chairs": "Co-Chairs",
-    "subtitle_core_members": "Core Members",
+    "organizing_members": "Organizing Members",
     "chairs": {
       "takanory": {
         "name": "Takanori Suzuki",
