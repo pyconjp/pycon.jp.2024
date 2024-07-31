@@ -1,6 +1,6 @@
 import {getDictionary} from "@/lib/dictionaries";
 import PageTitle from "@/components/elements/PageTitle";
-import CoreMemberSection from "@/components/sections/CoreMemberSection";
+import OrganizingMembersSection from "@/components/sections/OrganizingMembersSection";
 import ChairsSection from "@/components/sections/ChairsSection";
 
 export const runtime = 'edge';
@@ -10,8 +10,8 @@ export default async function Organizers({params: {lang}}: { params: { lang: 'ja
   const dictionary = await getDictionary(lang);
 
   return <main>
-    <PageTitle title={'Organizer Members'} subTitle={dictionary.menu.organizer}/>
+    <PageTitle title={'Organizing Members'} subTitle={dictionary.menu.organizer}/>
     <ChairsSection lang={lang}/>
-    <CoreMemberSection lang={lang}/>
+    <OrganizingMembersSection lang={lang}/>
   </main>;
 }

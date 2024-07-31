@@ -56,7 +56,7 @@
   },
   "organizers": {
     "subtitle_chairs": "共同座長",
-    "subtitle_core_members": "コアメンバー",
+    "organizing_members": "主催メンバー",
     "chairs": {
       "takanory": {
         "name": "鈴木 たかのり",
