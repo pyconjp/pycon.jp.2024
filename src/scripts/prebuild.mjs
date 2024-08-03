@@ -10,9 +10,9 @@ const auth = new google.auth.JWT(
 
 const drive = google.drive({version: 'v3', auth});
 
-const res = drive.files.list({
+drive.files.list({
   driveId: process.env.DRIVE_ID,
-  teamDriveId: '1vhn-lDdgdAixhFkGEi14JaTlXEToBWMf',
+  teamDriveId: process.env.TEAM_DRIVE_ID,
   includeItemsFromAllDrives: true,
   corpora: 'teamDrive',
   supportsAllDrives: true,
@@ -21,6 +21,31 @@ const res = drive.files.list({
   res =>
     res.data.files.map(file => {
       const path = `./public/organizers/${file.name}`;
+      const dest = fs.createWriteStream(path);
+      drive.files.get(
+        {fileId: file.id, alt: 'media'},
+        {responseType: 'stream'},
+        (err, res) => {
+          res.data
+            .on('end', () => console.log(`Downloaded file ${path}`))
+            .on('error', () => console.error(`Error downloading file ${path}`))
+            .pipe(dest);
+        }
+      );
+    })
+);
+
+drive.files.list({
+  driveId: process.env.DRIVE_ID,
+  teamDriveId: process.env.TEAM_DRIVE_ID,
+  includeItemsFromAllDrives: true,
+  corpora: 'teamDrive',
+  supportsAllDrives: true,
+  q: `'${process.env.SPONSOR_FOLDER_ID}' in parents and trashed = false`
+}).then(
+  res =>
+    res.data.files.map(file => {
+      const path = `./public/sponsors/${file.name}`;
       const dest = fs.createWriteStream(path);
       drive.files.get(
         {fileId: file.id, alt: 'media'},

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import {ComponentProps, useState} from "react";
 
-export default function ImageWithFallback({...props}: ComponentProps<typeof Image>) {
+export default function ImageWithFallback({fallbackSrc = '/no_image.jpg', ...props}: ComponentProps<typeof Image> & {fallbackSrc ?: string}) {
   const [isError, setIsError] = useState(false)
 
   return (
@@ -11,7 +11,7 @@ export default function ImageWithFallback({...props}: ComponentProps<typeof Imag
       {...props}
       alt={props.alt}
       onError={() => setIsError(true)}
-      src={isError ? '/no_image.jpg' : props.src}
+      src={isError ? fallbackSrc : props.src}
     />
   )
 }
