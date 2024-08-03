@@ -10,7 +10,7 @@ export default async function HeroSection({lang}: { lang: 'ja' | 'en' }) {
   return <section className='w-full lg:my-20 my-7'>
     <div className='flex lg:flex-row flex-col mx-auto justify-center items-center lg:gap-20 gap-12'>
       <div className='lg:w-auto w-8/12'>
-        <Image src={'/logo_main.svg'} alt={'main logo'} width={327} height={426} className='mx-auto'/>
+        <Image src={'/logo_main.svg'} alt={'main logo'} width={327} height={426} className='mx-auto' priority/>
       </div>
       <div className='flex flex-col gap-8 lg:gap-20 items-center'>
         <div className='flex flex-col font-manrope gap-5'>
