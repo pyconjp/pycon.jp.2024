@@ -10,8 +10,8 @@ type Props = {
 const HeaderMenu = ({menu, comingSoon}: Props) => {
   return (
     <div className='relative'>
-      <div className='peer text-black font-bold py-auto cursor-pointer' suppressHydrationWarning>
-        {menu.title}<ChevronDownIcon className='w-5 h-5 inline-block text-primary-200'/>
+      <div className='peer text-black font-bold py-auto cursor-pointer flex items-center flex-col xl:flex-row' suppressHydrationWarning>
+        <span>{menu.title}</span><ChevronDownIcon className='w-5 h-5 inline-block text-primary-200'/>
       </div>
       <div className='invisible hover:visible peer-hover:visible absolute -left-5'>
         <div className='flex flex-col bg-secondary-50 w-[246px] shadow rounded'>
