@@ -1,16 +1,20 @@
-import HeroSection from '@/components/HeroSection';
-import NewsSection from '@/components/NewsSection';
-import { getDictionary } from '@/dictionaries'
+import HeroSection from '@/components/sections/HeroSection';
+import NewsSection from '@/components/sections/NewsSection';
+import OverviewSection from "@/components/sections/OverviewSection";
+import ConferenceSection from "@/components/sections/ConferenceSection";
+import SponsorSection from "@/components/sections/SponsorSection";
 
 export const runtime = 'edge';
+export const revalidate = 3600;
 
-export default async function Home({ params: {lang} }: { params: {lang: 'ja' | 'en'} }) {
-  const dictionary = await getDictionary(lang)
-
+export default async function Home({params: {lang}}: { params: { lang: 'ja' | 'en' } }) {
   return (
-    <main className='w-10/12 mx-auto my-8'>
+    <main>
       <HeroSection lang={lang}/>
-      <NewsSection/>
+      <NewsSection lang={lang}/>
+      <OverviewSection lang={lang}/>
+      <ConferenceSection lang={lang}/>
+      <SponsorSection lang={lang}/>
     </main>
   );
 }

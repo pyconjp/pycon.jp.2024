@@ -1,14 +1,81 @@
 {
-    "conference": {
-        "name": "PyCon JP 2024",
-        "date": "September 27-29, 2024",
-        "location": "TOC Ariake Convention Hall"
+  "hero": {
+    "location": "TOC Ariake Convention Hall",
+    "ticket": "Ticket Info"
+  },
+  "news": {
+    "read_more": "Read More"
+  },
+  "menu": {
+    "about": "About",
+    "events": "Events",
+    "sponsor": "Sponsors",
+    "contents": "Contents",
+    "organizer": "Organizers",
+    "venue": "Venue Information",
+    "coc": "Code of Conduct",
+    "timetable": "Timetable",
+    "sprint": "Sprint",
+    "sponsor_list": "Sponsor List",
+    "organizer_list": "Organizing Member List",
+    "coming_soon": "(Coming Soon)"
+  },
+  "overview": {
+    "subtitle": "Overview",
+    "description": "PyCon JP is a conference for Python users to gather, exchange information and interact with Python and software using Python. Through PyCon JP, the goal is to gather Python users together, exchange knowledge and information on various fields related to Python, connect with new friends and communities, and increase work and business opportunities."
+  },
+  "conference": {
+    "subtitle": "Conference",
+    "subtitle_keynote": "Keynote",
+    "subtitle_invited_talk": "Invited Talk",
+    "keynote_day1": {
+      "speaker": "James Powell",
+      "date": "Friday, September 27, 2024"
     },
-    "menu": {
-        "about": "About",
-        "events": "Events",
-        "sponsor": "Sponsor",
-        "contents": "Contents",
-        "organizers": "Organizers"
+    "keynote_day2": {
+      "speaker": "Atsuo Ishimoto",
+      "date": "Saturday, September 28, 2024"
+    },
+    "invited_talk": {
+      "speaker": "Naoki Inada",
+      "date": ""
     }
+  },
+  "sponsor": {
+    "subtitle": "Sponsors",
+    "subtitle_diamond": "Diamond Sponsors",
+    "subtitle_platinum": "Platinum Sponsors",
+    "subtitle_gold": "Gold Sponsors",
+    "subtitle_silver": "Silver Sponsors",
+    "subtitle_special": "Special Sponsors"
+  },
+  "footer": {
+    "contact_us": "Contact Us",
+    "description": "As this event is organized by volunteers, it may take about a week for a reply. \nWe appreciate your understanding and patience.",
+    "past_events": "List of past PyCon JP events"
+  },
+  "organizers": {
+    "subtitle_chairs": "Co-Chairs",
+    "organizing_members": "Organizing Members",
+    "chairs": {
+      "takanory": {
+        "name": "Takanori Suzuki",
+        "github": "takanory",
+        "twitter": "takanory",
+        "facebook": ""
+      },
+      "yoshida": {
+        "name": "Yoshida Shunsuke",
+        "github": "koedoyoshida",
+        "twitter": "koedoyoshida",
+        "facebook": "koedoyoshida"
+      },
+      "terada": {
+        "name": "Manabu TERADA",
+        "github": "terapyon",
+        "twitter": "terapyon",
+        "facebook": "terapyon"
+      }
+    }
+  }
 }
