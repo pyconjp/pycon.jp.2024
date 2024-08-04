@@ -17,7 +17,7 @@ export default function ChairCard({chair, filename}: { chair: Chair, filename: s
       {chair.name}
     </h3>
     <SnsLinks member={chair}/>
-    <div className='prose prose-a:text-primary-500 lg:h-[420px]'>
+    <div className='prose prose-a:text-primary-500'>
       <ChairContents/>
     </div>
   </div>;

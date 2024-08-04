@@ -20,7 +20,7 @@ export default async function SponsorCard({name, profile, logo_image, url}: {
       <div
         className='w-1/6 h-1/4 bottom-0 right-0 border-solid border-4 border-b-secondary-500 border-r-secondary-500 border-l-0 border-t-0 absolute'/>
       <ImageWithFallback src={logo_image ? `/sponsors/${logo_image}` : '/no_image_sponsor.jpg'}
-                         fallbackSrc={'/no_image_sponsor.jpg'} alt={name} width={400} height={400}
+                         fallback={'/no_image_sponsor.jpg'} alt={name} width={400} height={400}
                          className='mx-auto my-auto object-contain h-full w-full inset-0 absolute p-5'/>
     </div>
     <div>
