@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {ArrowTopRightOnSquareIcon} from "@heroicons/react/20/solid";
 import ImageWithFallback from "@/components/elements/ImageWithFallback";
 
