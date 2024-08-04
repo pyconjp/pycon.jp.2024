@@ -5,6 +5,7 @@ import ConferenceSection from "@/components/sections/ConferenceSection";
 import SponsorSection from "@/components/sections/SponsorSection";
 
 export const runtime = 'edge';
+export const revalidate = 3600;
 
 export default async function Home({params: {lang}}: { params: { lang: 'ja' | 'en' } }) {
   return (
