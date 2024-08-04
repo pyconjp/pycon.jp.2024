@@ -36,3 +36,9 @@ yarn-error.log*
 next-env.d.ts
 
 .idea
+
+!/public/organizers/chairs/*
+!/public/organizers/.gitkeep
+/public/organizers/*
+!/public/sponsors/.gitkeep
+/public/sponsors/*

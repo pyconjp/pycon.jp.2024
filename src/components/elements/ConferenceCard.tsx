@@ -15,15 +15,15 @@ export default function ConferenceCard({name, date, image, children}: {
                className='relative rounded-tl-3xl rounded-br-3xl'/>
       </div>
       <div className='flex-1 flex flex-col gap-2 lg:gap-4 w-11/12 lg:w-auto'>
-        <p className='text-tertiary-400'>
+        <div className='text-tertiary-400'>
           {date}
-        </p>
+        </div>
         <h4 className='text-2xl font-bold'>
           {name}
         </h4>
-        <p className='text-tertiary-500'>
+        <div className='text-tertiary-500'>
           {children}
-        </p>
+        </div>
       </div>
     </div>
   </div>
