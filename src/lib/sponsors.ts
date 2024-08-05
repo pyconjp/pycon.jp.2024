@@ -28,20 +28,21 @@ export async function getSponsors(): Promise<Sponsor[]> {
         while (row.length < 10) {
           row.push('');
         }
-
-        return {
-          name_ja: row[0],
-          name_en: row[1],
-          url_ja: row[2],
-          url_en: row[3],
-          profile_ja: row[4],
-          profile_en: row[5],
-          job_board_ja: row[6],
-          job_board_en: row[7],
-          logo_image: row[8],
-          plan: row[9] as Sponsor['plan'],
-        };
-      });
+        return row;
+      })
+      .filter((row: string[]) => row[9] !== '')
+      .map((row: string[]) => ({
+        name_ja: row[0],
+        name_en: row[1],
+        url_ja: row[2],
+        url_en: row[3],
+        profile_ja: row[4],
+        profile_en: row[5],
+        job_board_ja: row[6],
+        job_board_en: row[7],
+        logo_image: row[8],
+        plan: row[9] as Sponsor['plan'],
+      }));
   } catch (e) {
     return [];
   }
