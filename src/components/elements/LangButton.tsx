@@ -15,12 +15,12 @@ export default function LangButton({lang}: { lang: 'ja' | 'en' }) {
           ? <>
             EN
             {" / "}
-            <Link href={pathname.replace(/^\/en/g, '/ja')}>
+            <Link href={pathname.replace(/^\/en/g, '/ja')} className="hover:opacity-80">
               <span className='underline'>日本語</span>
             </Link>
           </>
           : <>
-            <Link href={pathname.replace(/^\/ja/g, '/en')}>
+            <Link href={pathname.replace(/^\/ja/g, '/en')} className="hover:opacity-80">
               <span className='underline'>EN</span>
             </Link>
             {" / "}
