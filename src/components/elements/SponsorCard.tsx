@@ -24,8 +24,8 @@ export default async function SponsorCard({name, profile, logo_image, url}: {
     </div>
     <div>
       <Link href={url} target='_blank' rel="noopener noreferrer"
-            className='text-primary-500 text-lg items-center inline-flex font-bold'>
-        <div>{name}</div>
+            className='text-primary-500 text-lg items-center inline-flex font-bold hover:opacity-80'>
+        <div className="underline">{name}</div>
         <ArrowTopRightOnSquareIcon className='ml-1 min-h-6 min-w-6 max-h-6 max-w-6'/>
       </Link>
     </div>
