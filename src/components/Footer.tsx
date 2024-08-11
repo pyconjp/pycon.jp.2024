@@ -30,7 +30,7 @@ export default async function Footer({lang}: { lang: 'ja' | 'en' }) {
                               <span className='text-sm'>{' ' + dictionary.menu.coming_soon}</span>
                             </div>
                           </div> :
-                          <Link href={`/${lang}${child.url}`} className='text-secondary-500'>
+                          <Link href={`/${lang}${child.url}`} className='text-secondary-500 hover:opacity-80'>
                             {dictionary.menu[child.title as keyof typeof dictionary.menu]}
                           </Link>
                       }
@@ -46,26 +46,22 @@ export default async function Footer({lang}: { lang: 'ja' | 'en' }) {
               <div className='text-white'>
                 Follow Us!
               </div>
-              <div className=''>
-                <Link href='https://twitter.com/pyconjapan' target='_blank' rel="noopener noreferrer"
-                      className='text-secondary-500 inline-flex items-center justify-between'>
-                  @pyconjapan
-                  <FontAwesomeIcon icon={faXTwitter} fixedWidth className='w-6 h-6 text-white'/>
-                </Link>
-              </div>
+              <Link href='https://twitter.com/pyconjapan' target='_blank' rel="noopener noreferrer"
+                    className='text-secondary-500 inline-flex items-center justify-between hover:opacity-80'>
+                @pyconjapan
+                <FontAwesomeIcon icon={faXTwitter} fixedWidth className='w-6 h-6 text-white'/>
+              </Link>
               <div>
               </div>
-              <div className='inline-flex items-center justify-between'>
-                <Link href='https://www.facebook.com/PyConJP/' target='_blank' rel="noopener noreferrer"
-                      className='text-secondary-500'>
-                  @PyConJP
-                </Link>
+              <Link href='https://www.facebook.com/PyConJP/' target='_blank' rel="noopener noreferrer"
+                    className='text-secondary-500 inline-flex items-center justify-between hover:opacity-80'>
+                @PyConJP
                 <FontAwesomeIcon icon={faFacebook} fixedWidth className='w-6 h-6 text-white'/>
-              </div>
+              </Link>
             </div>
             <div className='text-white'>
               {dictionary.footer.contact_us} : <Link href='mailto:pyconjp@pycon.jp'
-                                                     className='text-secondary-500'>pyconjp@pycon.jp</Link>
+                                                     className='text-secondary-500 hover:opacity-80'>pyconjp@pycon.jp</Link>
             </div>
           </div>
           <div className='text-white mt-3 whitespace-pre-line break-words'>
@@ -73,7 +69,7 @@ export default async function Footer({lang}: { lang: 'ja' | 'en' }) {
           </div>
           <div className='inline-flex justify-end mt-8 lg:mt-0 underline'>
             <Link href='https://www.pycon.jp/organizer/index.html' rel='noopener noreferrer' target='_blank'
-                  className='text-secondary-300'>
+                  className='text-secondary-300 hover:opacity-80'>
               {dictionary.footer.past_events}
             </Link>
             <ArrowRightIcon className='h-6 text-secondary-300'/>
@@ -82,7 +78,7 @@ export default async function Footer({lang}: { lang: 'ja' | 'en' }) {
       </div>
       <div className="flex justify-center">
         <div className="flex flex-col lg:flex-row gap-2 bg-white lg:gap-10 lg:max-w-[653px] items-center p-10">
-          <Link href="https://www.pycon.jp/" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.pycon.jp/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
             <Image
               src='/logo_association.svg'
               alt="Pycon JP Association Logo"
@@ -97,7 +93,7 @@ export default async function Footer({lang}: { lang: 'ja' | 'en' }) {
               of the PyCon JP Association
             </div>
             <Link href='https://www.pycon.jp/policies/privacy-policy.html' target='_blank' rel='noopener noreferrer'
-                  className='text-primary-300 underline text-sm'>
+                  className='text-primary-300 underline text-sm hover:opacity-80'>
               Privacy Policy
             </Link>
           </div>

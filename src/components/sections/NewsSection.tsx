@@ -21,7 +21,7 @@ export default async function NewsSection({lang}: { lang: 'ja' | 'en' }) {
               </div>
             </div>
             <div className="flex-1">
-              <Link href={blog.url} target="_blank" rel="noopener noreferrer">
+              <Link href={blog.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
                 {blog.title}
               </Link>
             </div>
@@ -30,7 +30,7 @@ export default async function NewsSection({lang}: { lang: 'ja' | 'en' }) {
       </div>
       <div className='text-right'>
         <Link href='https://pyconjp.blogspot.com/'
-              className='inline-flex items-center text-primary-600 text-lg underline pt-3' target='_blank'
+              className='inline-flex items-center text-primary-600 text-lg underline pt-3 hover:opacity-80' target='_blank'
               rel="noopener noreferrer">
           {dictionary.news.read_more}<ArrowRightIcon className='w-4 h-4'/>
         </Link>

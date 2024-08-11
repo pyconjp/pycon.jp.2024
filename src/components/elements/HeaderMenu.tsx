@@ -20,7 +20,7 @@ const HeaderMenu = ({menu, comingSoon}: Props) => {
               <div key={index}>
                 {
                   !isComingSoon
-                    ? <Link href={url}>
+                    ? <Link href={url} className="hover:opacity-80">
                       <div className='hover:bg-primary-100 bg-primary-50 flex items-center py-2'>
                         <ChevronRightIcon className='w-5 h-5 ml-6 text-primary-400'/>
                         <span className='ml-2 text-alt-black' suppressHydrationWarning>{title}</span>

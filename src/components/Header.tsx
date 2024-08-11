@@ -22,7 +22,7 @@ export default async function Header({lang}: { lang: 'ja' | 'en' }) {
     <header className="sticky z-40 border-b-2 border-secondary top-0 bg-white">
       <div className="mx-auto w-11/12 lg:w-10/12 flex items-center justify-between gap-12">
         <div>
-          <Link href={'/' + lang}>
+          <Link href={'/' + lang} className="hover:opacity-80">
             <Image src={'/logo_header.svg'} alt={'logo'} width={201} height={43} className='py-6'/>
           </Link>
         </div>
