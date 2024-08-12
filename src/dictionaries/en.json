@@ -77,5 +77,11 @@
         "facebook": "terapyon"
       }
     }
+  },
+  "announce": {
+    "nursery": {
+      "title": "Day-care service for children",
+      "description": "Child day care (ONLY for can speak Japanese) is available for elementary school or younger. \nFor details, please see the linked PDF."
+    }
   }
 }

@@ -77,5 +77,11 @@
         "facebook": "terapyon"
       }
     }
+  },
+  "announce": {
+    "nursery": {
+      "title": "託児サービス",
+      "description": "小学生以下のお子様を対象に託児所を設置します。\n詳しくはリンク先のPDFをご覧ください。"
+    }
   }
 }

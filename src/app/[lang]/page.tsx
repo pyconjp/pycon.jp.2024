@@ -3,6 +3,7 @@ import NewsSection from '@/components/sections/NewsSection';
 import OverviewSection from "@/components/sections/OverviewSection";
 import ConferenceSection from "@/components/sections/ConferenceSection";
 import SponsorSection from "@/components/sections/SponsorSection";
+import AnnounceSection from "@/components/sections/AnnounceSection";
 
 export const runtime = 'edge';
 export const revalidate = 3600;
@@ -12,6 +13,7 @@ export default async function Home({params: {lang}}: { params: { lang: 'ja' | 'e
     <main>
       <HeroSection lang={lang}/>
       <NewsSection lang={lang}/>
+      <AnnounceSection lang={lang}/>
       <OverviewSection lang={lang}/>
       <ConferenceSection lang={lang}/>
       <SponsorSection lang={lang}/>
