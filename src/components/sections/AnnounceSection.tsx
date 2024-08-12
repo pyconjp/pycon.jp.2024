@@ -11,7 +11,7 @@ export default async function AnnounceSection({lang}: { lang: 'ja' | 'en' }) {
       <div className="lg:w-8/12 w-11/12 mx-auto flex flex-col gap-6">
         {announce.map(({name, url}, index) => (
           <Link key={index} href={url} rel='noopener noreferrer' target='_blank'>
-            <div className="flex gap-6 bg-primary-500 text-white rounded-tr-3xl rounded-bl-3xl items-center p-4">
+            <div className="flex gap-6 bg-primary-500 text-white rounded-tr-3xl rounded-bl-3xl items-center py-4 px-8">
               <MegaphoneIcon className="min-h-6 min-w-6 max-h-6 max-w-6"/>
               <div className="flex flex-col gap-2 justify-items-center">
                 <div className="text-2xl">
