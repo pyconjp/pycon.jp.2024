@@ -8,7 +8,7 @@ export default async function AnnounceSection({lang}: { lang: 'ja' | 'en' }) {
 
   return (
     <section className='mt-20'>
-      <div className="lg:w-8/12 w-11/12 mx-auto">
+      <div className="lg:w-8/12 w-11/12 mx-auto flex flex-col gap-6">
         {announce.map(({name, url}, index) => (
           <Link key={index} href={url} rel='noopener noreferrer' target='_blank'>
             <div className="flex gap-6 bg-primary-500 text-white rounded-tr-3xl rounded-bl-3xl items-center p-4">
