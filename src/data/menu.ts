@@ -1,3 +1,4 @@
+// TODO typeをtypesディレクトリに移動する
 type ChildMenu = {
   title: string;
   url: string;
