@@ -1,5 +1,3 @@
-'use client';
-
 import {Chair} from "@/types/Organizer";
 import Image from "next/image";
 import SnsLinks from "@/components/elements/SnsLinks";
