@@ -4,7 +4,7 @@ import SnsLinks from "@/components/elements/SnsLinks";
 import dynamic from "next/dynamic";
 
 export default function ChairCard({chair, filename}: { chair: Chair, filename: string }) {
-  const ChairContents = dynamic(() => import(`@/components/markdown/${filename}.mdx`), {ssr: false});
+  const ChairContents = dynamic(() => import(`@/components/markdown/${filename}.mdx`), {ssr: true});
 
   return <div className='flex flex-col gap-4 lg:items-start items-center'>
     <div
