@@ -34,7 +34,7 @@ const download = (folderId, pathPrefix) => {
           }
         );
       })
-  );
+  ).catch(console.error);
 }
 
 download(process.env.ORGANIZER_FOLDER_ID, './public/organizers/');

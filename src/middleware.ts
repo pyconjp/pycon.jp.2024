@@ -2,8 +2,8 @@ import {NextRequest, NextResponse} from 'next/server';
 import {match} from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 
-let locales = ['ja', 'en']
-let defaultLocale = 'ja'
+const locales = ['ja', 'en']
+const defaultLocale = 'ja'
 
 function getLocale(req: NextRequest) {
   // リクエストヘッダーの内容から言語を決定する
