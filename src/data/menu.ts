@@ -21,7 +21,7 @@ export const menu: Menu[] = [
   {
     title: "events",
     children: [
-      {title: "timetable", url: "/timetable", isComingSoon: true},
+      {title: "timetable", url: "https://pretalx.com/pyconjp2024/schedule/", isComingSoon: false},
       {title: "sprint", url: "/sprint", isComingSoon: true},
     ],
   },
