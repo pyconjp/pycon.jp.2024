@@ -3,6 +3,7 @@ type ChildMenu = {
   title: string;
   url: string;
   isComingSoon: boolean;
+  isExternal?: boolean;
 };
 
 export type Menu = {
@@ -21,7 +22,7 @@ export const menu: Menu[] = [
   {
     title: "events",
     children: [
-      {title: "timetable", url: "/timetable", isComingSoon: true},
+      {title: "timetable", url: "https://pretalx.com/pyconjp2024/schedule/", isComingSoon: false, isExternal: true},
       {title: "sprint", url: "/sprint", isComingSoon: true},
     ],
   },

@@ -7,9 +7,9 @@ import SectionSubTitle from "@/components/elements/SectionSubTitle";
 export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
   const dictionary = await getDictionary(lang)
 
-  const Keynote1 = dynamic(() => import('@/components/markdown/keynote_day1_' + lang + '.mdx'), {ssr: false});
-  const Keynote2 = dynamic(() => import('@/components/markdown/keynote_day2_' + lang + '.mdx'), {ssr: false});
-  const InvitationTalk = dynamic(() => import('@/components/markdown/invitation_talk_' + lang + '.mdx'), {ssr: false});
+  const Keynote1 = dynamic(() => import('@/components/markdown/keynote_day1_' + lang + '.mdx'), {ssr: true});
+  const Keynote2 = dynamic(() => import('@/components/markdown/keynote_day2_' + lang + '.mdx'), {ssr: true});
+  const InvitationTalk = dynamic(() => import('@/components/markdown/invitation_talk_' + lang + '.mdx'), {ssr: true});
 
   return <section className="my-20">
     <SectionTitle title={'Conference'} subtitle={dictionary.conference.subtitle} direction={'down'}
