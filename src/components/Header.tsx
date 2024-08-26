@@ -13,7 +13,7 @@ export default async function Header({lang}: { lang: 'ja' | 'en' }) {
     title: dictionary.menu[m.title as keyof typeof dictionary.menu],
     children: m.children.map((c) => ({
       title: dictionary.menu[c.title as keyof typeof dictionary.menu],
-      url: `/${lang}${c.url}`,
+      url: c.isExternal ? c.url : `/${lang}${c.url}`,
       isComingSoon: c.isComingSoon,
     }))
   }));
