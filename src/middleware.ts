@@ -31,5 +31,6 @@ export const config = {
   matcher: [
     "/((?!static|.*\\..*|_next).*)",
   ],
+  runtime: "edge",
 }
 
