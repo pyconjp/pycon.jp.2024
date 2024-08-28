@@ -2,7 +2,6 @@ import {
   google,
   drive_v3,
 } from 'googleapis';
-import {GaxiosResponse} from 'gaxios';
 import * as fs from "node:fs";
 import axios from "axios";
 import {Talk, Answer, OriginalSpeaker, OriginalTalk, LEVEL_LIST, SPEAK_LANG_LIST, SLIDE_LANG_LIST} from "../types/Talk";
