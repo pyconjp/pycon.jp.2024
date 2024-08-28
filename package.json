@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "ts-node src/scripts/prebuild.mts && next build",
+    "build": "node --import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"ts-node/esm\", pathToFileURL(\"./\"));' src/scripts/prebuild.mts && next build",
     "prebuild_local": "node --import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"ts-node/esm\", pathToFileURL(\"./\"));' -r dotenv/config src/scripts/prebuild.mts dotenv_config_path=.env.local",
     "start": "next start",
     "lint": "next lint"

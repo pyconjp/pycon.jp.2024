@@ -5,7 +5,7 @@ import {
 import {GaxiosResponse} from 'gaxios';
 import * as fs from "node:fs";
 import axios from "axios";
-import {Answer, LEVEL_LIST, OriginalSpeaker, OriginalTalk, SLIDE_LANG_LIST, SPEAK_LANG_LIST, Talk} from "../types/Talk";
+import {Talk, Answer, OriginalSpeaker, OriginalTalk, LEVEL_LIST, SPEAK_LANG_LIST, SLIDE_LANG_LIST} from "../types/Talk";
 
 // download files from Google Drive
 const auth = new google.auth.JWT(
