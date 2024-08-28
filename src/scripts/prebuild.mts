@@ -17,7 +17,7 @@ const auth = new google.auth.JWT(
 
 const drive: drive_v3.Drive = google.drive({version: 'v3', auth});
 
-const download = (folderId: string, pathPrefix: string) => {
+const download = async (folderId: string, pathPrefix: string) => {
   drive.files.list({
     driveId: process.env.DRIVE_ID!,
     teamDriveId: process.env.TEAM_DRIVE_ID!,
@@ -44,8 +44,8 @@ const download = (folderId: string, pathPrefix: string) => {
   }).catch(console.error);
 }
 
-download(process.env.ORGANIZER_FOLDER_ID || '', './public/organizers/');
-download(process.env.SPONSOR_FOLDER_ID || '', './public/sponsors/');
+await download(process.env.ORGANIZER_FOLDER_ID || '', './public/organizers/');
+await download(process.env.SPONSOR_FOLDER_ID || '', './public/sponsors/');
 
 // fetch pretalx talks
 const fetchAnswers: <T>(question: number) => Promise<Answer<T>[]> = async question => axios.get(
