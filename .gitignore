@@ -39,6 +39,9 @@ next-env.d.ts
 
 !/public/organizers/chairs/*
 !/public/organizers/.gitkeep
-/public/organizers/*
 !/public/sponsors/.gitkeep
+!/src/cache/.gitkeep
+
 /public/sponsors/*
+/public/organizers/*
+/src/cache/*
