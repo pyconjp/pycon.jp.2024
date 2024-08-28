@@ -1,0 +1,15 @@
+name: Scheduled Deployment
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 09:00(JST) every day
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: main deployment
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL_MAIN }}
+        run: curl -X POST $DEPLOY_HOOK_URL
