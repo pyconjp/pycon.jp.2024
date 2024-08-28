@@ -1,4 +1,4 @@
-name: Scheduled Deployment
+name: Develop Deployment
 
 on:
   workflow_dispatch:
