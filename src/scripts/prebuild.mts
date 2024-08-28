@@ -41,10 +41,12 @@ const download = async (folderId: string, pathPrefix: string) => {
           res.data
             .on('end', () => {
               console.log(`Downloaded file ${path}`);
+              dest.end(); // ストリームを閉じる
               resolve(null);
             })
             .on('error', (err) => {
               console.error(`Error downloading file ${path}:`, err);
+              dest.end(); // エラー時にもストリームを閉じる
               reject(err);
             })
             .pipe(dest);
