@@ -141,4 +141,4 @@ const talks: Talk[] = await axios.get<{ results: OriginalTalk[] }>(
 );
 
 fs.writeFileSync('./src/cache/talks.json', JSON.stringify(talks, null, 2));
-console.log('Written talks.json');
+console.log(`${talks.length} talks fetched and written to talks.json`);
