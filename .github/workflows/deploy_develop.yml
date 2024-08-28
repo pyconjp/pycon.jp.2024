@@ -1,0 +1,14 @@
+name: Scheduled Deployment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call Deploy Hook
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL_DEVELOP }}
+        run: curl -X POST $DEPLOY_HOOK_URL
