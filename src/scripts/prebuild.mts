@@ -26,10 +26,10 @@ const download = async (folderId: string, pathPrefix: string) => {
     supportsAllDrives: true,
     q: `'${folderId}' in parents and trashed = false`
   }).then((res: GaxiosResponse<drive_v3.Schema$FileList>) => {
-    (res.data.files || []).forEach(file => {
+    (res.data.files || []).forEach(async file => {
       const path = `${pathPrefix}${file.name}`;
       const dest = fs.createWriteStream(path);
-      drive.files.get(
+      await drive.files.get(
         {fileId: file.id!, alt: 'media'},
         {responseType: 'stream'}
       ).then((res) => {
