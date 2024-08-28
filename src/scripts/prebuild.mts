@@ -18,31 +18,46 @@ const auth = new google.auth.JWT(
 const drive: drive_v3.Drive = google.drive({version: 'v3', auth});
 
 const download = async (folderId: string, pathPrefix: string) => {
-  drive.files.list({
-    driveId: process.env.DRIVE_ID!,
-    teamDriveId: process.env.TEAM_DRIVE_ID!,
-    includeItemsFromAllDrives: true,
-    corpora: 'teamDrive',
-    supportsAllDrives: true,
-    q: `'${folderId}' in parents and trashed = false`
-  }).then((res: GaxiosResponse<drive_v3.Schema$FileList>) => {
-    (res.data.files || []).forEach(async file => {
+  try {
+    const res = await drive.files.list({
+      driveId: process.env.DRIVE_ID!,
+      teamDriveId: process.env.TEAM_DRIVE_ID!,
+      includeItemsFromAllDrives: true,
+      corpora: 'teamDrive',
+      supportsAllDrives: true,
+      q: `'${folderId}' in parents and trashed = false`,
+    });
+
+    const files = res.data.files || [];
+
+    for (const file of files) {
       const path = `${pathPrefix}${file.name}`;
       const dest = fs.createWriteStream(path);
-      await drive.files.get(
-        {fileId: file.id!, alt: 'media'},
-        {responseType: 'stream'}
-      ).then((res) => {
-        res.data
-          .on('end', () => console.log(`Downloaded file ${path}`))
-          .on('error', () => console.error(`Error downloading file ${path}`))
-          .pipe(dest);
-      }).catch((err) => {
+      try {
+        const res = await drive.files.get(
+          {fileId: file.id!, alt: 'media'},
+          {responseType: 'stream'}
+        );
+        await new Promise((resolve, reject) => {
+          res.data
+            .on('end', () => {
+              console.log(`Downloaded file ${path}`);
+              resolve(null);
+            })
+            .on('error', (err) => {
+              console.error(`Error downloading file ${path}:`, err);
+              reject(err);
+            })
+            .pipe(dest);
+        });
+      } catch (err) {
         console.error(`Error downloading file ${path}:`, err);
-      });
-    });
-  }).catch(console.error);
-}
+      }
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 await download(process.env.ORGANIZER_FOLDER_ID || '', './public/organizers/');
 await download(process.env.SPONSOR_FOLDER_ID || '', './public/sponsors/');
