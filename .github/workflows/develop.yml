@@ -1,0 +1,23 @@
+name: Deployment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: develop deployment
+        if: github.ref == 'refs/heads/develop'
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL_DEVELOP }}
+        run: curl -X POST $DEPLOY_HOOK_URL
+      - name: main deployment
+        if: github.ref == 'refs/heads/main'
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL_MAIN }}
+        run: curl -X POST $DEPLOY_HOOK_URL
+      - name: throw branch error
+        if: github.ref != 'refs/heads/develop' && github.ref != 'refs/heads/main'
+        run: echo "Branch not supported" && exit 1
