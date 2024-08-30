@@ -2,7 +2,7 @@ export type OriginalSpeaker = Speaker & {
   email: string,
 }
 
-export type OriginalTalk = Omit<Talk, 'question_answers'> & {
+export type OriginalTalk = Omit<Talk, 'question_answers' | 'date' | 'is_event'> & {
   speakers: OriginalSpeaker[],
   do_not_record: boolean,
   content_locale: 'ja-jp' | 'en',
@@ -50,6 +50,8 @@ export type Talk = {
     photo_agree?: boolean,
     video_agree?: boolean,
   },
+  date: 'day1' | 'day2',
+  is_event: false,
 }
 
 export type Speaker = {
@@ -71,6 +73,20 @@ export type Answer<T> = {
   review: number | null,
   person: string | null,
   options: [{ id: keyof T, answer: string, 'ja-jp': string }],
+}
+
+export type ConferenceEvent = {
+  code: string,
+  speakers: Speaker[],
+  slot: {
+    room_id: number,
+    start: string,
+    end: string,
+  },
+  date: 'day1' | 'day2',
+  is_event: true,
+  hide_start?: boolean,
+  hide_end?: boolean,
 }
 
 export const LEVEL_LIST = {5539: 'beginner', 5540: 'intermediate', 5541: 'advanced'};

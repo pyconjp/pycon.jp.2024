@@ -138,8 +138,8 @@ const talks: Talk[] = await axios.get<{ results: OriginalTalk[] }>(
         resources: talk.resources,
         pending_state: talk.pending_state,
         question_answers: {},
-        submission_type: talk.submission_type,
-        submission_type_id: talk.submission_type_id,
+        date: talk.slot.start < '2024-09-28T00:00:00+09:00' ? 'day1' : 'day2' as 'day1' | 'day2',
+        is_event: false as false,
       }
     )
   )
@@ -157,4 +157,4 @@ const talks: Talk[] = await axios.get<{ results: OriginalTalk[] }>(
 );
 
 fs.writeFileSync('./src/cache/talks.json', JSON.stringify(talks, null, 2));
-console.log(`${talks.length} talks fetched and written to talks.json`);
+console.log(`${talks.length} talks fetched and written to ./src/cache/talks.json`);

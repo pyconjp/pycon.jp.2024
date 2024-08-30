@@ -14,6 +14,7 @@ const config: Config = {
         noto: ['var(--font-noto-sans-jp)', ...defaultTheme.fontFamily.sans],
         manrope: ['var(--font-manrope)', ...defaultTheme.fontFamily.sans],
         hand: ['var(--font-gochi-hand)', ...defaultTheme.fontFamily.sans],
+        montserrat: ['var(--font-montserrat)', ...defaultTheme.fontFamily.sans],
       },
     },
     colors: {
