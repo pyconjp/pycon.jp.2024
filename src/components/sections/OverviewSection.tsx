@@ -5,7 +5,7 @@ import SectionTitle from "@/components/elements/SectionTitle";
 export default async function OverviewSection({lang}: { lang: 'ja' | 'en' }) {
   const dictionary = await getDictionary(lang)
 
-  return <section className="mt-20">
+  return <section className="mt-24">
     <SectionTitle title={'Overview'} subtitle={dictionary.overview.subtitle}/>
     <div
       className='text-white relative w-full bg-primary-500 after:bg-secondary after:absolute after:w-full after:h-full after:-z-10 after:top-2'>
