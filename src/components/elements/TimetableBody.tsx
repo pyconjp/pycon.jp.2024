@@ -52,7 +52,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
             return <>
               {
                 displayTime && !talk.hide_start &&
-                <div className='lg:hidden my-2'>
+                <div className='lg:hidden my-2 font-medium'>
                   {format(addMinutes(new Date(EVENT_START_DATETIME[date]), talk.start_minute), 'HH:mm')}
                 </div>
               }
@@ -63,7 +63,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
                     <div>{talk.title}</div>
                   </div>
                   : <Link key={index} id={talk.code} href={`/${lang}/talk/${talk.code}`}
-                          className={`scroll-mt-28 block my-2 mx-0.5 lg:my-0.5 lg:col-start-[${TRACK_LIST[talk.slot.room_id].col}] lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${talk.duration / 5}`}>
+                          className={`scroll-mt-32 block my-2 mx-0.5 lg:my-0.5 lg:col-start-[${TRACK_LIST[talk.slot.room_id].col}] lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${talk.duration / 5}`}>
                     <div className='flex shadow flex-row h-full'>
                       <div className='flex items-center justify-center flex-col lg:hidden w-20 bg-primary-500 text-white'>
                         <div>
@@ -111,7 +111,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
     {floor20StartMinutes.map((minute, index) => (
       <div key={index}
            className={`hidden lg:block text-center relative border-t-[1px] border-t-primary-500 col-start-1 col-span-1 lg:row-start-[${(minute / 5) + 2}]`}>
-        <div className='absolute top-0 right-0 left-0'>
+        <div className='absolute top-0 right-0 left-0 font-medium'>
           {format(addMinutes(new Date(EVENT_START_DATETIME[date]), minute), 'HH:mm')}
         </div>
       </div>
@@ -120,7 +120,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
     {floor4StartMinutes.map((minute, index) => (
       <div key={index}
            className={`hidden lg:block text-center relative border-t-[1px] border-t-primary-500 col-start-6 col-span-1 lg:row-start-[${(minute / 5) + 2}]`}>
-        <div className='absolute top-0 right-0 left-0'>
+        <div className='absolute top-0 right-0 left-0 font-medium'>
           {format(addMinutes(new Date(EVENT_START_DATETIME[date]), minute), 'HH:mm')}
         </div>
       </div>
@@ -129,7 +129,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
     {floor20EndMinutes.map((minute, index) => (
       <div key={index}
            className={`hidden lg:block text-center relative border-b-[1px] border-b-primary-500 col-start-1 col-span-1 lg:row-start-[${(minute / 5) + 1}]`}>
-        <div className='absolute bottom-0 right-0 left-0'>
+        <div className='absolute bottom-0 right-0 left-0 font-medium'>
           {format(addMinutes(new Date(EVENT_START_DATETIME[date]), minute), 'HH:mm')}
         </div>
       </div>
@@ -138,7 +138,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
     {floor4EndMinutes.map((minute, index) => (
       <div key={index}
            className={`hidden lg:block text-center relative border-b-[1px] border-b-primary-500 col-start-6 col-span-1 lg:row-start-[${(minute / 5) + 1}]`}>
-        <div className='absolute bottom-0 right-0 left-0'>
+        <div className='absolute bottom-0 right-0 left-0 font-medium'>
           {format(addMinutes(new Date(EVENT_START_DATETIME[date]), minute), 'HH:mm')}
         </div>
       </div>
