@@ -30,7 +30,7 @@ export default async function TimetableModalSection({lang, talk}: { lang: 'ja' |
         <div className='flex flex-col gap-3'>
           <div className='text-2xl font-bold'>{talk.title}</div>
           <div className='text-xl font-bold'>{talk.speakers.map(speaker => speaker.name).join(', ')}</div>
-          <div className='flex flex-row gap-2'>
+          <div className='flex lg:flex-row flex-col gap-2'>
             <div className='flex flex-row gap-1 items-center'>
               <CalendarIcon className='w-4 h-4'/>
               <div>
