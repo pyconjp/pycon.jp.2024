@@ -62,8 +62,8 @@ export default async function TimetableBody({lang, date, talks, events, categori
                          className={`lg:text-base font-bold bg-secondary-50 flex items-center justify-center my-2 mx-0.5 lg:my-0.5 px-2 py-4 lg:col-span-4 lg:col-start-2 lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${(talk.end_minute - talk.start_minute) / 5}`}>
                     <div>{talk.title}</div>
                   </div>
-                  : <Link key={index} href={`/${lang}/talk/${talk.code}`}
-                          className={`block my-2 mx-0.5 lg:my-0.5 lg:col-start-[${TRACK_LIST[talk.slot.room_id].col}] lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${talk.duration / 5}`}>
+                  : <Link key={index} id={talk.code} href={`/${lang}/talk/${talk.code}`}
+                          className={`scroll-mt-28 block my-2 mx-0.5 lg:my-0.5 lg:col-start-[${TRACK_LIST[talk.slot.room_id].col}] lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${talk.duration / 5}`}>
                     <div className='flex shadow flex-row h-full'>
                       <div className='flex items-center justify-center flex-col lg:hidden w-20 bg-primary-500 text-white'>
                         <div>
@@ -81,7 +81,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
                           <div className='font-medium'>
                             {talk.speakers.map(speaker => speaker.name).join(', ')}
                           </div>
-                          <div className='text-xs'>
+                          <div className={'text-xs' + (talk.track_id ? '' : ' hidden')}>
                             <TagIcon className='w-3 h-3 inline-flex'/> {categories[talk.track_id]}
                           </div>
                           <div className='flex flex-row gap-2'>

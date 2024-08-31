@@ -118,7 +118,7 @@ const talks: Talk[] = await axios.get<{ results: OriginalTalk[] }>(
 ).then(
   response => response.data.results
 ).then(
-  talks => talks.filter(talk => !['EHFVUR', 'HHVDEQ', 'TUPJBN'].includes(talk.code)) // exclude keynotes and invitation talks
+  talks => talks.filter(talk => !['HHVDEQ', 'TUPJBN'].includes(talk.code)) // exclude keynotes
 ).then(
   talks => talks.filter(talk => [4328, 4329].includes(talk.submission_type_id))
 ).then(
