@@ -1,5 +1,4 @@
 import {ConferenceEvent} from '@/types/Talk';
-import {boolean} from "property-information/lib/util/types";
 
 export const conferenceEvents: ConferenceEvent[] = [
   {

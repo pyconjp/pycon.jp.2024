@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {ReactNode} from "react";
-import {ConferenceEvent, Talk} from "@/types/Talk";
 
 export default function TimetableToggleButton({lang, date}: { lang: 'ja' | 'en', date: 'day1' | 'day2', }) {
   const DateButton = ({buttonDate, children}: { buttonDate: 'day1' | 'day2', children: ReactNode }) => (
