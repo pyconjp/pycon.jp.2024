@@ -41,6 +41,8 @@ next-env.d.ts
 !/public/organizers/.gitkeep
 !/public/sponsors/.gitkeep
 !/src/cache/.gitkeep
+!/src/cache/talks/.gitkeep
+!/src/cache/speakers/.gitkeep
 
 /public/sponsors/*
 /public/organizers/*

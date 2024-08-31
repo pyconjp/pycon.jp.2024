@@ -4,11 +4,15 @@ import {Talk} from "@/types/Talk";
 import {CalendarIcon, MapPinIcon} from "@heroicons/react/16/solid";
 import {EVENT_START_DATETIME, TRACK_LIST} from "@/const/timetable";
 import {addMinutes, format} from "date-fns";
-import {MDXRemote} from 'next-mdx-remote/rsc'
 import Image from "next/image";
 import ImageWithFallback from "@/components/elements/ImageWithFallback";
+import dynamic from "next/dynamic";
 
 export default async function TimetableModalSection({lang, talk}: { lang: 'ja' | 'en', talk: Talk }) {
+  const Description = dynamic(() => import(`@/cache/talks/description_${talk.code}.mdx`), {ssr: true});
+  const Abstract = dynamic(() => import(`@/cache/talks/abstract_${talk.code}.mdx`), {ssr: true});
+  const SpeakersBiographies = talk.speakers.map((speaker) => dynamic(() => import(`@/cache/speakers/biography_${speaker.code}.mdx`), {ssr: true}));
+
   return <div
     className='fixed flex justify-center z-50 w-screen h-screen bg-black bg-opacity-30 top-0 left-0 overscroll-contain overflow-y-scroll'>
     <div className='flex flex-col w-11/12 gap-10 items-center'>
@@ -41,7 +45,7 @@ export default async function TimetableModalSection({lang, talk}: { lang: 'ja' |
         </div>
         <div
           className='border-l-2 border-l-primary pl-4 prose prose-pre:bg-primary-50 prose-pre:rounded-none prose-pre:text-black max-w-full prose-li:marker:text-primary-500'>
-          <MDXRemote source={talk.abstract}/>
+          <Abstract/>
         </div>
         <div>
           {/* TODO 動画とスライドのリンク */}
@@ -54,27 +58,31 @@ export default async function TimetableModalSection({lang, talk}: { lang: 'ja' |
           </div>
           <div
             className='prose prose-pre:bg-primary-50 prose-pre:rounded-none prose-pre:text-black max-w-full prose-li:marker:text-primary-500'>
-            <MDXRemote source={talk.description}/>
+            <Description/>
           </div>
           <hr className='border-t-2 border-secondary'/>
         </div>
         <div className='flex flex-col gap-4 shadow-lg'>
-          {talk.speakers.map((speaker, index) => (
-              <div key={index} className='p-4 flex gap-4 flex-row'>
-                <ImageWithFallback src={speaker.avatar || '/no_image.jpg'} alt={speaker.name} width={128} height={128}
-                                   className='lg:w-32 lg:h-32 w-20 h-20'/>
-                <div className='flex flex-col gap-2'>
-                  <div className='font-bold text-lg underline text-primary-500'>
-                    {speaker.name}
-                  </div>
-                  <div
-                    className='text-sm prose prose-pre:bg-primary-50 prose-pre:rounded-none prose-pre:text-black max-w-full prose-li:marker:text-primary-500'>
-                    <MDXRemote source={speaker.biography || ''}/>
+          {
+            talk.speakers.map((speaker, index) => {
+                const Biography = SpeakersBiographies[index];
+
+                return <div key={index} className='p-4 flex gap-4 flex-row'>
+                  <ImageWithFallback src={speaker.avatar || '/no_image.jpg'} alt={speaker.name} width={128} height={128}
+                                     className='lg:w-32 lg:h-32 w-20 h-20'/>
+                  <div className='flex flex-col gap-2'>
+                    <div className='font-bold text-lg underline text-primary-500'>
+                      {speaker.name}
+                    </div>
+                    <div
+                      className='text-sm prose prose-pre:bg-primary-50 prose-pre:rounded-none prose-pre:text-black max-w-full prose-li:marker:text-primary-500'>
+                      <Biography/>
+                    </div>
                   </div>
                 </div>
-              </div>
+              }
             )
-          )}
+          }
         </div>
       </div>
     </div>

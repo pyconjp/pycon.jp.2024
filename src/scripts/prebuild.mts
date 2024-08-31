@@ -162,3 +162,12 @@ const talks: Talk[] = await axios.get<{ results: OriginalTalk[] }>(
 
 fs.writeFileSync('./src/cache/talks.json', JSON.stringify(talks, null, 2));
 console.log(`${talks.length} talks fetched and written to ./src/cache/talks.json`);
+
+talks.forEach(talk => {
+  fs.writeFileSync(`./src/cache/talks/abstract_${talk.code}.mdx`, talk.abstract);
+  fs.writeFileSync(`./src/cache/talks/description_${talk.code}.mdx`, talk.description);
+  talk.speakers.forEach(speaker => {
+    fs.writeFileSync(`./src/cache/speakers/biography_${speaker.code}.mdx`, speaker.biography || '');
+  });
+})
+console.log('Talks and speakers written to ./src/cache/talks/*.mdx and ./src/cache/speakers/*.mdx');
