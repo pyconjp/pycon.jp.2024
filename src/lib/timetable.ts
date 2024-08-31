@@ -7,6 +7,11 @@ export const getTalks: (date: 'day1' | 'day2') => Promise<Talk[]> = async (date:
   .then((talks: Talk[]) => talks.filter((talk: Talk) => talk.date === date))
   .catch(() => []);
 
+export const getTalk: (code: string) => Promise<Talk | undefined> = async (code: string) => import('@/cache/talks.json')
+  .then((module) => module.default as Talk[])
+  .then((talks: Talk[]) => talks.find((talk: Talk) => talk.code === code))
+  .catch(() => undefined);
+
 export const getEvents: (date: 'day1' | 'day2') => Promise<ConferenceEvent[]> = async (date: 'day1' | 'day2') => conferenceEvents.filter((event: ConferenceEvent) => event.date === date);
 
 export const getCategories: (lang: 'ja' | 'en') => Promise<Category> = async (lang: 'ja' | 'en') =>

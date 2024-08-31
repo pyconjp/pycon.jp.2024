@@ -44,9 +44,9 @@ export type Talk = {
   }[],
   pending_state: string | null,
   question_answers: {
-    level?: keyof typeof LEVEL_LIST,
-    speak_language?: keyof typeof SPEAK_LANG_LIST,
-    slide_language?: keyof typeof SLIDE_LANG_LIST,
+    level?: number,
+    speak_language?: number,
+    slide_language?: number,
     photo_agree?: boolean,
     video_agree?: boolean,
   },
@@ -76,7 +76,7 @@ export type Answer<T> = {
   submission: string,
   review: number | null,
   person: string | null,
-  options: [{ id: keyof T, answer: string, 'ja-jp': string }],
+  options: [{ id: keyof T, answer: string, 'ja-jp': string, 'en': string }],
 }
 
 export type ConferenceEvent = {
@@ -109,6 +109,4 @@ export type Category = {
   4688: string,
 }
 
-export const LEVEL_LIST = {5539: 'beginner', 5540: 'intermediate', 5541: 'advanced'};
-export const SPEAK_LANG_LIST = {5542: '日本語', 5543: 'EN'};
-export const SLIDE_LANG_LIST = {5544: '日本語', 5545: 'EN'};
+

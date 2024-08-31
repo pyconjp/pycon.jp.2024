@@ -4,8 +4,9 @@ import {
 } from 'googleapis';
 import * as fs from "node:fs";
 import axios from "axios";
-import {Talk, Answer, OriginalSpeaker, OriginalTalk, LEVEL_LIST, SPEAK_LANG_LIST, SLIDE_LANG_LIST} from "../types/Talk";
+import {Talk, Answer, OriginalSpeaker, OriginalTalk} from "../types/Talk";
 import {differenceInMinutes} from "date-fns";
+import {LEVEL_LIST, SLIDE_LANG_LIST, SPEAK_LANG_LIST} from "../const/timetable";
 
 // download files from Google Drive
 const auth = new google.auth.JWT(
