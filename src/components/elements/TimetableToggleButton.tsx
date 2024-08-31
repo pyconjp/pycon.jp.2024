@@ -1,7 +1,8 @@
 import Link from "next/link";
 import {ReactNode} from "react";
+import {ConferenceEvent, Talk} from "@/types/Talk";
 
-export default function TimetableToggleButton({lang, date}: { lang: 'ja' | 'en', date: 'day1' | 'day2' }) {
+export default function TimetableToggleButton({lang, date}: { lang: 'ja' | 'en', date: 'day1' | 'day2', }) {
   const DateButton = ({buttonDate, children}: { buttonDate: 'day1' | 'day2', children: ReactNode }) => (
     <Link href={`/${lang}/timetable/${buttonDate}`}
           className={'font-montserrat text-lg flex-1 border-2 py-2 lg:py-6 border-primary-500 font-bold tracking-wide ' + (buttonDate === date ? 'bg-primary-500 text-white' : 'bg-white text-primary-500')}>

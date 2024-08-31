@@ -24,7 +24,7 @@ export type Talk = {
   code: string,
   speakers: Speaker[],
   title: string,
-  track_id: number,
+  track_id: keyof Category,
   state: string,
   abstract: string,
   description: string,
@@ -51,7 +51,11 @@ export type Talk = {
     video_agree?: boolean,
   },
   date: 'day1' | 'day2',
+  start_minute: number, // カンファレンス開始時刻からの経過分
+  end_minute: number, // カンファレンス開始時刻からの経過分
   is_event: false,
+  hide_start?: false,
+  hide_end?: false,
 }
 
 export type Speaker = {
@@ -78,6 +82,7 @@ export type Answer<T> = {
 export type ConferenceEvent = {
   code: string,
   speakers: Speaker[],
+  title: string,
   slot: {
     room_id: number,
     start: string,
@@ -85,10 +90,25 @@ export type ConferenceEvent = {
   },
   date: 'day1' | 'day2',
   is_event: true,
+  start_minute: number, // カンファレンス開始時刻からの経過分
+  end_minute: number, // カンファレンス開始時刻からの経過分
   hide_start?: boolean,
   hide_end?: boolean,
 }
 
+export type Category = {
+  4684: string,
+  4695: string,
+  4683: string,
+  4720: string,
+  4685: string,
+  4686: string,
+  4689: string,
+  4690: string,
+  4687: string,
+  4688: string,
+}
+
 export const LEVEL_LIST = {5539: 'beginner', 5540: 'intermediate', 5541: 'advanced'};
-export const SPEAK_LANG_LIST = {5542: 'ja', 5543: 'en'};
-export const SLIDE_LANG_LIST = {5544: 'ja', 5545: 'en'};
+export const SPEAK_LANG_LIST = {5542: '日本語', 5543: 'EN'};
+export const SLIDE_LANG_LIST = {5544: '日本語', 5545: 'EN'};

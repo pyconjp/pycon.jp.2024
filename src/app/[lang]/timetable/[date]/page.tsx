@@ -12,7 +12,6 @@ export default async function Sponsors({params: {lang, date}}: {
   params: { lang: 'ja' | 'en', date: 'day1' | 'day2' }
 }) {
   const dictionary = await getDictionary(lang);
-
   return <main>
     <PageTitle title={'Timetable'} subTitle={dictionary.menu.timetable}/>
     <TimetableSection lang={lang} date={date}/>

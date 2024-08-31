@@ -5,6 +5,7 @@ import {
 import * as fs from "node:fs";
 import axios from "axios";
 import {Talk, Answer, OriginalSpeaker, OriginalTalk, LEVEL_LIST, SPEAK_LANG_LIST, SLIDE_LANG_LIST} from "../types/Talk";
+import {differenceInMinutes} from "date-fns";
 
 // download files from Google Drive
 const auth = new google.auth.JWT(
@@ -139,6 +140,8 @@ const talks: Talk[] = await axios.get<{ results: OriginalTalk[] }>(
         pending_state: talk.pending_state,
         question_answers: {},
         date: talk.slot.start < '2024-09-28T00:00:00+09:00' ? 'day1' : 'day2' as 'day1' | 'day2',
+        start_minute: talk.slot.start < '2024-09-28T00:00:00+09:00' ? differenceInMinutes(new Date(talk.slot.start), new Date('2024-09-27T10:00:00+09:00')) : differenceInMinutes(new Date(talk.slot.start), new Date('2024-09-28T10:00:00+09:00')),
+        end_minute: talk.slot.start < '2024-09-28T00:00:00+09:00' ? differenceInMinutes(new Date(talk.slot.end), new Date('2024-09-27T10:00:00+09:00')) : differenceInMinutes(new Date(talk.slot.end), new Date('2024-09-28T10:00:00+09:00')),
         is_event: false as false,
       }
     )

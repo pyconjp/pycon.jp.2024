@@ -1,11 +1,18 @@
-import type { Config } from "tailwindcss";
+import type {Config} from "tailwindcss";
 import defaultTheme from 'tailwindcss/defaultTheme'
+
+const rowStart = Array(121).fill(0).map((_, i) => `lg:row-start-[${i + 1}]`).join(' ');
+const colStart = Array(6).fill(0).map((_, i) => `lg:col-start-[${i + 1}]`).join(' ');
+const rowSpan = Array(12).fill(0).map((_, i) => `lg:row-span-${i + 1}`).join(' ');
 
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    {
+      raw: `${colStart} ${rowStart} ${rowSpan} lg:col-span-4 lg:col-start-2 py-auto`,
+    },
   ],
   theme: {
     extend: {
