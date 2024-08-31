@@ -169,6 +169,6 @@ talks.forEach(talk => {
   talk.speakers.forEach(speaker => {
     fs.writeFileSync(`./src/cache/speakers/biography_${speaker.code}.mdx`, speaker.biography || '');
   });
-  console.log(`Talk ${talk.code} and speakers written to ./src/cache/talks/abstract_${talk.code}.mdx, ./src/cache/talks/description_${talk.code}.mdx, and ./src/cache/speakers/biography_${talk.speakers.map(speaker => speaker.code).join('_')}.mdx`);
+  console.log(`Talk ${talk.code} and speakers written to ./src/cache/talks/abstract_${talk.code}.mdx, ./src/cache/talks/description_${talk.code}.mdx, and ${talk.speakers.map(speaker => `./src/cache/speakers/biography_${speaker.code}.mdx`).join(', ')}`);
 })
 console.log('All talks and speakers written to cache');
