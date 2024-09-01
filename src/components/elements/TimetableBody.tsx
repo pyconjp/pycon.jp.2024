@@ -1,8 +1,9 @@
 import {Category, ConferenceEvent, Talk} from "@/types/Talk";
-import {addMinutes, format} from "date-fns";
+import {addMinutes, parseISO} from "date-fns";
 import Link from "next/link";
 import {ClockIcon, TagIcon, MapPinIcon} from "@heroicons/react/16/solid";
 import {EVENT_START_DATETIME, SPEAK_LANG_LIST, TRACK_LIST} from "@/const/timetable";
+import {formatInTimeZone} from "date-fns-tz";
 
 export default async function TimetableBody({lang, date, talks, events, categories}: {
   lang: 'ja' | 'en',
@@ -53,7 +54,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
               {
                 displayTime && !talk.hide_start &&
                 <div className='lg:hidden my-2 font-medium'>
-                  {format(addMinutes(new Date(EVENT_START_DATETIME[date]), talk.start_minute), 'HH:mm')}
+                  {formatInTimeZone(addMinutes(parseISO(EVENT_START_DATETIME[date]), talk.start_minute), 'Asia/Tokyo', 'HH:mm')}
                 </div>
               }
               {
@@ -67,7 +68,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
                     <div className='flex shadow flex-row h-full'>
                       <div className='flex items-center justify-center flex-col lg:hidden w-20 bg-primary-500 text-white'>
                         <div>
-                          {format(addMinutes(new Date(EVENT_START_DATETIME[date]), talk.start_minute), 'HH:mm')}
+                          {formatInTimeZone(addMinutes(parseISO(EVENT_START_DATETIME[date]), talk.start_minute), 'Asia/Tokyo', 'HH:mm')}
                         </div>
                         <div>
                           {talk.duration}min
@@ -112,7 +113,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
       <div key={index}
            className={`hidden lg:block text-center relative border-t-[1px] border-t-primary-500 col-start-1 col-span-1 lg:row-start-[${(minute / 5) + 2}]`}>
         <div className='absolute top-0 right-0 left-0 font-medium'>
-          {format(addMinutes(new Date(EVENT_START_DATETIME[date]), minute), 'HH:mm')}
+          {formatInTimeZone(addMinutes(parseISO(EVENT_START_DATETIME[date]), minute), 'Asia/Tokyo', 'HH:mm')}
         </div>
       </div>
     ))}
@@ -121,7 +122,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
       <div key={index}
            className={`hidden lg:block text-center relative border-t-[1px] border-t-primary-500 col-start-6 col-span-1 lg:row-start-[${(minute / 5) + 2}]`}>
         <div className='absolute top-0 right-0 left-0 font-medium'>
-          {format(addMinutes(new Date(EVENT_START_DATETIME[date]), minute), 'HH:mm')}
+          {formatInTimeZone(addMinutes(parseISO(EVENT_START_DATETIME[date]), minute), 'Asia/Tokyo', 'HH:mm')}
         </div>
       </div>
     ))}
@@ -130,7 +131,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
       <div key={index}
            className={`hidden lg:block text-center relative border-b-[1px] border-b-primary-500 col-start-1 col-span-1 lg:row-start-[${(minute / 5) + 1}]`}>
         <div className='absolute bottom-0 right-0 left-0 font-medium'>
-          {format(addMinutes(new Date(EVENT_START_DATETIME[date]), minute), 'HH:mm')}
+          {formatInTimeZone(addMinutes(parseISO(EVENT_START_DATETIME[date]), minute), 'Asia/Tokyo', 'HH:mm')}
         </div>
       </div>
     ))}
@@ -139,7 +140,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
       <div key={index}
            className={`hidden lg:block text-center relative border-b-[1px] border-b-primary-500 col-start-6 col-span-1 lg:row-start-[${(minute / 5) + 1}]`}>
         <div className='absolute bottom-0 right-0 left-0 font-medium'>
-          {format(addMinutes(new Date(EVENT_START_DATETIME[date]), minute), 'HH:mm')}
+          {formatInTimeZone(addMinutes(parseISO(EVENT_START_DATETIME[date]), minute), 'Asia/Tokyo', 'HH:mm')}
         </div>
       </div>
     ))}

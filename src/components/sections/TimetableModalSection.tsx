@@ -3,10 +3,11 @@ import Link from "next/link";
 import {Talk} from "@/types/Talk";
 import {CalendarIcon, MapPinIcon} from "@heroicons/react/16/solid";
 import {EVENT_START_DATETIME, TRACK_LIST} from "@/const/timetable";
-import {addMinutes, format} from "date-fns";
+import {addMinutes} from "date-fns";
 import Image from "next/image";
 import ImageWithFallback from "@/components/elements/ImageWithFallback";
 import dynamic from "next/dynamic";
+import {formatInTimeZone} from "date-fns-tz";
 
 export default async function TimetableModalSection({lang, talk}: { lang: 'ja' | 'en', talk: Talk }) {
   const Description = dynamic(() => import(`@/cache/talks/description_${talk.code}.mdx`), {ssr: true});
@@ -34,7 +35,7 @@ export default async function TimetableModalSection({lang, talk}: { lang: 'ja' |
             <div className='flex flex-row gap-1 items-center'>
               <CalendarIcon className='w-4 h-4'/>
               <div>
-                {format(addMinutes(new Date(EVENT_START_DATETIME[talk.date]), talk.start_minute), 'MM/dd HH:mm')} - {format(addMinutes(new Date(EVENT_START_DATETIME[talk.date]), talk.end_minute), 'HH:mm')} (Asia/Tokyo)
+                {formatInTimeZone(addMinutes(new Date(EVENT_START_DATETIME[talk.date]), talk.start_minute), 'Asia/Tokyo', 'MM/dd HH:mm')} - {formatInTimeZone(addMinutes(new Date(EVENT_START_DATETIME[talk.date]), talk.end_minute), 'Asia/Tokyo', 'HH:mm')} (Asia/Tokyo)
               </div>
             </div>
             <div className='flex flex-row gap-1 items-center'>
