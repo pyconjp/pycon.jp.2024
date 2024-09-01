@@ -4,7 +4,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'opening1',
     speakers: [],
-    title: 'Opening (Day1)',
+    title: 'Opening',
     slot: {
       room_id: 2,
       start: '2024-09-27T10:00:00+09:00',
@@ -19,7 +19,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'opening1_relay1',
     speakers: [],
-    title: 'Opening Relay (Day1)',
+    title: 'Opening Relay',
     slot: {
       room_id: 3419,
       start: '2024-09-27T10:00:00+09:00',
@@ -34,7 +34,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'opening1_relay2',
     speakers: [],
-    title: 'Opening Relay (Day1)',
+    title: 'Opening Relay',
     slot: {
       room_id: 3420,
       start: '2024-09-27T10:00:00+09:00',
@@ -49,7 +49,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'keynote1',
     speakers: [],
-    title: 'Keynote (Day1)',
+    title: 'Keynote',
     slot: {
       room_id: 2,
       start: '2024-09-27T10:30:00+09:00',
@@ -64,7 +64,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'keynote1_relay1',
     speakers: [],
-    title: 'Keynote Relay (Day1)',
+    title: 'Keynote Relay',
     slot: {
       room_id: 3419,
       start: '2024-09-27T10:30:00+09:00',
@@ -79,7 +79,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'keynote1_relay2',
     speakers: [],
-    title: 'Keynote Relay (Day1)',
+    title: 'Keynote Relay',
     slot: {
       room_id: 3420,
       start: '2024-09-27T10:30:00+09:00',
@@ -178,7 +178,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'closing1',
     speakers: [],
-    title: 'Closing (Day1)',
+    title: 'Closing',
     slot: {
       room_id: 3086,
       start: '2024-09-27T18:00:00+09:00',
@@ -192,7 +192,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'closing1_relay1',
     speakers: [],
-    title: 'Closing Relay (Day1)',
+    title: 'Closing Relay',
     slot: {
       room_id: 3418,
       start: '2024-09-27T18:00:00+09:00',
@@ -206,7 +206,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'closing1_relay1',
     speakers: [],
-    title: 'Closing Relay (Day1)',
+    title: 'Closing Relay',
     slot: {
       room_id: 3419,
       start: '2024-09-27T18:00:00+09:00',
@@ -220,7 +220,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'closing1_relay1',
     speakers: [],
-    title: 'Closing Relay (Day1)',
+    title: 'Closing Relay',
     slot: {
       room_id: 3420,
       start: '2024-09-27T18:00:00+09:00',
@@ -249,7 +249,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'opening2',
     speakers: [],
-    title: 'Opening (Day2)',
+    title: 'Opening',
     slot: {
       room_id: 3086,
       start: '2024-09-28T10:00:00+09:00',
@@ -263,7 +263,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'opening2_relay1',
     speakers: [],
-    title: 'Opening Relay (Day2)',
+    title: 'Opening Relay',
     slot: {
       room_id: 3418,
       start: '2024-09-28T10:00:00+09:00',
@@ -277,7 +277,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'opening2_relay2',
     speakers: [],
-    title: 'Opening Relay (Day2)',
+    title: 'Opening Relay',
     slot: {
       room_id: 3419,
       start: '2024-09-28T10:00:00+09:00',
@@ -291,7 +291,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'opening2_relay3',
     speakers: [],
-    title: 'Opening Relay (Day2)',
+    title: 'Opening Relay',
     slot: {
       room_id: 3420,
       start: '2024-09-28T10:00:00+09:00',
@@ -333,7 +333,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'keynote2',
     speakers: [],
-    title: 'Keynote (Day2)',
+    title: 'Keynote',
     slot: {
       room_id: 2,
       start: '2024-09-28T17:30:00+09:00',
@@ -347,7 +347,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'keynote2_relay1',
     speakers: [],
-    title: 'Keynote Relay (Day2)',
+    title: 'Keynote Relay',
     slot: {
       room_id: 3419,
       start: '2024-09-28T17:30:00+09:00',
@@ -361,7 +361,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'keynote2_relay2',
     speakers: [],
-    title: 'Keynote Relay (Day2)',
+    title: 'Keynote Relay',
     slot: {
       room_id: 3420,
       start: '2024-09-28T17:30:00+09:00',
@@ -417,7 +417,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'closing2',
     speakers: [],
-    title: 'Closing (Day2)',
+    title: 'Closing',
     slot: {
       room_id: 2,
       start: '2024-09-28T18:40:00+09:00',
@@ -431,7 +431,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'closing2_relay1',
     speakers: [],
-    title: 'Closing Relay (Day2)',
+    title: 'Closing Relay',
     slot: {
       room_id: 3419,
       start: '2024-09-28T18:40:00+09:00',
@@ -445,7 +445,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'closing2_relay2',
     speakers: [],
-    title: 'Closing Relay (Day2)',
+    title: 'Closing Relay',
     slot: {
       room_id: 3420,
       start: '2024-09-28T18:40:00+09:00',
