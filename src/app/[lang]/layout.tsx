@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import {Inter, Manrope, Montserrat, Montserrat_Alternates, Noto_Sans_JP} from 'next/font/google'
+import {Inter, Manrope, Montserrat, Noto_Sans_JP} from 'next/font/google'
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "@/app/globals.css";
