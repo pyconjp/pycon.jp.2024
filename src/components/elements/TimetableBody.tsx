@@ -2,7 +2,7 @@ import {Category, ConferenceEvent, Talk} from "@/types/Talk";
 import {addMinutes, parseISO} from "date-fns";
 import Link from "next/link";
 import {ClockIcon, TagIcon, MapPinIcon} from "@heroicons/react/16/solid";
-import {EVENT_START_DATETIME, SPEAK_LANG_LIST, TRACK_LIST} from "@/const/timetable";
+import {EVENT_START_DATETIME, EVENT_TRACK_LIST, SPEAK_LANG_LIST, TRACK_LIST} from "@/const/timetable";
 import {formatInTimeZone} from "date-fns-tz";
 
 export default async function TimetableBody({lang, date, talks, events, categories}: {
@@ -22,7 +22,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
   const floor4EndMinutes = [...new Set([...floor4, ...events].filter(talk => !talk.hide_end).map(talk => talk.end_minute))];
 
   const gridRow = {
-    day1: 'lg:grid-rows-[40px_repeat(18,_10px)_repeat(6,_60px)_repeat(12,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(8,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(3,_60px)_repeat(1,_10px)_repeat(3,_60px)_repeat(27,_10px)]',
+    day1: 'lg:grid-rows-[40px_repeat(18,_10px)_repeat(6,_60px)_repeat(12,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(8,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(3,_60px)_repeat(1,_10px)_repeat(3,_60px)_repeat(9,_10px)_repeat(2,_20px)_repeat(16,_10px)]',
     day2: 'lg:grid-rows-[40px_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(12,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(8,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(2,_10px)_repeat(3,_60px)_repeat(3,_10px)_repeat(18,_10px)]',
   };
 
@@ -60,11 +60,15 @@ export default async function TimetableBody({lang, date, talks, events, categori
               {
                 talk.is_event
                   ? <div key={index}
-                         className={`lg:text-base font-bold bg-secondary-50 flex items-center justify-center my-2 mx-0.5 lg:my-0.5 px-2 py-4 lg:col-span-4 lg:col-start-2 lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${(talk.end_minute - talk.start_minute) / 5}`}>
-                    <div>{talk.title}</div>
+                         className={`lg:text-base bg-secondary-50 flex items-center justify-center flex-col gap-1 my-2 mx-0.5 lg:my-0.5 px-2 py-4 ${EVENT_TRACK_LIST[talk.slot.room_id].class} lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${(talk.end_minute - talk.start_minute) / 5}`}>
+                    <div className='font-bold'>{talk.title}</div>
+                    <div className='flex lg:hidden flex-row gap-0.5 items-center text-xs'>
+                      <MapPinIcon className='w-3 h-3'/>
+                      <div>{EVENT_TRACK_LIST[talk.slot.room_id].name}</div>
+                    </div>
                   </div>
                   : <Link key={index} id={talk.code} href={`/${lang}/talk/${talk.code}`}
-                          className={`scroll-mt-32 block my-2 mx-0.5 lg:my-0.5 lg:col-start-[${TRACK_LIST[talk.slot.room_id].col}] lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${talk.duration / 5}`}>
+                          className={`scroll-mt-32 block my-2 mx-0.5 lg:my-0.5 ${TRACK_LIST[talk.slot.room_id].class} lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${talk.duration / 5}`}>
                     <div className='flex shadow flex-row h-full'>
                       <div className='flex items-center justify-center flex-col lg:hidden w-20 bg-primary-500 text-white'>
                         <div>
