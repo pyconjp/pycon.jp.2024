@@ -57,6 +57,7 @@
   "organizers": {
     "subtitle_chairs": "共同座長",
     "organizing_members": "主催メンバー",
+    "reviewers": "レビュアー",
     "chairs": {
       "takanory": {
         "name": "鈴木 たかのり",

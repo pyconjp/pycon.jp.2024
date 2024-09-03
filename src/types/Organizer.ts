@@ -14,3 +14,8 @@ export type Chair = {
   facebook: string;
   image: string;
 }
+
+export type Reviewer = {
+  name_en: string;
+  name_ja: string;
+}

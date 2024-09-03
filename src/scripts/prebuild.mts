@@ -7,6 +7,7 @@ import axios from "axios";
 import {Talk, Answer, OriginalSpeaker, OriginalTalk} from "../types/Talk";
 import {differenceInMinutes} from "date-fns";
 import {LEVEL_LIST, SLIDE_LANG_LIST, SPEAK_LANG_LIST} from "../const/timetable";
+import {Reviewer} from "../types/Organizer";
 
 // download files from Google Drive
 const auth = new google.auth.JWT(
@@ -15,6 +16,37 @@ const auth = new google.auth.JWT(
     key: (process.env.GOOGLE_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
     scopes: ['https://www.googleapis.com/auth/drive']
   });
+
+const fetchSheet: <T extends {}>(spreadSheetId: string, range: string, keys: (keyof T)[]) => Promise<T[]>
+  = async <T extends {}>(spreadSheetId: string, range: string, keys: (keyof T)[]): Promise<T[]> => {
+  const sheets = google.sheets({version: 'v4', auth});
+  const response = await sheets.spreadsheets.values.get({
+    spreadsheetId: spreadSheetId,
+    range,
+  });
+
+  return (response.data.values || [])
+    .map((row: string[]) => {
+      // rowの長さがkeysの長さに満たない場合、空文字列で埋める
+      while (row.length < keys.length) {
+        row.push('');
+      }
+
+      // 初期値を空のオブジェクトとして型推論を利用
+      return keys.reduce((acc, key, i) => {
+        acc[key] = row[i] as T[keyof T];
+        return acc;
+      }, {} as T);
+    });
+}
+
+const reviewers: Reviewer[] = await fetchSheet<Reviewer>(
+  process.env.REVIEWER_SPREADSHEET_ID || '',
+  'フォームの回答 1!B2:C30',
+  ['name_en', 'name_ja']
+);
+fs.writeFileSync('./src/cache/reviewers.json', JSON.stringify(reviewers, null, 2));
+console.log(`${reviewers.length} reviewers fetched and written to ./src/cache/reviewers.json`);
 
 const drive: drive_v3.Drive = google.drive({version: 'v3', auth});
 
