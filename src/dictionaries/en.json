@@ -57,6 +57,7 @@
   "organizers": {
     "subtitle_chairs": "Co-Chairs",
     "organizing_members": "Organizing Members",
+    "reviewers": "Reviewers",
     "chairs": {
       "takanory": {
         "name": "Takanori Suzuki",
