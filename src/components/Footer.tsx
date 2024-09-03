@@ -60,8 +60,8 @@ export default async function Footer({lang}: { lang: 'ja' | 'en' }) {
               </Link>
             </div>
             <div className='text-white'>
-              {dictionary.footer.contact_us} : <Link href='mailto:pyconjp@pycon.jp'
-                                                     className='text-secondary-500 hover:opacity-80'>pyconjp@pycon.jp</Link>
+              {dictionary.footer.contact_us} : <Link href='mailto:2024-inquiry@pyconjp.atlassian.net'
+                                                     className='text-secondary-500 hover:opacity-80'>2024-inquiry@pyconjp.atlassian.net</Link>
             </div>
           </div>
           <div className='text-white mt-3 whitespace-pre-line break-words'>
