@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import {Inter, Manrope, Noto_Sans_JP} from 'next/font/google'
+import {Inter, Manrope, Montserrat, Noto_Sans_JP} from 'next/font/google'
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "@/app/globals.css";
@@ -21,6 +21,12 @@ const manrope = Manrope({
   variable: '--font-manrope',
 })
 
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: '--font-montserrat',
+});
+
 export const metadata: Metadata = {
   title: "PyCon JP 2024",
   description: "PyCon JPは、Pythonユーザが集まり、PythonやPythonを使ったソフトウェアについて情報交換、交流をするためのカンファレンスです。",
@@ -35,7 +41,7 @@ export default function RootLayout({children, params: {lang}}: Readonly<{
   params: { lang: 'ja' | 'en' }
 }>) {
   return (
-    <html lang={lang} className={`${inter.variable} ${notojp.variable} ${manrope.variable}`}>
+    <html lang={lang} className={`${inter.variable} ${notojp.variable} ${manrope.variable} ${montserrat.variable}`}>
     <body className="bg-white">
     <Header lang={lang}/>
     <div className="min-h-screen font-noto">
