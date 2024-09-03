@@ -23,7 +23,7 @@ export const menu: Menu[] = [
     title: "events",
     children: [
       {title: "timetable", url: "/timetable", isComingSoon: false},
-      {title: "sprint", url: "/sprint", isComingSoon: true},
+      {title: "sprint", url: "/sprint", isComingSoon: false, isExternal: true},
     ],
   },
   {
