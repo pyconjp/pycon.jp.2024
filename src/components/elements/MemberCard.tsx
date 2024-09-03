@@ -7,7 +7,7 @@ export default async function MemberCard({member, lang}: { member: Organizer, la
     <ImageWithFallback src={member.image ? `/organizers/${member.image}` : '/no_image.jpg'}
                        alt={lang === 'ja' ? member.name_ja : member.name_en}
                        className='rounded-tr-2xl rounded-bl-2xl w-20 h-20' width={80} height={80}/>
-    <div className={'flex flex-col gap-2 text-right'}>
+    <div className={'flex flex-col gap-2'}>
       <div className='text-lg'>
         {lang === 'ja' ? member.name_ja : member.name_en}
       </div>
