@@ -1,8 +1,9 @@
 import Link from "next/link";
-import {parseISO, format} from 'date-fns'
+import {parseISO} from 'date-fns'
 import {getDictionary} from "@/lib/dictionaries";
 import {ArrowRightIcon} from "@heroicons/react/20/solid";
 import {getBlogs} from "@/lib/blogger";
+import {formatInTimeZone} from "date-fns-tz";
 
 
 export default async function NewsSection({lang}: { lang: 'ja' | 'en' }) {
@@ -40,6 +41,7 @@ export default async function NewsSection({lang}: { lang: 'ja' | 'en' }) {
 }
 
 function parseDate(dateString: string) {
+  console.log(dateString)
   const date = parseISO(dateString);
-  return format(date, 'yyyy.MM.dd');
+  return formatInTimeZone(date, 'Asia/Tokyo', 'yyyy.MM.dd');
 }
