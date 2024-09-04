@@ -7,7 +7,7 @@ export default async function ReviewersSection({lang}: { lang: 'ja' | 'en' }) {
   const reviewers = await getReviewers();
 
   return <section className="my-20 mx-auto lg:w-10/12 w-8/12">
-    <SectionSubTitle title={'Reviewers'} subtitle={dictionary.organizers.organizing_members}/>
+    <SectionSubTitle title={'Reviewers'} subtitle={dictionary.organizers.reviewers}/>
     <div className='grid lg:grid-cols-5 grid-cols-1 lg:gap-y-10 gap-y-5 text-center'>
       {
         reviewers.map((reviewer, index) => (
