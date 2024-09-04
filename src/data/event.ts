@@ -49,7 +49,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'keynote1',
     speakers: [],
-    title: 'Keynote',
+    title: 'Keynote (James Powell)',
     slot: {
       room_id: 2,
       start: '2024-09-27T10:30:00+09:00',
@@ -333,7 +333,7 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'keynote2',
     speakers: [],
-    title: 'Keynote',
+    title: 'Keynote (Atsuo Ishimoto)',
     slot: {
       room_id: 2,
       start: '2024-09-28T17:30:00+09:00',
