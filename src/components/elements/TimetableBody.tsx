@@ -60,7 +60,7 @@ export default async function TimetableBody({lang, date, talks, events, categori
               {
                 talk.is_event
                   ? <div key={index}
-                         className={`lg:text-base bg-secondary-50 flex items-center justify-center flex-col gap-1 my-2 mx-0.5 lg:my-0.5 px-2 py-4 ${EVENT_TRACK_LIST[talk.slot.room_id].class} lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${(talk.end_minute - talk.start_minute) / 5}`}>
+                         className={`lg:text-base bg-secondary-50 flex items-center justify-center text-center flex-col gap-1 my-2 mx-0.5 lg:my-0.5 px-2 py-4 ${EVENT_TRACK_LIST[talk.slot.room_id].class} lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${(talk.end_minute - talk.start_minute) / 5}`}>
                     <div className='font-bold'>{talk.title}</div>
                     <div className='flex lg:hidden flex-row gap-0.5 items-center text-xs'>
                       <MapPinIcon className='w-3 h-3'/>
