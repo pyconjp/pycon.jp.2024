@@ -18,3 +18,22 @@ export type LocaledSponsor = {
   logo_image: string;
   plan: 'platinum' | 'gold' | 'silver';
 }
+
+export type SpecialSponsor = {
+  name_ja: string;
+  name_en: string;
+  url_ja: string;
+  url_en: string;
+  title_ja: string;
+  title_en: string;
+  logo_image: string;
+  plan: 'psf' | 'advertising' | 'special';
+}
+
+export type LocaledSpecialSponsor = {
+  name: string;
+  url: string;
+  title: string;
+  logo_image: string;
+  plan: 'psf' | 'advertising' | 'special';
+}

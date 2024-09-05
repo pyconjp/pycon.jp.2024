@@ -8,6 +8,7 @@ import {Talk, Answer, OriginalSpeaker, OriginalTalk} from "../types/Talk";
 import {differenceInMinutes} from "date-fns";
 import {LEVEL_LIST, SLIDE_LANG_LIST, SPEAK_LANG_LIST} from "../const/timetable";
 import {Reviewer} from "../types/Organizer";
+import {SpecialSponsor} from "../types/Sponsors";
 
 // download files from Google Drive
 const auth = new google.auth.JWT(
@@ -47,6 +48,14 @@ const reviewers: Reviewer[] = await fetchSheet<Reviewer>(
 );
 fs.writeFileSync('./src/cache/reviewers.json', JSON.stringify(reviewers, null, 2));
 console.log(`${reviewers.length} reviewers fetched and written to ./src/cache/reviewers.json`);
+
+const specialSponsors: SpecialSponsor[] = await fetchSheet<SpecialSponsor>(
+  process.env.SPONSOR_SPREADSHEET_ID || '',
+  '特別スポンサー_Webサイト掲載用!A2:H51',
+  ['name_ja', 'name_en', 'url_ja', 'url_en', 'title_ja', 'title_en', 'logo_image', 'plan']
+);
+fs.writeFileSync('./src/cache/special_sponsors.json', JSON.stringify(specialSponsors, null, 2));
+console.log(`${specialSponsors.length} special sponsors fetched and written to ./src/cache/special_sponsors.json`);
 
 const drive: drive_v3.Drive = google.drive({version: 'v3', auth});
 

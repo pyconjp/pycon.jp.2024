@@ -1,5 +1,5 @@
 import 'server-only'
-import {LocaledSponsor, Sponsor} from "@/types/Sponsors";
+import {LocaledSpecialSponsor, LocaledSponsor, SpecialSponsor, Sponsor} from "@/types/Sponsors";
 import {getAccessToken} from "@/lib/google";
 
 export async function getSponsors(): Promise<Sponsor[]> {
@@ -69,3 +69,30 @@ export function getLocaledSponsors(sponsors: Sponsor[], lang: 'ja' | 'en'): Loca
     }
   });
 }
+
+export const getLocaledSpecialSponsors: (lang: 'ja' | 'en') => Promise<LocaledSpecialSponsor[]> = async (lang: 'ja' | 'en') => import('@/cache/special_sponsors.json')
+  .then((module) => module.default as SpecialSponsor[])
+  .then(
+    (specialSponsors: SpecialSponsor[]) => lang === 'ja' ? specialSponsors.map(
+      sponsor => (
+        {
+          name: sponsor.name_ja || sponsor.name_en,
+          url: sponsor.url_ja || sponsor.url_en,
+          title: sponsor.title_ja || sponsor.title_en,
+          logo_image: sponsor.logo_image,
+          plan: sponsor.plan
+        }
+      )
+    ) : specialSponsors.map(
+      sponsor => (
+        {
+          name: sponsor.name_en || sponsor.name_ja,
+          url: sponsor.url_en || sponsor.url_ja,
+          title: sponsor.title_en || sponsor.title_ja,
+          logo_image: sponsor.logo_image,
+          plan: sponsor.plan
+        }
+      )
+    )
+  )
+  .catch(() => []);

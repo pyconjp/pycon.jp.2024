@@ -2,11 +2,12 @@ import Link from "next/link";
 import {ArrowTopRightOnSquareIcon} from "@heroicons/react/20/solid";
 import ImageWithFallback from "@/components/elements/ImageWithFallback";
 
-export default async function SponsorCard({name, profile, logo_image, url}: {
+export default async function SponsorCard({name, profile, logo_image, url, title}: {
   name: string,
   url: string
   profile: string,
   logo_image: string,
+  title?: string,
 }) {
   return <div className='flex flex-col items-center lg:gap-4 gap-2'>
     <div className='relative bg-white w-full flex aspect-[2_/_1]'>
@@ -28,6 +29,9 @@ export default async function SponsorCard({name, profile, logo_image, url}: {
         <div className="underline">{name}</div>
         <ArrowTopRightOnSquareIcon className='ml-1 min-h-6 min-w-6 max-h-6 max-w-6'/>
       </Link>
+    </div>
+    <div className={'text-center ' + (title ? '' : 'hidden')}>
+      {title}
     </div>
     <p className='whitespace-pre-line'>
       {profile}
