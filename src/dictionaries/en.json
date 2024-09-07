@@ -86,5 +86,24 @@
       "title": "Day-care service for children",
       "description": "Child day care (ONLY for can speak Japanese) is available for elementary school or younger. \nFor details, please see the linked PDF."
     }
+  },
+  "venue": {
+    "heading": {
+      "location": "Location",
+      "address": "Address",
+      "access": "Access"
+    },
+    "venue": {
+      "conference": {
+        "location": "TOC Ariake Convention Hall",
+        "address": "3-5-7 Ariake, Koto-ku, Tokyo",
+        "access": "<Rinkai Line> Approx. 3 minutes' walk from Kokusai-Tenjijo Station\n<Yurikamome> Approx. 4 minutes' walk from Tokyo Big Sight Station or Ariake Station"
+      },
+      "sprint": {
+        "location": "HENNGE K.K.",
+        "address": "Daiwa Shibuya Square 4F 16-28 Nanpeidai-cho Shibuya-ku, Tokyo",
+        "access": "10 minutes' walk from Shibuya Station,"
+      }
+    }
   }
 }
