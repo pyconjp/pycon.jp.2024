@@ -41,7 +41,6 @@ export default async function NewsSection({lang}: { lang: 'ja' | 'en' }) {
 }
 
 function parseDate(dateString: string) {
-  console.log(dateString)
   const date = parseISO(dateString);
   return formatInTimeZone(date, 'Asia/Tokyo', 'yyyy.MM.dd');
 }
