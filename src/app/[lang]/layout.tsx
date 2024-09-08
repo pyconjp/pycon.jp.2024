@@ -34,7 +34,8 @@ export async function generateMetadata(
   const dictionary = await getDictionary(lang);
   return {
     title: {default: dictionary.metadata.title, template: `%s | ${dictionary.metadata.title}`},
-    description: dictionary.metadata.description
+    description: dictionary.metadata.description,
+    metadataBase: new URL(import.meta.url),
   };
 }
 
