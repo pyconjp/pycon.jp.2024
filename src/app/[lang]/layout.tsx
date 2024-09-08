@@ -3,6 +3,7 @@ import {Inter, Manrope, Montserrat, Noto_Sans_JP} from 'next/font/google'
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "@/app/globals.css";
+import {getDictionary} from "@/lib/dictionaries";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,10 +28,15 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
-export const metadata: Metadata = {
-  title: "PyCon JP 2024",
-  description: "PyCon JPは、Pythonユーザが集まり、PythonやPythonを使ったソフトウェアについて情報交換、交流をするためのカンファレンスです。",
-};
+export async function generateMetadata(
+  {params: {lang}}: { params: { lang: 'ja' | 'en' } },
+): Promise<Metadata> {
+  const dictionary = await getDictionary(lang);
+  return {
+    title: {default: dictionary.metadata.title, template: `%s | ${dictionary.metadata.title}`},
+    description: dictionary.metadata.description
+  };
+}
 
 export async function generateStaticParams() {
   return [{lang: 'ja'}, {lang: 'en'}]

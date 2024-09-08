@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "title": "PyCon JP 2024",
+    "description": "PyCon JP is a conference where Python users gather to exchange information and network about Python and software developed using Python."
+  },
   "hero": {
     "location": "TOC Ariake Convention Hall",
     "ticket": "Ticket Info"
