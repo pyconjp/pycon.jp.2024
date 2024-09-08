@@ -10,15 +10,15 @@ export default async function SponsorCard({name, profile, logo_image, url, title
   title?: string,
 }) {
   return <div className='flex flex-col items-center lg:gap-4 gap-2'>
-    <div className='relative bg-white w-full flex aspect-[2_/_1]'>
-      <div
-        className='w-1/6 h-1/4 top-0 left-0 border-solid border-4 border-t-secondary-500 border-l-secondary-500 border-r-0 border-b-0 absolute'/>
-      <div
-        className='w-1/6 h-1/4 top-0 right-0 border-solid border-4 border-t-secondary-500 border-r-secondary-500 border-l-0 border-b-0 absolute'/>
-      <div
-        className='w-1/6 h-1/4 bottom-0 left-0 border-solid border-4 border-b-secondary-500 border-l-secondary-500 border-r-0 border-t-0 absolute'/>
-      <div
-        className='w-1/6 h-1/4 bottom-0 right-0 border-solid border-4 border-b-secondary-500 border-r-secondary-500 border-l-0 border-t-0 absolute'/>
+    <div className='relative bg-white w-full aspect-[2_/_1]'>
+      {[
+        'top-0 left-0 border-t-4 border-l-4 border-secondary-500',
+        'top-0 right-0 border-t-4 border-r-4 border-secondary-500',
+        'bottom-0 left-0 border-b-4 border-l-4 border-secondary-500',
+        'bottom-0 right-0 border-b-4 border-r-4 border-secondary-500',
+      ].map(
+        (className, index) => <div key={index} className={'w-1/6 h-1/4 border-solid absolute ' + className}/>
+      )}
       <ImageWithFallback src={logo_image ? `/sponsors/${logo_image}` : '/no_image_sponsor.jpg'}
                          fallback={'/no_image_sponsor.jpg'} alt={name} width={400} height={400}
                          className='mx-auto my-auto object-contain h-full w-full inset-0 absolute p-5'/>
