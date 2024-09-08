@@ -109,4 +109,9 @@ export type Category = {
   4688: string,
 }
 
-
+export type Poster = {
+  code: string,
+  speakers: Speaker[],
+  title: string,
+  abstract: string,
+}

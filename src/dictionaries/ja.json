@@ -16,6 +16,7 @@
     "coc": "行動規範",
     "timetable": "タイムテーブル",
     "sprint": "スプリント",
+    "posters": "ポスターセッション",
     "sponsor_list": "スポンサー一覧",
     "organizer_list": "主催メンバー一覧",
     "coming_soon": "(準備中)"
@@ -86,5 +87,9 @@
       "title": "託児サービス",
       "description": "小学生以下のお子様を対象に託児所を設置します。\n詳しくはリンク先のPDFをご覧ください。"
     }
+  },
+  "posters": {
+    "general": "一般",
+    "community": "コミュニティ"
   }
 }
