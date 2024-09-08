@@ -35,7 +35,7 @@ export async function generateMetadata(
   return {
     title: {default: dictionary.metadata.title, template: `%s | ${dictionary.metadata.title}`},
     description: dictionary.metadata.description,
-    metadataBase: new URL(import.meta.url),
+    metadataBase: new URL('https://2024.pycon.jp'),
   };
 }
 
