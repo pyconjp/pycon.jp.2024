@@ -24,6 +24,7 @@ export const menu: Menu[] = [
     children: [
       {title: "timetable", url: "/timetable", isComingSoon: false},
       {title: "sprint", url: "/sprint", isComingSoon: false, isExternal: true},
+      {title: "posters", url: "/posters", isComingSoon: false},
     ],
   },
   {
