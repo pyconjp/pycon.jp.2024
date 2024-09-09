@@ -5,8 +5,14 @@ import {getTalk, getTalks} from "@/lib/timetable";
 import {Talk} from "@/types/Talk";
 import {redirect} from "next/navigation";
 import TimetableModalSection from "@/components/sections/TimetableModalSection";
+import {Metadata} from "next";
 
 export const runtime = 'edge';
+
+export async function generateMetadata({params: {code}}: { params: { code: Talk['code'] } },): Promise<Metadata> {
+  const talk = await getTalk(code);
+  return {title: talk?.title};
+}
 
 export async function generateStaticParams() {
   const talks1 = await getTalks('day1');
