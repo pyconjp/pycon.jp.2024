@@ -120,5 +120,8 @@
   "posters": {
     "general": "一般",
     "community": "コミュニティ"
+  },
+  "sprint": {
+    "themes": "応募されたテーマ一覧"
   }
 }

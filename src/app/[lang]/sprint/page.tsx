@@ -23,6 +23,6 @@ export default async function Sprint({params: {lang}}: { params: { lang: 'ja' | 
     <PageTitle title={'Sprint'} subTitle={dictionary.menu.sprint}/>
     <AnnounceSection announce={sprintAnnounce} lang={lang}/>
     <SprintVenueSection lang={lang}/>
-    <SprintSection/>
+    <SprintSection lang={lang}/>
   </main>
 }

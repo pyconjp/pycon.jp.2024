@@ -120,5 +120,8 @@
   "posters": {
     "general": "General",
     "community": "Community"
+  },
+  "sprint": {
+    "themes": "List of Submitted Themes"
   }
 }
