@@ -11,7 +11,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     {
-      raw: `${colStart} ${rowStart} ${rowSpan} lg:col-span-1 lg:col-span-2 lg:col-span-4 lg:col-start-2 py-auto`,
+      raw: `${colStart} ${rowStart} ${rowSpan} lg:col-span-1 lg:col-span-2 lg:col-span-3 lg:col-span-4 lg:col-start-2 py-auto`,
     },
   ],
   theme: {
