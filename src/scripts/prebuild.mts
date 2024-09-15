@@ -4,7 +4,7 @@ import {
 } from 'googleapis';
 import * as fs from "node:fs";
 import axios from "axios";
-import {Talk, Answer, OriginalSpeaker, OriginalTalk} from "../types/Talk";
+import {Talk, Answer, OriginalSpeaker, OriginalTalk, Poster} from "../types/Talk";
 import {differenceInMinutes} from "date-fns";
 import {LEVEL_LIST, SLIDE_LANG_LIST, SPEAK_LANG_LIST} from "../const/timetable";
 import {Reviewer} from "../types/Organizer";
@@ -215,10 +215,58 @@ console.log(`${talks.length} talks fetched and written to ./src/cache/talks.json
 
 talks.forEach(talk => {
   fs.writeFileSync(`./src/cache/talks/abstract_${talk.code}.mdx`, talk.abstract);
+  console.log(`Talk ${talk.code} written to ./src/cache/talks/abstract_${talk.code}.mdx`);
   fs.writeFileSync(`./src/cache/talks/description_${talk.code}.mdx`, talk.description);
+  console.log(`Talk ${talk.code} written to ./src/cache/talks/description_${talk.code}.mdx`);
   talk.speakers.forEach(speaker => {
     fs.writeFileSync(`./src/cache/speakers/biography_${speaker.code}.mdx`, speaker.biography || '');
+    console.log(`Speaker ${speaker.code} written to ./src/cache/speakers/biography_${speaker.code}.mdx`);
   });
-  console.log(`Talk ${talk.code} and speakers written to ./src/cache/talks/abstract_${talk.code}.mdx, ./src/cache/talks/description_${talk.code}.mdx, and ${talk.speakers.map(speaker => `./src/cache/speakers/biography_${speaker.code}.mdx`).join(', ')}`);
 })
 console.log('All talks and speakers written to cache');
+
+const fetchPosters: (submissionTypeId: number) => Promise<Poster[]> = async submissionTypeId => axios.get(
+  `https://pretalx.com/api/events/pyconjp2024/submissions/`,
+  {
+    params: {
+      limit: 100,
+      submission_type: submissionTypeId, // pretalxのドキュメントと異なる
+      state: 'confirmed',
+    },
+    headers: {
+      Authorization: `Token ${process.env.PRETALX_AUTH_KEY}`,
+    },
+  },
+).then(
+  response => response.data.results
+).then(
+  // pretalxのドキュメント通りの挙動になった場合に備えるため
+  (talks: OriginalTalk[]) => talks.filter(talk => talk.submission_type_id === submissionTypeId)
+).then((talks: OriginalTalk[]) => talks.map(talk => ({
+    code: talk.code,
+    speakers: talk.speakers.map((speaker: OriginalSpeaker) => ({
+      code: speaker.code,
+      name: speaker.name,
+      biography: speaker.biography,
+      avatar: speaker.avatar,
+    })),
+    title: talk.title,
+    abstract: talk.abstract,
+  }))
+)
+
+const writeAbstracts = async (posters: Poster[]) => {
+  posters.forEach(poster => {
+    fs.writeFileSync(`./src/cache/posters/abstract_${poster.code}.mdx`, poster.abstract);
+    console.log(`Poster ${poster.code} written to ./src/cache/posters/abstract_${poster.code}.mdx`);
+  });
+}
+
+const general = await fetchPosters(4331);
+const community = await fetchPosters(4366);
+
+fs.writeFileSync('./src/cache/posters.json', JSON.stringify({general, community}, null, 2));
+console.log(`${general.length} general posters and ${community.length} community posters fetched and written to ./src/cache/posters.json`);
+
+await writeAbstracts(general);
+await writeAbstracts(community);

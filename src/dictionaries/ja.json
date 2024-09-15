@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "title": "PyCon JP 2024",
+    "description": "PyCon JPは、Pythonユーザが集まり、PythonやPythonを使ったソフトウェアについて情報交換、交流をするためのカンファレンスです。"
+  },
   "hero": {
     "location": "TOC有明コンベンションホール",
     "ticket": "チケット案内"
@@ -16,6 +20,7 @@
     "coc": "行動規範",
     "timetable": "タイムテーブル",
     "sprint": "スプリント",
+    "posters": "ポスターセッション",
     "sponsor_list": "スポンサー一覧",
     "organizer_list": "主催メンバー一覧",
     "coming_soon": "(準備中)"
@@ -111,5 +116,9 @@
         "access": "渋谷駅より徒歩約10分"
       }
     }
+  },
+  "posters": {
+    "general": "一般",
+    "community": "コミュニティ"
   }
 }

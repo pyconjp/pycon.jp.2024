@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "title": "PyCon JP 2024",
+    "description": "PyCon JP is a conference where Python users gather to exchange information and network about Python and software developed using Python."
+  },
   "hero": {
     "location": "TOC Ariake Convention Hall",
     "ticket": "Ticket Info"
@@ -16,6 +20,7 @@
     "coc": "Code of Conduct",
     "timetable": "Timetable",
     "sprint": "Sprint",
+    "posters": "Poster Session",
     "sponsor_list": "Sponsor List",
     "organizer_list": "Organizing Member List",
     "coming_soon": "(Coming Soon)"
@@ -111,5 +116,9 @@
         "access": "10 minutes' walk from Shibuya Station,"
       }
     }
+  },
+  "posters": {
+    "general": "General",
+    "community": "Community"
   }
 }

@@ -1,6 +1,6 @@
 import {getDictionary} from "@/lib/dictionaries";
 import PageTitle from "@/components/elements/PageTitle";
-import SponsorPageSponsorSection from "@/components/sections/SponsorPageSponsorSection";
+import PosterSection from "@/components/sections/PosterSection";
 import {Metadata} from "next";
 
 export const runtime = 'edge';
@@ -10,14 +10,14 @@ export async function generateMetadata(
   {params: {lang}}: { params: { lang: 'ja' | 'en' } },
 ): Promise<Metadata> {
   const dictionary = await getDictionary(lang)
-  return {title: dictionary.menu.sponsor};
+  return {title: dictionary.menu.posters};
 }
 
-export default async function Sponsors({params: {lang}}: { params: { lang: 'ja' | 'en' } }) {
+export default async function Posters({params: {lang}}: { params: { lang: 'ja' | 'en' } }) {
   const dictionary = await getDictionary(lang);
 
   return <main>
-    <PageTitle title={'Sponsors'} subTitle={dictionary.menu.sponsor_list}/>
-    <SponsorPageSponsorSection lang={lang}/>
+    <PageTitle title={'Poster Session'} subTitle={dictionary.menu.posters}/>
+    <PosterSection lang={lang}/>
   </main>;
 }
