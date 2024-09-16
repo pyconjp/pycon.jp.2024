@@ -1,6 +1,7 @@
 import {getDictionary} from "@/lib/dictionaries";
 import {getLocaledSpecialSponsors, getLocaledSponsors, getSponsors} from "@/lib/sponsors";
 import SponsorList from "@/components/elements/SponsorList";
+import {patrons} from "@/data/patrons";
 
 export default async function SponsorPageSponsorSection({lang}: { lang: 'ja' | 'en' }) {
   const dictionary = await getDictionary(lang)
@@ -15,7 +16,8 @@ export default async function SponsorPageSponsorSection({lang}: { lang: 'ja' | '
       silver: dictionary.sponsor.subtitle_silver,
       psf: dictionary.sponsor.subtitle_psf,
       advertising: dictionary.sponsor.subtitle_advertising,
+      patron: dictionary.sponsor.subtitle_patron,
       special: dictionary.sponsor.subtitle_special,
-    }} localedSponsors={localedSponsors} localedSpecialSponsors={localedSpecialSponsors}/>
+    }} localedSponsors={localedSponsors} localedSpecialSponsors={localedSpecialSponsors} patrons={patrons}/>
   </section>
 }
