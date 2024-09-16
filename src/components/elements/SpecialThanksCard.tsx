@@ -29,7 +29,7 @@ export function SpecialThanksCard({specialThanks}: { specialThanks: SpecialThank
           </div>
           <div>
             <Link href={specialThanks.url} target='_blank' rel="noopener noreferrer"
-                  className='hover:opacity-80 text-primary-500 inline-flex items-center flex-row underline'>
+                  className={'hover:opacity-80 text-primary-500 inline-flex items-center flex-row underline' + (specialThanks.url ? '' : ' hidden')}>
               <div>プロフィールページ</div>
               <ArrowTopRightOnSquareIcon className='ml-1 min-h-5 min-w-5 max-h-5 max-w-5'/>
             </Link>
