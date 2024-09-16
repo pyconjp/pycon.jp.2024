@@ -97,6 +97,8 @@
     }
   },
   "venue": {
+    "map": "会場見取り図",
+    "access": "会場アクセス",
     "heading": {
       "location": "会場",
       "address": "所在地",
