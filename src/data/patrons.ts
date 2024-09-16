@@ -3,7 +3,7 @@ import {Patron} from "@/types/Sponsors";
 export const patrons: Patron[] = [
   {
     name: "Hayao Suzuki",
-    image: "Hayao Suzuki.png",
+    image: "Hayao_Suzuki.png",
   },
   {
     name: "rokujyouhitoma",
