@@ -4,6 +4,7 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 const rowStart = Array(121).fill(0).map((_, i) => `lg:row-start-[${i + 1}]`).join(' ');
 const colStart = Array(6).fill(0).map((_, i) => `lg:col-start-[${i + 1}]`).join(' ');
 const rowSpan = Array(12).fill(0).map((_, i) => `lg:row-span-${i + 1}`).join(' ');
+const colSpan = Array(4).fill(0).map((_, i) => `lg:col-span-${i + 1}`).join(' ');
 
 const config: Config = {
   content: [
@@ -11,7 +12,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     {
-      raw: `${colStart} ${rowStart} ${rowSpan} lg:col-span-1 lg:col-span-2 lg:col-span-4 lg:col-start-2 py-auto`,
+      raw: `${colStart} ${rowStart} ${rowSpan} ${colSpan}`,
     },
   ],
   theme: {
