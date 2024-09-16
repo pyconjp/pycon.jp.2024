@@ -9,6 +9,7 @@ import {differenceInMinutes} from "date-fns";
 import {LEVEL_LIST, SLIDE_LANG_LIST, SPEAK_LANG_LIST} from "../const/timetable";
 import {Reviewer} from "../types/Organizer";
 import {SpecialSponsor} from "../types/Sponsors";
+import {Sprint} from "../types/Sprint";
 
 // download files from Google Drive
 const auth = new google.auth.JWT(
@@ -56,6 +57,14 @@ const specialSponsors: SpecialSponsor[] = await fetchSheet<SpecialSponsor>(
 );
 fs.writeFileSync('./src/cache/special_sponsors.json', JSON.stringify(specialSponsors, null, 2));
 console.log(`${specialSponsors.length} special sponsors fetched and written to ./src/cache/special_sponsors.json`);
+
+const sprints: Sprint[] = await fetchSheet<Sprint>(
+  process.env.SPRINT_SPREADSHEET_ID || '',
+  'シート1!B2:C51',
+  ['leader', 'description']
+);
+fs.writeFileSync('./src/cache/sprints.json', JSON.stringify(sprints, null, 2));
+console.log(`${sprints.length} sprints fetched and written to ./src/cache/sprints.json`);
 
 const drive: drive_v3.Drive = google.drive({version: 'v3', auth});
 
