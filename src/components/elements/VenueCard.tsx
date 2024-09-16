@@ -9,7 +9,7 @@ export default function VenueCard({type, heading, venue}: {
 }) {
   const keys = ['location', 'address', 'access'] as const;
 
-  return <div className='relative bg-white lg:w-10/12 w-11/12 mx-auto mt-16'>
+  return <div className='relative bg-white mt-16'>
     {[
       'top-0 left-0 border-t-4 border-l-4 border-secondary-500',
       'top-0 right-0 border-t-4 border-r-4 border-secondary-500',

@@ -97,6 +97,8 @@
     }
   },
   "venue": {
+    "map": "Venue Layout",
+    "access": "Venue Access",
     "heading": {
       "location": "Location",
       "address": "Address",
