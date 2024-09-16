@@ -1,7 +1,7 @@
 import {Category, ConferenceEvent, Talk} from "@/types/Talk";
 import {addMinutes, parseISO} from "date-fns";
 import Link from "next/link";
-import {ClockIcon, TagIcon, MapPinIcon} from "@heroicons/react/16/solid";
+import {ClockIcon, MapPinIcon, TagIcon} from "@heroicons/react/16/solid";
 import {EVENT_START_DATETIME, EVENT_TRACK_LIST, SPEAK_LANG_LIST, TRACK_LIST} from "@/const/timetable";
 import {formatInTimeZone} from "date-fns-tz";
 
@@ -12,17 +12,16 @@ export default async function TimetableBody({lang, date, talks, events, categori
   events: ConferenceEvent[],
   categories: Category,
 }) {
-  const floor20 = talks.filter(talk => [3086, 3418].includes(talk.slot.room_id));
-  const floor4 = talks.filter(talk => [3419, 3420].includes(talk.slot.room_id));
+  const floor20 = [...talks, ...events].filter(talk => [3086, 3418, 1, 2].includes(talk.slot.room_id));
+  const floor4 = [...talks, ...events].filter(talk => [3419, 3420, 1].includes(talk.slot.room_id));
 
-  const floor20StartMinutes = [...new Set([...floor20, ...events].filter(talk => !talk.hide_start).map(talk => talk.start_minute))];
-  const floor4StartMinutes = [...new Set([...floor4, ...events].filter(talk => !talk.hide_start).map(talk => talk.start_minute))];
-
-  const floor20EndMinutes = [...new Set([...floor20, ...events].filter(talk => !talk.hide_end).map(talk => talk.end_minute))];
-  const floor4EndMinutes = [...new Set([...floor4, ...events].filter(talk => !talk.hide_end).map(talk => talk.end_minute))];
+  const floor20StartMinutes = [...new Set(floor20.filter(talk => !talk.hide_start).map(talk => talk.start_minute))];
+  const floor4StartMinutes = [...new Set(floor4.filter(talk => !talk.hide_start).map(talk => talk.start_minute))];
+  const floor20EndMinutes = [...new Set(floor20.filter(talk => !talk.hide_end).map(talk => talk.end_minute))];
+  const floor4EndMinutes = [...new Set(floor4.filter(talk => !talk.hide_end).map(talk => talk.end_minute))];
 
   const gridRow = {
-    day1: 'lg:grid-rows-[40px_repeat(18,_10px)_repeat(6,_60px)_repeat(12,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(8,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(3,_60px)_repeat(1,_10px)_repeat(3,_60px)_repeat(9,_10px)_repeat(2,_20px)_repeat(16,_10px)]',
+    day1: 'lg:grid-rows-[40px_repeat(18,_10px)_repeat(6,_60px)_repeat(12,_15px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(8,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(3,_60px)_repeat(1,_10px)_repeat(3,_60px)_repeat(9,_10px)_repeat(2,_20px)_repeat(16,_10px)]',
     day2: 'lg:grid-rows-[40px_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(12,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(8,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(2,_10px)_repeat(3,_60px)_repeat(3,_10px)_repeat(18,_10px)]',
   };
 
