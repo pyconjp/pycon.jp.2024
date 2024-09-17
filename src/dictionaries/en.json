@@ -23,6 +23,7 @@
     "posters": "Poster Session",
     "sponsor_list": "Sponsor List",
     "organizer_list": "Organizing Member List",
+    "special_thanks": "Special Thanks",
     "coming_soon": "(Coming Soon)"
   },
   "overview": {
@@ -125,5 +126,8 @@
   },
   "sprint": {
     "themes": "List of Submitted Themes"
+  },
+  "special_thanks": {
+    "description": "These are the contributors to PyCon JP 2024."
   }
 }
