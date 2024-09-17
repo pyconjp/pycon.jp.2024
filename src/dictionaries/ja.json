@@ -23,6 +23,7 @@
     "posters": "ポスターセッション",
     "sponsor_list": "スポンサー一覧",
     "organizer_list": "主催メンバー一覧",
+    "special_thanks": "スペシャルサンクス",
     "coming_soon": "(準備中)"
   },
   "overview": {
@@ -54,7 +55,8 @@
     "subtitle_silver": "シルバースポンサー",
     "subtitle_advertising": "広告スポンサー",
     "subtitle_psf": "PSF",
-    "subtitle_special": "特別スポンサー"
+    "subtitle_special": "特別スポンサー",
+    "subtitle_patron": "パトロン"
   },
   "footer": {
     "contact_us": "お問い合わせ",
@@ -125,5 +127,8 @@
   },
   "sprint": {
     "themes": "応募されたテーマ一覧"
+  },
+  "special_thanks": {
+    "description": "PyCon JP 2024の開催に貢献してくださった方々です。"
   }
 }

@@ -23,6 +23,7 @@
     "posters": "Poster Session",
     "sponsor_list": "Sponsor List",
     "organizer_list": "Organizing Member List",
+    "special_thanks": "Special Thanks",
     "coming_soon": "(Coming Soon)"
   },
   "overview": {
@@ -54,7 +55,8 @@
     "subtitle_silver": "Silver Sponsors",
     "subtitle_advertising": "Advertising Sponsors",
     "subtitle_psf": "PSF",
-    "subtitle_special": "Special Sponsors"
+    "subtitle_special": "Special Sponsors",
+    "subtitle_patron": "Patrons"
   },
   "footer": {
     "contact_us": "Contact Us",
@@ -125,5 +127,8 @@
   },
   "sprint": {
     "themes": "List of Submitted Themes"
+  },
+  "special_thanks": {
+    "description": "These are the contributors to PyCon JP 2024."
   }
 }
