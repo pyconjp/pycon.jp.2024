@@ -1,4 +1,4 @@
-import {XMarkIcon} from "@heroicons/react/20/solid";
+import {ArrowTopRightOnSquareIcon, XMarkIcon} from "@heroicons/react/20/solid";
 import Link from "next/link";
 import {Talk} from "@/types/Talk";
 import {CalendarIcon, MapPinIcon} from "@heroicons/react/16/solid";
@@ -48,9 +48,6 @@ export default async function TimetableModalSection({lang, talk}: { lang: 'ja' |
           className='border-l-2 border-l-primary pl-4 prose prose-pre:bg-primary-50 prose-pre:rounded-none prose-pre:text-black max-w-full prose-li:marker:text-primary-500'>
           <Abstract/>
         </div>
-        <div>
-          {/* TODO 動画とスライドのリンク */}
-        </div>
         <hr className='border-t-2 border-secondary'/>
         <div className={'flex flex-col gap-8' + (talk.description ? '' : ' hidden')}>
           <div className='flex flex-row gap-4 items-center'>
@@ -60,6 +57,17 @@ export default async function TimetableModalSection({lang, talk}: { lang: 'ja' |
           <div
             className='prose prose-pre:bg-primary-50 prose-pre:rounded-none prose-pre:text-black max-w-full prose-li:marker:text-primary-500'>
             <Description/>
+            <div className='flex gap-4'>
+              {
+                talk.resources.map((resource, index) => <Link key={index} href={resource.resource}
+                                                              className='inline-flex gap-1 text-primary-500 items-center underline hover:opacity-80 w-auto'
+                                                              target='_blank' rel='noopener noreferrer'>
+                    <ArrowTopRightOnSquareIcon className='h-6 w-6'/>
+                    <div>{resource.description}</div>
+                  </Link>
+                )
+              }
+            </div>
           </div>
           <hr className='border-t-2 border-secondary'/>
         </div>
