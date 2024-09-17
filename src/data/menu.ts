@@ -14,6 +14,7 @@ export const menu: Menu[] = [
       {title: "timetable", url: "/timetable", isComingSoon: false},
       {title: "sprint", url: "/sprint", isComingSoon: false},
       {title: "posters", url: "/posters", isComingSoon: false},
+      {title: "contents", url: "/contents", isComingSoon: false},
     ],
   },
   {

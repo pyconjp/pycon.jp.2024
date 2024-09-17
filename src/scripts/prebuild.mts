@@ -8,6 +8,7 @@ import {Reviewer} from "../types/Organizer";
 import {SpecialSponsor} from "../types/Sponsors";
 import {Sprint} from "../types/Sprint";
 import {SpecialThanks} from "../types/SpecialThanks";
+import {Content} from "../types/Contents";
 
 // download files from Google Drive
 const auth = new google.auth.JWT(
@@ -72,6 +73,14 @@ const specialThanks: SpecialThanks[] = await fetchSheet<SpecialThanks>(
 fs.writeFileSync('./src/cache/special_thanks.json', JSON.stringify(specialThanks, null, 2));
 console.log(`${specialThanks.length} special thanks fetched and written to ./src/cache/special_thanks.json`);
 
+const contents: Content[] = await fetchSheet<Content>(
+  process.env.CONTENTS_SPREADSHEET_ID || '',
+  'シート1!A2:F51',
+  ['title_ja', 'title_en', 'description_ja', 'description_en', 'url', 'image']
+);
+fs.writeFileSync('./src/cache/contents.json', JSON.stringify(contents, null, 2));
+console.log(`${contents.length} contents fetched and written to ./src/cache/contents.json`);
+
 const drive: drive_v3.Drive = google.drive({version: 'v3', auth});
 
 const download = async (folderId: string, pathPrefix: string) => {
@@ -121,6 +130,7 @@ const download = async (folderId: string, pathPrefix: string) => {
 await download(process.env.ORGANIZER_FOLDER_ID || '', './public/organizers/');
 await download(process.env.SPONSOR_FOLDER_ID || '', './public/sponsors/');
 await download(process.env.SPECIAL_THANKS_FOLDER_ID || '', './public/special-thanks/');
+await download(process.env.CONTENTS_FOLDER_ID || '', './public/contents/');
 
 // fetch pretalx talks
 const fetchAnswers: <T>(question: number) => Promise<Answer<T>[]> = async question => axios.get(

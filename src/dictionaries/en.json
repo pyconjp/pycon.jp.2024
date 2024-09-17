@@ -14,7 +14,7 @@
     "about": "About",
     "events": "Events",
     "sponsor": "Sponsors",
-    "contents": "Contents",
+    "contents": "Contents of the Day",
     "organizer": "Organizers",
     "venue": "Venue Information",
     "coc": "Code of Conduct",
@@ -130,5 +130,8 @@
   },
   "special_thanks": {
     "description": "These are the contributors to PyCon JP 2024."
+  },
+  "contents": {
+    "see_more": "For more information..."
   }
 }
