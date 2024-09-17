@@ -37,3 +37,8 @@ export type LocaledSpecialSponsor = {
   logo_image: string;
   plan: 'psf' | 'advertising' | 'special';
 }
+
+export type Patron = {
+  name: string;
+  image: string;
+}
