@@ -1,16 +1,16 @@
-import {announce} from "@/data/announce";
 import {MegaphoneIcon} from "@heroicons/react/20/solid";
 import Link from "next/link";
 import {getDictionary} from "@/lib/dictionaries";
+import {Announce} from "@/types/Announce";
 
-export default async function AnnounceSection({lang}: { lang: 'ja' | 'en' }) {
+export default async function AnnounceSection({announce, lang}: { announce: Announce[], lang: 'ja' | 'en' }) {
   const dictionary = await getDictionary(lang);
 
   return (
     <section className='mt-20'>
       <div className="lg:w-8/12 w-11/12 mx-auto flex flex-col gap-6">
         {announce.map(({name, url}, index) => (
-          <Link key={index} href={url} rel='noopener noreferrer' target='_blank'>
+          <Link key={index} href={url} rel='noopener noreferrer' target='_blank' className='hover:opacity-80'>
             <div
               className="flex gap-6 bg-primary-500 text-white rounded-tr-[3rem] rounded-bl-[3rem] items-center py-4 lg:px-12 px-8 relative after:bg-secondary after:absolute after:w-full after:h-full after:-z-10 after:left-0 after:top-2.5 after:rounded-tr-[3rem] after:rounded-bl-[3rem]">
               <MegaphoneIcon className="min-h-6 min-w-6 max-h-6 max-w-6 hidden lg:block"/>

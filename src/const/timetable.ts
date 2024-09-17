@@ -6,16 +6,17 @@ export const EVENT_START_DATETIME = {
 }
 
 export const TRACK_LIST: { [k: Talk['slot']['room_id']]: { name: string, class: string } } = {
-  3086: {name: '20F Track1', class: 'lg:col-start-[2] lg:col-span-1'},
-  3418: {name: '20F Track2', class: 'lg:col-start-[3] lg:col-span-1'},
-  3419: {name: '4F Track3', class: 'lg:col-start-[4] lg:col-span-1'},
-  3420: {name: '4F Track4', class: 'lg:col-start-[5] lg:col-span-1'},
+  3086: {name: '20F #pyconjp_1', class: 'lg:col-start-[2] lg:col-span-1'},
+  3418: {name: '20F #pyconjp_2', class: 'lg:col-start-[3] lg:col-span-1'},
+  3419: {name: '4F #pyconjp_3', class: 'lg:col-start-[4] lg:col-span-1'},
+  3420: {name: '4F #pyconjp_4', class: 'lg:col-start-[5] lg:col-span-1'},
 }
 
 export const EVENT_TRACK_LIST: { [k: ConferenceEvent['slot']['room_id']]: { name: string, class: string } } = ({
   ...TRACK_LIST,
   1: {name: '20F, 4F Track 1~4', class: 'lg:col-start-[2] lg:col-span-4'},
   2: {name: '20F Track 1~2', class: 'lg:col-start-[2] lg:col-span-2'},
+  3: {name: '20F, 4F Track 3~4', class: 'lg:col-start-[3] lg:col-span-3'}
 })
 
 export const LEVEL_LIST: { [k: Exclude<Talk['question_answers']['level'], undefined>]: string } = {

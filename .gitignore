@@ -37,14 +37,11 @@ next-env.d.ts
 
 .idea
 
-!/public/organizers/chairs/*
-!/public/organizers/.gitkeep
-!/public/sponsors/.gitkeep
-!/src/cache/.gitkeep
-!/src/cache/talks/.gitkeep
-!/src/cache/speakers/.gitkeep
-!/src/cache/posters/.gitkeep
-
 /public/sponsors/*
 /public/organizers/*
-/src/cache/*
+/public/special-thanks/*
+/src/cache/**
+
+!/public/organizers/chairs/*
+!/public/**/.gitkeep
+!/src/cache/**/.gitkeep

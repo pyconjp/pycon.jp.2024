@@ -23,6 +23,7 @@
     "posters": "ポスターセッション",
     "sponsor_list": "スポンサー一覧",
     "organizer_list": "主催メンバー一覧",
+    "special_thanks": "スペシャルサンクス",
     "coming_soon": "(準備中)"
   },
   "overview": {
@@ -54,7 +55,8 @@
     "subtitle_silver": "シルバースポンサー",
     "subtitle_advertising": "広告スポンサー",
     "subtitle_psf": "PSF",
-    "subtitle_special": "特別スポンサー"
+    "subtitle_special": "特別スポンサー",
+    "subtitle_patron": "パトロン"
   },
   "footer": {
     "contact_us": "お問い合わせ",
@@ -90,10 +92,43 @@
     "nursery": {
       "title": "託児サービス",
       "description": "小学生以下のお子様を対象に託児所を設置します。\n詳しくはリンク先のPDFをご覧ください。"
+    },
+    "sprint": {
+      "title": "スプリント参加チケット",
+      "description": "スプリント参加には、カンファレンスとは別のチケットが必要です。\n詳しくはリンク先のconnpassイベントページをご覧ください。"
+    }
+  },
+  "venue": {
+    "map": "会場見取り図",
+    "access": "会場アクセス",
+    "heading": {
+      "location": "会場",
+      "address": "所在地",
+      "access": "アクセス"
+    },
+    "venue": {
+      "conference": {
+        "date": "2024.9.27(Fri) - 2024.9.28(Sat)",
+        "location": "TOC有明コンベンションホール",
+        "address": "東京都江東区有明3丁目5番7号",
+        "access": "<りんかい線> 国際展示場駅より徒歩3分\n<ゆりかもめ> 東京ビッグサイト駅/有明駅より徒歩4分"
+      },
+      "sprint": {
+        "date": "2024.9.29(Sun)",
+        "location": "HENNGE株式会社",
+        "address": "東京都渋谷区南平台町16番28号 Daiwa渋谷スクエア 4F",
+        "access": "渋谷駅より徒歩約10分"
+      }
     }
   },
   "posters": {
     "general": "一般",
     "community": "コミュニティ"
+  },
+  "sprint": {
+    "themes": "応募されたテーマ一覧"
+  },
+  "special_thanks": {
+    "description": "PyCon JP 2024の開催に貢献してくださった方々です。"
   }
 }

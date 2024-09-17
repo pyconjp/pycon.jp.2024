@@ -1,0 +1,4 @@
+export const googleMapUrl = {
+  conference: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6485.625372822181!2d139.788521!3d35.632344!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x29ed0c04cca72dd5!2zVE9D5pyJ5piO44Kz44Oz44OZ44Oz44K344On44Oz44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1665392924080!5m2!1sja!2sjp",
+  sprint: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.8970004904604!2d139.69235317636083!3d35.65490923141856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b544a131f47%3A0x79fae83a91d05ad8!2sHENNGE!5e0!3m2!1sja!2sjp!4v1696242228315!5m2!1sja!2sj",
+}

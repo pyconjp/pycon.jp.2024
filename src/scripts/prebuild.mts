@@ -1,14 +1,13 @@
-import {
-  google,
-  drive_v3,
-} from 'googleapis';
+import {drive_v3, google,} from 'googleapis';
 import * as fs from "node:fs";
 import axios from "axios";
-import {Talk, Answer, OriginalSpeaker, OriginalTalk, Poster} from "../types/Talk";
+import {Answer, OriginalSpeaker, OriginalTalk, Poster, Talk} from "../types/Talk";
 import {differenceInMinutes} from "date-fns";
 import {LEVEL_LIST, SLIDE_LANG_LIST, SPEAK_LANG_LIST} from "../const/timetable";
 import {Reviewer} from "../types/Organizer";
 import {SpecialSponsor} from "../types/Sponsors";
+import {Sprint} from "../types/Sprint";
+import {SpecialThanks} from "../types/SpecialThanks";
 
 // download files from Google Drive
 const auth = new google.auth.JWT(
@@ -56,6 +55,22 @@ const specialSponsors: SpecialSponsor[] = await fetchSheet<SpecialSponsor>(
 );
 fs.writeFileSync('./src/cache/special_sponsors.json', JSON.stringify(specialSponsors, null, 2));
 console.log(`${specialSponsors.length} special sponsors fetched and written to ./src/cache/special_sponsors.json`);
+
+const sprints: Sprint[] = await fetchSheet<Sprint>(
+  process.env.SPRINT_SPREADSHEET_ID || '',
+  'シート1!B2:C51',
+  ['leader', 'description']
+);
+fs.writeFileSync('./src/cache/sprints.json', JSON.stringify(sprints, null, 2));
+console.log(`${sprints.length} sprints fetched and written to ./src/cache/sprints.json`);
+
+const specialThanks: SpecialThanks[] = await fetchSheet<SpecialThanks>(
+  process.env.SPECIAL_THANKS_SPREADSHEET_ID || '',
+  'シート1!A2:E51',
+  ['name', 'title', 'url', 'image', 'contribution']
+);
+fs.writeFileSync('./src/cache/special_thanks.json', JSON.stringify(specialThanks, null, 2));
+console.log(`${specialThanks.length} special thanks fetched and written to ./src/cache/special_thanks.json`);
 
 const drive: drive_v3.Drive = google.drive({version: 'v3', auth});
 
@@ -105,6 +120,7 @@ const download = async (folderId: string, pathPrefix: string) => {
 
 await download(process.env.ORGANIZER_FOLDER_ID || '', './public/organizers/');
 await download(process.env.SPONSOR_FOLDER_ID || '', './public/sponsors/');
+await download(process.env.SPECIAL_THANKS_FOLDER_ID || '', './public/special-thanks/');
 
 // fetch pretalx talks
 const fetchAnswers: <T>(question: number) => Promise<Answer<T>[]> = async question => axios.get(
