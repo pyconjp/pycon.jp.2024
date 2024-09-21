@@ -9,6 +9,8 @@ export type Sponsor = {
   job_board_en: string;
   logo_image: string;
   plan: 'platinum' | 'gold' | 'silver';
+  job_board_url_ja: string;
+  job_board_url_en: string;
 }
 
 export type LocaledSponsor = {
@@ -16,6 +18,7 @@ export type LocaledSponsor = {
   url: string;
   profile: string;
   job_board: string;
+  job_board_url: string;
   logo_image: string;
   plan: 'platinum' | 'gold' | 'silver';
 }

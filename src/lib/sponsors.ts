@@ -13,7 +13,7 @@ export async function getSponsors(): Promise<Sponsor[]> {
     const {access_token} = await getAccessToken();
 
     const sheetsResponse = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SPONSOR_SPREADSHEET_ID}/values/Webサイト掲載用!A2:J100`,
+      `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SPONSOR_SPREADSHEET_ID}/values/Webサイト掲載用!A2:L100`,
       {
         headers: {
           Authorization: `Bearer ${access_token}`,
@@ -42,6 +42,8 @@ export async function getSponsors(): Promise<Sponsor[]> {
         job_board_en: row[7],
         logo_image: row[8],
         plan: row[9] as Sponsor['plan'],
+        job_board_url_ja: row[10],
+        job_board_url_en: row[11],
       }));
   } catch (e) {
     return [];
@@ -56,6 +58,7 @@ export function getLocaledSponsors(sponsors: Sponsor[], lang: 'ja' | 'en'): Loca
         url: sponsor.url_ja || sponsor.url_en,
         profile: sponsor.profile_ja || sponsor.profile_en,
         job_board: sponsor.job_board_ja || sponsor.job_board_en,
+        job_board_url: sponsor.job_board_url_ja || sponsor.job_board_url_en,
         logo_image: sponsor.logo_image,
         plan: sponsor.plan
       }
@@ -65,6 +68,7 @@ export function getLocaledSponsors(sponsors: Sponsor[], lang: 'ja' | 'en'): Loca
         url: sponsor.url_en || sponsor.url_ja,
         profile: sponsor.profile_en || sponsor.profile_ja,
         job_board: sponsor.job_board_en || sponsor.job_board_ja,
+        job_board_url: sponsor.job_board_url_en || sponsor.job_board_url_ja,
         logo_image: sponsor.logo_image,
         plan: sponsor.plan
       }

@@ -11,15 +11,17 @@ export default function JobBoardList({localedSponsors}: {
   localedSponsors: LocaledSponsor[]
 }) {
   const sponsorList: LocaledSponsor[] = localedSponsors
-    .sort((a, b) => SportPriority[a.plan] - SportPriority[b.plan])
-    .filter(sponsor => sponsor.job_board !== '');
+    .sort((a, b) => SportPriority[a.plan] - SportPriority[b.plan]);
 
   return (
     <>
       <div className='lg:w-10/12 w-11/12 mx-auto mt-16'>
         <div className='mx-auto my-8 grid lg:grid-cols-4 grid-cols-1 gap-5'>
           {sponsorList.map((sponsor, index) =>
-            <SponsorCard key={`gold_${index}`} {...sponsor} profile={sponsor.job_board}/>)}
+            <SponsorCard key={`gold_${index}`} {...sponsor}
+                         profile={sponsor.job_board || (sponsor.plan !== 'silver' ? sponsor.profile : '')}
+                         url={sponsor.job_board_url || sponsor.url}/>
+          )}
         </div>
       </div>
     </>
