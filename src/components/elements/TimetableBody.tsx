@@ -5,12 +5,13 @@ import {ClockIcon, MapPinIcon, TagIcon} from "@heroicons/react/16/solid";
 import {EVENT_START_DATETIME, EVENT_TRACK_LIST, SPEAK_LANG_LIST, TRACK_LIST} from "@/const/timetable";
 import {formatInTimeZone} from "date-fns-tz";
 
-export default async function TimetableBody({lang, date, talks, events, categories}: {
+export default async function TimetableBody({lang, date, talks, events, categories, keynoteSpeaker}: {
   lang: 'ja' | 'en',
   date: 'day1' | 'day2',
   talks: Talk[],
   events: ConferenceEvent[],
   categories: Category,
+  keynoteSpeaker: { keynote_day1: string, keynote_day2: string },
 }) {
   const floor20 = [...talks, ...events].filter(talk => [3086, 3418, 1, 2].includes(talk.slot.room_id));
   const floor4 = [...talks, ...events].filter(talk => [3419, 3420, 1].includes(talk.slot.room_id));
@@ -58,14 +59,25 @@ export default async function TimetableBody({lang, date, talks, events, categori
               }
               {
                 talk.is_event
-                  ? <div key={index}
-                         className={`lg:text-base bg-secondary-50 flex items-center justify-center text-center flex-col gap-1 my-2 mx-0.5 lg:my-0.5 px-2 py-4 ${EVENT_TRACK_LIST[talk.slot.room_id].class} lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${(talk.end_minute - talk.start_minute) / 5}`}>
-                    <div className='font-bold'>{talk.title}</div>
-                    <div className='flex lg:hidden flex-row gap-0.5 items-center text-xs'>
-                      <MapPinIcon className='w-3 h-3'/>
-                      <div>{EVENT_TRACK_LIST[talk.slot.room_id].name}</div>
-                    </div>
-                  </div>
+                  ? (
+                    talk.is_keynote
+                      ? <Link key={index} id={talk.code} href={`/${lang}/keynote/${talk.code}`}
+                              className={`scroll-mt-32 lg:text-base text-primary-500 bg-white flex items-center justify-center text-center flex-col gap-1 my-2 mx-0.5 lg:my-0.5 px-2 py-4 ${EVENT_TRACK_LIST[talk.slot.room_id].class} lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${(talk.end_minute - talk.start_minute) / 5}`}>
+                        <div className='font-bold'>{`Keynote (${keynoteSpeaker[talk.code]})`}</div>
+                        <div className='flex lg:hidden flex-row gap-0.5 items-center text-xs'>
+                          <MapPinIcon className='w-3 h-3'/>
+                          <div>{EVENT_TRACK_LIST[talk.slot.room_id].name}</div>
+                        </div>
+                      </Link>
+                      : <div key={index}
+                             className={`lg:text-base bg-secondary-50 flex items-center justify-center text-center flex-col gap-1 my-2 mx-0.5 lg:my-0.5 px-2 py-4 ${EVENT_TRACK_LIST[talk.slot.room_id].class} lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${(talk.end_minute - talk.start_minute) / 5}`}>
+                        <div className='font-bold'>{talk.title}</div>
+                        <div className='flex lg:hidden flex-row gap-0.5 items-center text-xs'>
+                          <MapPinIcon className='w-3 h-3'/>
+                          <div>{EVENT_TRACK_LIST[talk.slot.room_id].name}</div>
+                        </div>
+                      </div>
+                  )
                   : <Link key={index} id={talk.code} href={`/${lang}/talk/${talk.code}`}
                           className={`scroll-mt-32 block my-2 mx-0.5 lg:my-0.5 ${TRACK_LIST[talk.slot.room_id].class} lg:row-start-[${(talk.start_minute / 5) + 2}] lg:row-span-${talk.duration / 5}`}>
                     <div className='flex shadow flex-row h-full'>
