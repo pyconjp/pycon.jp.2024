@@ -79,10 +79,14 @@ export type Answer<T> = {
   options: [{ id: keyof T, answer: string, 'ja-jp': string, 'en': string }],
 }
 
-export type ConferenceEvent = {
+export type ConferenceEvent = EventBase & {
   code: string,
-  speakers: Speaker[],
+  is_keynote: false,
   title: string,
+} | Keynote;
+
+type EventBase = {
+  speakers: Speaker[],
   slot: {
     room_id: number,
     start: string,
@@ -94,6 +98,11 @@ export type ConferenceEvent = {
   end_minute: number, // カンファレンス開始時刻からの経過分
   hide_start?: boolean,
   hide_end?: boolean,
+}
+
+export type Keynote = EventBase & {
+  is_keynote: true,
+  code: 'keynote_day1' | 'keynote_day2',
 }
 
 export type Category = {
