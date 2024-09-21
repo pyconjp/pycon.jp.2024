@@ -55,6 +55,7 @@ export function getLocaledSponsors(sponsors: Sponsor[], lang: 'ja' | 'en'): Loca
         name: sponsor.name_ja || sponsor.name_en,
         url: sponsor.url_ja || sponsor.url_en,
         profile: sponsor.profile_ja || sponsor.profile_en,
+        job_board: sponsor.job_board_ja || sponsor.job_board_en,
         logo_image: sponsor.logo_image,
         plan: sponsor.plan
       }
@@ -63,6 +64,7 @@ export function getLocaledSponsors(sponsors: Sponsor[], lang: 'ja' | 'en'): Loca
         name: sponsor.name_en || sponsor.name_ja,
         url: sponsor.url_en || sponsor.url_ja,
         profile: sponsor.profile_en || sponsor.profile_ja,
+        job_board: sponsor.job_board_en || sponsor.job_board_ja,
         logo_image: sponsor.logo_image,
         plan: sponsor.plan
       }

@@ -15,6 +15,7 @@ export type LocaledSponsor = {
   name: string;
   url: string;
   profile: string;
+  job_board: string;
   logo_image: string;
   plan: 'platinum' | 'gold' | 'silver';
 }
