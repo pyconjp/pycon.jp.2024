@@ -21,7 +21,7 @@ export async function generateStaticParams() {
   return [...talks1, ...talks2].map(talk => [{lang: 'ja', code: talk.code}, {lang: 'en', code: talk.code}]).flat();
 }
 
-export default async function Sponsors({params: {lang, code}}: {
+export default async function TimetableTalk({params: {lang, code}}: {
   params: { lang: 'ja' | 'en', code: Talk['code'] }
 }) {
   const dictionary = await getDictionary(lang);

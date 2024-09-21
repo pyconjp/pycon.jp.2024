@@ -15,6 +15,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     hide_end: true,
     start_minute: 0,
     end_minute: 30,
+    is_keynote: false,
   },
   {
     code: 'opening1_relay1',
@@ -30,6 +31,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     hide_end: true,
     start_minute: 0,
     end_minute: 30,
+    is_keynote: false,
   },
   {
     code: 'opening1_relay2',
@@ -45,11 +47,11 @@ export const conferenceEvents: ConferenceEvent[] = [
     hide_end: true,
     start_minute: 0,
     end_minute: 30,
+    is_keynote: false,
   },
   {
-    code: 'keynote1',
     speakers: [],
-    title: 'Keynote (James Powell)',
+    code: 'keynote_day1',
     slot: {
       room_id: 2,
       start: '2024-09-27T10:30:00+09:00',
@@ -60,6 +62,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     hide_start: true,
     start_minute: 30,
     end_minute: 90,
+    is_keynote: true,
   },
   {
     code: 'keynote1_relay1',
@@ -75,6 +78,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     hide_start: true,
     start_minute: 30,
     end_minute: 90,
+    is_keynote: false,
   },
   {
     code: 'keynote1_relay2',
@@ -90,6 +94,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     hide_start: true,
     start_minute: 30,
     end_minute: 90,
+    is_keynote: false,
   },
   {
     code: 'association_meeting',
@@ -104,6 +109,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 120,
     end_minute: 165,
+    is_keynote: false,
   },
   {
     code: 'lunch1_1',
@@ -119,6 +125,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     hide_start: true,
     start_minute: 165,
     end_minute: 180,
+    is_keynote: false,
   },
   {
     code: 'lunch1_2',
@@ -133,6 +140,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 120,
     end_minute: 180,
+    is_keynote: false,
   },
   {
     code: 'coffee_break1',
@@ -147,6 +155,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 310,
     end_minute: 350,
+    is_keynote: false,
   },
   {
     code: 'lt1',
@@ -161,6 +170,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 450,
     end_minute: 480,
+    is_keynote: false,
   },
   {
     code: 'lt1_relay1',
@@ -175,6 +185,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 450,
     end_minute: 480,
+    is_keynote: false,
   },
   {
     code: 'lt1_relay2',
@@ -189,6 +200,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 450,
     end_minute: 480,
+    is_keynote: false,
   },
   {
     code: 'lt1_relay3',
@@ -203,6 +215,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 450,
     end_minute: 480,
+    is_keynote: false,
   },
   {
     code: 'closing1',
@@ -217,6 +230,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 480,
     end_minute: 490,
+    is_keynote: false,
   },
   {
     code: 'closing1_relay1',
@@ -231,6 +245,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 480,
     end_minute: 490,
+    is_keynote: false,
   },
   {
     code: 'closing1_relay1',
@@ -245,6 +260,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 480,
     end_minute: 490,
+    is_keynote: false,
   },
   {
     code: 'closing1_relay1',
@@ -259,6 +275,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 480,
     end_minute: 490,
+    is_keynote: false,
   },
   {
     code: 'party',
@@ -274,6 +291,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     hide_end: true,
     start_minute: 510,
     end_minute: 570,
+    is_keynote: false,
   },
   {
     code: 'opening2',
@@ -288,6 +306,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 0,
     end_minute: 20,
+    is_keynote: false,
   },
   {
     code: 'opening2_relay1',
@@ -302,6 +321,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 0,
     end_minute: 20,
+    is_keynote: false,
   },
   {
     code: 'opening2_relay2',
@@ -316,6 +336,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 0,
     end_minute: 20,
+    is_keynote: false,
   },
   {
     code: 'opening2_relay3',
@@ -330,6 +351,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 0,
     end_minute: 20,
+    is_keynote: false,
   },
   {
     code: 'lunch2',
@@ -344,6 +366,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 100,
     end_minute: 160,
+    is_keynote: false,
   },
   {
     code: 'coffee_break2',
@@ -358,11 +381,11 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 290,
     end_minute: 330,
+    is_keynote: false,
   },
   {
-    code: 'keynote2',
     speakers: [],
-    title: 'Keynote (Atsuo Ishimoto)',
+    code: 'keynote_day2',
     slot: {
       room_id: 2,
       start: '2024-09-28T17:30:00+09:00',
@@ -372,6 +395,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 450,
     end_minute: 500,
+    is_keynote: true,
   },
   {
     code: 'keynote2_relay1',
@@ -386,6 +410,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 450,
     end_minute: 500,
+    is_keynote: false,
   },
   {
     code: 'keynote2_relay2',
@@ -400,6 +425,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 450,
     end_minute: 500,
+    is_keynote: false,
   },
   {
     code: 'pyconjp_association',
@@ -414,6 +440,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 500,
     end_minute: 520,
+    is_keynote: false,
   },
   {
     code: 'closing2',
@@ -428,5 +455,6 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_event: true,
     start_minute: 520,
     end_minute: 540,
+    is_keynote: false,
   }
 ];
