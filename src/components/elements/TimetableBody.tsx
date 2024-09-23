@@ -22,8 +22,8 @@ export default async function TimetableBody({lang, date, talks, events, categori
   const floor4EndMinutes = [...new Set(floor4.filter(talk => !talk.hide_end).map(talk => talk.end_minute))];
 
   const gridRow = {
-    day1: 'lg:grid-rows-[40px_repeat(18,_10px)_repeat(6,_60px)_repeat(12,_15px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(8,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(3,_60px)_repeat(1,_10px)_repeat(3,_60px)_repeat(9,_10px)_repeat(2,_20px)_repeat(16,_10px)]',
-    day2: 'lg:grid-rows-[40px_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(12,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(8,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(2,_10px)_repeat(3,_60px)_repeat(3,_10px)_repeat(18,_10px)]',
+    day1: 'lg:grid-rows-[40px_repeat(18,_10px)_repeat(6,_60px)_repeat(12,_15px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(8,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(3,_60px)_repeat(1,_10px)_repeat(3,_60px)_repeat(11,_10px)_repeat(2,_25px)_repeat(14,_10px)]',
+    day2: 'lg:grid-rows-[40px_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(12,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(8,_10px)_repeat(6,_60px)_repeat(4,_10px)_repeat(6,_60px)_repeat(2,_10px)_repeat(3,_60px)_repeat(14,_10px)_repeat(7,_20px)]',
   };
 
   let previousStartMinute: number | null = null;
