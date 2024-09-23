@@ -4,6 +4,7 @@ import OrganizingMembersSection from "@/components/sections/OrganizingMembersSec
 import ChairsSection from "@/components/sections/ChairsSection";
 import ReviewersSection from "@/components/sections/ReviewersSection";
 import {Metadata} from "next";
+import CameraCrewSection from "@/components/sections/CameraCrewSection";
 
 export const runtime = 'edge';
 export const revalidate = 3600;
@@ -23,5 +24,6 @@ export default async function Organizers({params: {lang}}: { params: { lang: 'ja
     <ChairsSection lang={lang}/>
     <OrganizingMembersSection lang={lang}/>
     <ReviewersSection lang={lang}/>
+    <CameraCrewSection lang={lang}/>
   </main>;
 }

@@ -1,5 +1,5 @@
 import 'server-only'
-import {Organizer, Reviewer} from "@/types/Organizer";
+import {CameraCrew, Organizer, Reviewer} from "@/types/Organizer";
 import {getAccessToken} from "@/lib/google";
 
 export async function getOrganizers(): Promise<Organizer[]> {
@@ -47,4 +47,8 @@ export async function getOrganizers(): Promise<Organizer[]> {
 
 export const getReviewers: () => Promise<Reviewer[]> = async () => import('@/cache/reviewers.json')
   .then((module) => module.default as Reviewer[])
+  .catch(() => []);
+
+export const getCameraCrews: () => Promise<CameraCrew[]> = async () => import('@/cache/camera_crew.json')
+  .then((module) => module.default as CameraCrew[])
   .catch(() => []);
