@@ -24,6 +24,7 @@
     "sponsor_list": "Sponsor List",
     "organizer_list": "Organizing Member List",
     "special_thanks": "Special Thanks",
+    "job_board": "Job Board",
     "coming_soon": "(Coming Soon)"
   },
   "overview": {
@@ -67,6 +68,7 @@
     "subtitle_chairs": "Co-Chairs",
     "organizing_members": "Organizing Members",
     "reviewers": "Reviewers",
+    "camera_crews": "Camera Crews",
     "chairs": {
       "takanory": {
         "name": "Takanori Suzuki",

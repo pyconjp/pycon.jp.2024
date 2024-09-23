@@ -24,6 +24,7 @@
     "sponsor_list": "スポンサー一覧",
     "organizer_list": "主催メンバー一覧",
     "special_thanks": "スペシャルサンクス",
+    "job_board": "ジョブボード",
     "coming_soon": "(準備中)"
   },
   "overview": {
@@ -67,6 +68,7 @@
     "subtitle_chairs": "共同座長",
     "organizing_members": "主催メンバー",
     "reviewers": "レビュアー",
+    "camera_crews": "カメラマン",
     "chairs": {
       "takanory": {
         "name": "鈴木 たかのり",

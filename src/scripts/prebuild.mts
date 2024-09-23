@@ -4,7 +4,7 @@ import axios from "axios";
 import {Answer, OriginalSpeaker, OriginalTalk, Poster, Talk} from "../types/Talk";
 import {differenceInMinutes} from "date-fns";
 import {LEVEL_LIST, SLIDE_LANG_LIST, SPEAK_LANG_LIST} from "../const/timetable";
-import {Reviewer} from "../types/Organizer";
+import {CameraCrew, Reviewer} from "../types/Organizer";
 import {SpecialSponsor} from "../types/Sponsors";
 import {Sprint} from "../types/Sprint";
 import {SpecialThanks} from "../types/SpecialThanks";
@@ -47,6 +47,14 @@ const reviewers: Reviewer[] = await fetchSheet<Reviewer>(
 );
 fs.writeFileSync('./src/cache/reviewers.json', JSON.stringify(reviewers, null, 2));
 console.log(`${reviewers.length} reviewers fetched and written to ./src/cache/reviewers.json`);
+
+const cameraCrews: CameraCrew[] = await fetchSheet<CameraCrew>(
+  process.env.ORGANIZER_SPREADSHEET_ID || '',
+  'カメラマン!A2:B30',
+  ['name_ja', 'name_en']
+);
+fs.writeFileSync('./src/cache/camera_crew.json', JSON.stringify(cameraCrews, null, 2));
+console.log(`${reviewers.length} reviewers fetched and written to ./src/cache/camera_crew.json`);
 
 const specialSponsors: SpecialSponsor[] = await fetchSheet<SpecialSponsor>(
   process.env.SPONSOR_SPREADSHEET_ID || '',

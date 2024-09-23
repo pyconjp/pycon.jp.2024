@@ -19,3 +19,8 @@ export type Reviewer = {
   name_en: string;
   name_ja: string;
 }
+
+export type CameraCrew = {
+  name_en: string;
+  name_ja: string;
+}
