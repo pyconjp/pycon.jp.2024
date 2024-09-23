@@ -31,6 +31,7 @@ export const menu: Menu[] = [
     title: "sponsor",
     children: [
       {title: "sponsor_list", url: "/sponsors", isComingSoon: false},
+      {title: "job_board", url: "/job-board", isComingSoon: false},
     ],
   },
   {
