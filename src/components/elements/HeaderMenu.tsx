@@ -1,6 +1,6 @@
 import {ChevronDownIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import Link from "next/link";
-import {Menu} from "@/data/menu";
+import {Menu} from "@/types/Menu";
 
 type Props = {
   menu: Menu;

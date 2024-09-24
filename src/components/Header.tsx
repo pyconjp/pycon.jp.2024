@@ -1,10 +1,11 @@
 import {getDictionary} from '@/lib/dictionaries'
 import LangButton from '@/components/elements/LangButton';
 import Image from "next/image";
-import menu, {Menu} from "@/data/menu";
+import menu from "@/data/menu";
 import HeaderMenu from "@/components/elements/HeaderMenu";
 import Link from "next/link";
 import MobileMenu from "@/components/elements/MobileMenu";
+import {Menu} from "@/types/Menu";
 
 export default async function Header({lang}: { lang: 'ja' | 'en' }) {
   const dictionary = await getDictionary(lang);

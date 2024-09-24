@@ -1,15 +1,4 @@
-// TODO typeをtypesディレクトリに移動する
-type ChildMenu = {
-  title: string;
-  url: string;
-  isComingSoon: boolean;
-  isExternal?: boolean;
-};
-
-export type Menu = {
-  title: string;
-  children: ChildMenu[];
-};
+import {Menu} from "@/types/Menu";
 
 export const menu: Menu[] = [
   {
@@ -25,6 +14,7 @@ export const menu: Menu[] = [
       {title: "timetable", url: "/timetable", isComingSoon: false},
       {title: "sprint", url: "/sprint", isComingSoon: false},
       {title: "posters", url: "/posters", isComingSoon: false},
+      {title: "contents", url: "/contents", isComingSoon: false},
     ],
   },
   {
