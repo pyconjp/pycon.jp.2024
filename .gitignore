@@ -40,6 +40,7 @@ next-env.d.ts
 /public/sponsors/*
 /public/organizers/*
 /public/special-thanks/*
+/public/contents/*
 /src/cache/**
 
 !/public/organizers/chairs/*

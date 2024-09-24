@@ -14,7 +14,7 @@
     "about": "開催概要",
     "events": "イベント詳細",
     "sponsor": "スポンサー",
-    "contents": "コンテンツ",
+    "contents": "当日のコンテンツ",
     "organizer": "主催メンバー",
     "venue": "会場案内",
     "coc": "行動規範",
@@ -132,5 +132,8 @@
   },
   "special_thanks": {
     "description": "PyCon JP 2024の開催に貢献してくださった方々です。"
+  },
+  "contents": {
+    "see_more": "詳細はこちら"
   }
 }
