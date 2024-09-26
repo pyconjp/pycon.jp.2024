@@ -43,7 +43,7 @@ const fetchSheet: <T extends {}>(spreadSheetId: string, range: string, keys: (ke
 
 const writeJson = (path: string, data: any[]) => {
   fs.writeFileSync(path, JSON.stringify(data, null, 2));
-  console.log(`${data.length} reviewers fetched and written to ${path}`);
+  console.log(`${data.length} items fetched and written to ${path}`);
 }
 
 const reviewers: Reviewer[] = await fetchSheet<Reviewer>(
