@@ -41,53 +41,52 @@ const fetchSheet: <T extends {}>(spreadSheetId: string, range: string, keys: (ke
     });
 }
 
+const writeJson = (path: string, data: any[]) => {
+  fs.writeFileSync(path, JSON.stringify(data, null, 2));
+  console.log(`${data.length} reviewers fetched and written to ${path}`);
+}
+
 const reviewers: Reviewer[] = await fetchSheet<Reviewer>(
   process.env.REVIEWER_SPREADSHEET_ID || '',
   'フォームの回答 1!B2:C30',
   ['name_en', 'name_ja']
 );
-fs.writeFileSync('./src/cache/reviewers.json', JSON.stringify(reviewers, null, 2));
-console.log(`${reviewers.length} reviewers fetched and written to ./src/cache/reviewers.json`);
+writeJson('./src/cache/reviewers.json', reviewers);
 
 const cameraCrews: CameraCrew[] = await fetchSheet<CameraCrew>(
   process.env.ORGANIZER_SPREADSHEET_ID || '',
   'カメラマン!A2:B30',
   ['name_ja', 'name_en']
 );
-fs.writeFileSync('./src/cache/camera_crew.json', JSON.stringify(cameraCrews, null, 2));
-console.log(`${reviewers.length} reviewers fetched and written to ./src/cache/camera_crew.json`);
+writeJson('./src/cache/camera_crew.json', cameraCrews);
 
 const specialSponsors: SpecialSponsor[] = await fetchSheet<SpecialSponsor>(
   process.env.SPONSOR_SPREADSHEET_ID || '',
   '特別スポンサー_Webサイト掲載用!A2:H51',
   ['name_ja', 'name_en', 'url_ja', 'url_en', 'title_ja', 'title_en', 'logo_image', 'plan']
 );
-fs.writeFileSync('./src/cache/special_sponsors.json', JSON.stringify(specialSponsors, null, 2));
-console.log(`${specialSponsors.length} special sponsors fetched and written to ./src/cache/special_sponsors.json`);
+writeJson('./src/cache/special_sponsors.json', specialSponsors);
 
 const sprints: Sprint[] = await fetchSheet<Sprint>(
   process.env.SPRINT_SPREADSHEET_ID || '',
   'シート1!B2:C51',
   ['leader', 'description']
 );
-fs.writeFileSync('./src/cache/sprints.json', JSON.stringify(sprints, null, 2));
-console.log(`${sprints.length} sprints fetched and written to ./src/cache/sprints.json`);
+writeJson('./src/cache/sprints.json', sprints);
 
 const specialThanks: SpecialThanks[] = await fetchSheet<SpecialThanks>(
   process.env.SPECIAL_THANKS_SPREADSHEET_ID || '',
   'シート1!A2:E51',
   ['name', 'title', 'url', 'image', 'contribution']
 );
-fs.writeFileSync('./src/cache/special_thanks.json', JSON.stringify(specialThanks, null, 2));
-console.log(`${specialThanks.length} special thanks fetched and written to ./src/cache/special_thanks.json`);
+writeJson('./src/cache/special_thanks.json', specialThanks);
 
 const contents: Content[] = await fetchSheet<Content>(
   process.env.CONTENTS_SPREADSHEET_ID || '',
   'シート1!A2:F51',
   ['title_ja', 'title_en', 'description_ja', 'description_en', 'url', 'image']
 );
-fs.writeFileSync('./src/cache/contents.json', JSON.stringify(contents, null, 2));
-console.log(`${contents.length} contents fetched and written to ./src/cache/contents.json`);
+writeJson('./src/cache/contents.json', contents);
 
 const sponsors: Sponsor[] = await fetchSheet<Sponsor>(
   process.env.SPONSOR_SPREADSHEET_ID || '',
@@ -107,8 +106,7 @@ const sponsors: Sponsor[] = await fetchSheet<Sponsor>(
     'job_board_url_en',
   ]
 );
-fs.writeFileSync('./src/cache/sponsors.json', JSON.stringify(sponsors, null, 2));
-console.log(`${sponsors.length} sponsors fetched and written to ./src/cache/sponsors.json`);
+writeJson('./src/cache/sponsors.json', sponsors);
 
 const organizers: Organizer[] = await fetchSheet<Organizer>(
   process.env.ORGANIZER_SPREADSHEET_ID || '',
@@ -122,8 +120,7 @@ const organizers: Organizer[] = await fetchSheet<Organizer>(
     'image',
   ]
 )
-fs.writeFileSync('./src/cache/organizers.json', JSON.stringify(organizers, null, 2));
-console.log(`${organizers.length} organizers fetched and written to ./src/cache/organizers.json`);
+writeJson('./src/cache/organizers.json', organizers);
 
 const drive: drive_v3.Drive = google.drive({version: 'v3', auth});
 
