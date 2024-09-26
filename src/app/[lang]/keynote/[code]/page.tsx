@@ -4,7 +4,7 @@ import TimetableSection from "@/components/sections/TimetableSection";
 import {redirect} from "next/navigation";
 import {Metadata} from "next";
 import {conferenceEvents} from "@/data/event";
-import TimetableKeynoteModal from "@/components/sections/TimetableKeynoteModal";
+import TimetableKeynoteModalSection from "@/components/sections/TimetableKeynoteModalSection";
 
 export const runtime = 'edge';
 
@@ -33,6 +33,6 @@ export default async function TimetableKeynote({params: {lang, code}}: {
   return <main>
     <PageTitle title={'Timetable'} subTitle={dictionary.menu.timetable}/>
     <TimetableSection lang={lang} date={keynote.date}/>
-    <TimetableKeynoteModal lang={lang} keynote={keynote} speaker={dictionary.conference[keynote.code].speaker}/>
+    <TimetableKeynoteModalSection lang={lang} keynote={keynote} speaker={dictionary.conference[keynote.code].speaker}/>
   </main>;
 }
