@@ -8,7 +8,7 @@ import ImageWithFallback from "@/components/elements/ImageWithFallback";
 import dynamic from "next/dynamic";
 import {formatInTimeZone} from "date-fns-tz";
 
-export default async function TimetableKeynoteModal({lang, keynote, speaker}: {
+export default async function TimetableKeynoteModalSection({lang, keynote, speaker}: {
   lang: 'ja' | 'en',
   keynote: Keynote,
   speaker: string
@@ -19,7 +19,7 @@ export default async function TimetableKeynoteModal({lang, keynote, speaker}: {
     className='fixed flex justify-center z-50 w-screen h-screen bg-black bg-opacity-30 top-0 left-0 overscroll-contain overflow-y-scroll'>
     <div className='flex flex-col w-11/12 gap-10 items-center'>
       <div
-        className='relative flex flex-col gap-8 bg-white h-3/6 mt-28 w-full p-4 overflow-y-scroll rounded lg:px-16 px-4 pb-12'>
+        className='relative flex flex-col gap-8 bg-white mt-28 w-full p-4 overflow-y-scroll rounded lg:px-16 px-4 pb-12'>
         <div className='sticky w-full lg:top-6 top-4'>
           <div className='flex justify-end'>
             <Link href={`/${lang}/timetable/${keynote.date}#${keynote.code}`} className='block'>
