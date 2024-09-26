@@ -4,8 +4,8 @@ import axios from "axios";
 import {Answer, OriginalSpeaker, OriginalTalk, Poster, Talk} from "../types/Talk";
 import {differenceInMinutes} from "date-fns";
 import {LEVEL_LIST, SLIDE_LANG_LIST, SPEAK_LANG_LIST} from "../const/timetable";
-import {CameraCrew, Reviewer} from "../types/Organizer";
-import {SpecialSponsor} from "../types/Sponsors";
+import {CameraCrew, Organizer, Reviewer} from "../types/Organizer";
+import {SpecialSponsor, Sponsor} from "../types/Sponsors";
 import {Sprint} from "../types/Sprint";
 import {SpecialThanks} from "../types/SpecialThanks";
 import {Content} from "../types/Contents";
@@ -88,6 +88,42 @@ const contents: Content[] = await fetchSheet<Content>(
 );
 fs.writeFileSync('./src/cache/contents.json', JSON.stringify(contents, null, 2));
 console.log(`${contents.length} contents fetched and written to ./src/cache/contents.json`);
+
+const sponsors: Sponsor[] = await fetchSheet<Sponsor>(
+  process.env.SPONSOR_SPREADSHEET_ID || '',
+  'Webサイト掲載用!A2:L100',
+  [
+    'name_ja',
+    'name_en',
+    'url_ja',
+    'url_en',
+    'profile_ja',
+    'profile_en',
+    'job_board_ja',
+    'job_board_en',
+    'logo_image',
+    'plan',
+    'job_board_url_ja',
+    'job_board_url_en',
+  ]
+);
+fs.writeFileSync('./src/cache/sponsors.json', JSON.stringify(sponsors, null, 2));
+console.log(`${sponsors.length} sponsors fetched and written to ./src/cache/sponsors.json`);
+
+const organizers: Organizer[] = await fetchSheet<Organizer>(
+  process.env.ORGANIZER_SPREADSHEET_ID || '',
+  'フォームの回答 1!C2:H100',
+  [
+    'name_ja',
+    'name_en',
+    'github',
+    'twitter',
+    'facebook',
+    'image',
+  ]
+)
+fs.writeFileSync('./src/cache/organizers.json', JSON.stringify(organizers, null, 2));
+console.log(`${organizers.length} organizers fetched and written to ./src/cache/organizers.json`);
 
 const drive: drive_v3.Drive = google.drive({version: 'v3', auth});
 

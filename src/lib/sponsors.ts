@@ -1,54 +1,9 @@
 import 'server-only'
 import {LocaledSpecialSponsor, LocaledSponsor, SpecialSponsor, Sponsor} from "@/types/Sponsors";
-import {getAccessToken} from "@/lib/google";
 
-export async function getSponsors(): Promise<Sponsor[]> {
-  try {
-    if (!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
-      || !process.env.GOOGLE_PRIVATE_KEY
-      || !process.env.SPONSOR_SPREADSHEET_ID) {
-      return [];
-    }
-
-    const {access_token} = await getAccessToken();
-
-    const sheetsResponse = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SPONSOR_SPREADSHEET_ID}/values/Webサイト掲載用!A2:L100`,
-      {
-        headers: {
-          Authorization: `Bearer ${access_token}`,
-        },
-      }
-    );
-
-    const data = await sheetsResponse.json();
-
-    return (data.values || [])
-      .map((row: string[]) => {
-        while (row.length < 10) {
-          row.push('');
-        }
-        return row;
-      })
-      .filter((row: string[]) => row[9] !== '')
-      .map((row: string[]) => ({
-        name_ja: row[0],
-        name_en: row[1],
-        url_ja: row[2],
-        url_en: row[3],
-        profile_ja: row[4],
-        profile_en: row[5],
-        job_board_ja: row[6],
-        job_board_en: row[7],
-        logo_image: row[8],
-        plan: row[9] as Sponsor['plan'],
-        job_board_url_ja: row[10],
-        job_board_url_en: row[11],
-      }));
-  } catch (e) {
-    return [];
-  }
-}
+export const getSponsors: () => Promise<Sponsor[]> = async () => import('@/cache/sponsors.json')
+  .then((module) => module.default as Sponsor[])
+  .catch(() => []);
 
 export function getLocaledSponsors(sponsors: Sponsor[], lang: 'ja' | 'en'): LocaledSponsor[] {
   return sponsors.map(sponsor => {
