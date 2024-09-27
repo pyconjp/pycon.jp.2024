@@ -16,7 +16,8 @@ export const EVENT_TRACK_LIST: { [k: ConferenceEvent['slot']['room_id']]: { name
   ...TRACK_LIST,
   1: {name: '20F, 4F Track 1~4', class: 'lg:col-start-[2] lg:col-span-4'},
   2: {name: '20F Track 1~2', class: 'lg:col-start-[2] lg:col-span-2'},
-  3: {name: '20F, 4F Track 3~4', class: 'lg:col-start-[3] lg:col-span-3'}
+  3: {name: '20F, 4F Track 2~4', class: 'lg:col-start-[3] lg:col-span-3'},
+  4: {name: '4F', class: 'lg:col-start-[4] lg:col-span-2'},
 })
 
 export const LEVEL_LIST: { [k: Exclude<Talk['question_answers']['level'], undefined>]: string } = {
