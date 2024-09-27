@@ -5,7 +5,7 @@ import Negotiator from 'negotiator'
 const locales = ['ja', 'en']
 const defaultLocale = 'ja'
 
-const defaultDate = 'day1';
+const defaultDate = 'day2';
 
 function getLocale(req: NextRequest) {
   // リクエストヘッダーの内容から言語を決定する
