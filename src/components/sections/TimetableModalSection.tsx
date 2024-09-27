@@ -48,12 +48,12 @@ export default async function TimetableModalSection({lang, talk}: { lang: 'ja' |
           className='border-l-2 border-l-primary pl-4 prose prose-pre:bg-primary-50 prose-pre:rounded-none prose-pre:text-black max-w-full prose-li:marker:text-primary-500'>
           <Abstract/>
         </div>
-        <div className='flex gap-4'>
+        <div className='flex gap-4 flex-col'>
           {
             talk.resources.map((resource, index) => <Link key={index} href={resource.resource}
                                                           className='inline-flex gap-1 text-primary-500 items-center underline hover:opacity-80 w-auto'
                                                           target='_blank' rel='noopener noreferrer'>
-                <ArrowTopRightOnSquareIcon className='h-6 w-6'/>
+              <ArrowTopRightOnSquareIcon className='min-h-6 min-w-6 max-h-6 max-w-6'/>
                 <div>{resource.description}</div>
               </Link>
             )
