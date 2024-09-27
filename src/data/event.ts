@@ -222,7 +222,7 @@ export const conferenceEvents: ConferenceEvent[] = [
     speakers: [],
     title: 'Party',
     slot: {
-      room_id: 2,
+      room_id: 4,
       start: '2024-09-27T18:30:00+09:00',
       end: '2024-09-27T19:30:00+09:00',
     },
