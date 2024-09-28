@@ -2,7 +2,7 @@ import PageTitle from "@/components/elements/PageTitle";
 import SprintVenueSection from "@/components/sections/SprintVenueSection";
 import SprintSection from "@/components/sections/SprintSection";
 import AnnounceSection from "@/components/sections/AnnounceSection";
-import {sprintAnnounce} from "@/data/announce";
+import {announce} from "@/data/announce";
 import {Metadata} from "next";
 import {getDictionary} from "@/lib/dictionaries";
 
@@ -21,7 +21,7 @@ export default async function Sprint({params: {lang}}: { params: { lang: 'ja' | 
 
   return <main>
     <PageTitle title={'Sprint'} subTitle={dictionary.menu.sprint}/>
-    <AnnounceSection announce={sprintAnnounce} lang={lang}/>
+    <AnnounceSection announce={announce} lang={lang}/>
     <SprintVenueSection lang={lang}/>
     <SprintSection lang={lang}/>
   </main>
