@@ -13,8 +13,8 @@ export default async function TimetableBody({lang, date, talks, events, categori
   categories: Category,
   keynoteSpeaker: { keynote_day1: string, keynote_day2: string },
 }) {
-  const floor20 = [...talks, ...events].filter(talk => [3086, 3418, 1, 2].includes(talk.slot.room_id));
-  const floor4 = [...talks, ...events].filter(talk => [3419, 3420, 1, 4].includes(talk.slot.room_id));
+  const floor20 = [...talks, ...events].filter(talk => [3086, 3418, 1, 2, 3].includes(talk.slot.room_id));
+  const floor4 = [...talks, ...events].filter(talk => [3419, 3420, 1, 3, 4].includes(talk.slot.room_id));
 
   const floor20StartMinutes = [...new Set(floor20.filter(talk => !talk.hide_start).map(talk => talk.start_minute))];
   const floor4StartMinutes = [...new Set(floor4.filter(talk => !talk.hide_start).map(talk => talk.start_minute))];
