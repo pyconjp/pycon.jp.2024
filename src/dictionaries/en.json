@@ -91,10 +91,6 @@
     }
   },
   "announce": {
-    "nursery": {
-      "title": "Day-care service for children",
-      "description": "Child day care (ONLY for can speak Japanese) is available for elementary school or younger. \nFor details, please see the linked PDF."
-    },
     "sprint": {
       "title": "Sprint ticket",
       "description": "To participate in the sprint, a separate ticket from the conference is required. \nPlease register via connpass."
