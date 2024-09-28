@@ -324,6 +324,21 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_keynote: false,
   },
   {
+    code: 'talk_relay',
+    speakers: [],
+    title: '#pyconjp_3 Relay',
+    slot: {
+      room_id: 3420,
+      start: '2024-09-28T17:00:00+09:00',
+      end: '2024-09-28T17:15:00+09:00',
+    },
+    date: 'day2',
+    is_event: true,
+    start_minute: 420,
+    end_minute: 435,
+    is_keynote: false,
+  },
+  {
     speakers: [],
     code: 'keynote_day2',
     slot: {
@@ -340,24 +355,9 @@ export const conferenceEvents: ConferenceEvent[] = [
   {
     code: 'keynote2_relay1',
     speakers: [],
-    title: 'Keynote Relay',
+    title: 'Keynote Relay (English)',
     slot: {
       room_id: 3419,
-      start: '2024-09-28T17:30:00+09:00',
-      end: '2024-09-28T18:20:00+09:00',
-    },
-    date: 'day2',
-    is_event: true,
-    start_minute: 450,
-    end_minute: 500,
-    is_keynote: false,
-  },
-  {
-    code: 'keynote2_relay2',
-    speakers: [],
-    title: 'Keynote Relay',
-    slot: {
-      room_id: 3420,
       start: '2024-09-28T17:30:00+09:00',
       end: '2024-09-28T18:20:00+09:00',
     },
