@@ -339,6 +339,20 @@ export const conferenceEvents: ConferenceEvent[] = [
     is_keynote: false,
   },
   {
+    speakers: [],
+    code: 'keynote_day2',
+    slot: {
+      room_id: 2,
+      start: '2024-09-28T17:30:00+09:00',
+      end: '2024-09-28T18:20:00+09:00',
+    },
+    date: 'day2',
+    is_event: true,
+    start_minute: 450,
+    end_minute: 500,
+    is_keynote: true,
+  },
+  {
     code: 'keynote2_relay1',
     speakers: [],
     title: 'Keynote Relay (English)',
