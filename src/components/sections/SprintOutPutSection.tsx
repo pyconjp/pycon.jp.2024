@@ -7,7 +7,7 @@ export default async function SprintOutPutSection({lang}: { lang: 'ja' | 'en' })
   const sprints = await getSprints();
   const dictionary = await getDictionary(lang);
 
-  return <section className='lg:mt-8 mt-6 lg:mb-20 mb-14'>
+  return <section className={'lg:mt-8 mt-6 lg:mb-20 mb-14' + (sprints.some(sprint => sprint.slide) ? '' : ' hidden')}>
     <SectionSubTitle title={'Sprint Output'} subtitle={dictionary.sprint.output}/>
     <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-6 gap-16 mx-auto lg:w-10/12 w-11/12">
       {
