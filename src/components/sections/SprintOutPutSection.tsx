@@ -15,7 +15,9 @@ export default async function SprintOutPutSection({lang}: { lang: 'ja' | 'en' })
           .filter(sprint => sprint.slide)
           .map(
             (sprint, index) => <div key={index} className="flex flex-col gap-2 text-lg">
-              <GoogleSlide slideId={sprint.slide}/>
+              <div className='w-full aspect-video'>
+                <GoogleSlide slideId={sprint.slide}/>
+              </div>
               <div className={'text-center'}>{sprint.leader}</div>
             </div>
           )
