@@ -124,8 +124,7 @@
     "community": "コミュニティ"
   },
   "sprint": {
-    "themes": "応募されたテーマ一覧",
-    "output": "成果物"
+    "themes": "応募されたテーマ一覧"
   },
   "special_thanks": {
     "description": "PyCon JP 2024の開催に貢献してくださった方々です。"

@@ -69,8 +69,8 @@ writeJson('./src/cache/special_sponsors.json', specialSponsors);
 
 const sprints: Sprint[] = await fetchSheet<Sprint>(
   process.env.SPRINT_SPREADSHEET_ID || '',
-  'シート1!B2:D51',
-  ['leader', 'description', 'slide']
+  'シート1!B2:C51',
+  ['leader', 'description']
 );
 writeJson('./src/cache/sprints.json', sprints);
 

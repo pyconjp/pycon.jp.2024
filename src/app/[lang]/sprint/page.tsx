@@ -5,7 +5,6 @@ import AnnounceSection from "@/components/sections/AnnounceSection";
 import {announce} from "@/data/announce";
 import {Metadata} from "next";
 import {getDictionary} from "@/lib/dictionaries";
-import SprintOutPutSection from "@/components/sections/SprintOutPutSection";
 
 export const runtime = 'edge';
 export const revalidate = 3600;
@@ -25,6 +24,5 @@ export default async function Sprint({params: {lang}}: { params: { lang: 'ja' | 
     <AnnounceSection announce={announce} lang={lang}/>
     <SprintVenueSection lang={lang}/>
     <SprintSection lang={lang}/>
-    <SprintOutPutSection lang={lang}/>
   </main>
 }
