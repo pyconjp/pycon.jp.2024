@@ -5,7 +5,7 @@
   },
   "hero": {
     "location": "TOC Ariake Convention Hall",
-    "ticket": "Ticket Info"
+    "ticket": "Ticket Info (CLOSED)"
   },
   "news": {
     "read_more": "Read More"
@@ -92,7 +92,7 @@
   },
   "announce": {
     "sprint": {
-      "title": "Sprint ticket",
+      "title": "Sprint ticket (CLOSED)",
       "description": "To participate in the sprint, a separate ticket from the conference is required. \nPlease register via connpass."
     }
   },
