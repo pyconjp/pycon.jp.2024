@@ -124,7 +124,8 @@
     "community": "Community"
   },
   "sprint": {
-    "themes": "List of Submitted Themes"
+    "themes": "List of Submitted Themes",
+    "output": "Output"
   },
   "special_thanks": {
     "description": "These are the contributors to PyCon JP 2024."
