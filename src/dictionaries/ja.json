@@ -5,7 +5,7 @@
   },
   "hero": {
     "location": "TOC有明コンベンションホール",
-    "ticket": "チケット案内"
+    "ticket": "チケット案内 (CLOSED)"
   },
   "news": {
     "read_more": "ニュースをもっと見る"
@@ -92,7 +92,7 @@
   },
   "announce": {
     "sprint": {
-      "title": "スプリント参加チケット",
+      "title": "スプリント参加チケット (CLOSED)",
       "description": "スプリント参加には、カンファレンスとは別のチケットが必要です。\n詳しくはリンク先のconnpassイベントページをご覧ください。"
     }
   },
