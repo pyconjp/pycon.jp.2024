@@ -13,9 +13,9 @@ export default async function SprintSection({lang}: { lang: 'ja' | 'en' }) {
       {
         sprints.map(
           (sprint, index) => <SprintCard key={index}>
-            <div className="flex flex-col gap-2 text-lg">
-              <div>{sprint.leader}</div>
-              <div className="whitespace-pre-line break-all">{sprint.description}</div>
+            <div className="flex flex-col gap-3 text-lg">
+              <div className="whitespace-pre-line break-all">{sprint.title}</div>
+              <div className="text-primary-600 text-sm">{sprint.leader}</div>
             </div>
           </SprintCard>
         )
