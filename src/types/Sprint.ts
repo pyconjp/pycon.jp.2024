@@ -1,5 +1,5 @@
 export type Sprint = {
   leader: string,
-  description: string,
-  slide: string,
+  title: string,
+  slideId: string,
 }
