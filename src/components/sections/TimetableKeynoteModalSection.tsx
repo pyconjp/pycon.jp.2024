@@ -1,4 +1,4 @@
-import {XMarkIcon} from "@heroicons/react/20/solid";
+import {ArrowTopRightOnSquareIcon, XMarkIcon} from "@heroicons/react/20/solid";
 import Link from "next/link";
 import {Keynote} from "@/types/Talk";
 import {CalendarIcon, MapPinIcon} from "@heroicons/react/16/solid";
@@ -7,6 +7,7 @@ import {addMinutes} from "date-fns";
 import ImageWithFallback from "@/components/elements/ImageWithFallback";
 import dynamic from "next/dynamic";
 import {formatInTimeZone} from "date-fns-tz";
+import {videos} from "@/data/videos";
 
 export default async function TimetableKeynoteModalSection({lang, keynote, speaker}: {
   lang: 'ja' | 'en',
@@ -45,6 +46,16 @@ export default async function TimetableKeynoteModalSection({lang, keynote, speak
             </div>
           </div>
         </div>
+        {videos[keynote.code] &&
+          <div className='flex gap-4 flex-col'>
+            <Link href={`https://youtu.be/${videos[keynote.code]}`}
+                  className='inline-flex gap-1 text-primary-500 items-center underline hover:opacity-80 w-auto'
+                  target='_blank' rel='noopener noreferrer'>
+              <ArrowTopRightOnSquareIcon className='min-h-6 min-w-6 max-h-6 max-w-6'/>
+              <div>Video (YouTube)</div>
+            </Link>
+          </div>
+        }
         <hr className='border-t-2 border-secondary'/>
         <div className='flex flex-col gap-4 shadow-lg'>
           <div className='p-4 flex gap-4 flex-row'>
