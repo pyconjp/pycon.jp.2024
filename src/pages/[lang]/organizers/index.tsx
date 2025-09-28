@@ -58,7 +58,6 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
       organizers,
       reviewers,
       cameraCrews
-    },
-    revalidate: 3600
+    }
   }
 }

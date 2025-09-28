@@ -81,7 +81,6 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
       events,
       categories,
       keynoteSpeaker: {keynote_day1: keynote_day1.speaker, keynote_day2: keynote_day2.speaker}
-    },
-    revalidate: 3600
+    }
   }
 }

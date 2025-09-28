@@ -47,7 +47,6 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
       lang,
       dictionary,
       localedSponsors
-    },
-    revalidate: 3600
+    }
   }
 }
