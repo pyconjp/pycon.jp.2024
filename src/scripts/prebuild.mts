@@ -1,5 +1,7 @@
 import {drive_v3, google,} from 'googleapis';
 import * as fs from "node:fs";
+import axios from "axios";
+import {Talk} from "../types/Talk";
 import {CameraCrew, Organizer, Reviewer} from "../types/Organizer";
 import {SpecialSponsor, Sponsor} from "../types/Sponsors";
 import {Sprint} from "../types/Sprint";
@@ -170,159 +172,194 @@ await download(process.env.SPECIAL_THANKS_FOLDER_ID || '', './public/special-tha
 await download(process.env.CONTENTS_FOLDER_ID || '', './public/contents/');
 
 // fetch pretalx talks
-/* コメントアウト - pretalx API仕様変更のため
-const fetchAnswers: <T>(question: number) => Promise<Answer<T>[]> = async question => axios.get(
-  `https://pretalx.com/api/events/pyconjp2024/answers/`,
-  {
-    params: {
-      limit: 300,
-      question,
-    },
-    headers: {
-      Authorization: `Token ${process.env.PRETALX_AUTH_KEY}`,
-    },
-  },
-).then(
-  response => response.data.results
-)
+const fetchTalks = async (): Promise<Talk[]> => {
+  try {
+    const searchParams = new URLSearchParams();
+    searchParams.append('submission_type', '4328'); // Talk type
+    searchParams.append('expand', [
+      'answers',
+      'answers.question',
+      'resources',
+      'slots.room',
+      'speakers.answers',
+      'submission_type',
+      'tags',
+      'tracks',
+    ].join(','));
+    searchParams.append('state', 'confirmed');
+    searchParams.append('state', 'accepted');
+    searchParams.append('limit', '100');
 
-const fetchAndMapAnswers = async <T, >(
-  question: number,
-): Promise<Record<string, keyof T>> => {
-  const answers = await fetchAnswers<T>(question);
-  return answers.reduce((acc, answer) => {
-    return {
-      ...acc,
-      [answer.submission]: answer.options[0].id,
-    };
-  }, {});
+    const response = await axios.get(
+      `https://pretalx.com/api/events/pyconjp2024/submissions/?${searchParams.toString()}`,
+      {
+        headers: {
+          Authorization: `Token ${process.env.PRETALX_AUTH_KEY}`,
+        },
+      }
+    );
+
+    const originalTalks = response.data.results;
+
+    // Parse talks according to new API structure
+    const talks: Talk[] = originalTalks
+      .filter((talk: any) => !['HHVDEQ', 'TUPJBN'].includes(talk.code)) // exclude keynotes
+      .map((talk: any) => {
+        // Extract answers from new structure
+        const getAnswer = (questionId: number) => {
+          const answer = talk.answers?.find((a: any) => a.question?.id === questionId);
+          return answer?.answer || '';
+        };
+
+        const getOptionAnswer = (questionId: number) => {
+          const answer = talk.answers?.find((a: any) => a.question?.id === questionId);
+          return answer?.options?.[0]?.id || null;
+        };
+
+        const getBoolAnswer = (questionId: number) => {
+          const answer = talk.answers?.find((a: any) => a.question?.id === questionId);
+          return answer?.answer === 'True';
+        };
+
+        // Map level, language from answers to numeric IDs
+        const levelMap: any = {
+          'Beginner': 5539,
+          'Intermediate': 5540,
+          'Advanced': 5541
+        };
+        const level = levelMap[getAnswer(3772)] || 5540;
+
+        const langMap: any = {
+          'Japanese': 5542,
+          '日本語': 5542,
+          'English': 5543
+        };
+        const speakLang = langMap[getAnswer(3773)] || 5542;
+        const slideLang = langMap[getAnswer(3774)] || 5542;
+
+        const slot = talk.slots?.[0] || null;
+        const startTime = slot?.start || null;
+        const endTime = slot?.end || null;
+
+        return {
+          code: talk.code,
+          speakers: talk.speakers?.map((speaker: any) => ({
+            code: speaker.code,
+            name: speaker.name,
+            biography: speaker.biography || '',
+            avatar: speaker.avatar_url || null,
+          })) || [],
+          title: talk.title,
+          track_id: talk.track || null,
+          state: talk.state,
+          abstract: talk.abstract || '',
+          description: talk.description || '',
+          duration: talk.duration || 0,
+          slot: slot && slot.room ? {
+            start: startTime,
+            end: endTime,
+            room: slot.room?.name || {'en': '', 'ja-jp': ''},
+            room_id: slot.room?.id || 0
+          } : null,
+          resources: talk.resources || [],
+          pending_state: null,
+          question_answers: {
+            level: level,
+            speak_language: speakLang,
+            slide_language: slideLang,
+            photo_agreement: getBoolAnswer(3791),
+            video_agreement: getBoolAnswer(3792),
+          },
+          date: startTime && new Date(startTime) < new Date('2024-09-28T00:00:00+09:00') ? 'day1' : 'day2' as 'day1' | 'day2',
+          start_minute: startTime ? calculateMinutes(startTime, startTime < '2024-09-28T00:00:00+09:00' ? '2024-09-27T10:00:00+09:00' : '2024-09-28T10:00:00+09:00') : 0,
+          end_minute: endTime ? calculateMinutes(endTime, startTime < '2024-09-28T00:00:00+09:00' ? '2024-09-27T10:00:00+09:00' : '2024-09-28T10:00:00+09:00') : 0,
+          is_event: false as false,
+        };
+      });
+
+    return talks;
+  } catch (error) {
+    console.error('Failed to fetch talks from Pretalx API:', error);
+    return [];
+  }
 };
 
-const fetchBoolAnswers = async (question: number): Promise<Record<string, boolean>> => {
-  const answers = await fetchAnswers<boolean>(question);
-  return answers.reduce((acc, answer) => ({[answer.submission]: answer.answer === 'True', ...acc}), {});
-}
+const calculateMinutes = (dateStr: string, baseStr: string): number => {
+  const date = new Date(dateStr);
+  const base = new Date(baseStr);
+  return Math.floor((date.getTime() - base.getTime()) / (1000 * 60));
+};
 
-const levels = await fetchAndMapAnswers<typeof LEVEL_LIST>(3772);
-const speakLanguages = await fetchAndMapAnswers<typeof SPEAK_LANG_LIST>(3773);
-const slideLanguages = await fetchAndMapAnswers<typeof SLIDE_LANG_LIST>(3774);
 
-const photoAgreements = await fetchBoolAnswers(3791);
-const videoAgreements = await fetchBoolAnswers(3792);
+// Pretalx API データ取得
+try {
+  const talks = await fetchTalks();
+  fs.writeFileSync('./src/cache/talks.json', JSON.stringify(talks, null, 2));
+  console.log(`${talks.length} talks fetched and written to ./src/cache/talks.json`);
 
-const talks: Talk[] = await axios.get<{ results: OriginalTalk[] }>(
-  `https://pretalx.com/api/events/pyconjp2024/talks/`,
-  {
-    params: {
-      limit: 100,
-    },
-    headers: {
-      Authorization: `Token ${process.env.PRETALX_AUTH_KEY}`,
-    },
-  },
-).then(
-  response => response.data.results
-).then(
-  talks => talks.filter(talk => !['HHVDEQ', 'TUPJBN'].includes(talk.code)) // exclude keynotes
-).then(
-  talks => talks.filter(talk => [4328, 4329].includes(talk.submission_type_id))
-).then(
-  (talks: OriginalTalk[]) => talks.map(talk => ({
-        code: talk.code,
-        speakers: talk.speakers.map((speaker: OriginalSpeaker) => ({
+  // MDXファイル作成
+  talks.forEach(talk => {
+    fs.writeFileSync(`./src/cache/talks/abstract_${talk.code}.mdx`, talk.abstract);
+    console.log(`Talk ${talk.code} written to ./src/cache/talks/abstract_${talk.code}.mdx`);
+    fs.writeFileSync(`./src/cache/talks/description_${talk.code}.mdx`, talk.description);
+    console.log(`Talk ${talk.code} written to ./src/cache/talks/description_${talk.code}.mdx`);
+    talk.speakers.forEach(speaker => {
+      fs.writeFileSync(`./src/cache/speakers/biography_${speaker.code}.mdx`, speaker.biography || '');
+      console.log(`Speaker ${speaker.code} written to ./src/cache/speakers/biography_${speaker.code}.mdx`);
+    });
+  });
+
+  // ポスターセッション取得
+  const fetchPosters = async (submissionTypeId: number): Promise<any[]> => {
+    try {
+      const searchParams = new URLSearchParams();
+      searchParams.append('submission_type', String(submissionTypeId));
+      searchParams.append('expand', 'speakers,answers,answers.question');
+      searchParams.append('state', 'confirmed');
+      searchParams.append('state', 'accepted');
+      searchParams.append('limit', '100');
+
+      const response = await axios.get(
+        `https://pretalx.com/api/events/pyconjp2024/submissions/?${searchParams.toString()}`,
+        {
+          headers: {
+            Authorization: `Token ${process.env.PRETALX_AUTH_KEY}`,
+          },
+        }
+      );
+
+      return response.data.results.map((poster: any) => ({
+        code: poster.code,
+        speakers: poster.speakers?.map((speaker: any) => ({
           code: speaker.code,
           name: speaker.name,
-          biography: speaker.biography,
-          avatar: speaker.avatar,
-        })),
-        title: talk.title,
-        track_id: talk.track_id,
-        state: talk.state,
-        abstract: talk.abstract,
-        description: talk.description,
-        duration: talk.duration,
-        slot: talk.slot,
-        resources: talk.resources,
-        pending_state: talk.pending_state,
-        question_answers: {},
-        date: talk.slot.start < '2024-09-28T00:00:00+09:00' ? 'day1' : 'day2' as 'day1' | 'day2',
-        start_minute: talk.slot.start < '2024-09-28T00:00:00+09:00' ? differenceInMinutes(new Date(talk.slot.start), new Date('2024-09-27T10:00:00+09:00')) : differenceInMinutes(new Date(talk.slot.start), new Date('2024-09-28T10:00:00+09:00')),
-        end_minute: talk.slot.start < '2024-09-28T00:00:00+09:00' ? differenceInMinutes(new Date(talk.slot.end), new Date('2024-09-27T10:00:00+09:00')) : differenceInMinutes(new Date(talk.slot.end), new Date('2024-09-28T10:00:00+09:00')),
-        is_event: false as false,
-      }
-    )
-  )
-).then(
-  (talks: Talk[]) => talks.map(talk => ({
-    ...talk,
-    question_answers: {
-      level: levels[talk.code],
-      speak_language: speakLanguages[talk.code],
-      slide_language: slideLanguages[talk.code],
-      photo_agreement: photoAgreements[talk.code],
-      video_agreement: videoAgreements[talk.code],
-    },
-  }))
-);
+          biography: speaker.biography || '',
+          avatar: speaker.avatar_url || null,
+        })) || [],
+        title: poster.title,
+        abstract: poster.abstract || '',
+      }));
+    } catch (error) {
+      console.error(`Failed to fetch posters (type ${submissionTypeId}):`, error);
+      return [];
+    }
+  };
 
-fs.writeFileSync('./src/cache/talks.json', JSON.stringify(talks, null, 2));
-console.log(`${talks.length} talks fetched and written to ./src/cache/talks.json`);
+  const writeAbstracts = (posters: any[]) => {
+    posters.forEach(poster => {
+      fs.writeFileSync(`./src/cache/posters/abstract_${poster.code}.mdx`, poster.abstract);
+      console.log(`Poster ${poster.code} written to ./src/cache/posters/abstract_${poster.code}.mdx`);
+    });
+  };
 
-talks.forEach(talk => {
-  fs.writeFileSync(`./src/cache/talks/abstract_${talk.code}.mdx`, talk.abstract);
-  console.log(`Talk ${talk.code} written to ./src/cache/talks/abstract_${talk.code}.mdx`);
-  fs.writeFileSync(`./src/cache/talks/description_${talk.code}.mdx`, talk.description);
-  console.log(`Talk ${talk.code} written to ./src/cache/talks/description_${talk.code}.mdx`);
-  talk.speakers.forEach(speaker => {
-    fs.writeFileSync(`./src/cache/speakers/biography_${speaker.code}.mdx`, speaker.biography || '');
-    console.log(`Speaker ${speaker.code} written to ./src/cache/speakers/biography_${speaker.code}.mdx`);
-  });
-})
-console.log('All talks and speakers written to cache');
+  const general = await fetchPosters(4331);
+  const community = await fetchPosters(4366);
 
-const fetchPosters: (submissionTypeId: number) => Promise<Poster[]> = async submissionTypeId => axios.get(
-  `https://pretalx.com/api/events/pyconjp2024/submissions/`,
-  {
-    params: {
-      limit: 100,
-      submission_type: submissionTypeId, // pretalxのドキュメントと異なる
-      state: 'confirmed',
-    },
-    headers: {
-      Authorization: `Token ${process.env.PRETALX_AUTH_KEY}`,
-    },
-  },
-).then(
-  response => response.data.results
-).then(
-  // pretalxのドキュメント通りの挙動になった場合に備えるため
-  (talks: OriginalTalk[]) => talks.filter(talk => talk.submission_type_id === submissionTypeId)
-).then((talks: OriginalTalk[]) => talks.map(talk => ({
-    code: talk.code,
-    speakers: talk.speakers.map((speaker: OriginalSpeaker) => ({
-      code: speaker.code,
-      name: speaker.name,
-      biography: speaker.biography,
-      avatar: speaker.avatar,
-    })),
-    title: talk.title,
-    abstract: talk.abstract,
-  }))
-)
+  fs.writeFileSync('./src/cache/posters.json', JSON.stringify({general, community}, null, 2));
+  console.log(`${general.length} general posters and ${community.length} community posters fetched and written to ./src/cache/posters.json`);
 
-const writeAbstracts = async (posters: Poster[]) => {
-  posters.forEach(poster => {
-    fs.writeFileSync(`./src/cache/posters/abstract_${poster.code}.mdx`, poster.abstract);
-    console.log(`Poster ${poster.code} written to ./src/cache/posters/abstract_${poster.code}.mdx`);
-  });
+  writeAbstracts(general);
+  writeAbstracts(community);
+} catch (error) {
+  console.error('Error in Pretalx data fetching:', error);
 }
-
-const general = await fetchPosters(4331);
-const community = await fetchPosters(4366);
-
-fs.writeFileSync('./src/cache/posters.json', JSON.stringify({general, community}, null, 2));
-console.log(`${general.length} general posters and ${community.length} community posters fetched and written to ./src/cache/posters.json`);
-
-await writeAbstracts(general);
-await writeAbstracts(community);
-*/
