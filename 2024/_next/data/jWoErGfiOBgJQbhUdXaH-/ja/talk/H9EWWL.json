@@ -1,0 +1,1651 @@
+{
+  "pageProps": {
+    "lang": "ja",
+    "talk": {
+      "code": "H9EWWL",
+      "speakers": [
+        {
+          "code": "MFAYNG",
+          "name": "佐々木　峻",
+          "biography": "Acroquest Technology株式会社所属。\r\nNLP・検索を専門に、今はRAGソリューションの開発を担当。",
+          "avatar": "https://pretalx.com/media/avatars/MFAYNG_IMiKVTA.png"
+        }
+      ],
+      "title": "FastAPIのasync defとdefの使い分け",
+      "track_id": 4695,
+      "state": "confirmed",
+      "abstract": "FastAPIはPythonでREST APIを実装するときに使用するライブラリです。リクエスト・レスポンスのバリデーションや認証など様々な機能を備えており、便利なライブラリなので広く使われています。\r\n\r\nそのFastAPIですが、パスオペレーションを定義するときに、async をつけることができます。昨今ChatGPTライクなストリームのようにChat表示できるアプリで使用されることもありますが、このasyncにはどのような効果があるのか、どのように使うのかは実は曖昧な人が多いのではないでしょうか。\r\n\r\nいくつかのコードをサンプルにasyncを使う場合、使わない場合に分けて負荷試験などを見ながら違いについて発表します。",
+      "description": "このセッションでは、async defはどのようなものかを簡単に説明し、使ったらよい場合と、使ってはいけない場合をそれぞれ説明します。  \r\nそれぞれ、使った場合と使ってない場合にどのようなことになるか負荷試験結果などを見ながらasync defのベストプラクティスを学んでいきます\r\n\r\n1. Pythonにおける並行処理・並列処理・非同期処理\r\n2. マルチスレッドと非同期処理\r\n  2.1. GILとは何か\r\n  2.2 async/awaitの実装\r\n3. FastAPIにおけるasync defとdefの違い\r\n  3.1 async def+同期処理を書いてはいけない\r\n4. async def+同期処理でどうなるのか実験してみる",
+      "duration": 15,
+      "slot": {
+        "start": "2024-09-27T17:00:00+09:00",
+        "end": "2024-09-27T17:15:00+09:00",
+        "room": {
+          "en": "20F Track1",
+          "ja-jp": "20F Track1"
+        },
+        "room_id": 3086
+      },
+      "resources": [],
+      "pending_state": null,
+      "question_answers": {
+        "level": 5539,
+        "speak_language": 5542,
+        "slide_language": 5542,
+        "photo_agreement": true,
+        "video_agreement": true
+      },
+      "date": "day1",
+      "start_minute": 420,
+      "end_minute": 435,
+      "is_event": false
+    },
+    "dictionary": {
+      "metadata": {
+        "title": "PyCon JP 2024",
+        "description": "PyCon JPは、Pythonユーザが集まり、PythonやPythonを使ったソフトウェアについて情報交換、交流をするためのカンファレンスです。"
+      },
+      "hero": {
+        "location": "TOC有明コンベンションホール",
+        "ticket": "チケット案内 (CLOSED)"
+      },
+      "news": {
+        "read_more": "ニュースをもっと見る"
+      },
+      "menu": {
+        "about": "開催概要",
+        "events": "イベント詳細",
+        "sponsor": "スポンサー",
+        "contents": "当日のコンテンツ",
+        "organizer": "主催メンバー",
+        "venue": "会場案内",
+        "coc": "行動規範",
+        "timetable": "タイムテーブル",
+        "sprint": "スプリント",
+        "posters": "ポスターセッション",
+        "sponsor_list": "スポンサー一覧",
+        "organizer_list": "主催メンバー一覧",
+        "special_thanks": "スペシャルサンクス",
+        "job_board": "ジョブボード",
+        "coming_soon": "(準備中)"
+      },
+      "overview": {
+        "subtitle": "概要",
+        "description": "PyCon JP は、Python ユーザが集まり、Python や Python を使ったソフトウェアについて情報交換、交流をするためのカンファレンスです。 PyCon JP の開催を通じて、Python の使い手が一堂に集まり、Python にまつわる様々な分野の知識や情報を交換し、新たな友達やコミュニティとのつながり、仕事やビジネスチャンスを増やせる場所とすることが目標です。"
+      },
+      "conference": {
+        "subtitle": "カンファレンス",
+        "subtitle_keynote": "基調講演",
+        "subtitle_invited_talk": "招待講演",
+        "keynote_day1": {
+          "speaker": "James Powell",
+          "date": "2024.9.27(Fri)"
+        },
+        "keynote_day2": {
+          "speaker": "石本 敦夫",
+          "date": "2024.9.28(Sat)"
+        },
+        "invited_talk": {
+          "speaker": "稲田 直哉",
+          "date": ""
+        }
+      },
+      "sponsor": {
+        "subtitle": "スポンサー",
+        "subtitle_diamond": "ダイヤモンドスポンサー",
+        "subtitle_platinum": "プラチナスポンサー",
+        "subtitle_gold": "ゴールドスポンサー",
+        "subtitle_silver": "シルバースポンサー",
+        "subtitle_advertising": "広告スポンサー",
+        "subtitle_psf": "PSF",
+        "subtitle_special": "特別スポンサー",
+        "subtitle_patron": "パトロン"
+      },
+      "footer": {
+        "contact_us": "お問い合わせ",
+        "description": "ボランティアによる運営ですので、回答には1週間程度を要します。\n 何卒お待ちいただけますようにお願いします。",
+        "past_events": "過去のPyCon JPのイベント一覧"
+      },
+      "organizers": {
+        "subtitle_chairs": "共同座長",
+        "organizing_members": "主催メンバー",
+        "reviewers": "レビュアー",
+        "camera_crews": "カメラマン",
+        "chairs": {
+          "takanory": {
+            "name": "鈴木 たかのり",
+            "github": "takanory",
+            "twitter": "takanory",
+            "facebook": ""
+          },
+          "yoshida": {
+            "name": "吉田　俊輔",
+            "github": "koedoyoshida",
+            "twitter": "koedoyoshida",
+            "facebook": "koedoyoshida"
+          },
+          "terada": {
+            "name": "寺田　学",
+            "github": "terapyon",
+            "twitter": "terapyon",
+            "facebook": "terapyon"
+          }
+        }
+      },
+      "announce": {
+        "sprint": {
+          "title": "スプリント参加チケット (CLOSED)",
+          "description": "スプリント参加には、カンファレンスとは別のチケットが必要です。\n詳しくはリンク先のconnpassイベントページをご覧ください。"
+        }
+      },
+      "venue": {
+        "map": "会場見取り図",
+        "access": "会場アクセス",
+        "heading": {
+          "location": "会場",
+          "address": "所在地",
+          "access": "アクセス"
+        },
+        "venue": {
+          "conference": {
+            "date": "2024.9.27(Fri) - 2024.9.28(Sat)",
+            "location": "TOC有明コンベンションホール",
+            "address": "東京都江東区有明3丁目5番7号",
+            "access": "<りんかい線> 国際展示場駅より徒歩3分\n<ゆりかもめ> 東京ビッグサイト駅/有明駅より徒歩4分"
+          },
+          "sprint": {
+            "date": "2024.9.29(Sun)",
+            "location": "HENNGE株式会社",
+            "address": "東京都渋谷区南平台町16番28号 Daiwa渋谷スクエア 4F",
+            "access": "渋谷駅より徒歩約10分"
+          }
+        }
+      },
+      "posters": {
+        "general": "一般",
+        "community": "コミュニティ"
+      },
+      "sprint": {
+        "themes": "応募されたテーマ一覧",
+        "output": "成果物"
+      },
+      "special_thanks": {
+        "description": "PyCon JP 2024の開催に貢献してくださった方々です。"
+      },
+      "contents": {
+        "see_more": "詳細はこちら"
+      }
+    },
+    "talks": [
+      {
+        "code": "93RZT7",
+        "speakers": [
+          {
+            "code": "LWJFV3",
+            "name": "加藤雅也",
+            "biography": "",
+            "avatar": "https://pretalx.com/media/avatars/LWJFV3_BXWGoDb.png"
+          }
+        ],
+        "title": "Django Ninjaで高速なAPI開発を実現する: 実践ガイドとベストプラクティス",
+        "track_id": 4683,
+        "state": "confirmed",
+        "abstract": "Django Ninjaは、Djangoフレームワーク上でFastAPIのような高速で直感的なAPI開発を可能にするライブラリです。このトークでは、Django Ninjaの基本的な使い方から実際のプロジェクトでの活用方法までを網羅し、DjangoとDjango Ninjaを組み合わせた効率的なAPI開発手法を紹介します。\r\n具体的には、基本的なAPIエンドポイントの作成、認証と認可の設定、スキーマバリデーションの実装、そしてパフォーマンス最適化のためのベストプラクティスについて詳しく解説します。\r\nまた、Django Ninjaを実際のプロジェクトで使用する際に直面する可能性のある課題とその解決方法についても取り上げます。このトークは、Djangoを使用した経験がある開発者や、より高速なAPI開発を目指しているエンジニアに向けたものとなります。",
+        "description": "このトークでは、Django Ninjaを活用してDjangoアプリケーション上に高速で柔軟なAPIを構築する方法を紹介します。まず、Django Ninjaの基本的な使い方から始め、次に具体的なコード例を交えてエンドポイントの作成、スキーマバリデーション、認証と認可の設定方法を解説します。また、Django Ninjaを使用する際に注意すべき点や、パフォーマンス最適化のためのベストプラクティスについても深掘りします。最後に、弊社(Recustomer株式会社)での活用例を通じて、具体的な問題解決の方法を共有します。このトークを通じて、参加者はDjango Ninjaを効果的に活用するための知識とスキルを習得できます。\r\n\r\n\r\n- Django Ninjaの基本概要\r\n- 具体的なユースケースと実演\r\n- 基本的なAPIエンドポイントの作成\r\n- スキーマバリデーションの実装\r\n- パフォーマンス最適化のためのベストプラクティス\r\n- 弊社(Recustomer株式会社)での活用例",
+        "duration": 15,
+        "slot": {
+          "start": "2024-09-27T11:40:00+09:00",
+          "end": "2024-09-27T11:55:00+09:00",
+          "room": {
+            "en": "20F Track1",
+            "ja-jp": "20F Track1"
+          },
+          "room_id": 3086
+        },
+        "resources": [
+          {
+            "id": 7420,
+            "resource": "https://speakerdeck.com/masaya00/djangoninjadegao-su-naapikai-fa-woshi-xian-suru",
+            "description": "本スライド"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 100,
+        "end_minute": 115,
+        "is_event": false
+      },
+      {
+        "code": "ALF9BM",
+        "speakers": [
+          {
+            "code": "NPYPG7",
+            "name": "yassun7010",
+            "biography": "",
+            "avatar": "https://pretalx.com/media/avatars/NPYPG7_TQfCKEq.png"
+          }
+        ],
+        "title": "Pydantic x Database API：Turu-pyの開発",
+        "track_id": 4685,
+        "state": "confirmed",
+        "abstract": "データ分析基盤を開発しているチームで Snowflake を安全に利用するために、 Turu-py というライブラリを開発した話をします。",
+        "description": "Pydantic 利用したクエリ結果のバリデーションを簡単に行う PEP 249 – Python Database API のラッパーライブラリ Turu-py を作成しました。\r\n\r\nチームメンバーは SQL を書くことに慣れており、またデータ分析基盤を扱う関係上、複雑なクエリ文を書くことが多いチームであったため、 ORM ではなく素の SQL を用いて開発をした方が良いと判断し、クエリ結果を型安全に扱えるライブラリを作成しました。\r\n\r\nTuru-py の前に、Python 3.12 の Type Parameter Syntax を用いて、型安全なクエリビルダーの開発を検討しましたが、技術的な壁にぶつかったため現実的な解決策をとったものになります。",
+        "duration": 15,
+        "slot": {
+          "start": "2024-09-27T16:40:00+09:00",
+          "end": "2024-09-27T16:55:00+09:00",
+          "room": {
+            "en": "20F Track1",
+            "ja-jp": "20F Track1"
+          },
+          "room_id": 3086
+        },
+        "resources": [
+          {
+            "id": 7472,
+            "resource": "https://speakerdeck.com/yassun7010/pydantic-x-database-api-turu-pynokai-fa",
+            "description": "Pydantic x Database API：turu-pyの開発.pptx"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 400,
+        "end_minute": 415,
+        "is_event": false
+      },
+      {
+        "code": "DTM3D8",
+        "speakers": [
+          {
+            "code": "7EVW7P",
+            "name": "Calvin Janitra Halim",
+            "biography": "Calvin is an ML engineer currently working at Mercari, where he focuses on creating and improving ML models and MLOps infrastructure to ensure the safety of Mercari users. Previously, he worked as an ML engineer at Rakuten, developing various projects such as inappropriate review detection and business impact analysis, along with the MLOps and DevOps infrastructure supporting these initiatives. He is passionate about AI, ML, MLOps, and web development. In his free time, he produces electronic music and plays jazz fusion sporadically with his bandmates.",
+            "avatar": "https://pretalx.com/media/avatars/7EVW7P_KbUZ336.png"
+          },
+          {
+            "code": "7XUPTV",
+            "name": "Ayato Toyokuni",
+            "biography": "",
+            "avatar": null
+          }
+        ],
+        "title": "MLOps in Mercari Group’s Trust and Safety ML Team",
+        "track_id": 4720,
+        "state": "confirmed",
+        "abstract": "In the Mercari Group’s Trust and Safety ML Team, we provide solutions to ensure the safety of the users. Examples of the solutions we provide include anti-money laundering countermeasures, credit card fraud detection, and many others. Some of these solutions are powered by machine learning models. In order to be as reactive as possible to emerging frauds, it is important to streamline the model improvement and deployment processes. In this talk, we will explain our platform and automation, and how each element helps us rapidly deploy new countermeasures. We will cover all MLOps steps: experimentation, training/deployment, evaluation, and metric monitoring. We hope our talk benefits those integrating DevOps into their ML solutions or building ML platforms, especially with GCP’s Vertex AI.",
+        "description": "",
+        "duration": 15,
+        "slot": {
+          "start": "2024-09-27T17:00:00+09:00",
+          "end": "2024-09-27T17:15:00+09:00",
+          "room": {
+            "en": "4F Track4",
+            "ja-jp": "4F Track4"
+          },
+          "room_id": 3420
+        },
+        "resources": [
+          {
+            "id": 7481,
+            "resource": "https://speakerdeck.com/cjhj/mlops-in-mercari-groups-trust-and-safety-ml-team",
+            "description": "Presentation Slides"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5543,
+          "slide_language": 5543,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 420,
+        "end_minute": 435,
+        "is_event": false
+      },
+      {
+        "code": "FV9HPZ",
+        "speakers": [
+          {
+            "code": "H3M7XF",
+            "name": "Shiva Bhusal",
+            "biography": "Shiva is a Software Engineer based in Bellevue, WA, USA. He has previously presented posters at PyCon-AU and PyCon-US. In addition to software engineering, he loves reading, writing, and playing cricket.",
+            "avatar": "https://pretalx.com/media/avatars/H3M7XF_BZuc3tW.jpg"
+          }
+        ],
+        "title": "The Sense of Style: A Talk On Coding Aesthetics",
+        "track_id": 4695,
+        "state": "confirmed",
+        "abstract": "Coding aesthetics, in this context, refers to how code is written. It is essential that programmers also pay attention to the aesthetics and not just the functionality the code aims to achieve. There are several ways to make Python code aesthetically pleasing, such as code refactoring, using static code analysis tools like PyLint to check compliance with PEP8 guidelines, and applying syntactic sugar. The talk mainly covers the importance of style in coding and the available tools and techniques for Python programmers that help maintain coding aesthetics.",
+        "description": "",
+        "duration": 15,
+        "slot": {
+          "start": "2024-09-27T16:40:00+09:00",
+          "end": "2024-09-27T16:55:00+09:00",
+          "room": {
+            "en": "4F Track4",
+            "ja-jp": "4F Track4"
+          },
+          "room_id": 3420
+        },
+        "resources": [
+          {
+            "id": 7414,
+            "resource": "https://www.canva.com/design/DAGRa0EnuJw/lIpvL4KE52wvr1B-k-bCvg/view?utm_content=DAGRa0EnuJw&utm_campaign=designshare&utm_medium=link&utm_source=editor",
+            "description": "Presentation Slides"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5543,
+          "slide_language": 5543,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 400,
+        "end_minute": 415,
+        "is_event": false
+      },
+      {
+        "code": "H9EWWL",
+        "speakers": [
+          {
+            "code": "MFAYNG",
+            "name": "佐々木　峻",
+            "biography": "Acroquest Technology株式会社所属。\r\nNLP・検索を専門に、今はRAGソリューションの開発を担当。",
+            "avatar": "https://pretalx.com/media/avatars/MFAYNG_IMiKVTA.png"
+          }
+        ],
+        "title": "FastAPIのasync defとdefの使い分け",
+        "track_id": 4695,
+        "state": "confirmed",
+        "abstract": "FastAPIはPythonでREST APIを実装するときに使用するライブラリです。リクエスト・レスポンスのバリデーションや認証など様々な機能を備えており、便利なライブラリなので広く使われています。\r\n\r\nそのFastAPIですが、パスオペレーションを定義するときに、async をつけることができます。昨今ChatGPTライクなストリームのようにChat表示できるアプリで使用されることもありますが、このasyncにはどのような効果があるのか、どのように使うのかは実は曖昧な人が多いのではないでしょうか。\r\n\r\nいくつかのコードをサンプルにasyncを使う場合、使わない場合に分けて負荷試験などを見ながら違いについて発表します。",
+        "description": "このセッションでは、async defはどのようなものかを簡単に説明し、使ったらよい場合と、使ってはいけない場合をそれぞれ説明します。  \r\nそれぞれ、使った場合と使ってない場合にどのようなことになるか負荷試験結果などを見ながらasync defのベストプラクティスを学んでいきます\r\n\r\n1. Pythonにおける並行処理・並列処理・非同期処理\r\n2. マルチスレッドと非同期処理\r\n  2.1. GILとは何か\r\n  2.2 async/awaitの実装\r\n3. FastAPIにおけるasync defとdefの違い\r\n  3.1 async def+同期処理を書いてはいけない\r\n4. async def+同期処理でどうなるのか実験してみる",
+        "duration": 15,
+        "slot": {
+          "start": "2024-09-27T17:00:00+09:00",
+          "end": "2024-09-27T17:15:00+09:00",
+          "room": {
+            "en": "20F Track1",
+            "ja-jp": "20F Track1"
+          },
+          "room_id": 3086
+        },
+        "resources": [],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 420,
+        "end_minute": 435,
+        "is_event": false
+      },
+      {
+        "code": "MD99N8",
+        "speakers": [
+          {
+            "code": "PPCGYS",
+            "name": "佐藤樹",
+            "biography": "",
+            "avatar": "https://pretalx.com/media/avatars/PPCGYS_DBTuqLS.jpg"
+          }
+        ],
+        "title": "PythonのHTTPクライアントツール徹底比較",
+        "track_id": 4683,
+        "state": "confirmed",
+        "abstract": "Pythonエコシステムにおいて、HTTPクライアントは非常に重要な役割を果たしています。特にWeb APIを使用したデータのやり取りや取得においては、適切なライブラリ選択が開発速度やアプリケーションのパフォーマンスに大きく影響します。本トークでは、Pythonの代表的なHTTPクライアントであるrequests、httpxなどのライブラリを徹底的に比較し、それぞれの特徴、利点、欠点を詳しく解説します。また、使用例を交えて、どのような場面でどのツールを選ぶべきかについて検討した結果を発表いたします。このセッションを通じて、自身のプロジェクトに最適なHTTPクライアントを選定するための知識と洞察を得ることができます。",
+        "description": "本トークでは、Pythonの代表的なHTTPクライアントライブラリであるrequests、httpx、urllib3、aiohttpなどを比較し、それぞれの機能、パフォーマンス、使いやすさについて詳しく解説します。特に、同期処理と非同期処理の違いやエラーハンドリングについて具体的なコード例を交えて紹介します。これにより、各ライブラリの強みと弱点を理解し、プロジェクトに最適なHTTPクライアントを選ぶためのヒントを習得することができます。具体的な使用シナリオに応じた推奨ライブラリの選定方法も紹介し、開発者が自身のニーズに最も適したツールを選べるようなヒントをお話します。これにより、HTTPクライアントライブラリの選定において、より確信を持って決定を下せるようになります。",
+        "duration": 15,
+        "slot": {
+          "start": "2024-09-27T16:40:00+09:00",
+          "end": "2024-09-27T16:55:00+09:00",
+          "room": {
+            "en": "20F Track2",
+            "ja-jp": "20F Track2"
+          },
+          "room_id": 3418
+        },
+        "resources": [
+          {
+            "id": 7413,
+            "resource": "https://speakerdeck.com/tatsuki12/pythonnohttpkuraiantoturu-che-di-bi-jiao",
+            "description": "発表資料"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 400,
+        "end_minute": 415,
+        "is_event": false
+      },
+      {
+        "code": "MJ7GA9",
+        "speakers": [
+          {
+            "code": "XZDDEC",
+            "name": "中村草介",
+            "biography": "",
+            "avatar": null
+          }
+        ],
+        "title": "MicroPythonとRaspberry Pi Pico Wで始めるマイクロコントローラー上でのワイヤレス通信",
+        "track_id": 4687,
+        "state": "confirmed",
+        "abstract": "RaspberryPi PicoシリーズはLinuxが動作するRaspberry Piとは違い二つのCortex-M0+ プロセッサと264kbのSRAMと限られたリソースを搭載したRP2040というマイクロコントローラーを使った小さな基板のコンピューターです。\r\nこのようなマイクロコントローラーにMicroPythonインストールすることで限られたリソース下でもいつものPython感覚でプログラミングをすることができます。\r\n\r\nさらに2022年6月に発表されたRaspberryPi Pico Wと呼ばれる機種はWifiとBLE機能が追加されたことで例えばREST APIを呼び取得したデータを基板に接続したディスプレイに表示する、逆に基板に接続したセンサーの値をREST APIに送信するなど応用範囲が広がりました。\r\n\r\n発売当初はWifiのみのサポートでBLEは利用できなかったのですが2023年6月からC SDKでのBLEのサポートが始まりその後2023年10月リリースの v1.21.0からMicroPythonでもBLEのサポートが始まっています。\r\n\r\nRaspberry Pi Pico W自体も発売当初は手に入りづらかったものですが、今は秋葉原など店頭でも手軽に買えるようになっています\r\n応用範囲も広がり、気軽に買うこともできるようになったのでさらに開発も簡単にできることを伝えようと思い立ちました。\r\n\r\n今回のトークでは短い時間ですが基板上のLED、RP2040に内蔵された温度センサーとWifiやBLEでの通信をMicroPythonを使って組み合わせることでマイクロコントローラーでも使い慣れたPythonを使って簡単に開発ができることを紹介しようと考えています。\r\n(通信を主な話題にしたいため、外部のセンサーやディスプレイなどの扱い方については今回は触れないでおこうと考えています)",
+        "description": "",
+        "duration": 15,
+        "slot": {
+          "start": "2024-09-27T17:00:00+09:00",
+          "end": "2024-09-27T17:15:00+09:00",
+          "room": {
+            "en": "20F Track2",
+            "ja-jp": "20F Track2"
+          },
+          "room_id": 3418
+        },
+        "resources": [
+          {
+            "id": 7422,
+            "resource": "https://nkm3.org/raspberry_pi_pico_w_network_slide/",
+            "description": "資料URL"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 420,
+        "end_minute": 435,
+        "is_event": false
+      },
+      {
+        "code": "NQSJWY",
+        "speakers": [
+          {
+            "code": "XQBAHE",
+            "name": "Khushboo Verma",
+            "biography": "Khushboo is a Software Engineer at Appwrite and is passionate about technology, open-source and building communities. She has previously worked at Microsoft and Adobe. Having a passion for public speaking, she has delivered talks at over 100 events including Microsoft Build and FOSSASIA Summit and has a solid social media presence of 200K+ across Twitter and LinkedIn. She is a strong advocate for diversity and inclusion in communities.",
+            "avatar": "https://pretalx.com/media/avatars/XQBAHE_FNiBFZF.jpg"
+          }
+        ],
+        "title": "Building Accessible Web Experiences with Python",
+        "track_id": 4683,
+        "state": "confirmed",
+        "abstract": "This session explores how Python empowers web development accessibility. We'll discuss using Python libraries like Selenium and PyTest to automate accessibility testing, enabling early detection of issues. Additionally, we'll delve into how Python's data analysis capabilities (NumPy, Pandas) aid accessibility research, allowing analysis of testing data and user behavior to improve evaluation methods. By making websites accessible, we create an inclusive and enjoyable web experience for everyone.",
+        "description": "Imagine the web as a giant library, but some people can't get in because the stairs are too high, the door is too narrow, or the signs are only in braille. That's what happens when websites aren't accessible!\r\n\r\nIn this session, we'll explore how Python acts as a powerful toolkit for championing accessibility in web development. We'll delve into two key areas:\r\n1. Automating Accessibility Testing with Python: We'll discover how libraries like Selenium and PyTest can be leveraged to create automated tests that simulate user interactions with disabilities. This approach will equip you to identify and resolve accessibility issues early in the development process.\r\n2. Leveraging Python for Accessibility Research: We'll explore how Python's data analysis capabilities, through libraries like NumPy and Pandas, empower accessibility research. We'll discuss how researchers use Python to analyze data from accessibility testing tools, discover user behavior patterns, and contribute to the creation of improved accessibility evaluation methods.\r\n\r\nAnd why do we need to discuss this? Think of it like building a ramp next to the stairs in the library. It doesn't just help people with wheelchairs, it also helps parents with strollers, people carrying heavy bags, and anyone who just wants an easier way in. Web accessibility is like that ramp, making the web more inclusive and enjoyable for everyone!",
+        "duration": 15,
+        "slot": {
+          "start": "2024-09-27T17:00:00+09:00",
+          "end": "2024-09-27T17:15:00+09:00",
+          "room": {
+            "en": "4F Track3",
+            "ja-jp": "4F Track3"
+          },
+          "room_id": 3419
+        },
+        "resources": [
+          {
+            "id": 7477,
+            "resource": "https://pretalx.com/media/pyconjp2024/submissions/NQSJWY/resources/PyCon_JP_Talk_OxSjZ0C.pdf",
+            "description": "Slides"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5543,
+          "slide_language": 5543,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 420,
+        "end_minute": 435,
+        "is_event": false
+      },
+      {
+        "code": "TEHUHS",
+        "speakers": [
+          {
+            "code": "ALVZCU",
+            "name": "Nirmal Dahal",
+            "biography": "Nirmal Dahal, also known as TheNittam or #Nittam. I've been in the cybersecurity industry for a long time and have helped secure over 50+ enterprises against cyber threats. With the goal of securing cyberspace, I co-founded CryptoGen Nepal with other like-minded individuals, which is a Nepal-based cybersecurity firm that has also won the ICT Startup Award. I am the leader of Nepal's largest community of ethical hackers, \"Pentester Nepal\" and the Nepal Chapter Leader for OWASP (Open Web Application Security Project). We organize cyber security events, raise awareness, share knowledge, and train people about cyber security and potential cyber threats. In April 2021, I was listed on the EC-Council's \"Global Ethical Hacking Leaderboard\" among the top 10 ethical hackers in the world for the month of April 2021, Quarter 2. Due to my activities and expertise in the cyber security field, I've been featured in magazines and national newspapers. In Quarter 1 of 2017, I was listed as the top 25 hackers on the YESWEHACK platform which is Europe's first BugBounty Platform.",
+            "avatar": "https://pretalx.com/media/avatars/ALVZCU_vgRtK3W.png"
+          }
+        ],
+        "title": "Python Powered \"Cyber Security\" - Tools, Techniques, Exploitation and Automation",
+        "track_id": 4720,
+        "state": "confirmed",
+        "abstract": "In this talk, I'll emphasize Python's pivotal role in addressing cybersecurity challenges, highlighting its versatility and impact. Also, I'll share how I automated Python skills to safeguard the bank corporate site from potential backdoor attacks.\r\n\r\nMoreover, I will delve into Python's significance across various cybersecurity domains, including OSINT, Penetration Testing, Vulnerability Assessment, Incident Response, Digital Forensics, SIEM/SOAR, Malware Analysis, Behavioral Analysis, and will showcase a few Python tools and libraries that are handy for conducting these tasks, such as Nmap, SQLmap, Impacket, Scapy, Legion, and essential libraries like Requests, BeautifulSoup4, re, JSON, etc.",
+        "description": "",
+        "duration": 15,
+        "slot": {
+          "start": "2024-09-27T16:40:00+09:00",
+          "end": "2024-09-27T16:55:00+09:00",
+          "room": {
+            "en": "4F Track3",
+            "ja-jp": "4F Track3"
+          },
+          "room_id": 3419
+        },
+        "resources": [],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5543,
+          "slide_language": 5543,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 400,
+        "end_minute": 415,
+        "is_event": false
+      },
+      {
+        "code": "WJ8TVX",
+        "speakers": [
+          {
+            "code": "V7U9YE",
+            "name": "Takuya Nishimoto",
+            "biography": "株式会社シュアルタ代表。2010年頃からオープンソースのスクリーンリーダーNVDAの日本語化に参加。2012年から2022年までNVDA日本語チーム代表。PyCon mini Hiroshima や「すごい広島 with Python」などを開催し、現在も「すごい広島 IT初心者の会」として継続。2024年から Python Boot Camp の運営にも参加。ウェブアクセシビリティ基盤委員会 WG2 主査。",
+            "avatar": "https://pretalx.com/media/avatars/V7U9YE_drxW0Cd.jpg"
+          }
+        ],
+        "title": "Robot FrameworkとNVDAスクリーンリーダーによるアクセシビリティのテスト自動化",
+        "track_id": 4720,
+        "state": "confirmed",
+        "abstract": "このミニトークでは、スクリーンリーダーNVDAとRobot Frameworkを用いたシステムテストの自動化について紹介します。主に日本語Windows環境で検証し、独自のテストの組み込み、アクセシビリティサポーテッド（AS）情報への活用を検討します。\r\n\r\nスクリーンリーダーは視覚障害者にとって重要なツールであり、ウェブアクセシビリティを確保するためには、これらのツールが適切に動作することが重要です。NVDA は Python で開発されており WAI-ARIA: Authoring Practices Guide に基づいたブラウザテストも Robot Framework で自動化されています。\r\n\r\n参加者は、このミニトークを通じて、日本語環境でのスクリーンリーダーテストの重要性とその基本的な実践方法について理解を深めることができます。",
+        "description": "このミニトークでは、以下のポイントを説明します。\r\n\r\n1. **背景と重要性**:\r\n   - スクリーンリーダーNVDAとウェブアクセシビリティ\r\n   - 日本語環境での動作検証とAS情報\r\n\r\n2. **テストのセットアップと実装**:\r\n   - NVDAとRobot Frameworkの開発環境の構築\r\n   - WAI-ARIA: Authoring Practices Guideに基づくテストケースの実行\r\n   - 自動テストのカスタマイズ\r\n\r\n3. **デモと結果の共有**:\r\n   - 実際のテスト実行と結果の解析方法を紹介\r\n\r\nこれらのポイントを通じて、参加者は短時間でスクリーンリーダーを用いたテストの基本的な流れを理解し、実際の開発に応用するためのヒントを得ることができます。また、ウェブアクセシビリティ基盤委員会(WAIC)のAS情報の整備についても触れます。",
+        "duration": 15,
+        "slot": {
+          "start": "2024-09-27T11:40:00+09:00",
+          "end": "2024-09-27T11:55:00+09:00",
+          "room": {
+            "en": "20F Track2",
+            "ja-jp": "20F Track2"
+          },
+          "room_id": 3418
+        },
+        "resources": [
+          {
+            "id": 7493,
+            "resource": "https://www.docswell.com/s/nishimotz/ZWWXED-2024-09-27-064615",
+            "description": "Robot FrameworkとNVDAスクリーンリーダーによるアクセシビリティのテスト自動化"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 100,
+        "end_minute": 115,
+        "is_event": false
+      },
+      {
+        "code": "3HFBD8",
+        "speakers": [
+          {
+            "code": "3CXZYS",
+            "name": "池嶋大樹",
+            "biography": "エムスリー株式会社\r\nAI・機械学習チーム　機械学習エンジニア\r\n\r\n2019年入社。\r\nユーザーの興味トピック推計システムの開発など、機械学習を使ったプロダクト開発に従事。\r\nMLOpsのためのパイプラインツール[gokart](https://github.com/m3dev/gokart)の開発にも参加。\r\n\r\nX: [@mski_iksm](https://x.com/mski_iksm)",
+            "avatar": "https://pretalx.com/media/avatars/3CXZYS_4nDiuOH.png"
+          }
+        ],
+        "title": "MLOpsの「あるある」な課題の解決と、そのためのライブラリgokart",
+        "track_id": 4695,
+        "state": "confirmed",
+        "abstract": "LLMを含め、機械学習技術は快適なアプリケーションを作成する上で、もはや欠かせない存在ではないでしょうか？一方で、「運用」という側面に目を向けると、機械学習はモデルの更新や入出力の変更など、普段のアプリケーション運用とは一味違った問題が出てきますよね。\r\n\r\n例えば、以下のような課題があがってくるかと思います。\r\n- 実験した機械学習モデルの再現性がない\r\n- モデルのバージョニングがごちゃごちゃになり、どの設定で作ったものかわからない\r\n- バッチ実行のたびに重複した処理を繰り返して非効率的\r\n- 似たような関数がプロダクトごとに重複して作られてしまう\r\n- 開発者によって書き方がばらつき、他メンバーが読みにくい\r\n\r\nこうした問題の解決には、「処理結果をキャッシュして、同じ処理は再実行しない」や「モデルとコードとを1:1で対応させる」といった戦略が効果的だと考えられます。これらの課題解決の知見を元に、エムスリーでは、MLOpsのためのライブラリ「gokart」を開発し活用してきました。\r\n\r\nこの発表では、MLOpsの「あるある」な課題とそれへの対処法に関して、今まで培ってきた知見と実際の実装を紹介していきます。ぜひお楽しみに！",
+        "description": "本発表は、主にMLOpsでの「あるある」な課題解消にフォーカスしています。\r\nLLMなどの発展もあり、今日では多くのアプリケーションに当たり前のように機械学習技術が組み込まれるようになってきました。\r\n機械学習エンジニアだけでなく、機械学習を活用するアプリケーションに関わる/関わりたい/関わることになりそうな、多くの方に価値をお届けできると考えています。\r\n\r\n## 想定オーディエンス\r\n- 機械学習モデルをアプリケーションへの組み込みに苦心している、機械学習エンジニア\r\n- データの収集から分析を効率的に実施したい、データサイエンティスト\r\n- MLOpsと日々格闘している、データエンジニア/ソフトウェアエンジニア\r\n- モデルの再現性やバージョン管理で困っている、リサーチャー\r\n\r\n\r\n## アジェンダ\r\n\r\n導入: 機械学習プロジェクトの「あるある」な課題\r\n- 実験した機械学習モデルの再現性がない\r\n- モデルのバージョニングが面倒\r\n- バッチ実行のたびに重複した処理を繰り返して非効率的\r\n- 似たような関数がプロダクトごとに重複して作られる\r\n- 開発者によって書き方がばらつき、他メンバーが読みにくい\r\n\r\nエムスリーでは「あるある」な課題をどう解消してきたのか？\r\n- 再現性: 作成した機械学習モデルのキャッシュを使うので、実験結果を再現できる\r\n- モデルのバージョニング: モデル作成のコードとモデルファイルが1:1で対応する\r\n- 同じ処理を繰り返す: 処理結果のキャッシュファイルを活用\r\n- 似た関数: 共通タスクを作って共有しやすい\r\n- 書き方のばらつき: クラス設計に縛りがあるので似やすい\r\n\r\ngokartの使い方紹介\r\n- Taskを作る\r\n- 依存関係を記述する\r\n- パイプラインを実行する\r\n\r\nさらに効率化するために\r\n- パイプラインの記述を1つのTaskに集約\r\n- TaskLockを使った分散処理\r\n\r\nもっと知るには？",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T14:40:00+09:00",
+          "end": "2024-09-27T15:10:00+09:00",
+          "room": {
+            "en": "20F Track2",
+            "ja-jp": "20F Track2"
+          },
+          "room_id": 3418
+        },
+        "resources": [
+          {
+            "id": 7424,
+            "resource": "https://speakerdeck.com/mski_iksm/mlopsno-aruaru-ke-ti-nojie-jue-to-sonotamenoraiburarigokart",
+            "description": "発表資料（speakerdeck）"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 280,
+        "end_minute": 310,
+        "is_event": false
+      },
+      {
+        "code": "89F3RQ",
+        "speakers": [
+          {
+            "code": "UM3CWP",
+            "name": "nikkie",
+            "biography": "にっきーです\r\n\r\n\r\n\r\nNikkie began his career as a software engineer in 2016.  \r\n\r\nHe started Python as a hobby in 2017 and fell in love with it.  \r\n\r\nHe is engaged in Natural Language Processing as a data scientist at Uzabase, inc. Tokyo, Japan from 2019.\r\n\r\n\r\n\r\nHe is working on the Python community in Japan as a staff of the following event:\r\n\r\n\r\n\r\n- [Start Python Club](https://startpython.connpass.com/) (online, monthly)\r\n\r\n- [PyCon Japan](https://www.pycon.jp/organizer/index.html): the largest PyCon in Japan\r\n\r\n  - core staff on 2019 and 2020 (Program committee, lead on 2020)\r\n\r\n  - [chair](https://pyconjp.blogspot.com/2020/10/pyconjp-2021-chair.html) on 2021\r\n\r\n\r\n\r\nHe gave talks at many PyCons in Japan and abroad.\r\n\r\n\r\n\r\n- PyCon JP [2019](https://pycon.jp/2019/schedule/?sessionId=220), [2020](https://pycon.jp/2020/timetable/?id=203919), [2022](https://2022.pycon.jp/timetable?id=LPYF7C) (Japanese)\r\n\r\n- [EuroPython 2020](https://ep2020.europython.eu/talks/CvdM2Qa-bringing-your-python-script-to-more-users/), [PyCon Africa 2020](https://africa.pycon.org/speakers/nikkie#talk), [PyCon APAC 2020](https://youtu.be/JiXnEA7pM7U) [2022](https://youtu.be/0DiDUrhhU30) (English)\r\n\r\n\r\n\r\nHe loves anime (Japanese animetation) as much as Python, and implements ideas related to some anime with Python.",
+            "avatar": "https://pretalx.com/media/avatars/UM3CWP_0cbtqKy.jpg"
+          }
+        ],
+        "title": "PEP 723（Inline script metadata）が拓く世界。Pythonスクリプトに必要な仮想環境をツールにおまかせできるんです！",
+        "track_id": 4686,
+        "state": "confirmed",
+        "abstract": "皆さんは「PEP 723 – Inline script metadata」（応募時 Status: Final）をご存知ですか？\r\n私の中ではこれはかなりインパクトの大きいPEPです。\r\nPythonでスクリプトを書くときの世界がガラッと変わる内容なんです！\r\n\r\nPythonでプロジェクトを開発するとき、仮想環境を使いますよね。\r\n開発者が作って有効にすることもあれば、それをPoetryやHatchなどのツールに任せることもあると思います。\r\nPythonスクリプトの開発でも同様に仮想環境を使います。\r\nPEP 723が劇的なのは、Pythonスクリプトの動作に必要な依存パッケージを、ツール側で自動で仮想環境にインストールしてスクリプトを動かしてくれるんです！\r\n**開発者はスクリプトのための仮想環境の操作から解放される**んですよ！！\r\n\r\n私はPEP 723を部分的にサポートしたpipx（`pipx run`）を愛用しています。\r\nその中で見えてきた使いこなしtipsと合わせて、皆さんをPEP 723を覗くクイックツアーへご案内します。\r\nちょっとしたスクリプトがすっごく書きやすくなりますよ〜",
+        "description": "# PEP 723とは\r\n\r\nref: https://peps.python.org/pep-0723/#example\r\n\r\n```python\r\n# /// script\r\n# dependencies = [\r\n#   \"requests<3\",\r\n#   \"rich\",\r\n# ]\r\n# ///\r\n\r\nimport requests\r\nfrom rich.pretty import pprint\r\n\r\nresp = requests.get(\"https://peps.python.org/api/peps.json\")\r\ndata = resp.json()\r\npprint([(k, v[\"title\"]) for k, v in data.items()][:10])\r\n```\r\n\r\nこのスクリプトを動かすにはrichやrequestsが必要です。\r\nかつての私は仮想環境を作り、`pip install rich requests`してからスクリプトを動かしていました。\r\n\r\npipxは1.4.2からPEP 723を（部分的に）サポートしており、上のスクリプトは仮想環境を作ることなく`pipx run example.py`と実行できます！\r\n何が起こっているかと言うと\r\n\r\n1. pipxがInline script metadata（`/// script`のコメント）を解釈\r\n2. pipxが管理する仮想環境にdependenciesをインストール\r\n3. 2の仮想環境を有効にしてスクリプト`example.py`を実行\r\n\r\n開発者が仮想環境を操作不要なんです！（pipxに任せなさい🙌）\r\n\r\nこの世界を一緒に見ていく30分としたいと思います\r\n\r\n# アウトライン\r\n\r\n自己紹介・まとめ、それぞれ1分ずつ（2分）\r\n\r\n## PEP 723の紹介（8分）\r\n\r\n* Inline script metadataの仕様について\r\n  * dependencies\r\n  * requires-python\r\n* 提案経緯\r\n* 実装例（手短に）\r\n\r\n## PEP 723を実装するツールの紹介（13分）\r\n\r\n- pip-run（手短に）\r\n- pipx\r\n    * （dependenciesのみの限定サポートですが、とても便利です！）\r\n    * pipxとはどんなツールか\r\n    * pipx自体のインストールについて\r\n    * `pipx install`（手短に）\r\n    * `pipx run`\r\n- PEPによると、Hatchなどもサポートが予定されているので9月時点の最新情報を盛り込みます\r\n\r\n## PEP 723をサポートしたpipxでPythonスクリプトを開発・実行しての学びの共有（7分）\r\n\r\n* よい点1：一度動けば他の開発者の手元でも動く（環境の変化に強い）\r\n* よい点2：簡単に依存ライブラリを追加できる\r\n\r\n使いこなしtips\r\n* `python -i`相当のことをやるには？（pipxのソースコードリーディングから）\r\n* エディタ（VS Code）で補完があたるようにするには？",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T15:50:00+09:00",
+          "end": "2024-09-27T16:20:00+09:00",
+          "room": {
+            "en": "20F Track1",
+            "ja-jp": "20F Track1"
+          },
+          "room_id": 3086
+        },
+        "resources": [
+          {
+            "id": 7449,
+            "resource": "https://ftnext.github.io/2024-slides/pyconjp/pep723-inline-script-metadata-world.html#/1",
+            "description": "発表スライド"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 350,
+        "end_minute": 380,
+        "is_event": false
+      },
+      {
+        "code": "A8BQEF",
+        "speakers": [
+          {
+            "code": "JM9BG7",
+            "name": "Anthony Shaw",
+            "biography": "",
+            "avatar": "https://pretalx.com/media/avatars/JM9BG7_MEC2GdU.jpg"
+          }
+        ],
+        "title": "Unlocking the Parallel Universe: Subinterpreters and Free-Threading in Python 3.13",
+        "track_id": 4686,
+        "state": "confirmed",
+        "abstract": "Python 3.12 introduced a new parallel execution model called \"sub interpreters\" that uses a per-interpreter GIL to unlock a new way of writing parallel code that's faster than multiprocessing. Python 3.13 introduces another new parallel execution model called \"free-threading\" (previously called no-gil) that replaces that optionally removes the GIL so that threads can truly be parallel. Does free-threading make sub interpreters redundant? We'll answer that question in this talk.",
+        "description": "Python 3.12 introduced a new parallel execution model called \"sub interpreters\" that uses a per-interpreter GIL to unlock a new way of writing parallel code that's faster than multiprocessing. Python 3.13 introduces another new parallel execution model called \"free-threading\" (previously called no-gil) that replaces that optionally removes the GIL so that threads can truly be parallel. Does free-threading make sub interpreters redundant? We'll answer that question in this talk. We unpack what sub interpreters are, how to use them and their limitations. We'll explore free-threading, the optional flag to remove the GIL in 3.13. Finally we look at a use case for sub interpreters and free-threading together, a multi-worker, multi-thread ASGI web server. We benchmark this against traditional web server architecture with multiprocessing and threading. So fasten your seatbelts, fellow Pythonistas! Let’s ride the comet tail of parallelism, leaving behind the single-threaded past. 🚀✨",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T15:50:00+09:00",
+          "end": "2024-09-27T16:20:00+09:00",
+          "room": {
+            "en": "4F Track4",
+            "ja-jp": "4F Track4"
+          },
+          "room_id": 3420
+        },
+        "resources": [],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5541,
+          "speak_language": 5543,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 350,
+        "end_minute": 380,
+        "is_event": false
+      },
+      {
+        "code": "AWNVEJ",
+        "speakers": [
+          {
+            "code": "FRNKNR",
+            "name": "Akira Nonaka",
+            "biography": "Python Djangoプログラマー",
+            "avatar": "https://pretalx.com/media/avatars/FRNKNR_x5YEhYp.jpg"
+          }
+        ],
+        "title": "名前空間について考える（unittest の patchを正しく使うために）",
+        "track_id": 4695,
+        "state": "confirmed",
+        "abstract": "unittestで使われるpatchを正しくつかうために必要な、名前空間の概念について理解を深めます",
+        "description": "Pythonの公式ドキュメントのpatchの説明の冒頭に次のように書かれています。\r\n```\r\n注釈 重要なのは正しい名前空間に対して patch することです。 where to patch セクションを参照してください。\r\n```\r\nそして「どこにpatchするか」というセクションには次のような説明があります。\r\n```\r\n基本的な原則は、オブジェクトが ルックアップ されるところにパッチすることです。その場所はオブジェクトが定義されたところとは限りません。\r\n```\r\nこれを理解するためにはpythonの名前空間、スコープといった概念を理解する必要があります。\r\n- 名前空間とスコープ\r\n- import 文の働き\r\n- import foo と from foo import barの違い\r\n- どこにpatchするのか？\r\n等について公式ドキュメントをベースに説明します。",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T15:50:00+09:00",
+          "end": "2024-09-27T16:20:00+09:00",
+          "room": {
+            "en": "4F Track3",
+            "ja-jp": "4F Track3"
+          },
+          "room_id": 3419
+        },
+        "resources": [
+          {
+            "id": 7435,
+            "resource": "https://pretalx.com/media/pyconjp2024/submissions/AWNVEJ/resources/PyConJP2024-about-namespace-public_TbVpuiz.pdf",
+            "description": "発表スライド"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 350,
+        "end_minute": 380,
+        "is_event": false
+      },
+      {
+        "code": "D9BDAQ",
+        "speakers": [
+          {
+            "code": "9WSMCY",
+            "name": "fujine",
+            "biography": "みずほリサーチ&テクノロジーズ株式会社　先端技術研究部に所属\r\n\r\nアカウント\r\n - Qiita: https://qiita.com/fujine\r\n - SpeakerDeck: https://speakerdeck.com/mhrtech\r\n \r\n 過去の PyCon JP 発表経験\r\n- PyConJP 2021: [scikit-learnの新機能を紹介します](https://2021.pycon.jp/time-table/?id=271963)\r\n- PyConJP 2022: [Pandas卒業？大規模データを様々なパッケージで高速処理してみる](https://2022.pycon.jp/timetable?id=7YAHLF)",
+            "avatar": "https://pretalx.com/media/avatars/9WSMCY_XVyhyaT.jpeg"
+          }
+        ],
+        "title": "あなたのアプリケーションをレガシーコードにしないための実践Pytest入門",
+        "track_id": 4720,
+        "state": "confirmed",
+        "abstract": "名著「レガシーコード改善ガイド」では、「テストがないコードはレガシーコード」と言われています。テストが無い（もしくは手動テストが大半を占める）アプリケーションは改修を重ねるたびにリリースが長期化し、いずれメンテナンス不可能なレガシーコードと成り果ててしまいます。\r\n\r\nどのような分野・規模のアプリケーションであっても、テストは不可欠です。更に、アプリケーションを構築・改修して素早くリリースするためには、「高速かつ何度でもテストを実行できる仕組み」が非常に重要となってきます。\r\n\r\n本セッションでは、Pythonの代表的なテストフレームワークである`pytest`を用いた実践的なテスト方法を紹介します。シンプルなテストケースだけでなく、DBやネットワーク、ファイル入出力、時刻、OS情報など、複雑な依存関係にあるコードのテスト方法を解説していきます。また、テスト駆動開発（`TDD`）に基づくテストファーストな開発手法にも触れていきます。",
+        "description": "本セッションでは、様々なPythonコードを`pytest`で自動テストする手法を解説していきます。\r\n\r\n- 昨年のPyConAPAC2023での先行発表「[好きとか嫌いとかはいい、練習してテストを書けるようになるんだ](https://2023-apac.pycon.jp/timetable?id=MBSPYH)」を更に発展させ、より複雑なコードをどのようにテストするかに焦点を当てて解説していきます。\r\n- コードが複雑なままだと、テストも必然的に複雑になります。本セッションでは単なる「`pytest`の使い方」の解説で終わらず、「テストを容易にするためのコードリファクタリング」も紹介し、テストを通じてコード品質を高める手法についても触れていきます。\r\n\r\nタイムテーブルは以下で進める予定です。\r\n\r\n1. 導入(5min)\r\n- 自己紹介\r\n- なぜテストが必要なのか？\r\n- なぜ単体テストの自動化を重視するのか？\r\n- テスト駆動開発（`TDD`）の紹介\r\n2. pytest概説(5min)\r\n- `AAA`を意識したテストケースの書き方\r\n- `fixture`による前処理・後処理の実装\r\n- `parametarize`によるパラメータテスト\r\n- `tmp_path`による一時ディレクトリの作成\r\n- `pytest-cov`によるテストカバレッジの取得\r\n3. 様々なテストパターンとリファクタリング(18min)\r\n- `DB`に依存するコード\r\n- `HTTP`リクエストするコード\r\n- ファイル入出力を行うコード\r\n- 特定の日時で動作するコード\r\n- `OS`情報に依存するコード\r\n4. まとめ(2min)",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T13:00:00+09:00",
+          "end": "2024-09-27T13:30:00+09:00",
+          "room": {
+            "en": "20F Track1",
+            "ja-jp": "20F Track1"
+          },
+          "room_id": 3086
+        },
+        "resources": [],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 180,
+        "end_minute": 210,
+        "is_event": false
+      },
+      {
+        "code": "EKEGTU",
+        "speakers": [
+          {
+            "code": "39KD3C",
+            "name": "Kalyan Prasad",
+            "biography": "Hello, this is Kalyan from India. I started my career as a newspaper delivery boy, and through hard work and determination, I evolved into a self-taught data scientist and analytics manager. And, I lead a talented data science and analytics team at my workplace. \r\nI'm deeply passionate about open-source communities and actively contribute to them. Over time, I've established myself as a respected global speaker and influential community leader, delivering talks at prestigious conferences and educational institutions such as PyData Global, Data Science Global Summit 2022, JupyterCon, PyCon JP,  PyCon India,  Devfest Hyderabad, PyCon APAC, PyCon Hong Kong, PyCon ZA, Pyjamas, Conf42, Developer Conference Telangana 2021, BelPy & KLS Gogte Institute of Technology, Belagavi, Karnataka, India. \r\nI also worked as Reviewer and Mentor for reputed conferences & hackathons including  EuroPython, SciPy, PyData, PyData Seattle, JupyterCon, PyCon US, PyCon India, PyConfHyderabad, and many others. (At the moment, assisting the EuroPython 2024 Proposal Mentorship program.\r\nKalyan is also contributing to various open-source communities. He enjoys being involved with these communities and helping them grow. Currently I am associated with the following organizations below:\r\nNUMFOCUS - Small Development Grants Review Committee\r\nPyCon India – Conference Co-chair\r\nPyConf Hyderabad – Conference Co-chair\r\nKaggle X Bipoc Mentorship - Mentor\r\nPyData Global Impact Mentoring Program - Mentor\r\nHyderabad Python Users Group – Core Member/ Meetups Organizer\r\nHumans for AI – Program Manager for AI learning Community",
+            "avatar": "https://pretalx.com/media/avatars/39KD3C_DkDOhCE.jpg"
+          }
+        ],
+        "title": "Extracting Structured Data from LLMs with LangChain and Pydantic",
+        "track_id": 4684,
+        "state": "confirmed",
+        "abstract": "This talk dives into the exciting realm of enriching your Large Language Model (LLM) interactions with structured data extraction. We'll explore how LangChain, in conjunction with Pydantic, empowers you to retrieve not just plain text from LLMs but also reusable Python objects like lists, dictionaries, and even pandas DataFrames.",
+        "description": "Join me in this journey to understand and implement structured data extraction. With this powerful combination of tools, you'll learn how to craft data models using Pydantic's BaseModel for seamless integration with LangChain's output parser. Next, how to extract valuable information from LLM responses in structured formats like( lists, data frames), enabling further analysis and manipulation. And finally build supercharge LLM applications that require structured data transformations, parsing, or integration with machine learning models.\r\nWhether you're a data scientist, developer, or just curious about the possibilities of LLMs, this talk equips you with the skills to unleash the structured power of LLMs and build innovative applications.\r\n\r\n1. Introduction:\r\nHighlighting limitations of plain text LLM responses.\r\nIntroducing structured data extraction from LLMs.\r\nExposure to LangChain and Pydantic's power.\r\n\r\n2. Building the Data Model:\r\nDemo of defining data models with Pydantic's BaseModel.\r\nExploring lists, dictionaries, and pandas DataFrames.\r\nUnderstanding data model interaction with LangChain's parser.\r\n\r\n3. Structured Data Extraction:\r\nLive examples of querying LLMs for structured data.\r\nTransforming data for analysis.\r\nIntegrating data with ML models.\r\n\r\n4. Real-World Applications:\r\nPractical use cases of structured data extraction.\r\nBenefits and potential applications discussion.\r\n\r\n5. Conclusion:\r\nRecap of key learnings and future directions.\r\nExciting possibilities ahead.",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T13:50:00+09:00",
+          "end": "2024-09-27T14:20:00+09:00",
+          "room": {
+            "en": "4F Track3",
+            "ja-jp": "4F Track3"
+          },
+          "room_id": 3419
+        },
+        "resources": [],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5543,
+          "slide_language": 5543,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 230,
+        "end_minute": 260,
+        "is_event": false
+      },
+      {
+        "code": "EWJ8XJ",
+        "speakers": [
+          {
+            "code": "PHJAUM",
+            "name": "Prashant Anand",
+            "biography": "Hi, I am working as a Machine Learning Engineer at Mercari, Inc. for the last 5 years in Tokyo, Japan. At Mercari, I work in the Customer Support domain and lead the exploration and application of ML, NLP, and LLMs in this domain. I work with Japanese text and so far I’ve developed features like sending automatic reply to customer inquiries using LLMs and MLMs, routing of customer inquiries, and template suggestion. Outside of work, I like exploring specialty coffee shops, photography, playing piano, reading (especially poetry), working out in the gym, and occasional hiking trips.",
+            "avatar": "https://pretalx.com/media/avatars/PHJAUM_bRXgna7.jpg"
+          }
+        ],
+        "title": "AI-powered Automatic Replies in Customer Support: Precision-Focused Approach at Mercari",
+        "track_id": 4684,
+        "state": "confirmed",
+        "abstract": "Have you ever had a frustrating experience with a customer support chatbot? Issues like misunderstandings, irrelevant responses, and endless loops without reaching a human agent are common. So why do we use AI for sending automatic replies to customer inquiries at Mercari? Does it benefit customers? How do we ensure a positive experience?\r\n\r\nAlong with answering these questions, in this talk, we will look at the design of our highly precise system using machine learning for automatic replies. We will focus on Python content in sections about introduction to transformers, fine-tuning pre-trained transformer models on Japanese text, and the design and training of our ML model. Lastly, we'll discuss our A/B testing methodology and the impact on business metrics from using automatic replies.",
+        "description": "Outline:\r\n\r\n- Introduction (2 minutes)\r\n    - Who am I?\r\n    - Problems with chatbots in customer support\r\n- So why do we use AI for customer support? (3 minutes)\r\n    - Examples of repetitive and trivial inquiries suitable for automatic replies\r\n    - Examples of inquiries where no action is needed, and only information needs to be conveyed\r\n    - Benefits to customers: instant response and resolution\r\n    - Benefits to businesses: cost savings\r\n- Ensuring a good experience with AI replies (3 minutes)\r\n    - Importance of precision in sending automatic replies\r\n    - Design choices for a good customer experience\r\n        - One-click escalation to human support agents\r\n        - Automatic replies only sent as the first response\r\n- Designing a precise system for automatic replies (17 minutes)\r\n    - Analyzing raw data to identify common inquiry patterns (1 minute)\r\n    - Utilizing metadata for extra context (transaction status, shipping method, item price, etc.) (1 minute)\r\n    - Introduction to transformers and their usage for text classification (5 minutes)\r\n    - Introduction to fine-tuning pre-trained transformer models for text classification on Japanese text (5 minutes)\r\n    - Designing and training ML models using inquiry texts and metadata (3 minutes)\r\n    - Calibrating precision using output thresholds (1 minute)\r\n    - Running A/B tests and impact on business metrics (1 minute)\r\n- Conclusion (2 min)\r\n- Q&A (3 min)\r\n\r\n---\r\n\r\nAudience:\r\n\r\nDevelopers, data scientists, ML engineers, and business leaders interested in using AI to solve business problems including enhancing customer support operations.\r\n\r\n---\r\n\r\nOutcome:\r\n\r\nBy attending this talk, the audience will gain insights into how AI can be effectively used to enhance customer support while maintaining a positive customer experience. They will learn about the importance of precision in sending automatic replies, the process of analyzing customer inquiry data, and the use of machine learning techniques for text classification. The talk will also discuss the impact of implementing AI-powered automatic replies on business metrics.",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T13:50:00+09:00",
+          "end": "2024-09-27T14:20:00+09:00",
+          "room": {
+            "en": "4F Track4",
+            "ja-jp": "4F Track4"
+          },
+          "room_id": 3420
+        },
+        "resources": [
+          {
+            "id": 7537,
+            "resource": "https://anandprashant.com/posts/tech-talk-at-pycon-jp-2024",
+            "description": "Slides"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5543,
+          "slide_language": 5543,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 230,
+        "end_minute": 260,
+        "is_event": false
+      },
+      {
+        "code": "FFMZJD",
+        "speakers": [
+          {
+            "code": "3KTFUG",
+            "name": "Italo Carvalho Vianelli Ribeiro",
+            "biography": "I'm a Software Engineer at Rakuten with a bachelor's degree in Computer Engineering from UFSCar (Federal University of São Carlos - Brazil). Creator of the ArgQ! Browser Extension, designed for analyzing political arguments. I am an active member of the Python community through Grupy Sanca and enjoy participating in programming contests.",
+            "avatar": "https://pretalx.com/media/avatars/3KTFUG_d4lQdFI.jpg"
+          }
+        ],
+        "title": "Unlocking the Power of Python's Collections Module",
+        "track_id": 4695,
+        "state": "confirmed",
+        "abstract": "Are you looking to take your Python skills to the next level? Join us for an exciting deep dive into the collections module, a powerful part of Python’s standard library that offers specialized data structures beyond the usual lists and dictionaries. We’ll explore using collections to write cleaner, more efficient, and more readable code. From namedtuple to defaultdict, you’ll learn about different data structures and see practical examples of how they can simplify your coding tasks. Whether you're just starting out or looking to optimize your projects, this session will give you the tools you need to make your Python programs more robust and elegant.",
+        "description": "",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T14:40:00+09:00",
+          "end": "2024-09-27T15:10:00+09:00",
+          "room": {
+            "en": "4F Track3",
+            "ja-jp": "4F Track3"
+          },
+          "room_id": 3419
+        },
+        "resources": [],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5543,
+          "slide_language": 5543,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 280,
+        "end_minute": 310,
+        "is_event": false
+      },
+      {
+        "code": "HT8JWU",
+        "speakers": [
+          {
+            "code": "CTVASZ",
+            "name": "Tushar Sadhwani",
+            "biography": "Long-term Python developer, author, OSS contributor and speaker, Tushar currently works as a Software Engineer building language tools at DeepSource.\r\n\r\nWhen not working, he tries to contribute to the Python developer tools ecosystem, like black, ruff, flake8 and mypy.",
+            "avatar": "https://pretalx.com/media/avatars/CTVASZ_xFtxiSy.jpg"
+          }
+        ],
+        "title": "Crimes with the Python syntax",
+        "track_id": 4695,
+        "state": "confirmed",
+        "abstract": "Over the past few years digging into Python's runtime and language features, I've often run into some weird, obscure parts of the language. **Very** weird and obscure parts.\r\n\r\nSuch as imports being hackable enough to directly import JSON files. Or being able to change the syntax of the language, _at runtime_.\r\n\r\nAnd I'd note them down. All the weird, esoteric, not-to-be-named features of the language. And eventually, I'd find some way to abuse that feature. Do something heinous. Write code that would make any code reviewer question my sanity. _Committing crimes_, with the Python syntax.\r\n\r\nThis talk is an explainer of all these features, and why you should **never use them**. Unless, of course, you need to.",
+        "description": "Outline:\r\n\r\n- Introduction (2 minutes)\r\n- The convoluted Python import machinery (5 minutes)\r\n- Frame-hacking, and the `sys._getframe()` API. (5 minutes)\r\n- Tracers, debuggers, and changing your code at runtime. (5 minutes)\r\n- Bonus: `goto` statements in Python? (3 minutes)\r\n- Creating our own mini language inside Python, at runtime. (7-8 minutes)\r\n- Abusing the Python startup machinery to run arbitrary code. (7-8 minutes)\r\n- The end, and questionnaire. (10 minutes)",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T13:00:00+09:00",
+          "end": "2024-09-27T13:30:00+09:00",
+          "room": {
+            "en": "4F Track4",
+            "ja-jp": "4F Track4"
+          },
+          "room_id": 3420
+        },
+        "resources": [],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5541,
+          "speak_language": 5543,
+          "slide_language": 5543,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 180,
+        "end_minute": 210,
+        "is_event": false
+      },
+      {
+        "code": "JAFSRP",
+        "speakers": [
+          {
+            "code": "TGMUNB",
+            "name": "Yoshiyuki Ohno",
+            "biography": "日本電気株式会社に所属し、セキュアシステムプラットフォーム研究所にてデータ分析の高速化技術の研究開発に従事．FireDucks 開発チームメンバー．",
+            "avatar": "https://pretalx.com/media/avatars/TGMUNB_ygelS7H.jpg"
+          }
+        ],
+        "title": "FireDucksのすすめ",
+        "track_id": 4684,
+        "state": "confirmed",
+        "abstract": "日本発のデータフレームライブラリFireDucksを紹介します．探索的データ分析や機械学習の前処理などに使われるデータフレームライブラリとしては，老舗のpandasが有名ですが，最近はpolars, modin，そしてFireDucksなど新たなライブラリが登場しています．本トークでは，データフレームライブラリの最新動向を紹介し，FireDucksの開発者である発表者が，FireDucksの紹介を行います．\r\n\r\nFireDucksの特徴は，pandasとAPI互換で高速であることで，それを実現しているのがFireDucksに搭載された実行時コンパイラです．例えば，長年使われてきたpandasには様々な高速化ノウハウがありますが，FireDucksはそのようなノウハウを自動適用することで，速度を意識して書かれてないプログラムを高速化します．本トークでは，このようなFireDucksで行われている工夫を紹介し，FireDucksの速さの秘訣をデモを交えて紹介します．また，熟練者向けに，FireDucksでの実行時間プロファイルなどを用いた性能チューニング方法も紹介します．\r\n\r\n本トークを聞けば，pandasを使い始めたばかりの人から熟練者まで，きっとFireDucksを使ってみたくなるでしょう．\r\n\r\n※ FireDucksは`pip install fireducks`でインストール可能です．",
+        "description": "アジェンダ\r\n\r\n1. データフレームの最新動向\r\n    - データフレームとは？\r\n    - pandas, modin, polars等の紹介・比較\r\n2. FireDucksの紹介\r\n    - データ増大とpandasの速度課題\r\n    - FireDucksのねらい\r\n    - FireDucksのアーキテクチャ\r\n    - pandas互換性のための工夫\r\n    - 高速化技術\r\n        - マルチスレッド化\r\n        - 自動最適化\r\n            - pandas高速化テクニック\r\n            - FireDucksでの自動最適化\r\n    - FireDucksの導入方法，利用方法\r\n    - デモ\r\n    - データフレームライブラリの性能比較",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T13:00:00+09:00",
+          "end": "2024-09-27T13:30:00+09:00",
+          "room": {
+            "en": "20F Track2",
+            "ja-jp": "20F Track2"
+          },
+          "room_id": 3418
+        },
+        "resources": [
+          {
+            "id": 7587,
+            "resource": "https://fireducks-dev.github.io/files/20240927-PyConJP2024.pdf",
+            "description": "slide"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 180,
+        "end_minute": 210,
+        "is_event": false
+      },
+      {
+        "code": "JYG9FT",
+        "speakers": [
+          {
+            "code": "Q9NZFU",
+            "name": "Takanobu Nozawa",
+            "biography": "コネヒト株式会社でMLエンジニア、ML PM、EMなどをしています。",
+            "avatar": "https://pretalx.com/media/avatars/Q9NZFU_AOkQy9g.jpg"
+          }
+        ],
+        "title": "低コストで実現する社内文書RAG機能を搭載したAIチャットボット開発",
+        "track_id": 4684,
+        "state": "confirmed",
+        "abstract": "昨今における大規模言語モデル（Large Language Models, LLM）の技術進化は目まぐるしいものがあります。そのようなLLMの活用先の一つに、RAG（Retrieval-Augmented Generation）という技術があります。\r\nRAGとは、LLMによるテキスト生成に外部情報の検索を組み合わせることで、回答精度を向上させる技術です。\r\n本トークでは、AIチャットボットの要件・要求定義といった導入プロセスから、Slack AppとLangChainを用いた開発方法、RAGに必要な文書のベクトル化など、社内文書に基づく回答を行うことのできるRAG機能を搭載したAIチャットボットを、Pythonを用いて低コストで実現した取り組み全般についてご紹介します。",
+        "description": "## Overview\r\n私の所属するコネヒト株式会社では、LLMを用いた施策のPoCや業務改善に取り組んでいます。\r\nその中で、AIと気軽に触れ合える環境を提供することが非常に重要であると考え、OpenAI APIのリリース後にSlackからAIを体験できるSlack Appを開発しました。\r\nまた、社内文書を参照してAIに回答させたいというニーズの高まりと、RAG（Retrieval-Augmented Generation）という技術の登場により、社内文書に基づいた回答を生成する機能を追加で実装しました。\r\n\r\nこのRAGシステムをゼロから構築するためには、以下の点を考慮する必要があります。\r\n\r\n- データの収集と管理\r\n- ベクトル検索データベースの構築\r\n- コスト管理\r\n- ユーザーインターフェース etc ...\r\n\r\n特に、コスト面については多くの方が気になる点ではないでしょうか。LLMを活用する際に避けて通れない考慮事項として、運用コストが挙げられることが多いと思います。\r\n\r\n本トークでは、Slackを活用したAIチャットボットの構築と、そのチャットボットに社内文書に基づいた回答を生成させる機能（RAG）を低コストで実装した方法についてお話しします。\r\n\r\n前半では、Slack Appで実現するシンプルなAIチャットボットの開発方法について説明し、後半では、AIチャットボットに社内文書に基づいた回答を生成させる仕組み（RAG）の紹介や、RAGを実現する上でのポイントや低コストで実現するTipsについて紹介します。\r\n\r\n## Outline\r\n- 導入（3分）\r\n\t- 自己紹介\r\n\t- 概要説明\r\n\t\t- LLMやRAGといった前提知識の共有\r\n\t\t- このトークを聞いて得られるものの共有\r\n- OpenAI APIとLangChainを用いたAIチャットボットの開発（10分）\r\n\t- システム構成図の紹介（AIチャットボットの部分）\r\n\t- Slack Appとは\r\n\t- LangChainとは\r\n\t- OpenAI APIとLangChainを用いたAIチャットボットの開発方法\r\n- RAG機能の開発（10分）\r\n\t- システム構成図の紹介（RAG機能も取り入れた全体像）\r\n\t- Notion APIを用いた社内文書取得方法\r\n\t- LlamaIndexを用いた文書のベクトル化、ベクトル検索機能の実現方法、低コストで実現するためのTips\r\n- AIチャットボットをより使いやすくするためのTips（2分）\r\n\t- プロンプトの工夫\r\n- まとめと今後の展望について（2分）",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T15:50:00+09:00",
+          "end": "2024-09-27T16:20:00+09:00",
+          "room": {
+            "en": "20F Track2",
+            "ja-jp": "20F Track2"
+          },
+          "room_id": 3418
+        },
+        "resources": [],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 350,
+        "end_minute": 380,
+        "is_event": false
+      },
+      {
+        "code": "QJZ3UB",
+        "speakers": [
+          {
+            "code": "VJUKX7",
+            "name": "Higuchi Kokoro",
+            "biography": "- 樋口 心（Higuchi Kokoro）\r\n- 1997年01月13日生まれ\r\n\r\nコミューン株式会社でデータサイエンティストとして推薦システムの設計・グロース施策の分析業務などを担当しています。\r\n\r\nGitHub: https://github.com/zerebom\r\nTwitter: https://twitter.com/zerebom_3",
+            "avatar": "https://pretalx.com/media/avatars/VJUKX7_AgxgLku.jpg"
+          }
+        ],
+        "title": "Pythonによるネットワーク分析の基礎とコミュニティサクセスへの応用",
+        "track_id": 4684,
+        "state": "confirmed",
+        "abstract": "ネットワーク分析は、人のコミュニケーション、画像、交通網など、様々な領域で見られる相互関係を解釈するために広く用いられる手法です。その自由度の高さと利用用途の広さから、とっかかりづらいと感じることも多いですが、非常に強力なツールです。\r\n\r\n本セッションでは、グラフ理論の基礎から始まり、Pythonを用いたネットワークグラフの作成と操作方法、統計的指標を用いたネットワークの理解まで、基礎的な内容をすべてカバーします。\r\n\r\nさらに、発表者の所属企業のプロダクト「Commune」における実践的なコミュニティサクセスのためのネットワーク分析の活用事例を紹介します。最後に、ご参加いただいてる皆様がネットワーク分析できるように、一般的なアクセスデータをネットワーク分析の入力データとして変換する方法についても解説します。\r\n\r\nこのセッションを通じて、ネットワーク分析の基礎から応用事例、データ収集方法までを広く紹介し、自身のプロジェクトに即座に適用できる知識と技術を提供します。",
+        "description": "### 1. 自己紹介, 発表の全体像の紹介（3分）\r\n\r\n### 2. ネットワーク分析の基礎（7分）\r\nネットワーク分析の基本概念を紹介します。\r\n\r\n- 数学的な表現方法や基礎概念の紹介\r\n    - 頂点（ノード）と辺（エッジ）の説明\r\n    - 隣接行列と次数分布､辺リストなど\r\n- ネットワークの分析の多様なアプローチの紹介\r\n    - **森（全体俯瞰）**:\r\n        - ネットワーク可視化したり、クラスタ係数などの特徴量の計算\r\n    - **林（中間レベル）**:\r\n        - クラスタリングを行ったり、経路上のボトルネックを特定し、ネットワーク内の特徴となる経路やグループの発見\r\n    - **木（個別の特徴）**:\r\n        - 将来の友人関係の予測や口コミ情報の伝搬促進・抑制を行ったり、ネットワークの中で中心的な存在となる頂点を同定するなど\r\n- 実世界の事例の説明\r\n\r\n### 3. Pythonでのネットワークグラフの作成と操作（6分）\r\n\r\nPythonのNetworkXライブラリを用いて、ネットワークグラフを作成し、操作する方法をデモンストレーションします。\r\n\r\n- NetworkXの基本：\r\n    - グラフの作成方法、頂点と辺の追加方法\r\n    - 基本操作（ノードやエッジの削除、属性の追加）\r\n- 基本的な分析：\r\n    - 次数中心性、媒介中心性、コミュニティの計算方法と理論の簡単な説明\r\n\r\n### 4. ネットワーク分析の応用（8分）\r\n\r\n「Commune」のデータセットを用いた、ネットワーク分析の応用事例を紹介し、コミュニティサクセスにどのように活用できるかを説明します。\r\n\r\n- コミュニティの全体像を理解する：\r\n    - クラスター係数、次数分布とべき則のフィッティングを用いてネットワークを評価\r\n    - ネットワークの可視化方法と手法の解説\r\n- 具体的な応用例：\r\n    - リンク予測による引き合わせたい人のペアの発見\r\n    - 中心性指標を用いた中心人物の特定\r\n    - ネットワーク上のコミュニケーションのボトルネック（ブリッジの欠如や中心性の偏り）の評価\r\n\r\n### 5. データの取得方法（3分）\r\n\r\nネットワーク分析に必要なデータをどのように取得するかについて具体例を紹介します。\r\n\r\n- データソース：メール、Slackのユーザーアクティビティログなど、日常的に使用するツールからのデータ収集方法を解説します。\r\n- データの前処理方法：収集したデータをネットワークデータに変換する方法を説明し、二頂点間をつなぐ辺と重みに変換する方法を示します。\r\n\r\n### 6. まとめとQ&A（3分）",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T13:50:00+09:00",
+          "end": "2024-09-27T14:20:00+09:00",
+          "room": {
+            "en": "20F Track2",
+            "ja-jp": "20F Track2"
+          },
+          "room_id": 3418
+        },
+        "resources": [
+          {
+            "id": 7421,
+            "resource": "https://speakerdeck.com/zerebom/pythonniyorunetutowakufen-xi-noji-chu-tokomiyuniteisakusesuhenoying-yong",
+            "description": "Pythonによるネットワーク分析の基礎とコミュニティサクセスへの応用"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 230,
+        "end_minute": 260,
+        "is_event": false
+      },
+      {
+        "code": "RRRAAT",
+        "speakers": [
+          {
+            "code": "KWTR93",
+            "name": "Takayuki Shimizukawa",
+            "biography": "・所属\r\n  ・BeProud\r\n  ・一般社団法人PyCon JP Association 会計理事\r\n・イベント関連\r\n  ・PyCamp 講師\r\n  ・Python mini hack-a-thon主催\r\n  ・Sphinx-Users.jp 運営\r\n・Sphinxのコミッター\r\n・Twitter: @shimizukawa( https://twitter.com/shimizukawa )\r\n・BlueSky: shimizukawa.bsky.social\r\n・URL: http://清水川.jp/",
+            "avatar": "https://pretalx.com/media/avatars/KWTR93_Uw0WL5R.jpg"
+          }
+        ],
+        "title": "実践structlog",
+        "track_id": 4720,
+        "state": "confirmed",
+        "abstract": "クラウド時代のログ出力では、JSONによる構造化ログや呼び出し元のコンテキストを含めた出力が必要とされます。このトークではstructlogを使い、実際のWebアプリケーション開発でDjango、Celery、Sentryのコンテキストを繋いでログ出力する例を紹介します。",
+        "description": "structlogはOut-Of-The-Boxで簡単に使える便利なログ出力ライブラリ、ではありません。使いやすいラッパーライブラリは気軽に使い始められるメリットがあります。しかし、ある程度複雑な構成で標準ライブラリやフレームワークのログ出力もまとめて扱うには、始めやすさよりも、追跡しやすいログを簡単なコードで手軽に出せることが大事になってきます。\r\nクラウド時代のログ出力では、ログを機械的に扱えるように、構造化されたJSONフォーマットが求められます。また、各ログの追跡可能性を高めるためにはログのコンテキスト情報をフレームワークのログ出力にも含めることが求められます。こういった追跡可能なログによって、トラブル時の調査にかかる労力は大幅に削減されます。\r\nstructlogはこのようなニーズに合わせて自由にカスタマイズが可能ですが、そのカスタマイズ性の高さは最初の導入ハードルにもなっています。",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T13:50:00+09:00",
+          "end": "2024-09-27T14:20:00+09:00",
+          "room": {
+            "en": "20F Track1",
+            "ja-jp": "20F Track1"
+          },
+          "room_id": 3086
+        },
+        "resources": [
+          {
+            "id": 7428,
+            "resource": "https://docs.google.com/presentation/d/1aST5f0rpdS4jS4pmKC4hbWydHkGCpYpuLwKrZ6u3nb0/pub",
+            "description": "トークスライド"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 230,
+        "end_minute": 260,
+        "is_event": false
+      },
+      {
+        "code": "SQAQXW",
+        "speakers": [
+          {
+            "code": "UAWQPD",
+            "name": "Jules Poon",
+            "biography": "",
+            "avatar": "https://pretalx.com/media/avatars/UAWQPD_mC1j0Qx.jpg"
+          }
+        ],
+        "title": "An overview of the optimisation pipeline in CPython 3.13 and onwards",
+        "track_id": 4686,
+        "state": "confirmed",
+        "abstract": "CPython 3.13 introduces a new experimental optimization pipeline that cumulates into a JIT. This talk gives an overview of the components of the optimization pipeline as of CPython 3.13 and plans for future versions of CPython.\r\n\r\nThe talk will focus on the Trace Optimizer and briefly cover experiments the speaker is personally involved in before the final version currently in CPython 3.13 implemented by Ken Jin.\r\n\r\nYou don’t have to be a compiler or CPython expert to attend – this talk aims to be accessible and self-contained so hopefully, everybody can gain something from it.",
+        "description": "",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T14:40:00+09:00",
+          "end": "2024-09-27T15:10:00+09:00",
+          "room": {
+            "en": "4F Track4",
+            "ja-jp": "4F Track4"
+          },
+          "room_id": 3420
+        },
+        "resources": [
+          {
+            "id": 7416,
+            "resource": "https://docs.google.com/presentation/d/1NrLHatxO4rEu1lFkxvO782aNjdiae9OQs2FsjvIeeFM/edit?usp=drivesdk",
+            "description": "Slides and script"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5543,
+          "slide_language": 5543,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 280,
+        "end_minute": 310,
+        "is_event": false
+      },
+      {
+        "code": "UTWBAL",
+        "speakers": [
+          {
+            "code": "FTYPH7",
+            "name": "hoto17296",
+            "biography": "- ちゅらデータ株式会社 Webアプリケーションエンジニア\r\n- PyData Okinawa オーガナイザー",
+            "avatar": "https://pretalx.com/media/avatars/FTYPH7_nks6Pzv.png"
+          }
+        ],
+        "title": "ORM と向き合う",
+        "track_id": 4683,
+        "state": "confirmed",
+        "abstract": "このセッションでは、ORM という概念にどのような難しさがあるか、我々は ORM に何を期待するのか、Python においてはどのような選択肢があるのかについて考えていきたいと思います。このセッションでは「正解」を提示することはできないと思いますが、みなさんが \"なんとなく使っている\" (かもしれない) ORM について、少しでも深く理解するためのきっかけを与えることができれば幸いです。",
+        "description": "アプリケーションを開発する際に RDB を組み合わせるケースは非常に多く、アプリケーションから RDB を扱うために ORM と呼ばれるソフトウェア/ライブラリを利用したことがある人も多いでしょう。ORM を使ったことがある人であれば、ORM という概念はそれほど簡単に扱える代物ではないということは同意いただけるのではないでしょうか。\r\n\r\nこのセッションでは、ORM という概念にどのような難しさがあるか、我々は ORM に何を期待するのか、Python においてはどのような選択肢があるのかについて考えていきたいと思います。このセッションでは「正解」を提示することはできないと思いますが、みなさんが \"なんとなく使っている\" (かもしれない) ORM について、少しでも深く理解するためのきっかけを与えることができれば幸いです。\r\n\r\n- 代表的な ORM とその特徴\r\n    - Python の ORM\r\n    - 他の言語の ORM\r\n- ORM 周辺の課題\r\n    - インピーダンスミスマッチ\r\n    - 複雑さ\r\n    - 型定義\r\n    - 最適化\r\n    - 非同期処理\r\n    - etc...\r\n- これからの ORM\r\n    - ORM に期待するもの\r\n    - Python における選択肢や実装",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T14:40:00+09:00",
+          "end": "2024-09-27T15:10:00+09:00",
+          "room": {
+            "en": "20F Track1",
+            "ja-jp": "20F Track1"
+          },
+          "room_id": 3086
+        },
+        "resources": [
+          {
+            "id": 7438,
+            "resource": "https://speakerdeck.com/hoto17296/orm-toxiang-kihe-u",
+            "description": "SpeakerDeck"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 280,
+        "end_minute": 310,
+        "is_event": false
+      },
+      {
+        "code": "VEECBQ",
+        "speakers": [
+          {
+            "code": "Y9CTJG",
+            "name": "soogie",
+            "biography": "",
+            "avatar": "https://pretalx.com/media/avatars/Y9CTJG_eyx92n6.jpeg"
+          }
+        ],
+        "title": "5年分のツケを一気に払った話",
+        "track_id": 4695,
+        "state": "confirmed",
+        "abstract": "コンピュータに詳しいメンバーが便利な業務システムを作ってくれたけど、そのメンバーがいなくなった後で困る、というのはよくある話です。とはいえ、書いてくれたコードを理解することができれば、そのシステムを維持していくことはなんとか可能です。\r\n\r\n私の部署でも5年前、コンピュータに詳しいメンバーがパソコンサーバーを組み立て、Ubuntuをインストールしてそのマシン上にPythonで便利な業務システムを作ってくれました。そのメンバーが抜けた後も、残されたメンバーでドキュメントを整備したり、テストを書いたりしてなんとか維持運用してきました。でも動かなくなってしまうと業務上困るので、OSやPythonのバージョンはそのままにしていました。いわばツケを5年にわたって溜め続けている状態でした。\r\n\r\nそんな中、気がつけばUbuntuもPythonもサポート期間が終了してしまい、パソコン本体の保守期間も切れたため、システムを別マシンに移行することが決まりました。\r\nこのトークでは5年分の環境変化に一気に対応するために生じた様々な問題（詳細欄参照）を解決するための苦労話を通じて、みなさんが同じ轍をふまないための教訓をお伝えしたいです。",
+        "description": "## トークを通じて伝えたいこと\r\n\r\n問題なく動いているシステムを修正するリスクをとるのは怖い。特にドキュメントもテストもなく、書いた本人もいなくなったコードが業務で使われている場合はリスクしかない、と言っても良い。そういう状況下ではpandasやnumpyといったパッケージがバージョンアップしたというだけの理由で新しいバージョンに対応するためだけの修正は先送りされがちである。\r\n\r\n私は、「ドキュメントなし、テストなし、書いた本人もいない」という状態で引き継いだコードにドキュメントをつけ、テストを書き、自分以外のメンバーもそのコードをメンテナンスできるようにレクチャーをしてきたが、パッケージのバージョンアップ対応は避けてきていた。言い訳になるが工数的な余裕がなかったこともあるし、非エンジニア組織なので周囲の理解が得にくいという状況もあってリスクをとる勇気がなかった。\r\n\r\n今回、諸事情から別マシンへの移行を余儀なくされるにあたり、移行のための工数確保が認められたので、これ以上の先送りはやめよう、とPythonのバージョンを3.6から3.11に上げる決断をした。\r\nこのトークでは移行にあたって直面した、さまざまな問題の中から、サードパーティパッケージのバージョンアップに伴って発生した問題点5つに絞ってご紹介する（OSやネットワーク環境の変更にともなう問題もいろいろあったが割愛）。\r\n\r\n問題点配下の通り（トークでは原因をどう見つけたかも含めて説明予定）\r\n\r\n### 問題1：pandasのエラーチェックが厳しくなった\r\npandas.DataFrame.to_dict()関数でエラー発生。原因はorientパラメタのtypo。以前のpandasでは1文字目だけ見て判断していたので\"records\"とすべきところが\"record\"でも\"recrods\"でも動作していたが、pandas2.0以降は”records”と正しく書かないとエラーになる。typoを修正することで解決\r\n\r\n### 問題2: scikit-learnのモジュールのパラメータ仕様が変わった（3分）\r\nsklearn.linear_model.LogisticRegressionクラスのsolverパラメータのデフォルト値が以前はliblinearだったのが0.22以降lbfgsに変わったため、penalty=\"l1\"を指定するとエラーになる。solver=\"liblinear\"と明示的に指定することで解決\r\n\r\n他にもimblearn.under_sampling.RandomUnderSamplerクラスのratioパラメータ廃止など、複数のモジュールで問題発生。個別に解決した\r\n\r\n### 問題3: mongodbのAPI変更に伴いpymongoの関数も変わった（3分）\r\n以前のpymongoではcollection.save()関数で、レコード追加なのかレコード更新なのかをいい感じに判断してくれていたがMongoDB4.2以降でdb.collection.save()というAPIが廃止されたためpymongoでも使えなくなった。insert_one()関数かreplace_one()関数かを明示的に指定することで解決\r\n\r\n### 問題4: PyPIのborutaパッケージが2019年以降更新されておらず最新のnumpyに対応していない（3分）\r\nPyPIのborutaパッケージを呼び出して使っているが、このパッケージが2019年以降更新されておらず、内部でnp.intやnp.floatを使っている。np.intやnp.floatはnumpy1.20で廃止されておりこのままではエラーになる。\r\nパッケージのソースコードにパッチを当て、np.intをnp.int32、np.floatをnp.float64などに修正することで解決\r\n\r\n### 問題5: 保存したpickleを読み込むとエラー（5分）\r\n機械学習で作成したモデルをpickle形式で保存し、後日呼び出せる仕組みになっていたが、scikit-learn0.23のときにあったsklearn.preprocessing.dataモジュールがscikit-learn1.3では名前が変わっており過去に作ったpickleを呼び出すとエラーになる（他にもいくつか同様のモジュールあり）\r\n\r\nこれはデータの問題でありコード修正では解決できない。部署内で相談のうえ、過去の分析結果は新環境に引き継がないという判断をして解決（過去データを呼び出して利用する仕組みは別途構築）\r\n\r\n##  得られた教訓と今後に向けて\r\n\r\nドキュメントもテストもない、という状態で4年前に引き継いだコードにドキュメントをつけ、テストを書き、複数メンバーでコード修正ができるようにPython講習も重ねてきたが、リファクタリングは先送りしていた。\r\n\r\n常に、とまでは言わないが定期的に最新の環境下でリファクタリングが実施できていれば、今回紹介した5つの問題に同時に直面する、ということはなかったはず。\r\n\r\n安心してリファクタリングができるようになるためには、ドキュメントやテストがちゃんとしているということは前提。新規に作るものはドキュメントとテストを最初からきちんと用意し、その上で定期的なリファクタリングをおこなうための工数を確保していきたい。\r\n\r\n## 目次と30分の時間配分案\r\n\r\n- 自己紹介（2分）\r\n- 概要説明（5分）\r\n- 発生した問題とその解決方法（解決難度の低い順。5つの問題計16分）\r\n    - 問題1: pandasのエラーチェックが厳しくなった（2分）\r\n    - 問題2: scikit-learnのモジュールのデフォルトパラメータが変わった（3分）\r\n    - 問題3: mongodbのAPI変更に伴いpymongoの関数も変わった（3分）\r\n    - 問題4: PyPIのborutaパッケージが2019年以降更新されておらず最新のnumpyに対応していない（3分）\r\n    - 問題5: 保存したpickleを読み込むとエラー（5分）\r\n- 得られた教訓と今後に向けて（5分）\r\n（バッファ2分）",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T11:30:00+09:00",
+          "end": "2024-09-27T12:00:00+09:00",
+          "room": {
+            "en": "4F Track4",
+            "ja-jp": "4F Track4"
+          },
+          "room_id": 3420
+        },
+        "resources": [
+          {
+            "id": 7455,
+            "resource": "https://speakerdeck.com/soogie/5nian-fen-notukewo-qi-nifu-tutahua",
+            "description": "発表スライド"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5542,
+          "slide_language": 5542,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 90,
+        "end_minute": 120,
+        "is_event": false
+      },
+      {
+        "code": "WMF8VY",
+        "speakers": [
+          {
+            "code": "7LRN9W",
+            "name": "Scott Irwin",
+            "biography": "Scott Irwin is a senior engineer at Bloomberg, where he has worn many hats. During his decade at Bloomberg, he has led teams, developed Python applications and libraries that are part of the tools used by the company’s clients to discover and use relevant functionality on the Bloomberg Terminal, and taught internal training courses.\r\n\r\nScott is also a Python educator who has led live online training events hosted on the O'Reilly learning platform.",
+            "avatar": "https://pretalx.com/media/avatars/7LRN9W_PB2amd9.jpg"
+          }
+        ],
+        "title": "Fun with microcontrollers: Building a digital sundial using Python",
+        "track_id": 4687,
+        "state": "confirmed",
+        "abstract": "Using Python to program physical devices is both possible and fun.\r\n\r\nLet’s explore what you can accomplish with just a bit of Python, a microcontroller, and a small display by using them to build a digital sundial that you can carry in your pocket.",
+        "description": "The objective of this talk is to show how easy it is to build a Python application which runs on a single board computer. It will walk attendees through the steps of getting a Python application running on a microcontroller that is attached to a small display.\r\n\r\nWe use a circle drawn on the display to show the sundial broken into its different parts – dawn, daytime, twilight, and night. In order to correctly calculate the boundaries between these parts, we need the local time for solar day events.\r\n\r\nFor a given latitude-longitude, we can get that data from the sunrise-sunset.org API, the use of which is free (as long as attribution is given). Once we have the details for solar events, we have all the information we need to draw the sundial on the display.\r\n\r\nThe rest of the presentation shows the implementation of the digital sundial - both the Python code and the hardware.\r\n\r\nNOTE: Depending on which ends up working better, the hardware platform used will either be a Raspberry Pi Zero using CPython or an Adafruit Feather M4 Express using CircuitPython.",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T13:00:00+09:00",
+          "end": "2024-09-27T13:30:00+09:00",
+          "room": {
+            "en": "4F Track3",
+            "ja-jp": "4F Track3"
+          },
+          "room_id": 3419
+        },
+        "resources": [
+          {
+            "id": 7407,
+            "resource": "https://sjirwin.github.io/fun-with-microcontrollers/",
+            "description": "Fun With Microcontrollers"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5539,
+          "speak_language": 5543,
+          "slide_language": 5543,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 180,
+        "end_minute": 210,
+        "is_event": false
+      },
+      {
+        "code": "XXCCQR",
+        "speakers": [
+          {
+            "code": "P7YJCV",
+            "name": "An-Chi Liu",
+            "biography": "Liu is a software engineer working in Tokyo. He uses the ID, @tigercosmos, in open-source communities. He likes photography, snowboarding, and traveling. His website: https://tigercosmos.xyz",
+            "avatar": "https://pretalx.com/media/avatars/P7YJCV_ohfNu7F.jpg"
+          }
+        ],
+        "title": "Crafting Your Own Numpy: Do More in C++ and Make It Python",
+        "track_id": 4685,
+        "state": "confirmed",
+        "abstract": "Numpy is a powerful tool for scientific computing, but large-scale simulations need more.  The high-performance computing calls for a custom array library that can be customized in C++ and interact with Python. A great way to do it is to use Pybind11. Just like Numpy, we allow arrays to use various data types while providing a single array type in Python. In C++, we use template generic programming for array code of specific data types. This talk shares the approaches to overcome the \"dtype\" challenge, so we can leverage the C++ typing information at compile-time for high performance and seamless Python integration.",
+        "description": "While most people typically use Numpy directly, as it generally meets their needs well, there are specific scenarios where a custom array library is necessary. In high-performance computing, real-time data processing, and large-scale simulations, users may require a library with a Numpy-like interface that offers enhanced performance and greater flexibility.\r\n\r\nWe created an array library similar to Numpy, providing a comparable interface, high performance, and a high degree of customization. While Pybind11 allows us to bind C++ classes to Python objects easily, thus simply binding a C++ array to a Python object, challenges arise regarding the \"dtype\" of the array.\r\n\r\nWith Numpy, we can create arrays using syntax like `np.array([...], dtype='float64')` to specify the underlying data type as \"float64\". Despite the specified \"dtype\", all Numpy arrays are always of the type \"numpy.ndarray\".\r\n\r\nIn designing a Numpy-like array, we encountered an issue with this \"dtype\". Considering the C++ array templates with different data types, such as `Array<T>`, each data type results in a different template type, like `Array<int>` or `Array<double>`. However, we want to maintain a single array type on the Python side, so we cannot simply bind `Array<T>` to a Python object.\r\n\r\nThis talk will explain our approach to addressing the \"dtype\" challenge in building our own Numpy-like library by leveraging C++'s compile-time type knowledge.",
+        "duration": 30,
+        "slot": {
+          "start": "2024-09-27T11:30:00+09:00",
+          "end": "2024-09-27T12:00:00+09:00",
+          "room": {
+            "en": "4F Track3",
+            "ja-jp": "4F Track3"
+          },
+          "room_id": 3419
+        },
+        "resources": [
+          {
+            "id": 7458,
+            "resource": "https://www.slideshare.net/slideshow/crafting-your-own-numpy-do-more-in-c-and-make-it-python-pycon-jp-2024/272070611",
+            "description": "Slides"
+          }
+        ],
+        "pending_state": null,
+        "question_answers": {
+          "level": 5540,
+          "speak_language": 5543,
+          "slide_language": 5543,
+          "photo_agreement": true,
+          "video_agreement": true
+        },
+        "date": "day1",
+        "start_minute": 90,
+        "end_minute": 120,
+        "is_event": false
+      }
+    ],
+    "events": [
+      {
+        "code": "opening1",
+        "speakers": [],
+        "title": "Opening",
+        "slot": {
+          "room_id": 2,
+          "start": "2024-09-27T10:00:00+09:00",
+          "end": "2024-09-27T10:30:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "hide_end": true,
+        "start_minute": 0,
+        "end_minute": 30,
+        "is_keynote": false
+      },
+      {
+        "code": "opening1_relay1",
+        "speakers": [],
+        "title": "Opening Relay",
+        "slot": {
+          "room_id": 3419,
+          "start": "2024-09-27T10:00:00+09:00",
+          "end": "2024-09-27T10:30:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "hide_end": true,
+        "start_minute": 0,
+        "end_minute": 30,
+        "is_keynote": false
+      },
+      {
+        "code": "opening1_relay2",
+        "speakers": [],
+        "title": "Opening Relay",
+        "slot": {
+          "room_id": 3420,
+          "start": "2024-09-27T10:00:00+09:00",
+          "end": "2024-09-27T10:30:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "hide_end": true,
+        "start_minute": 0,
+        "end_minute": 30,
+        "is_keynote": false
+      },
+      {
+        "speakers": [],
+        "code": "keynote_day1",
+        "slot": {
+          "room_id": 2,
+          "start": "2024-09-27T10:30:00+09:00",
+          "end": "2024-09-27T11:30:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "hide_start": true,
+        "start_minute": 30,
+        "end_minute": 90,
+        "is_keynote": true
+      },
+      {
+        "code": "keynote1_relay1",
+        "speakers": [],
+        "title": "Keynote Relay",
+        "slot": {
+          "room_id": 3419,
+          "start": "2024-09-27T10:30:00+09:00",
+          "end": "2024-09-27T11:30:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "hide_start": true,
+        "start_minute": 30,
+        "end_minute": 90,
+        "is_keynote": false
+      },
+      {
+        "code": "keynote1_relay2",
+        "speakers": [],
+        "title": "Keynote Relay",
+        "slot": {
+          "room_id": 3420,
+          "start": "2024-09-27T10:30:00+09:00",
+          "end": "2024-09-27T11:30:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "hide_start": true,
+        "start_minute": 30,
+        "end_minute": 90,
+        "is_keynote": false
+      },
+      {
+        "code": "association_meeting",
+        "speakers": [],
+        "title": "PyCon JP Association Meeting",
+        "slot": {
+          "room_id": 3086,
+          "start": "2024-09-27T12:00:00+09:00",
+          "end": "2024-09-27T12:45:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "start_minute": 120,
+        "end_minute": 165,
+        "is_keynote": false
+      },
+      {
+        "code": "lunch1_1",
+        "speakers": [],
+        "title": "Lunch Break",
+        "slot": {
+          "room_id": 3086,
+          "start": "2024-09-27T12:45:00+09:00",
+          "end": "2024-09-27T13:00:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "hide_start": true,
+        "start_minute": 165,
+        "end_minute": 180,
+        "is_keynote": false
+      },
+      {
+        "code": "lunch1_2",
+        "speakers": [],
+        "title": "Lunch Break",
+        "slot": {
+          "room_id": 3,
+          "start": "2024-09-27T12:00:00+09:00",
+          "end": "2024-09-27T13:00:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "start_minute": 120,
+        "end_minute": 180,
+        "is_keynote": false
+      },
+      {
+        "code": "coffee_break1",
+        "speakers": [],
+        "title": "Coffee Break",
+        "slot": {
+          "room_id": 1,
+          "start": "2024-09-27T15:10:00+09:00",
+          "end": "2024-09-27T15:50:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "start_minute": 310,
+        "end_minute": 350,
+        "is_keynote": false
+      },
+      {
+        "code": "lt1",
+        "speakers": [],
+        "title": "Lightning Talks",
+        "slot": {
+          "room_id": 3086,
+          "start": "2024-09-27T17:30:00+09:00",
+          "end": "2024-09-27T18:10:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "start_minute": 450,
+        "end_minute": 490,
+        "is_keynote": false
+      },
+      {
+        "code": "lt1_relay1",
+        "speakers": [],
+        "title": "Lightning Talks Relay",
+        "slot": {
+          "room_id": 3418,
+          "start": "2024-09-27T17:30:00+09:00",
+          "end": "2024-09-27T18:10:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "start_minute": 450,
+        "end_minute": 490,
+        "is_keynote": false
+      },
+      {
+        "code": "closing1",
+        "speakers": [],
+        "title": "Closing",
+        "slot": {
+          "room_id": 3086,
+          "start": "2024-09-27T18:10:00+09:00",
+          "end": "2024-09-27T18:20:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "start_minute": 490,
+        "end_minute": 500,
+        "is_keynote": false
+      },
+      {
+        "code": "closing1_relay1",
+        "speakers": [],
+        "title": "Closing Relay",
+        "slot": {
+          "room_id": 3418,
+          "start": "2024-09-27T18:10:00+09:00",
+          "end": "2024-09-27T18:20:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "start_minute": 490,
+        "end_minute": 500,
+        "is_keynote": false
+      },
+      {
+        "code": "party",
+        "speakers": [],
+        "title": "Party",
+        "slot": {
+          "room_id": 4,
+          "start": "2024-09-27T18:30:00+09:00",
+          "end": "2024-09-27T19:30:00+09:00"
+        },
+        "date": "day1",
+        "is_event": true,
+        "hide_end": true,
+        "start_minute": 510,
+        "end_minute": 570,
+        "is_keynote": false
+      }
+    ],
+    "categories": {
+      "4683": "Webアプリケーション",
+      "4684": "データサイエンス、AI",
+      "4685": "ライブラリやサービスを作ってみた",
+      "4686": "Python自体の機能、開発",
+      "4687": "IoT、ハードウェア、ネットワーク",
+      "4688": "映像、音楽、ゲーム、イラスト",
+      "4689": "その他",
+      "4690": "コミュニティ、教育",
+      "4695": "Pythonを用いた開発のプラクティス",
+      "4720": "DevOps、テスト、ドキュメンテーション、パッケージ"
+    },
+    "keynoteSpeaker": {
+      "keynote_day1": "James Powell",
+      "keynote_day2": "石本 敦夫"
+    }
+  },
+  "__N_SSG": true
+}

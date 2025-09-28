@@ -1,0 +1,651 @@
+{
+  "pageProps": {
+    "lang": "ja",
+    "dictionary": {
+      "metadata": {
+        "title": "PyCon JP 2024",
+        "description": "PyCon JPは、Pythonユーザが集まり、PythonやPythonを使ったソフトウェアについて情報交換、交流をするためのカンファレンスです。"
+      },
+      "hero": {
+        "location": "TOC有明コンベンションホール",
+        "ticket": "チケット案内 (CLOSED)"
+      },
+      "news": {
+        "read_more": "ニュースをもっと見る"
+      },
+      "menu": {
+        "about": "開催概要",
+        "events": "イベント詳細",
+        "sponsor": "スポンサー",
+        "contents": "当日のコンテンツ",
+        "organizer": "主催メンバー",
+        "venue": "会場案内",
+        "coc": "行動規範",
+        "timetable": "タイムテーブル",
+        "sprint": "スプリント",
+        "posters": "ポスターセッション",
+        "sponsor_list": "スポンサー一覧",
+        "organizer_list": "主催メンバー一覧",
+        "special_thanks": "スペシャルサンクス",
+        "job_board": "ジョブボード",
+        "coming_soon": "(準備中)"
+      },
+      "overview": {
+        "subtitle": "概要",
+        "description": "PyCon JP は、Python ユーザが集まり、Python や Python を使ったソフトウェアについて情報交換、交流をするためのカンファレンスです。 PyCon JP の開催を通じて、Python の使い手が一堂に集まり、Python にまつわる様々な分野の知識や情報を交換し、新たな友達やコミュニティとのつながり、仕事やビジネスチャンスを増やせる場所とすることが目標です。"
+      },
+      "conference": {
+        "subtitle": "カンファレンス",
+        "subtitle_keynote": "基調講演",
+        "subtitle_invited_talk": "招待講演",
+        "keynote_day1": {
+          "speaker": "James Powell",
+          "date": "2024.9.27(Fri)"
+        },
+        "keynote_day2": {
+          "speaker": "石本 敦夫",
+          "date": "2024.9.28(Sat)"
+        },
+        "invited_talk": {
+          "speaker": "稲田 直哉",
+          "date": ""
+        }
+      },
+      "sponsor": {
+        "subtitle": "スポンサー",
+        "subtitle_diamond": "ダイヤモンドスポンサー",
+        "subtitle_platinum": "プラチナスポンサー",
+        "subtitle_gold": "ゴールドスポンサー",
+        "subtitle_silver": "シルバースポンサー",
+        "subtitle_advertising": "広告スポンサー",
+        "subtitle_psf": "PSF",
+        "subtitle_special": "特別スポンサー",
+        "subtitle_patron": "パトロン"
+      },
+      "footer": {
+        "contact_us": "お問い合わせ",
+        "description": "ボランティアによる運営ですので、回答には1週間程度を要します。\n 何卒お待ちいただけますようにお願いします。",
+        "past_events": "過去のPyCon JPのイベント一覧"
+      },
+      "organizers": {
+        "subtitle_chairs": "共同座長",
+        "organizing_members": "主催メンバー",
+        "reviewers": "レビュアー",
+        "camera_crews": "カメラマン",
+        "chairs": {
+          "takanory": {
+            "name": "鈴木 たかのり",
+            "github": "takanory",
+            "twitter": "takanory",
+            "facebook": ""
+          },
+          "yoshida": {
+            "name": "吉田　俊輔",
+            "github": "koedoyoshida",
+            "twitter": "koedoyoshida",
+            "facebook": "koedoyoshida"
+          },
+          "terada": {
+            "name": "寺田　学",
+            "github": "terapyon",
+            "twitter": "terapyon",
+            "facebook": "terapyon"
+          }
+        }
+      },
+      "announce": {
+        "sprint": {
+          "title": "スプリント参加チケット (CLOSED)",
+          "description": "スプリント参加には、カンファレンスとは別のチケットが必要です。\n詳しくはリンク先のconnpassイベントページをご覧ください。"
+        }
+      },
+      "venue": {
+        "map": "会場見取り図",
+        "access": "会場アクセス",
+        "heading": {
+          "location": "会場",
+          "address": "所在地",
+          "access": "アクセス"
+        },
+        "venue": {
+          "conference": {
+            "date": "2024.9.27(Fri) - 2024.9.28(Sat)",
+            "location": "TOC有明コンベンションホール",
+            "address": "東京都江東区有明3丁目5番7号",
+            "access": "<りんかい線> 国際展示場駅より徒歩3分\n<ゆりかもめ> 東京ビッグサイト駅/有明駅より徒歩4分"
+          },
+          "sprint": {
+            "date": "2024.9.29(Sun)",
+            "location": "HENNGE株式会社",
+            "address": "東京都渋谷区南平台町16番28号 Daiwa渋谷スクエア 4F",
+            "access": "渋谷駅より徒歩約10分"
+          }
+        }
+      },
+      "posters": {
+        "general": "一般",
+        "community": "コミュニティ"
+      },
+      "sprint": {
+        "themes": "応募されたテーマ一覧",
+        "output": "成果物"
+      },
+      "special_thanks": {
+        "description": "PyCon JP 2024の開催に貢献してくださった方々です。"
+      },
+      "contents": {
+        "see_more": "詳細はこちら"
+      }
+    },
+    "blogs": [
+      {
+        "url": "http://pyconjp.blogspot.com/2025/09/pycon-jp-2025-lt-thank-you-for-all.html",
+        "title": "PyCon JP 2025 LTへのたくさんの応募、ありがとうございました！ Thank you for all the Lightning Talk submissions for PyCon JP 2025!",
+        "published": "2025-09-28T13:58:00+09:00"
+      },
+      {
+        "url": "http://pyconjp.blogspot.com/2025/09/pycon-mini-2025.html",
+        "title": "PyCon mini 東海 2025のチケットを発売開始！",
+        "published": "2025-09-26T09:54:00+09:00"
+      },
+      {
+        "url": "http://pyconjp.blogspot.com/2025/09/pycon-jp-2025-hash-tags-for-rooms.html",
+        "title": "#PyConJP2025 & ルーム別ハッシュタグのご案内",
+        "published": "2025-09-26T08:30:00+09:00"
+      },
+      {
+        "url": "http://pyconjp.blogspot.com/2025/09/pycon-jp-2025-streaming-ja.html",
+        "title": "PyCon JP 2025 カンファレンス配信のお知らせと視聴方法",
+        "published": "2025-09-25T21:00:00+09:00"
+      },
+      {
+        "url": "http://pyconjp.blogspot.com/2025/09/donation-at-pyconjp2025.html",
+        "title": "PyCon JP 2025のPyCon JP Associationブースで寄付を受け付けます",
+        "published": "2025-09-25T12:00:00+09:00"
+      }
+    ],
+    "sponsors": [
+      {
+        "name": "クラーケン・オクトパスエナジーグループ",
+        "url": "https://kraken.tech/",
+        "profile": "英国拠点のOctopus Energy Groupの一員であるKrakenは、Energy-Techを通じて世界のグリーンエネルギー革命を推進しています。私たちは、トップクラスのサービスを提供するため、最先端データを中心とした技術でKrakenを開発しました。グリーンエネルギーへの世界的な移行をより早く、より手頃な価格で実現するために、変革をもたらすKrakenを世界中にライセンス提供しています。\n\nまた、東京ガスから約210億円、オーストラリア最大のエネルギー会社であるOriginから約749億円の資金調達を完了しています。\n\n私たちは、グローバルプロジェクトの新たなメンバーを募集しています。",
+        "job_board": "Working with Kraken is a chance to join an exciting scale-up business within the energy supply sector, one that’s at the forefront of changing the landscape of the energy industry across the world.",
+        "job_board_url": "https://octopusenergy.co.jp/career",
+        "logo_image": "kraken.png",
+        "plan": "gold"
+      },
+      {
+        "name": "さくらインターネット株式会社",
+        "url": "https://www.sakura.ad.jp/",
+        "profile": "さくらインターネットは、1996年創業のインターネット企業です。「さくらのクラウド」「さくらのレンタルサーバ」「さくらのVPS」などのクラウドコンピューティングサービスを、自社運営の国内のデータセンターから提供しています。「『やりたいこと』を『できる』に変える」の企業理念のもと、お客さまのご要望にお応えする多様なサービスを開発し、あらゆる分野に対応するDXソリューションを提案します。",
+        "job_board": "さくらインターネットは自社サービスの多くをPythonで実装しています。Pythonで仕事したいエンジニアを募集しています！",
+        "job_board_url": "https://www.sakura.ad.jp/recruit/",
+        "logo_image": "sakura.png",
+        "plan": "gold"
+      },
+      {
+        "name": "株式会社ハイヤールー",
+        "url": "https://hireroo.io/",
+        "profile": "HireRoo（ハイヤールー） は、エンジニア採用を効率化するコーディンス試験サービスです。\n幅広い設問が豊富に揃い、職能やレイヤー、測りたいスキルに合わせて最適な試験を作ることができます。\nさらに英語対応もしており、海外採用にも利用可能です。\n詳しくはこちらをご覧ください！\nhttps://hireroo.io/",
+        "job_board": "",
+        "job_board_url": "https://herp.careers/v1/hirerooo",
+        "logo_image": "hireroo.png",
+        "plan": "gold"
+      },
+      {
+        "name": "クレジットエンジン株式会社",
+        "url": "https://creditengine.jp",
+        "profile": "「\"かす\" をかえる。　\"かりる\" をかえる。」をミッションに掲げ、オンライン融資システム「CE Loan」、オンライン債権管理回収システム「CE Collection」など、データとテクノロジーで金融機関のデジタル化を実現するサービスを提供しています。",
+        "job_board": "前向きに楽しく働ける仲間を募集しています。さまざまなポジションがありますのでお気軽にご相談ください。",
+        "job_board_url": "https://joinus.creditengine.jp/",
+        "logo_image": "creditengine.svg",
+        "plan": "gold"
+      },
+      {
+        "name": "Postman株式会社",
+        "url": "https://www.postman.com/jp/",
+        "profile": "Postmanは3,100万人を超える開発者と50万の組織で利用されているAPIプラットフォームです。APIの設計から構築・テスト・セキュリティ・監視・ドキュメント作成・アプリ統合まで、APIライフサイクル全体の作業を簡素化、効率化します。アプリ開発、クラウド活用、APIセキュリティに役に立つ機能を余すことなくご紹介します。",
+        "job_board": "",
+        "job_board_url": "https://www.postman.com/company/careers/",
+        "logo_image": "postman.svg",
+        "plan": "gold"
+      },
+      {
+        "name": "シンプルフォーム株式会社",
+        "url": "https://www.simpleform.co.jp/",
+        "profile": "シンプルフォーム株式会社は「全ての法人がフェアに繋がれる世界」の実現を目指し、事業を展開しています。テクノロジーと地道な人力調査の力を結集し、行政機関やインターネット上に点在する全国500万法人の定性情報を集約。通常は収集・整理に数日かかるこれら情報を30秒でレポーティングすることで、法人確認プロセスの自動化を実現する「SimpleCheck」や、情報・属性の変化が対象法人に生じた際にリスク情報を自動通知する「SimpleMonitor」を開発、提供しています。大手金融機関や事業会社・プラットフォーマーなどを対象に、金融・商取引における審査の効率化や、高度化を支援しています。",
+        "job_board": "多数ポジションで採用を強化しています。お気軽にお問合せください。",
+        "job_board_url": "https://herp.careers/v1/simpleform",
+        "logo_image": "simpleform.svg",
+        "plan": "gold"
+      },
+      {
+        "name": "HENNGE株式会社",
+        "url": "https://hennge.com/jp/",
+        "profile": "Pythonistaのみなさま、こんにちは。HENNGEです。今年も引き続きPython JPの支援ができることをとても嬉しく思います。HENNGEは「テクノロジーの解放」というビジョンのもと、多くの人々がテクノロジーの恩恵を享受できるようSaaSを通じて支援するB2B企業です。\n主力サービスのクラウドセキュリティ製品「HENNGE One」は、クラウドサービスがもたらす「働く環境の柔軟性」と、クラウドサービスをどこからでも活用するために必要な「安全性」を両立させるソリューションです。昨年に引き続き29日のSprintが弊社オフィスで開催されますので、よろしくお願いします！",
+        "job_board": "Pythonエンジニアとインターンを募集中です！",
+        "job_board_url": "https://recruit.hennge.com/",
+        "logo_image": "hennge.svg",
+        "plan": "gold"
+      },
+      {
+        "name": "株式会社日本システム技研",
+        "url": "https://jsl.co.jp/",
+        "profile": "株式会社日本システム技研(JSL)は「「技術力×人間力」で社会から注目され続ける企業になること」をビジョンに長野でPythonとAWSを中心としたWeb開発を行っており変化の激しいフロントエンドに関してもモダンな開発に注力しています。\n\n【直近の開発実績】\n・医療系業務の支援システム開発支援\n・通販サイト（小規模もあり）、物流システムの開発支援\n・小規模な生産管理システムの開発、保険情報サイトの開発\n・製造業者や畜産向けIoTシステムの開発\n\n多種多様な案件に対応できますので、協業パートナー先をお探しであればぜひお声がけください。\n\nまた当社は、エンジニアを募集しております。\n興味がある方、お気軽に問い合わせください。",
+        "job_board": "エンジニアを随時募集しています。 UIターン、長野で働きたい方、様々な開発・技術に触れたい方、プログラミングが好きな未経験の方も大歓迎です！ 興味がある方、お気軽に問い合わせください。",
+        "job_board_url": "https://jsl.co.jp/recruit/",
+        "logo_image": "jsl.png",
+        "plan": "gold"
+      },
+      {
+        "name": "FireDucks",
+        "url": "https://fireducks-dev.github.io/ja/",
+        "profile": "FireDucksは、JITコンパイラ技術を活用し、既存のpandasによって書かれたプログラムを変更することなく、import文を変更するだけで、大幅な高速化を実現できます。FireDucksはpypi.orgで3-Clause BSD Licenseの下でリリースされており、pipを使って簡単にインストールすることが可能であり、pandasを用いたプログラムをお持ちの方は今すぐにFireDucksの高速化性能を体験することができます。\n \nFireDucksを開発するNECは、FireDucksのエンタープライズサポートを提供予定です。詳細はお問い合わせください。",
+        "job_board": "",
+        "job_board_url": "",
+        "logo_image": "fireducks.png",
+        "plan": "gold"
+      },
+      {
+        "name": "転職ドラフト",
+        "url": "https://job-draft.jp/",
+        "profile": "転職ドラフトは、レジュメを登録すると企業から年収付きの指名が届く、ITエンジニア向けの転職サービスです。\n指名により、「自身の客観的な市場価値」を把握できることが特徴です。\n\n大手・メガベンチャー・スタートアップなど利用企業数は累計700社以上。転職活動中から情報収集中の方まで毎月約600人のITエンジニアが参加。\n挑戦的なキャリア形成の登竜門としてご利用いただけるよう、日々提供価値を拡充しています。",
+        "job_board": "リブセンスでは、データ分析を推進するアナリティクスエンジニアや、推薦・検索・機械学習に興味があるデータエンジニアを募集しています。",
+        "job_board_url": "https://hrmos.co/pages/livesense/jobs?category=1958432138595356672",
+        "logo_image": "jobdraft.png",
+        "plan": "gold"
+      },
+      {
+        "name": "日本マイクロソフト株式会社",
+        "url": "https://news.microsoft.com/ja-jp/",
+        "profile": "マイクロソフトは、「Empower every person and every organization on the planet to achieve more.（地球上のすべての個人とすべての組織が、より多くのことを達成できるようにする）」を企業ミッションとしています。日本マイクロソフトは、この企業ミッションに基づき、「革新的で、安心して使っていただけるインテリジェントテクノロジを通して、日本の社会変革に貢献する」企業像を目指します。 GitHub Copilotをはじめとする開発者向けツールも多数提供しています。お気軽に開発環境についても相談ください。",
+        "job_board": "マイクロソフトの一員として、世界を変えるようなインパクトの創出を目指しませんか？",
+        "job_board_url": "https://www.microsoft.com/ja-jp/mscorp/mid-career/",
+        "logo_image": "microsoft.png",
+        "plan": "gold"
+      },
+      {
+        "name": "ENECHANGE株式会社",
+        "url": "https://enechange.co.jp/",
+        "profile": "ENECHANGE株式会社は「エネルギー革命」を技術革新により推進し、より良い世界を創出することをミッションとするエネルギーベンチャー企業です。\nエネルギーの自由化を推進するプラットフォーム「エネチェンジ」、エネルギーのDXを実現する「ENECHANGE CLOUD」、エネルギーの脱炭素化に向けた「EV充電エネチェンジ」の主に3つの事業を展開しGX（グリーントランスフォーメーション）を推進しています。\n当社は今後これまでに培った大規模データとPythonの力を活かして「エネルギーの未来をつくる」べく取り組んでいきます。この度の協賛がPythonエンジニアの皆さまの発展の一助となれば幸いです。",
+        "job_board": "当社では現在幅広い職種でメンバーを募集中です！ まずはカジュアル面談から、気軽にエントリーお待ちしております。",
+        "job_board_url": "https://engineer-recruit.enechange.co.jp/",
+        "logo_image": "enechange.png",
+        "plan": "gold"
+      },
+      {
+        "name": "ストックマーク株式会社",
+        "url": "https://stockmark.co.jp/",
+        "profile": "ストックマークは自然言語処理に特化したAIスタートアップです。\nAIを活用した情報収集サービス「Anews」、事業戦略・市場分析サービス「Astrategy」、文書構造解析技術「Stockmark A Technology」、自社でのフルスクラッチ開発を行った1000億パラメータのLLM 「Stockmark-LLM」などAIを活用したSaaSサービスの開発・研究・提供を行っています。",
+        "job_board": "ストックマークは共に新しい価値を創造してくれる仲間を募集しています。システム開発のほか、自然言語処理・AI開発・構造解析などの技術研究に興味がある方にピッタリの会社です。",
+        "job_board_url": "https://herp.careers/v1/stockmark",
+        "logo_image": "stockmark.svg",
+        "plan": "gold"
+      },
+      {
+        "name": "ライフマティックス株式会社",
+        "url": "https://lifematics.co.jp/",
+        "profile": "ライフマティックスは、ライフサイエンス分野に特化したITサービス企業です。製薬業界を中心に、研究業務支援、ソフトウェア開発、インフラ構築、運用支援などを提供しています。\n特に、深層学習や機械学習を活用したデータ解析・予測サービスを基盤に、それらを組み込んだWebアプリケーションの開発が強みです。お客様のニーズに応じて、カスタマイズされたソリューションを迅速に提供し、研究の効率化と成果向上をサポートします。\n\n革新的な技術と専門知識を駆使して、お客様の成功を支援するエンジニアを募集しております。また、業界平均を下回る残業時間を維持し、ワークライフバランスを大切にする働きやすい環境を提供しています。",
+        "job_board": "ライフサイエンスとITの交差点で、次世代技術を共にリードしませんか？柔軟な働き方で、あなたのスキルを最大限に活かせます。",
+        "job_board_url": "https://lifematics.co.jp/recruit/",
+        "logo_image": "lifematics.png",
+        "plan": "gold"
+      },
+      {
+        "name": "Recustomer株式会社",
+        "url": "https://recustomer.me/",
+        "profile": "私たちは、ECサイトでより簡単・安心してショッピングすることを可能にするソフトウェアを開発し、ファッション・コスメ・電化製品・飲料食品メーカーなどの大手ECサイトに埋め込み型で提供しているECイネーブラーです。\nきっとあなたもAmazonでショッピングをする際に、「簡単に返品できる」「いつ届くのか明確」という購入体験の良さを実感したことがあるでしょう。\nしかし、Amazon以外の多くのECサイトは、依然として「返品ができない/めんどくさい」「いつ届くのかわからない」といった購入体験の課題が山積みなのです。\n私たちRecustomerは、消費者により優れたショッピング体験を提供するだけでなく、EC事業者や倉庫事業者・配送業者など、Eコマースのインフラを担うプレイヤーの業務フローまでをソフトウェアで自動化・効率化することで、世界経済全体を前進させることが可能だと信じています。私たちと一緒に、日本ひいては世界のショッピング体験を前進させませんか？",
+        "job_board": "Pythonの専門知識を最大限に活かし、国内・世界のECを変えていくメンバーを大募集しています！",
+        "job_board_url": "https://recustomer.notion.site/Entrance-book-for-Engineer-Recustomer-a186c23e824948bfad247764916ebcc0?pvs=4",
+        "logo_image": "recustomer.svg",
+        "plan": "gold"
+      },
+      {
+        "name": "Snowflake合同会社",
+        "url": "https://www.snowflake.com/ja/",
+        "profile": "SnowflakeはAIデータクラウドで世界のデータをモビライズし、データとAIのパワーを最大化するプラットフォームです。大量すぎて動かなかったデータ分析を高速に処理し、企業や組織のサイロにとらわれたデータを即座に共有できるようにし、高度な知識を要したAI・LLMの技術を誰にでも使えるよう簡単に提供し、開発〜展開に多大な時間とメンテナンスコストを要していたアプリ開発を劇的に簡素化しました。\n本ブースでは、SnowflakeファミリーであるPythonフレームワークのStreamlitを使用したデモをお届けします。素敵なグッズもたくさんご用意してお待ちしていますので、ぜひお立ち寄りください！",
+        "job_board": "スノーフレイクでは私たちのミッション「世界のデータをモビライズ」する仲間を募集しています。この野心溢れる、大胆な使命を、ともに邁進してくださる方のご応募をお待ちしています！ 一緒に、データとAIの領域で何が可能かを創造していきましょう。",
+        "job_board_url": "https://careers.snowflake.com/",
+        "logo_image": "snowflake.png",
+        "plan": "gold"
+      },
+      {
+        "name": "株式会社アイリッジ",
+        "url": "https://iridge.jp",
+        "profile": "株式会社アイリッジは、企業のアプリビジネス支援とビジネスプロデュース支援を軸に、幅広い領域でDXを支援しています。\nOMOアプリの企画・開発における業界トップクラスの実績があり、手がけたアプリのMAUは国内最大級の9,000万超。開発から機能拡張、マーケティング施策まで行えるアプリビジネスプラットフォーム「APPBOX」が主力プロダクトです。\nPythonをメインの開発言語に採用しており、2013年からスポンサーとしてPyConに参加しています。\n主な開発環境 - TypeScript, Vue.js, Nuxt.js, Storybook, GraphQL - Django, Flask, FastAPI, Docker, Go, React - AWS, GCP, Terraform, Datadog, Pagerduty, GitLab/CI",
+        "job_board": "アイリッジでは一緒に働く仲間を絶賛募集しています。様々なポジションの募集があるので是非求人に目を通してみてください。 少しでも気になったら、話を聞いてみるだけでも構いませんのでご連絡いただけると嬉しいです。",
+        "job_board_url": "https://iridge.jp/recruit/",
+        "logo_image": "iRidge.png",
+        "plan": "gold"
+      },
+      {
+        "name": "株式会社アーバンエックステクノロジーズ",
+        "url": "https://urbanx-tech.com",
+        "profile": "アーバンエックステクノロジーズは、「しなやかな都市インフラ管理を支えるデジタル基盤をつくる」をビジョンとして、道路点検AI「RoadManager」、市民協働投稿サービス「My City Report for citizens」、盛土管理DXシステム、三井住友海上火災保険株式会社と共同開発・運営している「ドラレコ・ロードマネージャー」などのプロダクトを、主に行政インフラ管理者向けに展開している、東京大学発のスタートアップです。サービス全体で累計40を超える自治体での導入実績をベースに、今後、当社技術を活用した民間事業者向けの展開も行いつつ、さらに多くの都市インフラを対象としたソリューションの提供を目指します。",
+        "job_board": "Python、Djangoを主にしつつその他技術も得意とされるエンジニアの方を重点的に募集しております。",
+        "job_board_url": "https://urbanx-tech.com/recruit",
+        "logo_image": "urbanx.svg",
+        "plan": "gold"
+      },
+      {
+        "name": "株式会社Flatt Security",
+        "url": "https://flatt.tech",
+        "profile": "Flatt Securityは「エンジニアの背中を預かる」をミッションとして、業界を問わず様々な企業の取り組みを支援してきた、プロダクトセキュリティのプロフェッショナル集団です。セキュリティ診断(脆弱性診断)のまるごと内製化を支援するSaaS「Shisho Cloud」の開発・提供に加え、セキュリティエンジニアによるソースコード解析を強みとする手動セキュリティ診断や、Web開発に必須のセキュリティ技術を演習形式で学べるセキュアコーディング学習プラットフォーム「KENRO」などを提供しています。",
+        "job_board": "",
+        "job_board_url": "https://recruit.flatt.tech/job",
+        "logo_image": "FlattSecurity.svg",
+        "plan": "gold"
+      },
+      {
+        "name": "Axross Recipe",
+        "url": "https://axross-recipe.com/",
+        "profile": "Axross Recipeは、「AI/DXを学んだが活用できない人を減らしたい」という想いのもと、エンジニアのノウハウを“レシピ“という独自コンテンツで提供する「AI/DX教育プラットフォーム」です。現場の最新技術の活用ノウハウをE-Learningで学べます。\nPythonでの最新AIモデル構築方法や、ChatGPTの業務活用方法、最新AI技術の使い方、日々の業務の効率化/自動化など、「実務に直結する」ことをコンセプトにノウハウを提供しているので、ご興味がございましたらぜひお声がけください！",
+        "job_board": "",
+        "job_board_url": "",
+        "logo_image": "axross_recipe.png",
+        "plan": "gold"
+      },
+      {
+        "name": "株式会社ビープラウド",
+        "url": "https://www.beproud.jp/",
+        "profile": "株式会社ビープラウド（ http://www.beproud.jp/ ）はソフトウェア開発のプロフェッショナル集団です。\n2008年にPythonを主言語として採用、優秀なPythonエンジニアがより力を発揮できる環境作りに努めています。Pythonに特化したオンライン学習サービス「PyQ（パイキュー）（ http://pyq.jp ）」、IT勉強会支援プラットフォーム「connpass（コンパス）（ https://connpass.com/ ）」、システム開発者向けクラウドドキュメント 「TRACERY（トレーサリー）」の開発・運営など、技術・ノウハウの発信と技術コミュニティへの協力にも力を入れています。",
+        "job_board": "Pythonを愛する仲間と共に、技術を深めませんか？ビープラウドでは、フルスタックエンジニアとして、インフラからフロントエンドまで幅広い業務に携われます。社内勉強会やカンファレンスでの発表を積極的にサポートする文化があり、仲間と刺激を与え合いながら成長できます。技術で社会に価値を届けたい方にとって、私たちのチームは最適な環境です。",
+        "job_board_url": "https://www.beproud.jp/careers/",
+        "logo_image": "BeProud.svg",
+        "plan": "gold"
+      },
+      {
+        "name": "株式会社 CARTA HOLDINGS",
+        "url": "https://cartaholdings.co.jp/engineering/?utm_source=2024.pycon.jp&utm_medium=Paid+Other&utm_campaign=pycon2024_sponsor",
+        "profile": "CARTA HOLDINGSは、デジタルを通じ、多様で新しいサービスやコンテンツを生み出しています。「時代の進化を創る」という目的のもと、企業・産業の進化を推進する「進化推進業」を目指してまいります。デジタル・マーケティング事業およびインターネット関連事業を軸とした多事業展開を行っています。\n\n当日は\n\n* 運用型テレビ広告分析プラットフォームを展開する「テレシー」\n* ブランド広告・スマフォ向けパフォーマンス広告配信プラットフォーム「PORTO」「Zucks」を展開する「CARTA MARKETIGN FIRM」\n\n2事業部のデータサイエンティスト・エンジニアがブースでお待ちしております！",
+        "job_board": "CARTA CARKETING FIRM, テレシーではデータサイエンティストを募集しています。",
+        "job_board_url": "https://hrmos.co/pages/cartaholdings/jobs?category=1260098130969743360,2004030079573598212,2004030079573598217&utm_source=2024.pycon.jp&utm_medium=Paid+Other&utm_campaign=pycon2024_sponsor",
+        "logo_image": "CARTA.png",
+        "plan": "gold"
+      },
+      {
+        "name": "Pythonエンジニア育成推進協会",
+        "url": "https://www.pythonic-exam.com/",
+        "profile": "Python試験、データ分析試験を運営しています。お陰様で累計受験者数5万人、年間受験者数1万5千人を超えるまでに成長し、経産省ITSS、厚生労働省認定資格にもなりました。無料で受験できるお作法試験「PythonZen ＆ PEP8検定」もご利用ください。",
+        "job_board": "",
+        "job_board_url": "",
+        "logo_image": "pythoned.png",
+        "plan": "gold"
+      },
+      {
+        "name": "株式会社カケハシ",
+        "url": "https://www.kakehashi.life/",
+        "profile": "株式会社カケハシは、日本の医療システムの再構築を目指すヘルステックスタートアップ企業です。テクノロジーを駆使し、患者さんにとってより良い医療を、医療現場にとって持続可能な形で実現します。現在、薬局体験アシスタント「Musubi」のほか、複数プロダクトを開発・提供し、国内の薬局の1万店舗超をカバー。服薬期間中の患者フォローによる治療効果最大化や、医薬品の市中在庫可視化・安定供給などをサポートします。薬局や医療機関をはじめとした多様なステークホルダーとともに、より良い医療を実現するプラットフォームを構築していきます。",
+        "job_board": "",
+        "job_board_url": "https://recruit.kakehashi.life/",
+        "logo_image": "kakehashi.png",
+        "plan": "gold"
+      },
+      {
+        "name": "Forkwell（フォークウェル）",
+        "url": "https://forkwell.com/",
+        "profile": "ITエンジニアのキャリアに本気で向き合う転職サイトForkwell（フォークウェル）です！ITエンジニアに特化した求人を扱っております。さらにキャリアアドバイザーによる転職支援サービスや、職務経歴や経験技術などのプロフィールを登録できるポートフォリオサービスなども充実。また、27,000名にご登録いただいているイベントコミュニティにて定期的な技術イベントも開催しており、ITエンジニアのキャリア支援を総合的に行っています。",
+        "job_board": "",
+        "job_board_url": "",
+        "logo_image": "forkwell.svg",
+        "plan": "gold"
+      },
+      {
+        "name": "株式会社PKSHA Technology",
+        "url": "https://www.pkshatech.com/",
+        "profile": "「未来のソフトウエアを形にする」をミッションに、企業と人の未来の関係性を創るべく自社開発した機械学習／深層学習領域のアルゴリズムを用いたAIソリューションの開発・AI SaaSの提供を行っています。自然言語処理技術を用いた自動応答や、画像/動画認識、予測モデルなど多岐に渡る技術をベースに顧客の課題にあわせた解決策を提供する他、共通課題を解決するAI SaaSの展開により、ソフトウエアの社会実装を多面的に支援し、人とソフトウエアが共に進化する豊かな社会を目指します。",
+        "job_board": "弊社では、R&D事業のアルゴリズム構築をはじめ、AI Solution事業、AI SaaS事業のソフトウエア開発でもPythonを使用しており、エンジニア採用にも力を入れています。 ソフトウエアの社会実装に興味がある方は、事例などをご紹介しますので、ぜひブースにお立ち寄りください！",
+        "job_board_url": "https://www.pkshatech.com/recruitment/",
+        "logo_image": "pksha.png",
+        "plan": "gold"
+      },
+      {
+        "name": "株式会社SQUEEZE",
+        "url": "https://squeeze-inc.co.jp/",
+        "profile": "SQUEEZEはホテル業界においてゲスト・働き手・経営主の”三方よし”を実現し、場の空間価値をより高められるオペレーション方法やシステムの構築を行ってきました。これまでに企画・運営に関わったホテルは累計50施設以上となり、「Minn」「Theatel」を代表とする自社運営施設はインバウンドの方々を中心に多くの方にご利用いただいております。\n\n自社の運営ノウハウを活かし開発したクラウド型ホテル運営システム「suitebook」は、業務の効率化・自動化を推進する運営プラットフォームとして、チェーンホテルへの導入も進んできました。2023年にはJR東日本グループ社をはじめとする大手企業との取組みや、ホテル予約サイトなどもリリースし、様々な外部サービスとの連携による利便性・拡張性の強化にも努めています。",
+        "job_board": "リアル x テクノロジーの領域にある泥臭さを楽しんで、スマートホテルを一緒にPythonで創っていきましょう！",
+        "job_board_url": "https://squeeze-inc.co.jp/recruit/",
+        "logo_image": "squeeze.svg",
+        "plan": "gold"
+      },
+      {
+        "name": "Bloomberg L.P.",
+        "url": "https://techatbloomberg.com/python",
+        "profile": "ブルームバーグは、金融プロフェッショナル向けに、世界で最も信頼される情報源と\nコミュニティーを構築しています。データ、ニュース、分析力を活用することで、お客さま\nが複雑な世界を理解し、明確にするためのサポートを提供しています。\n\nブルームバーグでは、9000人以上のエンジニア、開発者、データサイエンティストが、\nブルームバーグ ターミナルやその他プロダクト向けの新たなソリューションやシステムを\n開発・構築し、世界の複雑な問題を解決するために日々取り組んでいます。\n\nリアルタイムの市場データや企業データから、高度な分析、強力な取引ツール、安全な\n生体認証アクセス制御システム、一元化されたコミュニケーションプラットフォームに至る\nまで、世界で35万人を超える金融プロフェッショナルが重要なビジネス判断を下す上で\n必要となるソリューションを構築しています。",
+        "job_board": "",
+        "job_board_url": "",
+        "logo_image": "bloomberg.png",
+        "plan": "gold"
+      },
+      {
+        "name": "Findy",
+        "url": "https://findy.co.jp/",
+        "profile": "ファインディ株式会社は、「挑戦するエンジニアのプラットフォームをつくる。」をビジョンに掲げ、ハイスキルなエンジニアのスキルを見える化し、企業とのマッチングを成功に導くスカウト型リクルーティングサービス「Findy」/「Findy Freelance」、エンジニア組織の生産性を可視化・向上させるSaaS「Findy Team+」などを提供しています。スタートアップからDXを加速させたい大手企業まで幅広い企業への導入を実現しています。\n今後も技術とイノベーションを通じて価値あるコンテンツを創出し、企業とエンジニアの成長を支援し続けます​。",
+        "job_board": "Findyのデータ活用を推進し、事業価値の増大に貢献してくれる仲間を大募集！",
+        "job_board_url": "https://herp.careers/v1/findy/requisition-groups/75da1608-ef7d-4494-877b-d202b4516b4a",
+        "logo_image": "findy.png",
+        "plan": "platinum"
+      },
+      {
+        "name": "株式会社グローバルウェイ",
+        "url": "https://www.globalway.co.jp/",
+        "profile": "株式会社グローバルウェイは、ライフスタイルの変革とビジネスの革新を通じて、社会に価値を提供することを目指し、5つの事業を展開しています。特にプラットフォーム事業部では、企業のDX推進を幅広く支援し、Python/Djangoを活用したWeb開発で、大手通信会社のポータルサイト構築など、多くの信頼性の高い実績を有しています。今回展示するPython教育サービスは、社内教育から発展し、エンジニアの仲間を増やすことを目的にサービス化されたものです。今後も企業向けに多様なサービスやセミナーを展開予定です。ぜひブースにお立ち寄りいただき、詳細をご相談ください。",
+        "job_board": "",
+        "job_board_url": "https://www.globalway-recruit.com/",
+        "logo_image": "globalway.png",
+        "plan": "platinum"
+      },
+      {
+        "name": "JetBrains",
+        "url": "https://www.jetbrains.com/ja-jp/",
+        "profile": "JetBrains は、ソフトウェア開発者をはじめ、データサイエンティストやデータサイエンスチーム向けのインテリジェントな生産性向上ツールの作成に特化したグローバルソフトウェア企業です。過去 24 年間にわたり、ソフトウェア開発サイクル全体のみならず、主要テクノロジー、プログラミング言語、および教育プロセスに対応した製品カタログを構築してきました。Python 製品としては、フルスタックの Python IDE である PyCharm、データサイエンティスト向けの新しい IDE である DataSpell、チーム向けのスマートな Jupyter 環境のデータサイエンスプラットフォームである Datalore といったツールを提供しています。",
+        "job_board": "",
+        "job_board_url": "",
+        "logo_image": "jetbrains.png",
+        "plan": "platinum"
+      },
+      {
+        "name": "株式会社YUZURIHA",
+        "url": "https://yzrh.jp/",
+        "profile": "※弊社はSilverスポンサーですので、必須となっていますが、記載なしでいいでしょうか？",
+        "job_board": "",
+        "job_board_url": "https://www.wantedly.com/companies/company_1037941",
+        "logo_image": "yuzuriha.svg",
+        "plan": "silver"
+      },
+      {
+        "name": "Hamee株式会社",
+        "url": "https://hamee.co.jp/recruit/love-odawara",
+        "profile": "-",
+        "job_board": "",
+        "job_board_url": "https://hamee.co.jp/recruit/love-odawara",
+        "logo_image": "hamee.png",
+        "plan": "silver"
+      },
+      {
+        "name": "株式会社Lupinus",
+        "url": "https://www.lupinus.com",
+        "profile": "",
+        "job_board": "",
+        "job_board_url": "https://www.lupinus.com/recruit",
+        "logo_image": "lupinus.png",
+        "plan": "silver"
+      },
+      {
+        "name": "株式会社ギークニア",
+        "url": "https://geekneer.com/",
+        "profile": "",
+        "job_board": "",
+        "job_board_url": "https://geekneer.com/recruit",
+        "logo_image": "geekneer.png",
+        "plan": "silver"
+      },
+      {
+        "name": "株式会社ハートビーツ",
+        "url": "https://heartbeats.jp/",
+        "profile": "",
+        "job_board": "",
+        "job_board_url": "https://recruit.heartbeats.jp/",
+        "logo_image": "heartbeats.png",
+        "plan": "silver"
+      },
+      {
+        "name": "株式会社いい生活",
+        "url": "https://www.e-seikatsu.info/",
+        "profile": "",
+        "job_board": "",
+        "job_board_url": "https://www.e-seikatsu.info/careers/",
+        "logo_image": "e-seikatsu.png",
+        "plan": "silver"
+      },
+      {
+        "name": "日本経済新聞社 CDIO室",
+        "url": "https://hack.nikkei.com/",
+        "profile": "",
+        "job_board": "",
+        "job_board_url": "https://herp.careers/v1/nikkei",
+        "logo_image": "nikkei.svg",
+        "plan": "silver"
+      },
+      {
+        "name": "ちゅらデータ株式会社",
+        "url": "https://churadata.okinawa/",
+        "profile": "ちゅらデータ株式会社は、業務プロセス改革・マーケティングコンサルティング、データ基盤構築、AIモデル構築、システム開発、運用保守に至るまで、データ利活用に関するあらゆるサービスをワンストップで提供しています。",
+        "job_board": "ちゅらデータは、データ分析の力で顧客のビジネスを進化させることをミッションにしています。自らがワクワクできることを大事にしている人、常識に囚われずに本質的な課題解決に取り組める人を募集しています。",
+        "job_board_url": "https://churadata.okinawa/recruit/",
+        "logo_image": "churadata.png",
+        "plan": "silver"
+      },
+      {
+        "name": "Relance",
+        "url": "https://relance.jp/",
+        "profile": "",
+        "job_board": "",
+        "job_board_url": "https://hrmos.co/pages/threeshake/jobs?jobType=FULL&category=1905592875089539072",
+        "logo_image": "relance.png",
+        "plan": "silver"
+      },
+      {
+        "name": "PAY.JP",
+        "url": "https://pay.jp/",
+        "profile": "",
+        "job_board": "",
+        "job_board_url": "https://open.talentio.com/r/1/c/binc/homes/4380",
+        "logo_image": "pay.png",
+        "plan": "silver"
+      },
+      {
+        "name": "note株式会社",
+        "url": "https://note.jp/",
+        "profile": "",
+        "job_board": "",
+        "job_board_url": "https://note.jp/menu/86574",
+        "logo_image": "note.png",
+        "plan": "silver"
+      },
+      {
+        "name": "Sentry",
+        "url": "https://sentry.ichizoku.io/",
+        "profile": "",
+        "job_board": "",
+        "job_board_url": "",
+        "logo_image": "sentry-wordmark-dark-1380x777.png",
+        "plan": "silver"
+      }
+    ],
+    "specialSponsors": [
+      {
+        "name": "Python Software Foundation",
+        "url": "https://www.python.org/psf-landing/",
+        "title": "",
+        "logo_image": "psf.png",
+        "plan": "psf"
+      },
+      {
+        "name": "connpass",
+        "url": "https://connpass.com/",
+        "title": "",
+        "logo_image": "connpass.png",
+        "plan": "advertising"
+      },
+      {
+        "name": "株式会社YUZURIHA",
+        "url": "https://yzrh.jp/",
+        "title": "朝食",
+        "logo_image": "yuzuriha.svg",
+        "plan": "special"
+      },
+      {
+        "name": "HENNGE株式会社",
+        "url": "https://hennge.com/jp/",
+        "title": "ドリンク",
+        "logo_image": "hennge.svg",
+        "plan": "special"
+      },
+      {
+        "name": "HENNGE株式会社",
+        "url": "https://hennge.com/jp/",
+        "title": "スプリント会場",
+        "logo_image": "hennge.svg",
+        "plan": "special"
+      },
+      {
+        "name": "10 Python Beer Lovers",
+        "url": "https://github.com/10-python-beer-lovers",
+        "title": "ビール",
+        "logo_image": "10_python_beer_lovers.png",
+        "plan": "special"
+      },
+      {
+        "name": "株式会社あけぼの印刷社",
+        "url": "https://www.akebono-print.co.jp/",
+        "title": "印刷物・ノベルティー制作",
+        "logo_image": "akebonoprint.png",
+        "plan": "special"
+      },
+      {
+        "name": "株式会社ハートビーツ",
+        "url": "https://heartbeats.jp/",
+        "title": "NOC（ホットステージ）",
+        "logo_image": "heartbeats.png",
+        "plan": "special"
+      },
+      {
+        "name": "gihyo.jp",
+        "url": "https://gihyo.jp/",
+        "title": "メディアスポンサー",
+        "logo_image": "gihyo.png",
+        "plan": "special"
+      },
+      {
+        "name": "株式会社オライリー・ジャパン",
+        "url": "https://www.oreilly.co.jp/index.shtml",
+        "title": "メディアスポンサー",
+        "logo_image": "oreilly.jpg",
+        "plan": "special"
+      },
+      {
+        "name": "TECH PLAY",
+        "url": "https://techplay.jp/",
+        "title": "メディアスポンサー",
+        "logo_image": "techplay_logo.png",
+        "plan": "special"
+      },
+      {
+        "name": "株式会社PE-BANK",
+        "url": "https://pe-bank.jp/",
+        "title": "メディアスポンサー",
+        "logo_image": "PE-BANK.jpg",
+        "plan": "special"
+      },
+      {
+        "name": "株式会社翔泳社",
+        "url": "https://codezine.jp/",
+        "title": "メディアスポンサー",
+        "logo_image": "codezine.png",
+        "plan": "special"
+      }
+    ]
+  },
+  "__N_SSG": true
+}

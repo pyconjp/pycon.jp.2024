@@ -1,0 +1,341 @@
+{
+  "pageProps": {
+    "lang": "en",
+    "dictionary": {
+      "metadata": {
+        "title": "PyCon JP 2024",
+        "description": "PyCon JP is a conference where Python users gather to exchange information and network about Python and software developed using Python."
+      },
+      "hero": {
+        "location": "TOC Ariake Convention Hall",
+        "ticket": "Ticket Info (CLOSED)"
+      },
+      "news": {
+        "read_more": "Read More"
+      },
+      "menu": {
+        "about": "About",
+        "events": "Events",
+        "sponsor": "Sponsors",
+        "contents": "Contents of the Day",
+        "organizer": "Organizers",
+        "venue": "Venue Information",
+        "coc": "Code of Conduct",
+        "timetable": "Timetable",
+        "sprint": "Sprint",
+        "posters": "Poster Session",
+        "sponsor_list": "Sponsor List",
+        "organizer_list": "Organizing Member List",
+        "special_thanks": "Special Thanks",
+        "job_board": "Job Board",
+        "coming_soon": "(Coming Soon)"
+      },
+      "overview": {
+        "subtitle": "Overview",
+        "description": "PyCon JP is a conference for Python users to gather, exchange information and interact with Python and software using Python. Through PyCon JP, the goal is to gather Python users together, exchange knowledge and information on various fields related to Python, connect with new friends and communities, and increase work and business opportunities."
+      },
+      "conference": {
+        "subtitle": "Conference",
+        "subtitle_keynote": "Keynote",
+        "subtitle_invited_talk": "Invited Talk",
+        "keynote_day1": {
+          "speaker": "James Powell",
+          "date": "Friday, September 27, 2024"
+        },
+        "keynote_day2": {
+          "speaker": "Atsuo Ishimoto",
+          "date": "Saturday, September 28, 2024"
+        },
+        "invited_talk": {
+          "speaker": "Naoki Inada",
+          "date": ""
+        }
+      },
+      "sponsor": {
+        "subtitle": "Sponsors",
+        "subtitle_diamond": "Diamond Sponsors",
+        "subtitle_platinum": "Platinum Sponsors",
+        "subtitle_gold": "Gold Sponsors",
+        "subtitle_silver": "Silver Sponsors",
+        "subtitle_advertising": "Advertising Sponsors",
+        "subtitle_psf": "PSF",
+        "subtitle_special": "Special Sponsors",
+        "subtitle_patron": "Patrons"
+      },
+      "footer": {
+        "contact_us": "Contact Us",
+        "description": "As this event is organized by volunteers, it may take about a week for a reply. \nWe appreciate your understanding and patience.",
+        "past_events": "List of past PyCon JP events"
+      },
+      "organizers": {
+        "subtitle_chairs": "Co-Chairs",
+        "organizing_members": "Organizing Members",
+        "reviewers": "Reviewers",
+        "camera_crews": "Camera Crews",
+        "chairs": {
+          "takanory": {
+            "name": "Takanori Suzuki",
+            "github": "takanory",
+            "twitter": "takanory",
+            "facebook": ""
+          },
+          "yoshida": {
+            "name": "Yoshida Shunsuke",
+            "github": "koedoyoshida",
+            "twitter": "koedoyoshida",
+            "facebook": "koedoyoshida"
+          },
+          "terada": {
+            "name": "Manabu TERADA",
+            "github": "terapyon",
+            "twitter": "terapyon",
+            "facebook": "terapyon"
+          }
+        }
+      },
+      "announce": {
+        "sprint": {
+          "title": "Sprint ticket (CLOSED)",
+          "description": "To participate in the sprint, a separate ticket from the conference is required. \nPlease register via connpass."
+        }
+      },
+      "venue": {
+        "map": "Venue Layout",
+        "access": "Venue Access",
+        "heading": {
+          "location": "Location",
+          "address": "Address",
+          "access": "Access"
+        },
+        "venue": {
+          "conference": {
+            "date": "Friday, September 27 to Saturday, September 28, 2024",
+            "location": "TOC Ariake Convention Hall",
+            "address": "3-5-7 Ariake, Koto-ku, Tokyo",
+            "access": "<Rinkai Line> Approx. 3 minutes' walk from Kokusai-Tenjijo Station\n<Yurikamome> Approx. 4 minutes' walk from Tokyo Big Sight Station or Ariake Station"
+          },
+          "sprint": {
+            "date": "Sunday, September 29, 2024",
+            "location": "HENNGE K.K.",
+            "address": "Daiwa Shibuya Square 4F 16-28 Nanpeidai-cho Shibuya-ku, Tokyo",
+            "access": "10 minutes' walk from Shibuya Station,"
+          }
+        }
+      },
+      "posters": {
+        "general": "General",
+        "community": "Community"
+      },
+      "sprint": {
+        "themes": "List of Submitted Themes",
+        "output": "Output"
+      },
+      "special_thanks": {
+        "description": "These are the contributors to PyCon JP 2024."
+      },
+      "contents": {
+        "see_more": "For more information..."
+      }
+    },
+    "posters": {
+      "general": [
+        {
+          "code": "ENGDE9",
+          "speakers": [
+            {
+              "code": "T9TYF8",
+              "name": "Shivay Lamba",
+              "biography": "Shivay Lamba is a software developer specializing in DevOps, Machine Learning and Full Stack Development.\r\n\r\nHe is an Open Source Enthusiast and has been part of various programs like Google Code In and Google Summer of Code as a Mentor and has also been a MLH Fellow. He is actively involved in community work as well. He is a TensorflowJS SIG member, Mentor in OpenMined and CNCF Service Mesh Community, SODA Foundation and has given talks at various conferences like Github Satellite, Voice Global, Fossasia Tech Summit, TensorflowJS Show & Tell.",
+              "avatar": "https://pretalx.com/media/avatars/T9TYF8_b5iNhGh.jpg"
+            },
+            {
+              "code": "8T888Y",
+              "name": "Gaurav Pandey",
+              "biography": "",
+              "avatar": "https://pretalx.com/media/avatars/8T888Y_dlsjCCX.jpg"
+            }
+          ],
+          "title": "Fine-Tuning Large Language Models with Declarative ML Orchestration",
+          "abstract": "LLMs require massive compute for training, posing infrastructure challenges to broader ML community eager to fine-tune models. This poster explains how open-source orchestrators like Flyte provide declarative infrastructure specification to streamline complex LLM workflows, utilize techniques like RAG and 8-bit quantization for model freshness and efficiency, optimize resource usage, and ultimately unlock the full potential of LLMs by making them more accessible."
+        },
+        {
+          "code": "LCLXTB",
+          "speakers": [
+            {
+              "code": "CHHWUG",
+              "name": "n4jp4y",
+              "biography": "Neeraj is a polyglot. Over the years, he has worked on a variety of full-stack software and data-science applications, as well as computational arts and Quantitative finance projects, and likes the challenge of creating new tools and applications.",
+              "avatar": "https://pretalx.com/media/avatars/CHHWUG_y074MVz.png"
+            },
+            {
+              "code": "DSKWCM",
+              "name": "Manoj Pandey",
+              "biography": "",
+              "avatar": "https://pretalx.com/media/avatars/DSKWCM_U1Qmyus.JPG"
+            }
+          ],
+          "title": "From Dataset to Features: An Evolutionary Approach",
+          "abstract": "Multilabel classification is a machine learning task in which each instance is assigned to a group of labels. It has gained widespread use in various applications in recent years. Preprocessing, such as feature selection, is an important step in any machine learning or data mining task. A new algorithm called Black Hole, inspired by the phenomenon of black holes, has recently been developed to tackle multi-label classification problems. \r\n\r\nLearn about a modified version of the Black Hole algorithm that combines it with two genetic algorithm operators: crossover and mutation in this poster. The combination of Black Hole and genetic algorithms has the potential to solve multi-label classification problems across a range of domains."
+        },
+        {
+          "code": "QMQAZW",
+          "speakers": [
+            {
+              "code": "SHWEYS",
+              "name": "Matsuoka Hikaru",
+              "biography": "",
+              "avatar": "https://pretalx.com/media/avatars/SHWEYS_FrMpj2O.png"
+            }
+          ],
+          "title": "既存のプログラムをメモリー削減 numpy/Dask/Memmap　-色々な落とし穴とその回避法-",
+          "abstract": "Pythonを用いたプログラムでメモリー削減の方法は、色々とありますが、今回私が改修したプログラムは、元がnumpyだったので、numpyで更に削減していく方法を紹介していきます。\r\nまたメモリー削減ということでメモリー使用量を計測するライブラリーMemory_profiler/Memray/Tracemalloc/Psutilといったものがありますが、今回メモリーを評価するにあたって、それぞれのライブラリーでの限界もあったので併せて紹介していきます。\r\n\r\n本発表のアウトラインは以下です。\r\n1. 自己紹介\r\n2. 発表のアジェンダ\r\n3. 今回メモリー削減をしていくのに対象となった操作\r\n4. Numpy/Memmap/Dask それぞれのメモリー削減\r\n5. メモリー評価の方法のそれぞれの得意不得意な点の紹介"
+        },
+        {
+          "code": "TLNDTG",
+          "speakers": [
+            {
+              "code": "ACWNWL",
+              "name": "Niharika Vadluri",
+              "biography": "Niharika Vadluri is working as a Packed Application Developer Analyst at Accenture India. She works on Python and Database projects. She is an active open source community contributor and developer since 2018. She graduated in 2021 with majors in Electrical and Electronics. She has been an active member and contributor in PSF Hackster.io, Linux and Fossasia Open source Organization. She has given talks and Volunteered at Fossasia Summit 2019, Pycon APAC Thailand 2021, Pycon Australia 2021 and Poster Presentation at Pycon USA 2022, Speaker at Pycon Philippines 2023, PyCascades North America 2023, Pycon APAC Japan 2023 and Speaker at Open Source Firmware Conference 2022 Sweden. Recent Conference - hosting PyLadies Booth at PyconDE and PyData Berlin, Germany 2024\r\n\r\nhttps://docs.google.com/document/d/1wKeVN3RFyto02Mo-Wrif12skkfHVPcQ-IItca-R-8no/edit?usp=sharing",
+              "avatar": "https://pretalx.com/media/avatars/ACWNWL_WAZjIsL.jpg"
+            }
+          ],
+          "title": "Vision - Python Based Alzheimer's Detection Assistant",
+          "abstract": "*Vision* is a screening and data processing platform for cognitive impairment monitoring. Vision helps HCP's(hospital care plan) screen for changes in cognitive impairment as aging patients routinely get tested over time. The Vision testing process is two-fold, Part A is an MMSE(Mini Mental State Examination) test created using a WordPress website along with a form, where HCP's can enter patient test results which can then be related to an estimated level of cognitive impairment. Part B involves an EEG(electroencephalogram) test which has become more and more established within academia as a screening method for Alzheimer. The EEG data is gathered using an OpenBCI and is then processed by a signal processing algorithm on Google Colab, and can then be compared to literature values within."
+        },
+        {
+          "code": "VHUCA3",
+          "speakers": [
+            {
+              "code": "H3M7XF",
+              "name": "Shiva Bhusal",
+              "biography": "Shiva is a Software Engineer based in Bellevue, WA, USA. He has previously presented posters at PyCon-AU and PyCon-US. In addition to software engineering, he loves reading, writing, and playing cricket.",
+              "avatar": "https://pretalx.com/media/avatars/H3M7XF_BZuc3tW.jpg"
+            }
+          ],
+          "title": "Classifying English Language Haiku and Senryu using Python",
+          "abstract": "Unlike traditional Japanese haiku, modern English haiku doesn’t entirely adhere to a 5-7-5 syllable count. A haiku is expected to connect nature with human experience. In contrast, a senryu is expected to focus solely on human feelings and is mainly expected to have humor or satire, often self-deprecating.  Classifying poems as haiku or senryu is challenging as such creative works are subjective and open to multiple interpretations. \r\n\r\nThe work presented in this poster aims to classify haiku and senryu using text classification techniques such as topic identification ( whether or not the poem is focused on nature or purely human feeling), sentiment analysis ( whether the poem is serious or humorous), and named entity recognition (NER) to identify kigo or non-kigo words."
+        },
+        {
+          "code": "YQ8YMB",
+          "speakers": [
+            {
+              "code": "CHHWUG",
+              "name": "n4jp4y",
+              "biography": "Neeraj is a polyglot. Over the years, he has worked on a variety of full-stack software and data-science applications, as well as computational arts and Quantitative finance projects, and likes the challenge of creating new tools and applications.",
+              "avatar": "https://pretalx.com/media/avatars/CHHWUG_y074MVz.png"
+            },
+            {
+              "code": "3TY3A9",
+              "name": "Hitesh Khandelwal",
+              "biography": "",
+              "avatar": "https://pretalx.com/media/avatars/3TY3A9_aMTbbWr.jpg"
+            }
+          ],
+          "title": "Optimizing Retail Management Through Data Science",
+          "abstract": "In retail, what we put on the shelves and how we manage stock can really make or break sales. This poster session dives into how Python can tackle these challenges through market basket analysis and utility itemset mining. We'll explore Python techniques for analyzing transactional data to optimize product placement and inventory levels. Attendees will learn to transform retail data into strategic insights, enhancing product mix and boosting sales."
+        }
+      ],
+      "community": [
+        {
+          "code": "7PNDQR",
+          "speakers": [
+            {
+              "code": "WACYH8",
+              "name": "Takahiro Hama",
+              "biography": "",
+              "avatar": "https://pretalx.com/media/avatars/WACYH8_PnSAqYJ.jpg"
+            }
+          ],
+          "title": "PyConKyushu2024 KAGHOSHIMA開催レポート",
+          "abstract": "2024/05/25に2年ぶりに開催したPyConKyushuのイベントレポート"
+        },
+        {
+          "code": "AVYLD7",
+          "speakers": [
+            {
+              "code": "MZBTAD",
+              "name": "Raspberry Pi もくもく会",
+              "biography": "",
+              "avatar": "https://pretalx.com/media/avatars/MZBTAD_LGpe77b.png"
+            }
+          ],
+          "title": "Raspberry Pi もくもく会の紹介",
+          "abstract": "Raspberry Pi もくもく会について紹介します。"
+        },
+        {
+          "code": "BAHEFY",
+          "speakers": [
+            {
+              "code": "8T7GSV",
+              "name": "Krizza",
+              "biography": "",
+              "avatar": "https://pretalx.com/media/avatars/8T7GSV_7YCGM8U.jpg"
+            }
+          ],
+          "title": "Women in Software Engineering JP Poster",
+          "abstract": "Following the closing of the global NPO Women Who Code, we would like to have a poster about the relaunch of our community, Women in Software Engineering Japan (formerly Women Who Code Tokyo), and make it known that we are still supporting women in software engineering here in Japan."
+        },
+        {
+          "code": "H8XXDU",
+          "speakers": [
+            {
+              "code": "GJGJLH",
+              "name": "Yoshiyasu Tsukamoto",
+              "biography": "Python Boot Camp in 愛知に参加したことがきっかけとなり、静岡県でのPython Boot Camp開催時の現地スタッフとなる。その後、静岡県のPythonコミュニティの運営スタッフとなり、PyCon mini Shizuokaのスタッフとしても活動している。",
+              "avatar": "https://pretalx.com/media/avatars/GJGJLH_eq09JK0.png"
+            }
+          ],
+          "title": "PyCon mini Shizuokaの活動紹介",
+          "abstract": "静岡県のPythonコミュニティ『PyCon mini Shizuoka』の活動を紹介します。\r\n8月31日に行われる「PyCon mini Shizuoka 2024」のレポートや、地域ごとに行われている勉強会の様子を写真を交えて作成します。"
+        },
+        {
+          "code": "HPNCC3",
+          "speakers": [
+            {
+              "code": "99YQKL",
+              "name": "Ryuji Tsutsui",
+              "biography": "住宅販売営業を経て2000年に社内SEとしてIT業界に従事。2011年まではJava、PHPがメイン言語だったが、新しい言語に挑戦しようと思い、幾つか学ぶ中でPythonに出会う。Pythonの言語仕様の簡潔さとコミュニティ活動の活発さに惹かれ、現在までメイン言語として活用している。\r\n\r\nPyCon JP 2012、PyCon APAC 2013、PyCon JP 2014スタッフ。 Shonan.py、GCPUG Shonan、横浜Rust部などのコミュニティでも活動している。",
+              "avatar": "https://pretalx.com/media/avatars/99YQKL_WuJGH3g.jpg"
+            }
+          ],
+          "title": "Python Boot Campの紹介 - あなたの街でPythonチュートリアルを開催しよう！",
+          "abstract": "Python Boot Campは日本全国で開催しているPythonチュートリアルイベントです。2016年から活動を続けています。\r\n一般社団法人PyCon JP Associationから派遣されたPythonエキスパートが講師を務め、丁寧にPythonの基礎を教えています。\r\nこのポスターセッションでは、私たちの今までの取り組みや、Python Boot Campの開催方法について説明します。このイベントは「私の街で開催したい」と思った人が現地スタッフとして立候補することで開催できます。話を聞いて興味を持った方は、ぜひ開催を立候補してください。開催までのプロセスや、FAQなども説明します。"
+        },
+        {
+          "code": "NTJALT",
+          "speakers": [
+            {
+              "code": "UM3CWP",
+              "name": "nikkie",
+              "biography": "にっきーです\r\n\r\n\r\n\r\nNikkie began his career as a software engineer in 2016.  \r\n\r\nHe started Python as a hobby in 2017 and fell in love with it.  \r\n\r\nHe is engaged in Natural Language Processing as a data scientist at Uzabase, inc. Tokyo, Japan from 2019.\r\n\r\n\r\n\r\nHe is working on the Python community in Japan as a staff of the following event:\r\n\r\n\r\n\r\n- [Start Python Club](https://startpython.connpass.com/) (online, monthly)\r\n\r\n- [PyCon Japan](https://www.pycon.jp/organizer/index.html): the largest PyCon in Japan\r\n\r\n  - core staff on 2019 and 2020 (Program committee, lead on 2020)\r\n\r\n  - [chair](https://pyconjp.blogspot.com/2020/10/pyconjp-2021-chair.html) on 2021\r\n\r\n\r\n\r\nHe gave talks at many PyCons in Japan and abroad.\r\n\r\n\r\n\r\n- PyCon JP [2019](https://pycon.jp/2019/schedule/?sessionId=220), [2020](https://pycon.jp/2020/timetable/?id=203919), [2022](https://2022.pycon.jp/timetable?id=LPYF7C) (Japanese)\r\n\r\n- [EuroPython 2020](https://ep2020.europython.eu/talks/CvdM2Qa-bringing-your-python-script-to-more-users/), [PyCon Africa 2020](https://africa.pycon.org/speakers/nikkie#talk), [PyCon APAC 2020](https://youtu.be/JiXnEA7pM7U) [2022](https://youtu.be/0DiDUrhhU30) (English)\r\n\r\n\r\n\r\nHe loves anime (Japanese animetation) as much as Python, and implements ideas related to some anime with Python.",
+              "avatar": "https://pretalx.com/media/avatars/UM3CWP_0cbtqKy.jpg"
+            },
+            {
+              "code": "PPDJYD",
+              "name": "stapyメンバー",
+              "biography": "https://twitter.com/info_stapy",
+              "avatar": "https://pretalx.com/media/avatars/PPDJYD_mjpiuJA.jpg"
+            }
+          ],
+          "title": "Start Python Club",
+          "abstract": "「Pythonと技術を楽しく学ぶ場を提供する」ことをミッションとして、毎月、オンラインで勉強会を開催しているコミュニティです。初めて聞いた方、過去参加したことある方、常連の方、お気軽にポスターまでお越しください。"
+        },
+        {
+          "code": "U3NJLT",
+          "speakers": [
+            {
+              "code": "BK8QUY",
+              "name": "PyLadies Tokyo",
+              "biography": "",
+              "avatar": "https://pretalx.com/media/avatars/BK8QUY_WslwBL1.png"
+            }
+          ],
+          "title": "PyLadies Tokyo",
+          "abstract": "PyLadies Tokyoの紹介"
+        }
+      ]
+    }
+  },
+  "__N_SSG": true
+}
