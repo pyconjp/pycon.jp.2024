@@ -269,8 +269,7 @@ try {
 const fetchTalks = async (): Promise<Talk[]> => {
   try {
     const searchParams = new URLSearchParams();
-    searchParams.append('submission_type', '4328'); // mini talk
-    searchParams.append('submission_type', '4329'); // talk
+    searchParams.append('submission_type', '4328,4329'); // mini talk&talk
     searchParams.append('expand', [
       'answers',
       'answers.question',
