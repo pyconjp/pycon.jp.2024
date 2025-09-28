@@ -1,9 +1,12 @@
-import {getDictionary} from "@/lib/dictionaries";
 import ChairCard from "@/components/elements/ChairCard";
 import SectionSubTitle from "@/components/elements/SectionSubTitle";
 
-export default async function ChairsSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang)
+interface ChairsSectionProps {
+  lang: 'ja' | 'en';
+  dictionary: any;
+}
+
+export default function ChairsSection({lang, dictionary}: ChairsSectionProps) {
 
   return <section className="my-20 mx-auto lg:w-10/12 w-11/12">
     <SectionSubTitle title={'Co-Chairs'} subtitle={dictionary.organizers.subtitle_chairs}/>

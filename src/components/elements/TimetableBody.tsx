@@ -1,16 +1,16 @@
-import {Category, ConferenceEvent, Talk} from "@/types/Talk";
+import {ConferenceEvent, Talk} from "@/types/Talk";
 import {addMinutes, parseISO} from "date-fns";
 import Link from "next/link";
 import {ClockIcon, MapPinIcon, TagIcon} from "@heroicons/react/16/solid";
 import {EVENT_START_DATETIME, EVENT_TRACK_LIST, SPEAK_LANG_LIST, TRACK_LIST} from "@/const/timetable";
 import {formatInTimeZone} from "date-fns-tz";
 
-export default async function TimetableBody({lang, date, talks, events, categories, keynoteSpeaker}: {
+export default function TimetableBody({lang, date, talks, events, categories, keynoteSpeaker}: {
   lang: 'ja' | 'en',
   date: 'day1' | 'day2',
   talks: Talk[],
   events: ConferenceEvent[],
-  categories: Category,
+  categories: any,
   keynoteSpeaker: { keynote_day1: string, keynote_day2: string },
 }) {
   const floor20 = [...talks, ...events].filter(talk => [3086, 3418, 1, 2, 3].includes(talk.slot.room_id));

@@ -1,4 +1,3 @@
-import 'server-only'
 import {Category, ConferenceEvent, Talk} from "@/types/Talk";
 import {conferenceEvents} from "@/data/event";
 

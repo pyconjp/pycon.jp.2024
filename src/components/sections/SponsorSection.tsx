@@ -1,15 +1,15 @@
-import {getDictionary} from "@/lib/dictionaries";
 import SectionTitle from "@/components/elements/SectionTitle";
-import {getLocaledSpecialSponsors, getLocaledSponsors, getSponsors} from "@/lib/sponsors";
 import SponsorList from "@/components/elements/SponsorList";
 import {patrons} from "@/data/patrons";
+import {LocaledSpecialSponsor, LocaledSponsor} from "@/types/Sponsors";
 
-export default async function SponsorSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang)
-  const sponsors = await getSponsors();
-  const localedSponsors = getLocaledSponsors(sponsors, lang);
-  const localedSpecialSponsors = await getLocaledSpecialSponsors(lang);
+type SponsorSectionProps = {
+  sponsors: LocaledSponsor[]
+  dictionary: any
+  specialSponsors?: LocaledSpecialSponsor[]
+}
 
+export default function SponsorSection({sponsors, dictionary, specialSponsors = []}: SponsorSectionProps) {
   return <section className='bg-primary-50 mt-20 pb-20'>
     <SectionTitle title={'Sponsors'} subtitle={dictionary.sponsor.subtitle} direction={'down'}/>
     <SponsorList subtitles={{
@@ -20,6 +20,6 @@ export default async function SponsorSection({lang}: { lang: 'ja' | 'en' }) {
       advertising: dictionary.sponsor.subtitle_advertising,
       patron: dictionary.sponsor.subtitle_patron,
       special: dictionary.sponsor.subtitle_special,
-    }} localedSponsors={localedSponsors} localedSpecialSponsors={localedSpecialSponsors} patrons={patrons}/>
+    }} localedSponsors={sponsors} localedSpecialSponsors={specialSponsors} patrons={patrons}/>
   </section>
 }

@@ -1,4 +1,3 @@
-import 'server-only'
 import {LocaledSpecialSponsor, LocaledSponsor, SpecialSponsor, Sponsor} from "@/types/Sponsors";
 
 export const getSponsors: () => Promise<Sponsor[]> = async () => import('@/cache/sponsors.json')

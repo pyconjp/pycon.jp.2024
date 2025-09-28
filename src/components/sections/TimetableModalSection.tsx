@@ -10,7 +10,7 @@ import dynamic from "next/dynamic";
 import {formatInTimeZone} from "date-fns-tz";
 import {videos} from "@/data/videos";
 
-export default async function TimetableModalSection({lang, talk}: { lang: 'ja' | 'en', talk: Talk }) {
+export default function TimetableModalSection({lang, talk}: { lang: 'ja' | 'en', talk: Talk }) {
   const Description = dynamic(() => import(`@/cache/talks/description_${talk.code}.mdx`), {ssr: true});
   const Abstract = dynamic(() => import(`@/cache/talks/abstract_${talk.code}.mdx`), {ssr: true});
   const SpeakersBiographies = talk.speakers.map((speaker) => dynamic(() => import(`@/cache/speakers/biography_${speaker.code}.mdx`), {ssr: true}));

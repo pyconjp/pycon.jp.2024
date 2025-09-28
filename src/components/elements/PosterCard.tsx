@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import {MapPinIcon} from "@heroicons/react/16/solid";
 import {locations} from "@/data/posters";
 
-export default async function PosterCard({poster}: { poster: Poster }) {
+export default function PosterCard({poster}: { poster: Poster }) {
   const Abstract = dynamic(() => import(`@/cache/posters/abstract_${poster.code}.mdx`), {ssr: true});
 
   return <div className='bg-white shadow px-[1.125rem] py-8'>

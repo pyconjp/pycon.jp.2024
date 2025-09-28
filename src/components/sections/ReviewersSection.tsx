@@ -1,10 +1,12 @@
-import {getDictionary} from "@/lib/dictionaries";
-import {getReviewers} from "@/lib/organizers";
 import SectionSubTitle from "@/components/elements/SectionSubTitle";
 
-export default async function ReviewersSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang);
-  const reviewers = await getReviewers();
+interface ReviewersSectionProps {
+  lang: 'ja' | 'en';
+  dictionary: any;
+  reviewers: any[];
+}
+
+export default function ReviewersSection({lang, dictionary, reviewers}: ReviewersSectionProps) {
 
   return <section className="my-20 mx-auto lg:w-10/12 w-8/12">
     <SectionSubTitle title={'Reviewers'} subtitle={dictionary.organizers.reviewers}/>

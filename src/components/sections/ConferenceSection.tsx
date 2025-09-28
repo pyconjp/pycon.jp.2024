@@ -1,11 +1,9 @@
-import {getDictionary} from "@/lib/dictionaries";
 import ConferenceCard from "@/components/elements/ConferenceCard";
 import SectionTitle from "@/components/elements/SectionTitle";
 import dynamic from "next/dynamic";
 import SectionSubTitle from "@/components/elements/SectionSubTitle";
 
-export default async function ConferenceSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang)
+export default function ConferenceSection({lang, dictionary}: { lang: 'ja' | 'en', dictionary: any }) {
 
   const Keynote1 = dynamic(() => import('@/components/markdown/keynote_day1_' + lang + '.mdx'), {ssr: true});
   const Keynote2 = dynamic(() => import('@/components/markdown/keynote_day2_' + lang + '.mdx'), {ssr: true});

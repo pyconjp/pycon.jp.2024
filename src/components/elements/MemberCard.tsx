@@ -2,7 +2,7 @@ import {Organizer} from "@/types/Organizer";
 import ImageWithFallback from "@/components/elements/ImageWithFallback";
 import SnsLinks from "@/components/elements/SnsLinks";
 
-export default async function MemberCard({member, lang}: { member: Organizer, lang: 'ja' | 'en' }) {
+export default function MemberCard({member, lang}: { member: Organizer, lang: 'ja' | 'en' }) {
   return <div className='flex flex-row gap-2 items-center'>
     <ImageWithFallback src={member.image ? `/organizers/${member.image}` : '/no_image.jpg'}
                        alt={lang === 'ja' ? member.name_ja : member.name_en}

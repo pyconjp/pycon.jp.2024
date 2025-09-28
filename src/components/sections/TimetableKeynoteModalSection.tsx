@@ -9,7 +9,7 @@ import dynamic from "next/dynamic";
 import {formatInTimeZone} from "date-fns-tz";
 import {videos} from "@/data/videos";
 
-export default async function TimetableKeynoteModalSection({lang, keynote, speaker}: {
+export default function TimetableKeynoteModalSection({lang, keynote, speaker}: {
   lang: 'ja' | 'en',
   keynote: Keynote,
   speaker: string

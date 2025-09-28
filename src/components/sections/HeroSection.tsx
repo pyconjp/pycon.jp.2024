@@ -1,11 +1,9 @@
-import {getDictionary} from '@/lib/dictionaries'
 import {ArrowTopRightOnSquareIcon} from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
 import {MapPinIcon} from "@heroicons/react/24/outline";
 
-export default async function HeroSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang)
+export default function HeroSection({lang, dictionary}: { lang: 'ja' | 'en', dictionary: any }) {
 
   return <section className='w-full lg:my-20 my-7'>
     <div className='flex lg:flex-row flex-col mx-auto justify-center items-center lg:gap-20 gap-12'>

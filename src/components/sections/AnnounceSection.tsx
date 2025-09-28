@@ -1,10 +1,12 @@
 import {MegaphoneIcon} from "@heroicons/react/20/solid";
 import Link from "next/link";
-import {getDictionary} from "@/lib/dictionaries";
 import {Announce} from "@/types/Announce";
 
-export default async function AnnounceSection({announce, lang}: { announce: Announce[], lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang);
+export default function AnnounceSection({announce, lang, dictionary}: {
+  announce: Announce[],
+  lang: 'ja' | 'en',
+  dictionary: any
+}) {
 
   return (
     <section className='mt-20'>

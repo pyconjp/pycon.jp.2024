@@ -1,4 +1,3 @@
-import {getDictionary} from '@/lib/dictionaries'
 import LangButton from '@/components/elements/LangButton';
 import Image from "next/image";
 import menu from "@/data/menu";
@@ -7,8 +6,7 @@ import Link from "next/link";
 import MobileMenu from "@/components/elements/MobileMenu";
 import {Menu} from "@/types/Menu";
 
-export default async function Header({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang);
+export default function Header({lang, dictionary}: { lang: 'ja' | 'en', dictionary: any }) {
 
   const translatedMenu: Menu[] = menu.map((m) => ({
     title: dictionary.menu[m.title as keyof typeof dictionary.menu],

@@ -1,9 +1,7 @@
 import Image from "next/image";
-import {getDictionary} from "@/lib/dictionaries";
 import SectionTitle from "@/components/elements/SectionTitle";
 
-export default async function OverviewSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang)
+export default function OverviewSection({lang, dictionary}: { lang: 'ja' | 'en', dictionary: any }) {
 
   return <section className="mt-24">
     <SectionTitle title={'Overview'} subtitle={dictionary.overview.subtitle}/>

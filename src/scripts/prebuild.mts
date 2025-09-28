@@ -1,9 +1,5 @@
 import {drive_v3, google,} from 'googleapis';
 import * as fs from "node:fs";
-import axios from "axios";
-import {Answer, OriginalSpeaker, OriginalTalk, Poster, Talk} from "../types/Talk";
-import {differenceInMinutes} from "date-fns";
-import {LEVEL_LIST, SLIDE_LANG_LIST, SPEAK_LANG_LIST} from "../const/timetable";
 import {CameraCrew, Organizer, Reviewer} from "../types/Organizer";
 import {SpecialSponsor, Sponsor} from "../types/Sponsors";
 import {Sprint} from "../types/Sprint";
@@ -174,6 +170,7 @@ await download(process.env.SPECIAL_THANKS_FOLDER_ID || '', './public/special-tha
 await download(process.env.CONTENTS_FOLDER_ID || '', './public/contents/');
 
 // fetch pretalx talks
+/* コメントアウト - pretalx API仕様変更のため
 const fetchAnswers: <T>(question: number) => Promise<Answer<T>[]> = async question => axios.get(
   `https://pretalx.com/api/events/pyconjp2024/answers/`,
   {
@@ -328,3 +325,4 @@ console.log(`${general.length} general posters and ${community.length} community
 
 await writeAbstracts(general);
 await writeAbstracts(community);
+*/

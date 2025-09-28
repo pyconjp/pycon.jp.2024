@@ -1,13 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import menu from "@/data/menu";
-import {getDictionary} from "@/lib/dictionaries";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebook, faXTwitter} from "@fortawesome/free-brands-svg-icons";
 import {ArrowRightIcon} from "@heroicons/react/20/solid";
 
-export default async function Footer({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang);
+export default function Footer({lang, dictionary}: { lang: 'ja' | 'en', dictionary: any }) {
 
   return (
     <footer>

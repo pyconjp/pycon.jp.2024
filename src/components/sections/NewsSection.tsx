@@ -1,14 +1,15 @@
 import Link from "next/link";
 import {parseISO} from 'date-fns'
-import {getDictionary} from "@/lib/dictionaries";
 import {ArrowRightIcon} from "@heroicons/react/20/solid";
-import {getBlogs} from "@/lib/blogger";
 import {formatInTimeZone} from "date-fns-tz";
+import {Blog} from "@/types/Blog";
 
+type NewsSectionProps = {
+  blogs: Blog[]
+  dictionary: any
+}
 
-export default async function NewsSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang);
-  const blogs = await getBlogs();
+export default function NewsSection({blogs, dictionary}: NewsSectionProps) {
   return <section className="mt-20">
     <div className='relative lg:w-8/12 w-11/12 mx-auto bg-primary-50 lg:px-8 px-4 py-8 rounded-tr-3xl rounded-bl-3xl'>
       <h1 className='absolute text-5xl left-0 -top-8 font-manrope text-primary'>News</h1>

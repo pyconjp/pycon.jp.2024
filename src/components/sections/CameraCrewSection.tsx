@@ -1,10 +1,12 @@
-import {getDictionary} from "@/lib/dictionaries";
-import {getCameraCrews} from "@/lib/organizers";
 import SectionSubTitle from "@/components/elements/SectionSubTitle";
 
-export default async function CameraCrewSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang);
-  const cameraCrews = await getCameraCrews();
+interface CameraCrewSectionProps {
+  lang: 'ja' | 'en';
+  dictionary: any;
+  cameraCrews: any[];
+}
+
+export default function CameraCrewSection({lang, dictionary, cameraCrews}: CameraCrewSectionProps) {
 
   return <section className="my-20 mx-auto lg:w-10/12 w-8/12">
     <SectionSubTitle title={'Camera Crews'} subtitle={dictionary.organizers.camera_crews}/>

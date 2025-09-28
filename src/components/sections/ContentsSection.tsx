@@ -1,12 +1,14 @@
 import SectionSubTitle from "@/components/elements/SectionSubTitle";
-import {getContents} from "@/lib/contents";
 import Image from "next/image";
-import {getDictionary} from "@/lib/dictionaries";
 import Link from "next/link";
 
-export default async function ContentsSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang);
-  const contents = await getContents(lang);
+interface ContentsSectionProps {
+  lang: 'ja' | 'en';
+  dictionary: any;
+  contents: any[];
+}
+
+export default function ContentsSection({lang, dictionary, contents}: ContentsSectionProps) {
 
   return <>
     {contents.map(

@@ -1,4 +1,3 @@
-import 'server-only'
 import {CameraCrew, Organizer, Reviewer} from "@/types/Organizer";
 
 export const getOrganizers: () => Promise<Organizer[]> = async () => import('@/cache/organizers.json')

@@ -2,7 +2,7 @@ import Link from "next/link";
 import {ArrowTopRightOnSquareIcon} from "@heroicons/react/20/solid";
 import ImageWithFallback from "@/components/elements/ImageWithFallback";
 
-export default async function SponsorCard({name, profile, logo_image, url, title}: {
+export default function SponsorCard({name, profile, logo_image, url, title}: {
   name: string,
   url: string
   profile: string,

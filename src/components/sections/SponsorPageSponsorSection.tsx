@@ -1,13 +1,19 @@
-import {getDictionary} from "@/lib/dictionaries";
-import {getLocaledSpecialSponsors, getLocaledSponsors, getSponsors} from "@/lib/sponsors";
 import SponsorList from "@/components/elements/SponsorList";
 import {patrons} from "@/data/patrons";
 
-export default async function SponsorPageSponsorSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang)
-  const sponsors = await getSponsors();
-  const localedSponsors = getLocaledSponsors(sponsors, lang);
-  const localedSpecialSponsors = await getLocaledSpecialSponsors(lang);
+interface SponsorPageSponsorSectionProps {
+  lang: 'ja' | 'en';
+  dictionary: any;
+  localedSponsors: any[];
+  localedSpecialSponsors: any[];
+}
+
+export default function SponsorPageSponsorSection({
+                                                    lang,
+                                                    dictionary,
+                                                    localedSponsors,
+                                                    localedSpecialSponsors
+                                                  }: SponsorPageSponsorSectionProps) {
 
   return <section className='bg-primary-50 -mt-20 lg:pt-32 pt-28 pb-20'>
     <SponsorList subtitles={{

@@ -1,11 +1,13 @@
-import {getSprints} from "@/lib/sprints";
 import SectionSubTitle from "@/components/elements/SectionSubTitle";
-import {getDictionary} from "@/lib/dictionaries";
 import GoogleSlide from "@/components/elements/GoogleSlide";
 
-export default async function SprintOutPutSection({lang}: { lang: 'ja' | 'en' }) {
-  const sprints = await getSprints();
-  const dictionary = await getDictionary(lang);
+interface SprintOutPutSectionProps {
+  lang: 'ja' | 'en';
+  dictionary: any;
+  sprints: any[];
+}
+
+export default function SprintOutPutSection({lang, dictionary, sprints}: SprintOutPutSectionProps) {
 
   return <section className='lg:mt-8 mt-6 lg:mb-20 mb-14'>
     <SectionSubTitle title={'Sprint Output'} subtitle={dictionary.sprint.output}/>

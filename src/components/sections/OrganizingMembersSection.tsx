@@ -1,11 +1,13 @@
-import {getDictionary} from "@/lib/dictionaries";
-import {getOrganizers} from "@/lib/organizers";
 import MemberCard from "@/components/elements/MemberCard";
 import SectionSubTitle from "@/components/elements/SectionSubTitle";
 
-export default async function OrganizingMembersSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang);
-  const organizers = await getOrganizers();
+interface OrganizingMembersSectionProps {
+  lang: 'ja' | 'en';
+  dictionary: any;
+  organizers: any[];
+}
+
+export default function OrganizingMembersSection({lang, dictionary, organizers}: OrganizingMembersSectionProps) {
 
   return <section className="my-20 mx-auto lg:w-10/12 w-8/12">
     <SectionSubTitle title={'Organizing Members'} subtitle={dictionary.organizers.organizing_members}/>

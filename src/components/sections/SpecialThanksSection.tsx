@@ -1,10 +1,12 @@
-import {getDictionary} from "@/lib/dictionaries";
-import {getSpecialThanks} from "@/lib/special-thanks";
 import {SpecialThanksCard} from "@/components/elements/SpecialThanksCard";
 
-export default async function SpecialThanksSection({lang}: { lang: 'ja' | 'en' }) {
-  const dictionary = await getDictionary(lang);
-  const specialThanks = await getSpecialThanks();
+interface SpecialThanksSectionProps {
+  lang: 'ja' | 'en';
+  dictionary: any;
+  specialThanks: any[];
+}
+
+export default function SpecialThanksSection({lang, dictionary, specialThanks}: SpecialThanksSectionProps) {
 
   return <section className="my-20 mx-auto lg:w-10/12 w-11/12">
     <div className='w-full text-center text-primary-500 font-bold lg:text-xl text-xl'>

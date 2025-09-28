@@ -1,4 +1,3 @@
-import 'server-only'
 import {Blog} from "@/types/Blog";
 
 export async function getBlogs() {
