@@ -44,80 +44,154 @@ const writeJson = (path: string, data: any[]) => {
   console.log(`${data.length} items fetched and written to ${path}`);
 }
 
-const reviewers: Reviewer[] = await fetchSheet<Reviewer>(
-  process.env.REVIEWER_SPREADSHEET_ID || '',
-  'フォームの回答 1!B2:C30',
-  ['name_en', 'name_ja']
-);
+// Google Sheets データ取得（エラー時は空配列を使用）
+let reviewers: Reviewer[] = [];
+try {
+  reviewers = await fetchSheet<Reviewer>(
+    process.env.REVIEWER_SPREADSHEET_ID || '',
+    'フォームの回答 1!B2:C30',
+    ['name_en', 'name_ja']
+  );
+} catch (error) {
+  console.warn('Failed to fetch reviewers from Google Sheets:', error);
+  // キャッシュファイルが存在すれば読み込む
+  if (fs.existsSync('./src/cache/reviewers.json')) {
+    reviewers = JSON.parse(fs.readFileSync('./src/cache/reviewers.json', 'utf-8'));
+    console.log('Using cached reviewers data');
+  }
+}
 writeJson('./src/cache/reviewers.json', reviewers);
 
-const cameraCrews: CameraCrew[] = await fetchSheet<CameraCrew>(
-  process.env.ORGANIZER_SPREADSHEET_ID || '',
-  'カメラマン!A2:B30',
-  ['name_ja', 'name_en']
-);
+let cameraCrews: CameraCrew[] = [];
+try {
+  cameraCrews = await fetchSheet<CameraCrew>(
+    process.env.ORGANIZER_SPREADSHEET_ID || '',
+    'カメラマン!A2:B30',
+    ['name_ja', 'name_en']
+  );
+} catch (error) {
+  console.warn('Failed to fetch camera crews from Google Sheets:', error);
+  if (fs.existsSync('./src/cache/camera_crew.json')) {
+    cameraCrews = JSON.parse(fs.readFileSync('./src/cache/camera_crew.json', 'utf-8'));
+    console.log('Using cached camera crews data');
+  }
+}
 writeJson('./src/cache/camera_crew.json', cameraCrews);
 
-const specialSponsors: SpecialSponsor[] = await fetchSheet<SpecialSponsor>(
-  process.env.SPONSOR_SPREADSHEET_ID || '',
-  '特別スポンサー_Webサイト掲載用!A2:H51',
-  ['name_ja', 'name_en', 'url_ja', 'url_en', 'title_ja', 'title_en', 'logo_image', 'plan']
-);
+let specialSponsors: SpecialSponsor[] = [];
+try {
+  specialSponsors = await fetchSheet<SpecialSponsor>(
+    process.env.SPONSOR_SPREADSHEET_ID || '',
+    '特別スポンサー_Webサイト掲載用!A2:H51',
+    ['name_ja', 'name_en', 'url_ja', 'url_en', 'title_ja', 'title_en', 'logo_image', 'plan']
+  );
+} catch (error) {
+  console.warn('Failed to fetch special sponsors from Google Sheets:', error);
+  if (fs.existsSync('./src/cache/special_sponsors.json')) {
+    specialSponsors = JSON.parse(fs.readFileSync('./src/cache/special_sponsors.json', 'utf-8'));
+    console.log('Using cached special sponsors data');
+  }
+}
 writeJson('./src/cache/special_sponsors.json', specialSponsors);
 
-const sprints: Sprint[] = await fetchSheet<Sprint>(
-  process.env.SPRINT_SPREADSHEET_ID || '',
-  'シート1!B2:D51',
-  ['leader', 'title', 'slideId']
-);
+let sprints: Sprint[] = [];
+try {
+  sprints = await fetchSheet<Sprint>(
+    process.env.SPRINT_SPREADSHEET_ID || '',
+    'シート1!B2:D51',
+    ['leader', 'title', 'slideId']
+  );
+} catch (error) {
+  console.warn('Failed to fetch sprints from Google Sheets:', error);
+  if (fs.existsSync('./src/cache/sprints.json')) {
+    sprints = JSON.parse(fs.readFileSync('./src/cache/sprints.json', 'utf-8'));
+    console.log('Using cached sprints data');
+  }
+}
 writeJson('./src/cache/sprints.json', sprints);
 
-const specialThanks: SpecialThanks[] = await fetchSheet<SpecialThanks>(
-  process.env.SPECIAL_THANKS_SPREADSHEET_ID || '',
-  'シート1!A2:E51',
-  ['name', 'title', 'url', 'image', 'contribution']
-);
+let specialThanks: SpecialThanks[] = [];
+try {
+  specialThanks = await fetchSheet<SpecialThanks>(
+    process.env.SPECIAL_THANKS_SPREADSHEET_ID || '',
+    'シート1!A2:E51',
+    ['name', 'title', 'url', 'image', 'contribution']
+  );
+} catch (error) {
+  console.warn('Failed to fetch special thanks from Google Sheets:', error);
+  if (fs.existsSync('./src/cache/special_thanks.json')) {
+    specialThanks = JSON.parse(fs.readFileSync('./src/cache/special_thanks.json', 'utf-8'));
+    console.log('Using cached special thanks data');
+  }
+}
 writeJson('./src/cache/special_thanks.json', specialThanks);
 
-const contents: Content[] = await fetchSheet<Content>(
-  process.env.CONTENTS_SPREADSHEET_ID || '',
-  'シート1!A2:F51',
-  ['title_ja', 'title_en', 'description_ja', 'description_en', 'url', 'image']
-);
+let contents: Content[] = [];
+try {
+  contents = await fetchSheet<Content>(
+    process.env.CONTENTS_SPREADSHEET_ID || '',
+    'シート1!A2:F51',
+    ['title_ja', 'title_en', 'description_ja', 'description_en', 'url', 'image']
+  );
+} catch (error) {
+  console.warn('Failed to fetch contents from Google Sheets:', error);
+  if (fs.existsSync('./src/cache/contents.json')) {
+    contents = JSON.parse(fs.readFileSync('./src/cache/contents.json', 'utf-8'));
+    console.log('Using cached contents data');
+  }
+}
 writeJson('./src/cache/contents.json', contents);
 
-const sponsors: Sponsor[] = await fetchSheet<Sponsor>(
-  process.env.SPONSOR_SPREADSHEET_ID || '',
-  'Webサイト掲載用!A2:L100',
-  [
-    'name_ja',
-    'name_en',
-    'url_ja',
-    'url_en',
-    'profile_ja',
-    'profile_en',
-    'job_board_ja',
-    'job_board_en',
-    'logo_image',
-    'plan',
-    'job_board_url_ja',
-    'job_board_url_en',
-  ]
-);
+let sponsors: Sponsor[] = [];
+try {
+  sponsors = await fetchSheet<Sponsor>(
+    process.env.SPONSOR_SPREADSHEET_ID || '',
+    'Webサイト掲載用!A2:L100',
+    [
+      'name_ja',
+      'name_en',
+      'url_ja',
+      'url_en',
+      'profile_ja',
+      'profile_en',
+      'job_board_ja',
+      'job_board_en',
+      'logo_image',
+      'plan',
+      'job_board_url_ja',
+      'job_board_url_en',
+    ]
+  );
+} catch (error) {
+  console.warn('Failed to fetch sponsors from Google Sheets:', error);
+  if (fs.existsSync('./src/cache/sponsors.json')) {
+    sponsors = JSON.parse(fs.readFileSync('./src/cache/sponsors.json', 'utf-8'));
+    console.log('Using cached sponsors data');
+  }
+}
 writeJson('./src/cache/sponsors.json', sponsors);
 
-const organizers: Organizer[] = await fetchSheet<Organizer>(
-  process.env.ORGANIZER_SPREADSHEET_ID || '',
-  'フォームの回答 1!C2:H100',
-  [
-    'name_ja',
-    'name_en',
-    'github',
-    'twitter',
-    'facebook',
-    'image',
-  ]
-)
+let organizers: Organizer[] = [];
+try {
+  organizers = await fetchSheet<Organizer>(
+    process.env.ORGANIZER_SPREADSHEET_ID || '',
+    'フォームの回答 1!C2:H100',
+    [
+      'name_ja',
+      'name_en',
+      'github',
+      'twitter',
+      'facebook',
+      'image',
+    ]
+  );
+} catch (error) {
+  console.warn('Failed to fetch organizers from Google Sheets:', error);
+  if (fs.existsSync('./src/cache/organizers.json')) {
+    organizers = JSON.parse(fs.readFileSync('./src/cache/organizers.json', 'utf-8'));
+    console.log('Using cached organizers data');
+  }
+}
 writeJson('./src/cache/organizers.json', organizers);
 
 const drive: drive_v3.Drive = google.drive({version: 'v3', auth});
@@ -166,10 +240,30 @@ const download = async (folderId: string, pathPrefix: string) => {
   }
 };
 
-await download(process.env.ORGANIZER_FOLDER_ID || '', './public/organizers/');
-await download(process.env.SPONSOR_FOLDER_ID || '', './public/sponsors/');
-await download(process.env.SPECIAL_THANKS_FOLDER_ID || '', './public/special-thanks/');
-await download(process.env.CONTENTS_FOLDER_ID || '', './public/contents/');
+// Google Drive downloads (skip if Google Cloud Project is unavailable)
+try {
+  await download(process.env.ORGANIZER_FOLDER_ID || '', './public/organizers/');
+} catch (error) {
+  console.warn('Failed to download organizer images from Google Drive:', error);
+}
+
+try {
+  await download(process.env.SPONSOR_FOLDER_ID || '', './public/sponsors/');
+} catch (error) {
+  console.warn('Failed to download sponsor images from Google Drive:', error);
+}
+
+try {
+  await download(process.env.SPECIAL_THANKS_FOLDER_ID || '', './public/special-thanks/');
+} catch (error) {
+  console.warn('Failed to download special thanks images from Google Drive:', error);
+}
+
+try {
+  await download(process.env.CONTENTS_FOLDER_ID || '', './public/contents/');
+} catch (error) {
+  console.warn('Failed to download contents images from Google Drive:', error);
+}
 
 // fetch pretalx talks
 const fetchTalks = async (): Promise<Talk[]> => {
@@ -285,22 +379,31 @@ const calculateMinutes = (dateStr: string, baseStr: string): number => {
 
 
 // Pretalx API データ取得
+let talks: Talk[] = [];
 try {
-  const talks = await fetchTalks();
-  fs.writeFileSync('./src/cache/talks.json', JSON.stringify(talks, null, 2));
-  console.log(`${talks.length} talks fetched and written to ./src/cache/talks.json`);
+  talks = await fetchTalks();
+  if (talks.length > 0) {
+    fs.writeFileSync('./src/cache/talks.json', JSON.stringify(talks, null, 2));
+    console.log(`${talks.length} talks fetched and written to ./src/cache/talks.json`);
 
-  // MDXファイル作成
-  talks.forEach(talk => {
-    fs.writeFileSync(`./src/cache/talks/abstract_${talk.code}.mdx`, talk.abstract);
-    console.log(`Talk ${talk.code} written to ./src/cache/talks/abstract_${talk.code}.mdx`);
-    fs.writeFileSync(`./src/cache/talks/description_${talk.code}.mdx`, talk.description);
-    console.log(`Talk ${talk.code} written to ./src/cache/talks/description_${talk.code}.mdx`);
-    talk.speakers.forEach(speaker => {
-      fs.writeFileSync(`./src/cache/speakers/biography_${speaker.code}.mdx`, speaker.biography || '');
-      console.log(`Speaker ${speaker.code} written to ./src/cache/speakers/biography_${speaker.code}.mdx`);
+    // MDXファイル作成
+    talks.forEach(talk => {
+      fs.writeFileSync(`./src/cache/talks/abstract_${talk.code}.mdx`, talk.abstract);
+      console.log(`Talk ${talk.code} written to ./src/cache/talks/abstract_${talk.code}.mdx`);
+      fs.writeFileSync(`./src/cache/talks/description_${talk.code}.mdx`, talk.description);
+      console.log(`Talk ${talk.code} written to ./src/cache/talks/description_${talk.code}.mdx`);
+      talk.speakers.forEach(speaker => {
+        fs.writeFileSync(`./src/cache/speakers/biography_${speaker.code}.mdx`, speaker.biography || '');
+        console.log(`Speaker ${speaker.code} written to ./src/cache/speakers/biography_${speaker.code}.mdx`);
+      });
     });
-  });
+  } else {
+    // Pretalx APIからデータが取得できなかった場合、キャッシュを使用
+    if (fs.existsSync('./src/cache/talks.json')) {
+      talks = JSON.parse(fs.readFileSync('./src/cache/talks.json', 'utf-8'));
+      console.log('Using cached talks data');
+    }
+  }
 
   // ポスターセッション取得
   const fetchPosters = async (submissionTypeId: number): Promise<any[]> => {
@@ -345,14 +448,31 @@ try {
     });
   };
 
-  const general = await fetchPosters(4331);
-  const community = await fetchPosters(4366);
+  let general: any[] = [];
+  let community: any[] = [];
 
-  fs.writeFileSync('./src/cache/posters.json', JSON.stringify({general, community}, null, 2));
-  console.log(`${general.length} general posters and ${community.length} community posters fetched and written to ./src/cache/posters.json`);
+  try {
+    general = await fetchPosters(4331);
+    community = await fetchPosters(4366);
+  } catch (error) {
+    console.warn('Failed to fetch posters from Pretalx API:', error);
+    // キャッシュからポスターデータを読み込む
+    if (fs.existsSync('./src/cache/posters.json')) {
+      const cachedPosters = JSON.parse(fs.readFileSync('./src/cache/posters.json', 'utf-8'));
+      general = cachedPosters.general || [];
+      community = cachedPosters.community || [];
+      console.log('Using cached posters data');
+    }
+  }
 
-  writeAbstracts(general);
-  writeAbstracts(community);
+  if (general.length > 0 || community.length > 0) {
+    fs.writeFileSync('./src/cache/posters.json', JSON.stringify({general, community}, null, 2));
+    console.log(`${general.length} general posters and ${community.length} community posters fetched and written to ./src/cache/posters.json`);
+
+    writeAbstracts(general);
+    writeAbstracts(community);
+  }
 } catch (error) {
   console.error('Error in Pretalx data fetching:', error);
+  // エラーが発生してもビルドは続行する
 }
