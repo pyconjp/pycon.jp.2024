@@ -268,37 +268,46 @@ try {
 // fetch pretalx talks
 const fetchTalks = async (): Promise<Talk[]> => {
   try {
-    const searchParams = new URLSearchParams();
-    searchParams.append('submission_type', '4328,4329'); // mini talk&talk
-    searchParams.append('expand', [
-      'answers',
-      'answers.question',
-      'resources',
-      'slots.room',
-      'speakers.answers',
-      'submission_type',
-      'tags',
-      'tracks',
-    ].join(','));
-    searchParams.append('state', 'confirmed');
-    searchParams.append('limit', '100');
+    // 4328と4329の両方のsubmission_typeを取得
+    const submissionTypes = ['4328', '4329'];
+    const allTalks: any[] = [];
 
-    const response = await axios.get(
-      `https://pretalx.com/api/events/pyconjp2024/submissions/?${searchParams.toString()}`,
-      {
-        headers: {
-          Authorization: `Token ${process.env.PRETALX_AUTH_KEY}`,
-        },
+    for (const submissionType of submissionTypes) {
+      const searchParams = new URLSearchParams();
+      searchParams.append('submission_type', submissionType);
+      searchParams.append('expand', [
+        'answers',
+        'answers.question',
+        'resources',
+        'slots.room',
+        'speakers.answers',
+        'submission_type',
+        'tags',
+        'tracks',
+      ].join(','));
+      searchParams.append('state', 'confirmed');
+      searchParams.append('limit', '100');
+
+      const response = await axios.get(
+        `https://pretalx.com/api/events/pyconjp2024/submissions/?${searchParams.toString()}`,
+        {
+          headers: {
+            Authorization: `Token ${process.env.PRETALX_AUTH_KEY}`,
+          },
+        }
+      );
+
+      if (response.data.results) {
+        allTalks.push(...response.data.results);
+        console.log(`Fetched ${response.data.results.length} talks for submission_type ${submissionType}`);
       }
-    );
-
-    const originalTalks = response.data.results;
+    }
 
     // Parse talks according to the new API structure
-    return originalTalks
+    return allTalks
       .filter((talk: any) => !['HHVDEQ', 'TUPJBN'].includes(talk.code)) // exclude keynotes
       .map((talk: any) => {
-        // Extract answers from new structure
+        // Extract answers from the new structure
         const getAnswer = (questionId: number) => {
           const answer = talk.answers?.find((a: any) => a.question?.id === questionId);
           return answer?.answer || '';
@@ -344,11 +353,16 @@ const fetchTalks = async (): Promise<Talk[]> => {
           description: talk.description || '',
           duration: talk.duration || 0,
           slot: slot && slot.room ? {
-            start: startTime,
-            end: endTime,
+            start: startTime || '',
+            end: endTime || '',
             room: slot.room?.name || {'en': '', 'ja-jp': ''},
             room_id: slot.room?.id || 0
-          } : null,
+          } : {
+            start: '',
+            end: '',
+            room: {'en': '', 'ja-jp': ''},
+            room_id: 0
+          },
           resources: talk.resources || [],
           pending_state: null,
           question_answers: {
