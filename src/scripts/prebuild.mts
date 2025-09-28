@@ -269,7 +269,8 @@ try {
 const fetchTalks = async (): Promise<Talk[]> => {
   try {
     const searchParams = new URLSearchParams();
-    searchParams.append('submission_type', '4328'); // Talk type
+    searchParams.append('submission_type', '4328'); // mini talk
+    searchParams.append('submission_type', '4329'); // talk
     searchParams.append('expand', [
       'answers',
       'answers.question',
@@ -281,7 +282,6 @@ const fetchTalks = async (): Promise<Talk[]> => {
       'tracks',
     ].join(','));
     searchParams.append('state', 'confirmed');
-    searchParams.append('state', 'accepted');
     searchParams.append('limit', '100');
 
     const response = await axios.get(
