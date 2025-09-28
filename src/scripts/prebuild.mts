@@ -201,19 +201,14 @@ const fetchTalks = async (): Promise<Talk[]> => {
 
     const originalTalks = response.data.results;
 
-    // Parse talks according to new API structure
-    const talks: Talk[] = originalTalks
+    // Parse talks according to the new API structure
+    return originalTalks
       .filter((talk: any) => !['HHVDEQ', 'TUPJBN'].includes(talk.code)) // exclude keynotes
       .map((talk: any) => {
         // Extract answers from new structure
         const getAnswer = (questionId: number) => {
           const answer = talk.answers?.find((a: any) => a.question?.id === questionId);
           return answer?.answer || '';
-        };
-
-        const getOptionAnswer = (questionId: number) => {
-          const answer = talk.answers?.find((a: any) => a.question?.id === questionId);
-          return answer?.options?.[0]?.id || null;
         };
 
         const getBoolAnswer = (questionId: number) => {
@@ -276,8 +271,6 @@ const fetchTalks = async (): Promise<Talk[]> => {
           is_event: false as false,
         };
       });
-
-    return talks;
   } catch (error) {
     console.error('Failed to fetch talks from Pretalx API:', error);
     return [];
